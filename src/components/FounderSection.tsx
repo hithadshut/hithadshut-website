@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Reveal from "@/components/Reveal";
 
 const personJsonLd = {
@@ -6,6 +7,8 @@ const personJsonLd = {
   "name": "אופק מזור",
   "jobTitle": "מנכ״ל ומייסד",
   "worksFor": { "@type": "Organization", "name": "התחדשות — בינוי ויזמות" },
+  "image": "https://hithadshut.co.il/ofek-mazor.jpg",
+  "telephone": "+972-54-671-2130",
 };
 
 export default function FounderSection() {
@@ -21,51 +24,15 @@ export default function FounderSection() {
           <Reveal>
             <div className="flex flex-col items-center">
               <figure className="w-[250px] h-[320px] rounded-2xl overflow-hidden shadow-card ring-1 ring-[var(--color-accent)]/30 relative">
-                <svg
-                  viewBox="0 0 250 320"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-full h-full"
-                  aria-label="אופק מזור, מייסד התחדשות בינוי ויזמות"
-                >
-                  <defs>
-                    <linearGradient id="founder-bg" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#0A1628" />
-                      <stop offset="100%" stopColor="#1B365D" />
-                    </linearGradient>
-                  </defs>
-                  <rect width="250" height="320" fill="url(#founder-bg)" />
-                  {/* Gold circle outline */}
-                  <circle
-                    cx="125"
-                    cy="130"
-                    r="58"
-                    fill="none"
-                    stroke="#C8A97E"
-                    strokeWidth="2.5"
-                    opacity="0.85"
-                  />
-                  {/* Head */}
-                  <circle cx="125" cy="115" r="26" fill="#C8A97E" opacity="0.95" />
-                  {/* Shoulders */}
-                  <path
-                    d="M 70 185 Q 70 150 125 150 Q 180 150 180 185 L 180 200 L 70 200 Z"
-                    fill="#C8A97E"
-                    opacity="0.95"
-                  />
-                  {/* Placeholder text */}
-                  <text
-                    x="125"
-                    y="255"
-                    textAnchor="middle"
-                    fill="#ffffff"
-                    fontFamily="Heebo, sans-serif"
-                    fontSize="13"
-                    fontWeight="600"
-                    opacity="0.85"
-                  >
-                    אופק מזור — מייסד
-                  </text>
-                </svg>
+                <Image
+                  src="/ofek-mazor.jpg"
+                  alt="אופק מזור, מנכ״ל ומייסד התחדשות בינוי ויזמות"
+                  width={500}
+                  height={640}
+                  priority
+                  sizes="250px"
+                  className="w-full h-full object-cover"
+                />
               </figure>
               <div className="mt-5 text-center">
                 <div className="text-xl font-black text-[var(--color-primary)]">אופק מזור</div>
