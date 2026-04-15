@@ -43,7 +43,7 @@ export default function Header() {
 
           <nav className="hidden lg:flex items-center gap-8" aria-label="ניווט ראשי">
             <div className="relative group">
-              <button type="button" className="text-[15px] font-semibold text-[var(--color-ink)] hover:text-[var(--color-primary)] transition">
+              <button type="button" aria-haspopup="true" aria-expanded="false" className="text-[15px] font-semibold text-[var(--color-ink)] hover:text-[var(--color-primary)] transition">
                 שירותים
                 <span aria-hidden className="ms-1 text-xs">▾</span>
               </button>
@@ -64,7 +64,7 @@ export default function Header() {
             </div>
 
             <div className="relative group">
-              <button type="button" className="text-[15px] font-semibold text-[var(--color-ink)] hover:text-[var(--color-primary)] transition">
+              <button type="button" aria-haspopup="true" aria-expanded="false" className="text-[15px] font-semibold text-[var(--color-ink)] hover:text-[var(--color-primary)] transition">
                 מדריכים
                 <span aria-hidden className="ms-1 text-xs">▾</span>
               </button>
@@ -104,7 +104,7 @@ export default function Header() {
               type="button"
               className="lg:hidden p-2.5 rounded-lg border border-[var(--color-border)] text-[var(--color-primary)]"
               onClick={() => setOpen((v) => !v)}
-              aria-label="תפריט"
+              aria-label="תפריט ניווט"
               aria-expanded={open}
             >
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden>

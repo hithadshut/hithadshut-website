@@ -78,6 +78,7 @@ export default function Footer() {
             <li><Link href="/about" className="hover:text-[var(--color-accent)]">אודות</Link></li>
             <li><Link href="/contact" className="hover:text-[var(--color-accent)]">צור קשר</Link></li>
             <li><Link href="/privacy" className="hover:text-[var(--color-accent)]">מדיניות פרטיות</Link></li>
+            <li><Link href="/accessibility" className="hover:text-[var(--color-accent)]">הצהרת נגישות</Link></li>
             <li><Link href="/terms" className="hover:text-[var(--color-accent)]">תנאי שימוש</Link></li>
           </ul>
         </div>

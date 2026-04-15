@@ -69,13 +69,15 @@ export default function ContactForm({ defaultService }: { defaultService?: strin
   const inputCls =
     "w-full rounded-xl border border-[var(--color-border)] px-4 py-3 outline-none focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/10 transition";
 
+  const hasError = status === "error";
+
   return (
-    <form onSubmit={onSubmit} className="grid gap-3" noValidate>
+    <form onSubmit={onSubmit} className="grid gap-3" noValidate aria-describedby={hasError ? "cf-error" : undefined}>
       <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
 
       <div>
         <label htmlFor="cf-name" className="block text-sm font-bold mb-1.5">שם מלא *</label>
-        <input id="cf-name" name="name" required autoComplete="name" className={inputCls} placeholder="ישראל ישראלי" />
+        <input id="cf-name" name="name" required autoComplete="name" aria-invalid={hasError || undefined} aria-describedby={hasError ? "cf-error" : undefined} className={inputCls} placeholder="ישראל ישראלי" />
       </div>
 
       <div>
@@ -88,6 +90,8 @@ export default function ContactForm({ defaultService }: { defaultService?: strin
           inputMode="numeric"
           dir="ltr"
           autoComplete="tel"
+          aria-invalid={hasError || undefined}
+          aria-describedby={hasError ? "cf-error" : undefined}
           className={`${inputCls} text-start`}
           placeholder="050-0000000"
         />
@@ -120,7 +124,7 @@ export default function ContactForm({ defaultService }: { defaultService?: strin
       </div>
 
       {errorMsg && (
-        <div className="text-sm text-red-700 bg-red-50 border border-red-200 rounded-lg px-3 py-2">
+        <div id="cf-error" role="alert" aria-live="polite" className="text-sm text-red-700 bg-red-50 border border-red-200 rounded-lg px-3 py-2">
           {errorMsg}
         </div>
       )}

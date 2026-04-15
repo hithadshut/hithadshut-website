@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import AccessibilityWidget from "@/components/AccessibilityWidget";
 import ExitIntentModal from "@/components/ExitIntentModal";
 import JsonLd from "@/components/JsonLd";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/schema";
@@ -81,6 +82,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Footer />
         <StickyMobileCTA />
         <WhatsAppButton />
+        <AccessibilityWidget />
         <ExitIntentModal />
       </body>
     </html>

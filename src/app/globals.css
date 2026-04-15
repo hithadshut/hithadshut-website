@@ -45,8 +45,8 @@ html, body {
   text-rendering: optimizeLegibility;
 }
 
-:focus-visible {
-  outline: 2px solid var(--color-accent);
+*:focus-visible {
+  outline: 3px solid #C8A97E;
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -282,4 +282,41 @@ details[open] > summary .faq-chevron {
 .card-dark:hover {
   border-color: rgba(200,169,126,0.45);
   transform: translateY(-3px);
+}
+
+/* ===========================================
+   ACCESSIBILITY WIDGET TOGGLES
+   =========================================== */
+
+html.a11y-large-text { font-size: 120% !important; }
+
+body.a11y-high-contrast,
+body.a11y-high-contrast * {
+  background: #000 !important;
+  color: #fff !important;
+  border-color: #fff !important;
+}
+body.a11y-high-contrast a { color: #ffeb3b !important; }
+
+body.a11y-highlight-links a {
+  text-decoration: underline !important;
+  outline: 2px solid #C8A97E !important;
+  outline-offset: 2px;
+}
+
+body.a11y-readable-font,
+body.a11y-readable-font * {
+  font-family: Arial, sans-serif !important;
+}
+
+body.a11y-no-motion *,
+body.a11y-no-motion *::before,
+body.a11y-no-motion *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+body.a11y-big-cursor,
+body.a11y-big-cursor * {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'><path d='M4 4 L4 36 L14 26 L20 40 L28 36 L22 22 L36 22 Z' fill='black' stroke='white' stroke-width='2'/></svg>") 4 4, auto !important;
 }
