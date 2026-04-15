@@ -1,6 +1,20 @@
 import Link from "next/link";
 import Logo from "./Logo";
 import { site, protectionServices, constructionServices, guides, compare } from "@/lib/site";
+import { getArea } from "@/content/areas";
+
+const TOP_AREA_SLUGS = [
+  "tel-aviv",
+  "jerusalem",
+  "haifa",
+  "rishon-lezion",
+  "petah-tikva",
+  "ramat-gan",
+  "herzliya",
+  "raanana",
+  "netanya",
+  "beer-sheva",
+];
 
 export default function Footer() {
   return (
@@ -8,7 +22,7 @@ export default function Footer() {
       <div aria-hidden className="absolute inset-0 grid-pattern opacity-20 pointer-events-none" />
       <div aria-hidden className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[var(--color-accent)]/50 to-transparent" />
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 grid grid-cols-2 md:grid-cols-5 gap-10">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 grid grid-cols-2 md:grid-cols-6 gap-10">
         <div className="col-span-2 md:col-span-2">
           <Logo variant="light" size="md" />
           <p className="mt-5 text-sm text-white/70 leading-relaxed max-w-sm">
@@ -69,6 +83,28 @@ export default function Footer() {
                 </Link>
               </li>
             ))}
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="text-sm font-extrabold uppercase tracking-[0.2em] text-[var(--color-accent)] mb-5">אזורי שירות</h3>
+          <ul className="space-y-2.5 text-sm text-white/80">
+            {TOP_AREA_SLUGS.map((slug) => {
+              const a = getArea(slug);
+              if (!a) return null;
+              return (
+                <li key={slug}>
+                  <Link href={`/areas/${slug}`} className="hover:text-[var(--color-accent)]">
+                    {a.name}
+                  </Link>
+                </li>
+              );
+            })}
+            <li className="pt-2 border-t border-white/10 mt-3">
+              <Link href="/areas" className="hover:text-[var(--color-accent)] font-semibold">
+                כל האזורים ←
+              </Link>
+            </li>
           </ul>
         </div>
 
