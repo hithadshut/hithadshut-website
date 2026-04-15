@@ -9,9 +9,9 @@ import { buildMetadata } from "@/lib/metadata";
 import { articleJsonLd } from "@/lib/schema";
 
 const PATH = "/guides/home-front-command-approval";
-const TITLE = "אישורי פיקוד העורף לממ״ד — תהליך, מסמכים וזמנים | התחדשות";
+const TITLE = "אישורי פיקוד העורף לממ״ד | תהליך ומסמכים — התחדשות";
 const DESCRIPTION =
-  "אישור פיקוד העורף לממ״ד: מסמכים נדרשים, תהליך הגשה, זמני תשובה וטעויות נפוצות. אנחנו מטפלים בכל התהליך עבורכם. דברו איתנו היום.";
+  "אישורי פיקוד העורף לממ״ד — תהליך מלא, מסמכים נדרשים, זמני אישור וטעויות שכדאי להימנע מהן. התחדשות בינוי ויזמות.";
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 

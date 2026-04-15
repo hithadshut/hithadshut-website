@@ -11,7 +11,7 @@ import { articleJsonLd } from "@/lib/schema";
 const PATH = "/guides/mamad-mistakes";
 const TITLE = "10 טעויות בבניית ממ״ד שעולות ביוקר — התחדשות בינוי ויזמות";
 const DESCRIPTION =
-  "10 הטעויות שחוזרות בפרויקטי ממ״ד ומעלות את העלות, מאריכות זמנים או פוגעות באיכות — ומה לעשות במקומן. דברו איתנו לפני שאתם מתחילים.";
+  "10 טעויות נפוצות בבניית ממ״ד שעולות עשרות אלפי שקלים. למדו מטעויות של אחרים. התחדשות בינוי ויזמות.";
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 

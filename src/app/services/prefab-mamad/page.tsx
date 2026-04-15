@@ -3,9 +3,9 @@ import ServicePageLayout from "@/components/ServicePageLayout";
 import { buildMetadata } from "@/lib/metadata";
 
 const PATH = "/services/prefab-mamad";
-const TITLE = "ממ״ד טרומי תקני — חברת התחדשות | בינוי ויזמות";
+const TITLE = "ממ״ד מוכן | יחידה ממוגנת מהמפעל — התחדשות בינוי ויזמות";
 const DESCRIPTION =
-  "ממ״ד טרומי מאושר פיקוד העורף — ייצור במפעל, הובלה, הצבה וחיבור לבית. חברת התחדשות — בינוי ויזמות. פתרון מהיר ותקני לבתים פרטיים.";
+  "ממ״ד מוכן מהמפעל — יחידה ממוגנת שמגיעה מוכנה ומתחברת לבית. יתרונות, חסרונות ומחירים. התחדשות בינוי ויזמות.";
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 

@@ -8,7 +8,7 @@ import { localBusinessJsonLd } from "@/lib/schema";
 import { site } from "@/lib/site";
 
 const PATH = "/contact";
-const TITLE = "צרו קשר — התחדשות | ייעוץ בניית ממ״ד ומיגון";
+const TITLE = "צור קשר | התחדשות בינוי ויזמות — קבלו הצעת מחיר";
 const DESCRIPTION =
   "דברו איתנו על בניית ממ\"ד, מיגון חדר קיים או מיגונית. ייעוץ ראשוני ללא עלות. חוזרים אליכם באותו יום עסקים.";
 

@@ -11,7 +11,7 @@ import { articleJsonLd } from "@/lib/schema";
 const PATH = "/guides/mamad-cost";
 const TITLE = "כמה עולה לבנות ממ״ד? מחירים עדכניים 2026 — התחדשות";
 const DESCRIPTION =
-  "כמה עולה לבנות ממ״ד ב-2026? ממ״ד 9 מ״ר: 160,000–200,000 ₪ + מע״מ. ממ״ד 12 מ״ר: 200,000–220,000 ₪ + מע״מ. מה משפיע על המחיר. קבלו הצעת מחיר.";
+  "כמה עולה לבנות ממ״ד ב-2026? מ-160,000 ₪ + מע״מ. פירוט עלויות, מה משפיע על המחיר ואיך לחסוך. התחדשות בינוי ויזמות.";
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 

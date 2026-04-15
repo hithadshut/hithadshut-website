@@ -25,7 +25,7 @@ export default function FounderSection() {
                   viewBox="0 0 250 320"
                   xmlns="http://www.w3.org/2000/svg"
                   className="w-full h-full"
-                  aria-label="תמונת אופק מזור - תתעדכן בקרוב"
+                  aria-label="אופק מזור, מייסד התחדשות בינוי ויזמות"
                 >
                   <defs>
                     <linearGradient id="founder-bg" x1="0" y1="0" x2="0" y2="1">
@@ -63,7 +63,7 @@ export default function FounderSection() {
                     fontWeight="600"
                     opacity="0.85"
                   >
-                    תמונה תתעדכן בקרוב
+                    אופק מזור — מייסד
                   </text>
                 </svg>
               </figure>

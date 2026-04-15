@@ -3,7 +3,7 @@ import ServicePageLayout from "@/components/ServicePageLayout";
 import { buildMetadata } from "@/lib/metadata";
 
 const PATH = "/services/renovations";
-const TITLE = "שיפוצים — חברת התחדשות | בינוי ויזמות";
+const TITLE = "שיפוצים מקיפים לבתים ודירות | התחדשות בינוי ויזמות";
 const DESCRIPTION =
   "שיפוצים מקיפים לבתים ודירות — מטבחים, חדרי רחצה, רצפות, קירות, חשמל ואינסטלציה. חברת התחדשות — בינוי ויזמות. מקצועיות, שקיפות, תוצאה.";
 

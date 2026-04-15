@@ -3,9 +3,9 @@ import ServicePageLayout from "@/components/ServicePageLayout";
 import { buildMetadata } from "@/lib/metadata";
 
 const PATH = "/services/migunit";
-const TITLE = "מיגונית | יחידת מיגון מוכנה להתקנה מהירה — התחדשות";
+const TITLE = "מיגונית | יחידת מיגון מוכנה להתקנה — התחדשות בינוי ויזמות";
 const DESCRIPTION =
-  "מיגונית תקנית מאושרת פקע״ר — אספקה, הצבה, חיבור והיתרים. 30,000–80,000 ₪ + מע״מ, מותקנת תוך שבועות. קבלו הצעת מחיר היום.";
+  "מיגונית — יחידת מיגון מוכנה מהמפעל. התקנה מהירה בחצר או במרחב חיצוני. התחדשות בינוי ויזמות. קבלו הצעה.";
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 

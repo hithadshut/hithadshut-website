@@ -3,9 +3,9 @@ import ServicePageLayout from "@/components/ServicePageLayout";
 import { buildMetadata } from "@/lib/metadata";
 
 const PATH = "/services/room-reinforcement";
-const TITLE = "מיגון חדר קיים | הפתרון המהיר לביטחון הבית — התחדשות";
+const TITLE = "מיגון חדר קיים | פתרון מהיר לביטחון הבית — התחדשות";
 const DESCRIPTION =
-  "מיגון חדר קיים — חיזוק קירות, תקרה, דלת וחלון לשיפור ההגנה כשממ״ד לא אפשרי. התחדשות בינוי ויזמות. ביצוע מקצועי, אחריות. קבלו הצעה.";
+  "מיגון חדר קיים — פתרון מהיר ומשתלם לביטחון הבית. חיזוק חדר קיים לרמת הגנה גבוהה. התחדשות בינוי ויזמות. חייגו עכשיו.";
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 

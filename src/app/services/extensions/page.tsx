@@ -3,7 +3,7 @@ import ServicePageLayout from "@/components/ServicePageLayout";
 import { buildMetadata } from "@/lib/metadata";
 
 const PATH = "/services/extensions";
-const TITLE = "הרחבות ותוספות בנייה — חברת התחדשות";
+const TITLE = "הרחבות ותוספות בנייה | התחדשות בינוי ויזמות";
 const DESCRIPTION =
   "הרחבות ותוספות בנייה לבתים קיימים — חדרים, קומות, מרפסות, יחידות דיור. חברת התחדשות — בינוי ויזמות. תכנון, רישוי וביצוע מלא.";
 

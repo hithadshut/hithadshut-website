@@ -3,7 +3,7 @@ import ServicePageLayout from "@/components/ServicePageLayout";
 import { buildMetadata } from "@/lib/metadata";
 
 const PATH = "/services/private-construction";
-const TITLE = "בנייה פרטית ווילות — חברת התחדשות | בינוי ויזמות";
+const TITLE = "בנייה פרטית ווילות | התחדשות בינוי ויזמות";
 const DESCRIPTION =
   "בנייה פרטית של בתי מגורים ווילות — מגרש, תכנון, רישוי ובנייה עד מסירה. חברת התחדשות — בינוי ויזמות. מקצועיות, שקיפות, איכות.";
 

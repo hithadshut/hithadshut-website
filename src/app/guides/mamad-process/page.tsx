@@ -9,9 +9,9 @@ import { buildMetadata } from "@/lib/metadata";
 import { articleJsonLd, howToJsonLd } from "@/lib/schema";
 
 const PATH = "/guides/mamad-process";
-const TITLE = "תהליך בניית ממ״ד שלב אחר שלב — התחדשות בינוי ויזמות";
+const TITLE = "תהליך בניית ממ״ד | שלב אחר שלב — התחדשות בינוי ויזמות";
 const DESCRIPTION =
-  "תהליך בניית ממ״ד שלב אחר שלב: רישוי, אישור פיקוד העורף, ביצוע, בדיקות ומסירה. לוחות זמנים ריאליים ומה לעשות בכל שלב. למדו עוד.";
+  "תהליך בניית ממ״ד שלב אחר שלב — מתכנון ואישורים ועד מסירת מפתח. מסלולי רישוי, זמנים ומסמכים. התחדשות.";
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 

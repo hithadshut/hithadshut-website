@@ -5,7 +5,7 @@ import { buildMetadata } from "@/lib/metadata";
 const PATH = "/services/building-mamad";
 const TITLE = "בניית ממ״ד | מחיר, תהליך ואישורים — התחדשות בינוי ויזמות";
 const DESCRIPTION =
-  "בניית ממ״ד תקני בבית פרטי ובדירה — תכנון, רישוי, אישור פקע״ר וביצוע. ממ״ד 9 מ״ר: 160,000–200,000 ₪ + מע״מ. קבלו הצעת מחיר היום.";
+  "בניית ממ״ד בבית פרטי — מ-160,000 ₪ + מע״מ. תכנון, אישורי פיקוד העורף וביצוע מלא. התחדשות בינוי ויזמות. קבלו הצעת מחיר.";
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 

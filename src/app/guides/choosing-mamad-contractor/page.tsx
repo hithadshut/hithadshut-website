@@ -9,9 +9,9 @@ import { buildMetadata } from "@/lib/metadata";
 import { articleJsonLd } from "@/lib/schema";
 
 const PATH = "/guides/choosing-mamad-contractor";
-const TITLE = "איך בוחרים קבלן ממ״ד? 10 דברים שחובה לבדוק — התחדשות";
+const TITLE = "איך בוחרים קבלן ממ״ד? 10 שאלות שחובה לשאול — התחדשות";
 const DESCRIPTION =
-  "בחירת קבלן ממ״ד: מסמכים לבדוק, שאלות חובה, דגלים אדומים, רישיון קבלני, ביטוח ואחריות. אל תיפלו על קבלן שלא יודע לבנות ממ״ד. למדו עוד.";
+  "איך בוחרים קבלן ממ״ד? 10 שאלות שחובה לשאול, דגלים אדומים ומה לבדוק ברישיונות. התחדשות בינוי ויזמות.";
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 

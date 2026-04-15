@@ -20,8 +20,8 @@ export function organizationJsonLd() {
     "@context": "https://schema.org",
     "@type": ["Organization", "GeneralContractor"],
     "@id": `${site.url}/#organization`,
-    name: site.name,
-    alternateName: [site.nameEn, site.legalName],
+    name: site.legalName,
+    alternateName: [site.name, site.nameEn],
     url: site.url,
     logo: `${site.url}/logo.png`,
     image: `${site.url}${site.ogImage}`,
@@ -29,7 +29,17 @@ export function organizationJsonLd() {
     telephone: site.phoneE164,
     email: site.email,
     slogan: site.tagline,
-    areaServed: { "@type": "Country", name: "Israel" },
+    priceRange: "₪₪₪",
+    serviceType: [
+      "בניית ממ״ד",
+      "מיגון חדר קיים",
+      "מיגונית",
+      "ממ״ד מוכן",
+      "בנייה פרטית",
+      "שיפוצים",
+      "הרחבות ותוספות בנייה",
+    ],
+    areaServed: { "@type": "Country", name: "IL" },
     address: { "@type": "PostalAddress", addressCountry: "IL" },
     knowsAbout: [
       "בניית ממ״ד",
@@ -54,6 +64,11 @@ export function websiteJsonLd() {
     url: site.url,
     inLanguage: "he-IL",
     publisher: { "@id": `${site.url}/#organization` },
+    potentialAction: {
+      "@type": "SearchAction",
+      target: `${site.url}/?q={search_term_string}`,
+      "query-input": "required name=search_term_string",
+    },
   };
 }
 
