@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import ExitIntentModal from "@/components/ExitIntentModal";
 import JsonLd from "@/components/JsonLd";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/schema";
 import { site } from "@/lib/site";
@@ -19,13 +20,13 @@ const heebo = Heebo({
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#1B365D",
+  themeColor: "#0A1628",
 };
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} | בניית ממ"ד, מיגון חדר קיים ומיגונית — המומחים שלכם לביטחון הבית`,
+    default: `${site.name} — בינוי ויזמות | בניית ממ"ד, מיגון ומיגוניות`,
     template: `%s | ${site.name}`,
   },
   description: site.description,
@@ -39,7 +40,11 @@ export const metadata: Metadata = {
     "יחידה ממוגנת",
     "אישורי פיקוד העורף",
     "קבלן ממ\"ד",
-    "פיקוד העורף",
+    "חברת בנייה",
+    "בנייה פרטית",
+    "שיפוצים",
+    "הרחבות בנייה",
+    "התחדשות בינוי ויזמות",
   ],
   alternates: { canonical: "/" },
   openGraph: {
@@ -47,7 +52,7 @@ export const metadata: Metadata = {
     locale: "he_IL",
     siteName: site.name,
     url: site.url,
-    title: `${site.name} | בניית ממ"ד, מיגון חדר קיים ומיגונית`,
+    title: `${site.name} — בינוי ויזמות | בניית ממ"ד ומיגון`,
     description: site.description,
     images: [{ url: site.ogImage, width: 1200, height: 630, alt: site.name }],
   },
@@ -58,9 +63,7 @@ export const metadata: Metadata = {
     images: [site.ogImage],
   },
   robots: { index: true, follow: true },
-  icons: {
-    icon: "/favicon.ico",
-  },
+  icons: { icon: "/favicon.ico" },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -68,7 +71,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="he" dir="rtl" className={`${heebo.variable} h-full`}>
       <body className="min-h-full flex flex-col bg-white text-[var(--color-ink)]">
         <JsonLd data={[organizationJsonLd(), websiteJsonLd()]} />
-        <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:start-2 focus:z-50 bg-[var(--color-accent)] text-[var(--color-primary-dark)] font-bold px-4 py-2 rounded-lg">
+        <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:start-2 focus:z-50 bg-[var(--color-accent)] text-[var(--color-primary)] font-bold px-4 py-2 rounded-lg">
           דלגו לתוכן
         </a>
         <Header />
@@ -78,6 +81,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Footer />
         <StickyMobileCTA />
         <WhatsAppButton />
+        <ExitIntentModal />
       </body>
     </html>
   );

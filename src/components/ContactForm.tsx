@@ -14,7 +14,6 @@ export default function ContactForm({ defaultService }: { defaultService?: strin
     setStatus("loading");
     setErrorMsg("");
     const fd = new FormData(e.currentTarget);
-    // Honeypot
     if (fd.get("website")) {
       setStatus("success");
       return;
@@ -53,34 +52,34 @@ export default function ContactForm({ defaultService }: { defaultService?: strin
 
   if (status === "success") {
     return (
-      <div className="rounded-2xl border border-[var(--color-success)]/30 bg-[var(--color-success)]/5 p-6 text-center">
-        <div className="text-[var(--color-success)] text-3xl mb-2" aria-hidden>✓</div>
-        <h3 className="font-bold text-lg text-[var(--color-ink)] mb-1">הפרטים התקבלו, תודה</h3>
+      <div className="rounded-2xl border border-[var(--color-success)]/30 bg-[var(--color-success)]/5 p-8 text-center">
+        <div className="inline-flex w-14 h-14 rounded-full bg-[var(--color-success)] text-white items-center justify-center mb-3">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" aria-hidden>
+            <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </div>
+        <h3 className="font-extrabold text-xl text-[var(--color-ink)] mb-1">הפרטים התקבלו, תודה</h3>
         <p className="text-[var(--color-muted)] text-sm">
-          נחזור אליכם בהקדם. לפנייה דחופה אפשר להתקשר 054-671-2130.
+          נחזור אליכם בהקדם. לפנייה דחופה: 054-671-2130.
         </p>
       </div>
     );
   }
+
+  const inputCls =
+    "w-full rounded-xl border border-[var(--color-border)] px-4 py-3 outline-none focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/10 transition";
 
   return (
     <form onSubmit={onSubmit} className="grid gap-3" noValidate>
       <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
 
       <div>
-        <label htmlFor="cf-name" className="block text-sm font-bold mb-1">שם מלא *</label>
-        <input
-          id="cf-name"
-          name="name"
-          required
-          autoComplete="name"
-          className="w-full rounded-xl border border-[var(--color-border)] px-4 py-3 outline-none focus:border-[var(--color-primary)]"
-          placeholder="ישראל ישראלי"
-        />
+        <label htmlFor="cf-name" className="block text-sm font-bold mb-1.5">שם מלא *</label>
+        <input id="cf-name" name="name" required autoComplete="name" className={inputCls} placeholder="ישראל ישראלי" />
       </div>
 
       <div>
-        <label htmlFor="cf-phone" className="block text-sm font-bold mb-1">טלפון *</label>
+        <label htmlFor="cf-phone" className="block text-sm font-bold mb-1.5">טלפון *</label>
         <input
           id="cf-phone"
           name="phone"
@@ -89,29 +88,23 @@ export default function ContactForm({ defaultService }: { defaultService?: strin
           inputMode="numeric"
           dir="ltr"
           autoComplete="tel"
-          className="w-full rounded-xl border border-[var(--color-border)] px-4 py-3 outline-none focus:border-[var(--color-primary)]"
+          className={`${inputCls} text-start`}
           placeholder="050-0000000"
         />
       </div>
 
       <div>
-        <label htmlFor="cf-city" className="block text-sm font-bold mb-1">עיר</label>
-        <input
-          id="cf-city"
-          name="city"
-          autoComplete="address-level2"
-          className="w-full rounded-xl border border-[var(--color-border)] px-4 py-3 outline-none focus:border-[var(--color-primary)]"
-          placeholder="למשל: פתח תקווה"
-        />
+        <label htmlFor="cf-city" className="block text-sm font-bold mb-1.5">עיר</label>
+        <input id="cf-city" name="city" autoComplete="address-level2" className={inputCls} placeholder="למשל: פתח תקווה" />
       </div>
 
       <div>
-        <label htmlFor="cf-service" className="block text-sm font-bold mb-1">סוג שירות</label>
+        <label htmlFor="cf-service" className="block text-sm font-bold mb-1.5">סוג שירות</label>
         <select
           id="cf-service"
           name="service"
           defaultValue={defaultService ?? ""}
-          className="w-full rounded-xl border border-[var(--color-border)] px-4 py-3 outline-none focus:border-[var(--color-primary)] bg-white"
+          className={`${inputCls} bg-white`}
         >
           <option value="">בחרו סוג שירות</option>
           {services.map((s) => (
@@ -122,14 +115,8 @@ export default function ContactForm({ defaultService }: { defaultService?: strin
       </div>
 
       <div>
-        <label htmlFor="cf-notes" className="block text-sm font-bold mb-1">הערות</label>
-        <textarea
-          id="cf-notes"
-          name="notes"
-          rows={3}
-          className="w-full rounded-xl border border-[var(--color-border)] px-4 py-3 outline-none focus:border-[var(--color-primary)]"
-          placeholder="כמה מילים על הבית, השלב בתהליך, או מה שחשוב שנדע"
-        />
+        <label htmlFor="cf-notes" className="block text-sm font-bold mb-1.5">הערות</label>
+        <textarea id="cf-notes" name="notes" rows={3} className={inputCls} placeholder="כמה מילים על הפרויקט" />
       </div>
 
       {errorMsg && (
@@ -141,12 +128,12 @@ export default function ContactForm({ defaultService }: { defaultService?: strin
       <button
         type="submit"
         disabled={status === "loading"}
-        className="mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--color-accent)] hover:bg-[var(--color-accent-dark)] text-[var(--color-primary-dark)] font-bold px-6 py-4 shadow-[var(--shadow-cta)] disabled:opacity-60"
+        className="mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--color-accent)] hover:bg-[var(--color-accent-dark)] text-[var(--color-primary)] font-extrabold px-6 py-4 shadow-[var(--shadow-cta)] disabled:opacity-60 transition"
       >
-        {status === "loading" ? "שולח..." : "שלחו — ייעוץ ללא התחייבות"}
+        {status === "loading" ? "שולח..." : "שלחו — קבלו הצעת מחיר"}
       </button>
 
-      <p className="text-xs text-[var(--color-muted)]">
+      <p className="text-xs text-[var(--color-muted-2)] text-center">
         שליחת הפרטים מהווה הסכמה לקבלת פנייה מהתחדשות. אין בכך התחייבות מצדכם.
       </p>
     </form>

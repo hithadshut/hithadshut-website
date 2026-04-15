@@ -7,11 +7,15 @@ export default function WhatsAppButton() {
       target="_blank"
       rel="noopener"
       aria-label="שליחת הודעה בוואטסאפ"
-      className="hidden lg:flex fixed bottom-6 start-6 z-30 items-center justify-center w-14 h-14 rounded-full bg-[var(--color-whatsapp)] text-white shadow-lg hover:scale-105 transition no-print"
+      className="hidden lg:flex group fixed bottom-6 start-6 z-30 items-center justify-center w-14 h-14 rounded-full bg-[var(--color-whatsapp)] text-white shadow-[0_8px_24px_rgba(37,211,102,0.4)] hover:scale-105 transition-all no-print"
     >
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+      <span aria-hidden className="absolute inset-0 rounded-full animate-ping bg-[var(--color-whatsapp)]/40" />
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden className="relative">
         <path d="M.057 24l1.687-6.163A11.867 11.867 0 010 11.5C0 5.149 5.373 0 12 0s12 5.149 12 11.5c0 6.35-5.373 11.5-12 11.5a12.39 12.39 0 01-5.896-1.486L.057 24zM6.597 20.06l.36.214A9.92 9.92 0 0012 21.5c5.514 0 10-4.262 10-9.5S17.514 2.5 12 2.5 2 6.762 2 12a9.3 9.3 0 001.517 5.098l.244.385-1.004 3.668 3.84-1.091zM17.5 14.5c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.68.15-.2.3-.77.98-.95 1.18-.18.2-.35.23-.65.08-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.78-1.68-2.08-.18-.3-.02-.46.13-.61.13-.13.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.53-.08-.15-.68-1.63-.93-2.23-.24-.58-.5-.5-.68-.5h-.58c-.2 0-.5.08-.78.38-.28.3-1.05 1.02-1.05 2.5 0 1.48 1.08 2.9 1.23 3.1.15.2 2.1 3.2 5.1 4.5 1.7.73 2.37.8 3.22.67.52-.08 1.58-.65 1.8-1.27.23-.62.23-1.15.16-1.27-.06-.12-.26-.2-.56-.35z"/>
       </svg>
+      <span className="pointer-events-none absolute bottom-full start-0 mb-2 whitespace-nowrap bg-[var(--color-primary)] text-white text-xs font-bold px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition">
+        דברו איתנו בוואטסאפ
+      </span>
     </a>
   );
 }

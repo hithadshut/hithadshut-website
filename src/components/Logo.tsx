@@ -1,47 +1,78 @@
 type Props = {
   variant?: "light" | "dark";
+  size?: "sm" | "md" | "lg";
+  showTagline?: boolean;
   className?: string;
 };
 
-export default function Logo({ variant = "dark", className = "" }: Props) {
-  const color = variant === "light" ? "#FFFFFF" : "#1B365D";
-  const accent = "#E8A838";
+export default function Logo({
+  variant = "dark",
+  size = "md",
+  showTagline = true,
+  className = "",
+}: Props) {
+  const isLight = variant === "light";
+  const textColor = isLight ? "#FFFFFF" : "#0A1628";
+  const subColor = isLight ? "rgba(255,255,255,0.75)" : "#4B5563";
+  const gold = "#C8A97E";
+  const goldDark = "#A8874F";
+
+  const mark =
+    size === "sm" ? { w: 32, h: 32 } : size === "lg" ? { w: 48, h: 48 } : { w: 40, h: 40 };
+  const nameSize = size === "sm" ? "text-lg" : size === "lg" ? "text-2xl" : "text-xl";
+  const subSize = size === "sm" ? "text-[9px]" : size === "lg" ? "text-[11px]" : "text-[10px]";
+
   return (
     <span
-      className={`inline-flex items-center gap-2 ${className}`}
-      aria-label="התחדשות — לוגו"
+      className={`inline-flex items-center gap-2.5 ${className}`}
+      aria-label="התחדשות — בינוי ויזמות"
     >
       <svg
-        width="34"
-        height="34"
-        viewBox="0 0 40 40"
+        width={mark.w}
+        height={mark.h}
+        viewBox="0 0 48 48"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
       >
+        {/* Shield silhouette — architectural + protective */}
+        <defs>
+          <linearGradient id="logoGrad" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor={gold} />
+            <stop offset="100%" stopColor={goldDark} />
+          </linearGradient>
+        </defs>
         <path
-          d="M20 2.5L34.5 8v10.5c0 9.1-6.2 17-14.5 19C11.7 35.5 5.5 27.6 5.5 18.5V8L20 2.5z"
-          fill={color}
+          d="M24 3L42 9v13.5C42 33.1 34.5 42 24 45C13.5 42 6 33.1 6 22.5V9L24 3z"
+          fill={textColor}
         />
+        {/* Roof/building lines inside shield */}
         <path
-          d="M20 7L30 11v7.5c0 6.3-4.3 11.8-10 13.3-5.7-1.5-10-7-10-13.3V11l10-4z"
-          fill={accent}
-          opacity="0.95"
-        />
-        <path
-          d="M14 20l4 4 8-8"
-          stroke={color}
+          d="M12.5 26.5L24 16L35.5 26.5"
+          stroke="url(#logoGrad)"
           strokeWidth="2.5"
           strokeLinecap="round"
           strokeLinejoin="round"
           fill="none"
         />
+        <rect x="17" y="26.5" width="14" height="10" fill="url(#logoGrad)" rx="0.5" />
+        <rect x="22" y="30" width="4" height="6.5" fill={textColor} />
       </svg>
-      <span
-        className="font-extrabold tracking-tight text-xl"
-        style={{ color }}
-      >
-        התחדשות
+      <span className="flex flex-col leading-none">
+        <span
+          className={`${nameSize} font-black tracking-tight`}
+          style={{ color: textColor, letterSpacing: "-0.02em" }}
+        >
+          התחדשות
+        </span>
+        {showTagline && (
+          <span
+            className={`${subSize} font-bold uppercase tracking-[0.2em] mt-0.5`}
+            style={{ color: subColor }}
+          >
+            בינוי ויזמות
+          </span>
+        )}
       </span>
     </span>
   );

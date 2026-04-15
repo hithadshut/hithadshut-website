@@ -18,23 +18,29 @@ export function breadcrumbJsonLd(items: BreadcrumbItem[]) {
 export function organizationJsonLd() {
   return {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": ["Organization", "GeneralContractor"],
+    "@id": `${site.url}/#organization`,
     name: site.name,
-    alternateName: site.nameEn,
+    alternateName: [site.nameEn, site.legalName],
     url: site.url,
     logo: `${site.url}/logo.png`,
     image: `${site.url}${site.ogImage}`,
     description: site.description,
     telephone: site.phoneE164,
     email: site.email,
-    areaServed: {
-      "@type": "Country",
-      name: "Israel",
-    },
-    address: {
-      "@type": "PostalAddress",
-      addressCountry: "IL",
-    },
+    slogan: site.tagline,
+    areaServed: { "@type": "Country", name: "Israel" },
+    address: { "@type": "PostalAddress", addressCountry: "IL" },
+    knowsAbout: [
+      "בניית ממ״ד",
+      "מיגון חדר קיים",
+      "מיגונית",
+      "ממ״ד מוכן",
+      "אישורי פיקוד העורף",
+      "בנייה פרטית",
+      "שיפוצים",
+      "הרחבות ותוספות בנייה",
+    ],
     sameAs: [],
   };
 }
@@ -43,21 +49,19 @@ export function websiteJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": `${site.url}/#website`,
     name: site.name,
     url: site.url,
     inLanguage: "he-IL",
-    potentialAction: {
-      "@type": "SearchAction",
-      target: `${site.url}/?q={search_term_string}`,
-      "query-input": "required name=search_term_string",
-    },
+    publisher: { "@id": `${site.url}/#organization` },
   };
 }
 
 export function localBusinessJsonLd() {
   return {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": ["LocalBusiness", "GeneralContractor"],
+    "@id": `${site.url}/#localbusiness`,
     name: site.name,
     url: site.url,
     telephone: site.phoneE164,
@@ -65,14 +69,8 @@ export function localBusinessJsonLd() {
     image: `${site.url}${site.ogImage}`,
     description: site.description,
     priceRange: "₪₪₪",
-    areaServed: {
-      "@type": "Country",
-      name: "Israel",
-    },
-    address: {
-      "@type": "PostalAddress",
-      addressCountry: "IL",
-    },
+    areaServed: { "@type": "Country", name: "Israel" },
+    address: { "@type": "PostalAddress", addressCountry: "IL" },
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
@@ -103,16 +101,8 @@ export function serviceJsonLd(params: {
     serviceType: params.serviceType ?? params.name,
     description: params.description,
     url: params.url.startsWith("http") ? params.url : `${site.url}${params.url}`,
-    provider: {
-      "@type": "Organization",
-      name: site.name,
-      url: site.url,
-      telephone: site.phoneE164,
-    },
-    areaServed: {
-      "@type": "Country",
-      name: "Israel",
-    },
+    provider: { "@id": `${site.url}/#organization` },
+    areaServed: { "@type": "Country", name: "Israel" },
   };
 }
 
@@ -125,10 +115,7 @@ export function faqJsonLd(items: FaqItem[]) {
     mainEntity: items.map((f) => ({
       "@type": "Question",
       name: f.q,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: f.a,
-      },
+      acceptedAnswer: { "@type": "Answer", text: f.a },
     })),
   };
 }
@@ -149,25 +136,11 @@ export function articleJsonLd(params: {
     inLanguage: "he-IL",
     datePublished: params.datePublished ?? "2026-04-15",
     dateModified: params.dateModified ?? now.slice(0, 10),
-    author: {
-      "@type": "Organization",
-      name: site.name,
-      url: site.url,
-    },
-    publisher: {
-      "@type": "Organization",
-      name: site.name,
-      url: site.url,
-      logo: {
-        "@type": "ImageObject",
-        url: `${site.url}/logo.png`,
-      },
-    },
+    author: { "@id": `${site.url}/#organization` },
+    publisher: { "@id": `${site.url}/#organization` },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": params.url.startsWith("http")
-        ? params.url
-        : `${site.url}${params.url}`,
+      "@id": params.url.startsWith("http") ? params.url : `${site.url}${params.url}`,
     },
     image: `${site.url}${site.ogImage}`,
   };

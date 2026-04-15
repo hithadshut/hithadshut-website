@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "התחדשות — בניית ממ\"ד, מיגון חדר קיים ומיגונית";
+export const alt = "התחדשות — בינוי ויזמות | בניית ממ\"ד, מיגון ומיגוניות";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -15,42 +15,58 @@ export default async function Image() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          padding: "64px 72px",
+          padding: "68px 80px",
           background:
-            "linear-gradient(135deg, #0F2547 0%, #1B365D 55%, #1B365D 100%)",
+            "linear-gradient(135deg, #0A1628 0%, #0D2137 50%, #14304F 100%)",
           color: "white",
           fontFamily: "system-ui, sans-serif",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
           <div
             style={{
-              width: 56,
-              height: 56,
-              borderRadius: 12,
-              background: "#E8A838",
+              width: 60,
+              height: 60,
+              borderRadius: 14,
+              background: "#C8A97E",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              fontSize: 32,
+              fontSize: 34,
               fontWeight: 900,
-              color: "#0F2547",
+              color: "#0A1628",
             }}
           >
             ה
           </div>
-          <div style={{ fontSize: 36, fontWeight: 800 }}>התחדשות</div>
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <div style={{ fontSize: 38, fontWeight: 900, letterSpacing: "-0.02em" }}>התחדשות</div>
+            <div style={{ fontSize: 14, fontWeight: 700, color: "#C8A97E", letterSpacing: "0.25em" }}>
+              בינוי ויזמות
+            </div>
+          </div>
         </div>
+
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ fontSize: 20, color: "#E8A838", fontWeight: 700, marginBottom: 12 }}>
-            ליווי מקצועי • כל הארץ
+          <div
+            style={{
+              fontSize: 18,
+              color: "#C8A97E",
+              fontWeight: 800,
+              marginBottom: 14,
+              letterSpacing: "0.2em",
+              textTransform: "uppercase",
+            }}
+          >
+            חברת בנייה מובילה · כל הארץ
           </div>
           <div
             style={{
-              fontSize: 64,
+              fontSize: 68,
               fontWeight: 900,
-              lineHeight: 1.1,
-              maxWidth: 900,
+              lineHeight: 1.05,
+              maxWidth: 960,
+              letterSpacing: "-0.02em",
             }}
           >
             בניית ממ״ד ומיגון הבית — מהתכנון ועד המפתח
@@ -58,25 +74,28 @@ export default async function Image() {
           <div
             style={{
               marginTop: 24,
-              fontSize: 28,
-              color: "rgba(255,255,255,0.85)",
+              fontSize: 26,
+              color: "rgba(255,255,255,0.82)",
               maxWidth: 900,
             }}
           >
-            אנחנו לא הקבלן ולא המשווק. אנחנו הצד המקצועי שלכם.
+            ממ״דים · מיגון חדרים · מיגוניות · בנייה פרטית · שיפוצים
           </div>
         </div>
+
         <div
           style={{
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
             fontSize: 22,
-            color: "rgba(255,255,255,0.75)",
+            color: "rgba(255,255,255,0.78)",
+            borderTop: "1px solid rgba(200,169,126,0.3)",
+            paddingTop: 22,
           }}
         >
-          <div>hithadshut.co.il</div>
-          <div>054-671-2130</div>
+          <div style={{ fontWeight: 700 }}>hithadshut.co.il</div>
+          <div style={{ fontWeight: 800, color: "#C8A97E" }}>054-671-2130</div>
         </div>
       </div>
     ),

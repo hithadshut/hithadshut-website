@@ -2,20 +2,35 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --color-primary: #1B365D;
-  --color-primary-dark: #122645;
-  --color-primary-light: #2A4A7A;
-  --color-accent: #E8A838;
-  --color-accent-dark: #C78A1F;
-  --color-ink: #0F172A;
-  --color-muted: #475569;
-  --color-soft: #F8FAFC;
-  --color-border: #E2E8F0;
-  --color-success: #15803D;
+  /* Primary — deep navy (near black-blue), enterprise grade */
+  --color-primary: #0A1628;
+  --color-primary-2: #0D2137;
+  --color-primary-3: #14304F;
+  --color-primary-light: #1F3A5F;
+
+  /* Accent — champagne gold, premium */
+  --color-accent: #C8A97E;
+  --color-accent-dark: #A8874F;
+  --color-accent-light: #E2CBA3;
+
+  /* Neutrals */
+  --color-ink: #111827;
+  --color-muted: #4B5563;
+  --color-muted-2: #6B7280;
+  --color-soft: #F7F8FA;
+  --color-soft-2: #EEF1F5;
+  --color-border: #E5E7EB;
+  --color-border-dark: #1F2A3A;
+
+  --color-success: #166534;
   --color-whatsapp: #25D366;
+
   --font-sans: "Heebo", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
-  --shadow-card: 0 1px 2px rgba(15,23,42,0.04), 0 8px 24px rgba(15,23,42,0.06);
-  --shadow-cta: 0 8px 24px rgba(232,168,56,0.35);
+
+  --shadow-card: 0 1px 2px rgba(10,22,40,0.04), 0 10px 30px rgba(10,22,40,0.07);
+  --shadow-card-hover: 0 2px 4px rgba(10,22,40,0.06), 0 20px 40px rgba(10,22,40,0.12);
+  --shadow-cta: 0 10px 24px rgba(200,169,126,0.35);
+  --shadow-deep: 0 24px 48px rgba(10,22,40,0.18);
 }
 
 html {
@@ -36,29 +51,151 @@ html, body {
   border-radius: 4px;
 }
 
-.bg-hero-gradient {
+/* ===========================================
+   GRADIENTS & BACKGROUNDS
+   =========================================== */
+
+.bg-hero {
   background:
-    radial-gradient(1200px 500px at 90% -10%, rgba(232,168,56,0.12), transparent 60%),
-    radial-gradient(900px 500px at -10% 20%, rgba(27,54,93,0.25), transparent 60%),
-    linear-gradient(180deg, #0F2547 0%, #1B365D 55%, #1B365D 100%);
+    radial-gradient(1200px 600px at 90% -10%, rgba(200,169,126,0.14), transparent 60%),
+    radial-gradient(900px 600px at -10% 20%, rgba(31,58,95,0.6), transparent 60%),
+    linear-gradient(135deg, #0A1628 0%, #0D2137 45%, #14304F 100%);
 }
 
-.bg-soft-gradient {
-  background: linear-gradient(180deg, #F8FAFC 0%, #EEF2F7 100%);
+.bg-hero-animated {
+  background:
+    radial-gradient(1200px 600px at var(--x, 90%) var(--y, -10%), rgba(200,169,126,0.18), transparent 60%),
+    radial-gradient(900px 600px at -10% 20%, rgba(31,58,95,0.6), transparent 60%),
+    linear-gradient(135deg, #0A1628 0%, #0D2137 45%, #14304F 100%);
+  background-size: 200% 200%, 200% 200%, 100% 100%;
+  animation: heroShift 18s ease-in-out infinite alternate;
+}
+
+@keyframes heroShift {
+  0%   { background-position: 0% 0%, 0% 0%, 0% 0%; }
+  50%  { background-position: 100% 50%, 50% 100%, 0% 0%; }
+  100% { background-position: 50% 100%, 100% 0%, 0% 0%; }
+}
+
+.bg-dark-section {
+  background: linear-gradient(180deg, #0A1628 0%, #0D2137 100%);
+}
+
+.bg-soft {
+  background: linear-gradient(180deg, #F7F8FA 0%, #EEF1F5 100%);
+}
+
+.bg-soft-reverse {
+  background: linear-gradient(180deg, #EEF1F5 0%, #F7F8FA 100%);
 }
 
 .grid-pattern {
   background-image:
-    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
-  background-size: 48px 48px;
+    linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse at center, #000 40%, transparent 80%);
 }
+
+.dots-pattern {
+  background-image: radial-gradient(rgba(10,22,40,0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.gold-line {
+  background: linear-gradient(90deg, transparent 0%, var(--color-accent) 50%, transparent 100%);
+}
+
+/* ===========================================
+   ANIMATIONS — Reveal on scroll
+   =========================================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal-left {
+  opacity: 0;
+  transform: translateX(24px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-right {
+  opacity: 0;
+  transform: translateX(-24px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.96);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.is-visible {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal-left, .reveal-right, .reveal-scale {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .bg-hero-animated {
+    animation: none;
+  }
+}
+
+/* Hero entrance — staggered */
+@keyframes heroIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: none; }
+}
+.hero-in { animation: heroIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.hero-in-1 { animation-delay: 0.05s; }
+.hero-in-2 { animation-delay: 0.20s; }
+.hero-in-3 { animation-delay: 0.35s; }
+.hero-in-4 { animation-delay: 0.50s; }
+.hero-in-5 { animation-delay: 0.65s; }
+
+/* Shine on hover for premium cards */
+.shine {
+  position: relative;
+  overflow: hidden;
+}
+.shine::after {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0;
+  left: -75%;
+  width: 50%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.7s ease;
+}
+.shine:hover::after {
+  left: 125%;
+}
+
+/* Float animation for play button */
+@keyframes pulseRing {
+  0% { box-shadow: 0 0 0 0 rgba(200,169,126,0.6); }
+  70% { box-shadow: 0 0 0 24px rgba(200,169,126,0); }
+  100% { box-shadow: 0 0 0 0 rgba(200,169,126,0); }
+}
+.pulse-ring { animation: pulseRing 2.2s infinite; }
+
+/* ===========================================
+   PROSE OVERRIDES
+   =========================================== */
 
 .prose :where(h2) {
   margin-top: 2em;
   margin-bottom: 0.6em;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--color-primary);
+  letter-spacing: -0.01em;
 }
 .prose :where(h3) {
   margin-top: 1.6em;
@@ -70,17 +207,25 @@ html, body {
   color: var(--color-primary);
   text-decoration: underline;
   text-underline-offset: 3px;
+  font-weight: 600;
 }
 .prose :where(ul) > li::marker {
   color: var(--color-accent-dark);
 }
+.prose :where(strong) { color: var(--color-primary); }
+
+/* ===========================================
+   FAQ
+   =========================================== */
 
 details[open] > summary .faq-chevron {
   transform: rotate(180deg);
 }
-.faq-chevron {
-  transition: transform 0.2s ease;
-}
+.faq-chevron { transition: transform 0.25s ease; }
+
+/* ===========================================
+   UTILITIES
+   =========================================== */
 
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { scrollbar-width: none; }
@@ -89,7 +234,31 @@ details[open] > summary .faq-chevron {
   padding-bottom: max(env(safe-area-inset-bottom), 0.75rem);
 }
 
-/* Print hide sticky/CTA */
 @media print {
   .no-print { display: none !important; }
+}
+
+/* Subtle border highlight for premium cards */
+.card-premium {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.card-premium:hover {
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-3px);
+}
+
+.card-dark {
+  background: linear-gradient(160deg, #0D2137 0%, #14304F 100%);
+  border: 1px solid rgba(200,169,126,0.15);
+  border-radius: 1rem;
+  color: #fff;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.card-dark:hover {
+  border-color: rgba(200,169,126,0.45);
+  transform: translateY(-3px);
 }

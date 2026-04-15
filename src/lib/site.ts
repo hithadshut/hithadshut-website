@@ -1,9 +1,13 @@
 export const site = {
   name: "התחדשות",
   nameEn: "Hithadshut",
-  tagline: "בניית ממ\"ד ומיגון הבית — מהתכנון ועד המפתח",
+  legalName: "התחדשות — בינוי ויזמות",
+  tagline: "בינוי ויזמות",
+  headline: "בונים לכם ממ״ד — מהתכנון ועד המפתח",
   description:
-    "התחדשות — ליווי מלא לבעלי בתים בבניית ממ\"ד, מיגון חדר קיים ומיגונית. תכנון, אישורי פיקוד העורף, מיון קבלנים וליווי עד המפתח.",
+    "חברת התחדשות — בינוי ויזמות. בניית ממ״ד, מיגון חדרים ומיגוניות, בנייה פרטית, שיפוצים והרחבות. ליווי מלא מהתכנון, דרך אישורי פיקוד העורף, ועד מסירת המפתח.",
+  shortDescription:
+    "חברת בינוי ויזמות — בניית ממ״דים, מיגון, ומיגוניות. אנחנו מבצעים.",
   domain: "hithadshut.co.il",
   url: "https://hithadshut.co.il",
   phone: "054-671-2130",
@@ -16,9 +20,8 @@ export const site = {
   serviceArea: "כל הארץ",
   hours: "א׳–ה׳ 08:00–19:00, ו׳ 08:00–13:00",
   locale: "he_IL",
-  ogImage: "/og-image.png",
+  ogImage: "/opengraph-image",
   twitter: "",
-  // Internal social/links
   links: {
     privacy: "/privacy",
     terms: "/terms",
@@ -30,70 +33,104 @@ export const site = {
 export const services = [
   {
     slug: "building-mamad",
-    title: "בניית ממ\"ד",
-    shortTitle: "בניית ממ\"ד",
+    title: "בניית ממ״ד",
+    shortTitle: "בניית ממ״ד",
     summary:
-      "בניית מרחב מוגן דירתי חדש בבית פרטי או בדירה — תכנון, אישור פיקוד העורף וליווי מלא עד לאישור גמר.",
-    icon: "shield-plus",
+      "ממ״ד חדש צמוד לבית או בתוך המבנה, בהתאם לתקן פיקוד העורף. מהתכנון ועד האישור הסופי.",
+    icon: "shield",
+    category: "protection",
   },
   {
     slug: "room-reinforcement",
     title: "מיגון חדר קיים",
-    shortTitle: "מיגון חדר קיים",
+    shortTitle: "מיגון חדר",
     summary:
-      "חיזוק והסבה של חדר קיים לרמת הגנה משופרת — פתרון מהיר יותר כשלא ניתן או לא כדאי לבנות ממ\"ד חדש.",
+      "הפיכת חדר קיים לחדר מוגן. פתרון מהיר ומשתלם לדירות ובתים קיימים.",
     icon: "wall",
+    category: "protection",
   },
   {
     slug: "migunit",
     title: "מיגונית",
     shortTitle: "מיגונית",
     summary:
-      "מיגונית חיצונית בחצר או בחניה — פתרון מהיר יחסית למגורים בבתים ללא ממ\"ד, בכפוף לאישורים.",
+      "יחידת מיגון מוכנה מהמפעל. פתרון מהיר להתקנה בחצר או במרחב החיצוני.",
     icon: "box",
+    category: "protection",
   },
   {
     slug: "prefab-mamad",
-    title: "ממ\"ד מוכן / יחידה ממוגנת",
-    shortTitle: "ממ\"ד מוכן",
+    title: "ממ״ד מוכן / יחידה ממוגנת",
+    shortTitle: "ממ״ד מוכן",
     summary:
-      "יחידה ממוגנת/ממ\"ד יביל שמגיעה מוכנה מהמפעל. חובה להבדיל בין יחידה ממוגנת גנרית לבין ממ\"ד תקני מאושר פקע\"ר.",
+      "יחידה ממוגנת המגיעה מוכנה מהמפעל. חשוב להבדיל בין יחידה ממוגנת גנרית לבין ממ״ד תקני מאושר פקע״ר.",
     icon: "module",
+    category: "protection",
+  },
+  {
+    slug: "private-construction",
+    title: "בנייה פרטית ווילות",
+    shortTitle: "בנייה פרטית",
+    summary:
+      "ליווי וביצוע מלא של פרויקטי בנייה פרטית — מגרש, תכנון, רישוי ובנייה עד מסירה.",
+    icon: "villa",
+    category: "construction",
+  },
+  {
+    slug: "renovations",
+    title: "שיפוצים",
+    shortTitle: "שיפוצים",
+    summary:
+      "שיפוצים מקיפים לבתים ודירות — מטבחים, חדרי רחצה, רצפות, קירות, חשמל ואינסטלציה.",
+    icon: "hammer",
+    category: "construction",
+  },
+  {
+    slug: "extensions",
+    title: "הרחבות ותוספות בנייה",
+    shortTitle: "הרחבות ותוספות",
+    summary:
+      "תוספות בנייה לבתים קיימים — חדרים, קומות, מרפסות, יחידות דיור ועוד.",
+    icon: "expand",
+    category: "construction",
   },
 ] as const;
 
 export const guides = [
   {
     slug: "mamad-cost",
-    title: "כמה עולה ממ\"ד? מחיר ועלויות בנייה",
-    short: "מחיר ממ\"ד",
+    title: "כמה עולה ממ״ד? מחיר ועלויות בנייה",
+    short: "מחיר ממ״ד",
   },
   {
     slug: "mamad-process",
-    title: "איך בונים ממ\"ד — תהליך שלב אחר שלב",
-    short: "תהליך בניית ממ\"ד",
+    title: "איך בונים ממ״ד — תהליך שלב אחר שלב",
+    short: "תהליך בניית ממ״ד",
   },
   {
     slug: "home-front-command-approval",
-    title: "אישורי פיקוד העורף לממ\"ד",
-    short: "אישורי פקע\"ר",
+    title: "אישורי פיקוד העורף לממ״ד",
+    short: "אישורי פקע״ר",
   },
   {
     slug: "choosing-mamad-contractor",
-    title: "איך בוחרים קבלן ממ\"ד",
-    short: "בחירת קבלן ממ\"ד",
+    title: "איך בוחרים קבלן ממ״ד",
+    short: "בחירת קבלן ממ״ד",
   },
   {
     slug: "mamad-mistakes",
-    title: "10 טעויות נפוצות בבניית ממ\"ד",
-    short: "טעויות בבניית ממ\"ד",
+    title: "10 טעויות נפוצות בבניית ממ״ד",
+    short: "טעויות בבניית ממ״ד",
   },
 ] as const;
 
 export const compare = {
   slug: "mamad-vs-miggun-vs-migunit",
-  title: "ממ\"ד מול מיגון חדר קיים מול מיגונית — מה מתאים לכם?",
+  title: "ממ״ד מול מיגון חדר קיים מול מיגונית — מה מתאים לכם?",
 };
+
+export const protectionServices = services.filter((s) => s.category === "protection");
+export const constructionServices = services.filter((s) => s.category === "construction");
 
 export type ServiceSlug = (typeof services)[number]["slug"];
 export type GuideSlug = (typeof guides)[number]["slug"];
