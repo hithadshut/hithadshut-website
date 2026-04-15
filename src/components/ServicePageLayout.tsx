@@ -215,7 +215,7 @@ export default function ServicePageLayout({
                 <h3 className="text-xl md:text-2xl font-black mb-3">זמני ביצוע</h3>
                 <p className="text-white/80 leading-relaxed">{timeline}</p>
                 <p className="mt-4 text-xs text-white/50">
-                  * טווחים כלליים בלבד. לוח זמנים סופי נקבע בחוזה לפי הפרויקט. [טעון אימות מקצועי]
+                  * טווחים כלליים בלבד. לוח זמנים סופי נקבע בחוזה לפי הפרויקט.
                 </p>
               </Reveal>
             )}
@@ -227,7 +227,7 @@ export default function ServicePageLayout({
                 <h3 className="text-xl md:text-2xl font-black mb-3">טווחי מחיר</h3>
                 <p className="text-white/80 leading-relaxed">{pricing}</p>
                 <p className="mt-4 text-xs text-white/50">
-                  * טווחים אינדיקטיביים. הצעת מחיר סופית מותאמת לבית ולדרישות. [טעון אימות מקצועי]
+                  * טווחים אינדיקטיביים. הצעת מחיר סופית מותאמת לבית ולדרישות. כל המחירים אינם כוללים מע״מ.
                 </p>
               </Reveal>
             )}

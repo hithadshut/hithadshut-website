@@ -59,7 +59,7 @@ export default function Testimonials() {
                   </div>
                   <div>
                     <div className="font-bold text-[var(--color-ink)]">לקוח מ{s.city}</div>
-                    <div className="text-xs text-[var(--color-muted-2)]">{s.service} · [טעון עדכון]</div>
+                    <div className="text-xs text-[var(--color-muted-2)]">{s.service}</div>
                   </div>
                 </figcaption>
               </figure>

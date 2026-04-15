@@ -7,16 +7,17 @@ import ServiceIcon from "@/components/ServiceIcon";
 import ProjectsShowcase from "@/components/ProjectsShowcase";
 import Testimonials from "@/components/Testimonials";
 import VideoShowcase from "@/components/VideoShowcase";
+import HeroBackground from "@/components/HeroBackground";
 import { protectionServices, constructionServices, guides, compare, site } from "@/lib/site";
 
 const faqs = [
   {
     q: "כמה עולה לבנות ממ\"ד?",
-    a: "ממ\"ד סטנדרטי (~9 מ\"ר) בבית פרטי נע לרוב בטווח של 100,000–200,000 ₪ [טעון אימות מקצועי]. המחיר תלוי בסוג הגמר, תנאי השטח, עובי הקירות, מפרט הדלת ומערכת הסינון. אצלנו מקבלים הצעת מחיר שקופה עם כל רכיב בפני עצמו.",
+    a: "ממ\"ד סטנדרטי 9 מ\"ר בבית פרטי: 160,000–200,000 ₪ + מע\"מ. ממ\"ד 12 מ\"ר: 200,000–220,000 ₪ + מע\"מ. באזורי קו קדמי או עובי קירות 40 ס\"מ — תוספת של 15%–25%. בדירה בקומה המחיר משתנה מאוד, לעיתים מעל 200,000 ₪ + מע\"מ. אצלנו הצעה פריט-פריט, מחיר סגור בחוזה.",
   },
   {
     q: "כמה זמן לוקח לבנות ממ\"ד?",
-    a: "במסלול פטור מהיתר, הזמן הכולל — מתכנון ועד מסירה — הוא בדרך כלל 2–4 חודשים [טעון אימות מקצועי]. בחוזה איתנו מוגדר לוח זמנים מפורט עם אבני דרך, וסנקציות על איחורים שאינם כוח עליון.",
+    a: "במסלול פטור מהיתר, הזמן הכולל — מתכנון ועד מסירה — הוא בדרך כלל 2–4 חודשים. בחוזה איתנו מוגדר לוח זמנים מפורט עם אבני דרך, וסנקציות על איחורים שאינם כוח עליון.",
   },
   {
     q: "מה ההבדל בין ממ\"ד למיגון חדר קיים?",
@@ -24,7 +25,7 @@ const faqs = [
   },
   {
     q: "האם צריך היתר בנייה?",
-    a: "תלוי בפרויקט. ישנם מסלולי פטור מהיתר לממ\"ד בבית פרטי בתנאים מסוימים, מסלול מקוצר דרך הוועדה המקומית, ומסלול רגיל. אנחנו מטפלים בכל התהליך מול פיקוד העורף והרשויות [טעון אימות מקצועי].",
+    a: "תלוי בפרויקט. ישנם מסלולי פטור מהיתר לממ\"ד בבית פרטי בתנאים מסוימים, מסלול מקוצר דרך הוועדה המקומית, ומסלול רגיל. אנחנו מטפלים בכל התהליך מול פיקוד העורף והרשויות.",
   },
   {
     q: "איך מתחילים?",
@@ -69,9 +70,7 @@ export default function Home() {
     <>
       {/* ===== HERO ===== */}
       <section className="bg-hero-animated text-white relative overflow-hidden">
-        <div aria-hidden className="absolute inset-0 grid-pattern opacity-30 pointer-events-none" />
-        <div aria-hidden className="absolute -top-32 -end-32 w-[30rem] h-[30rem] rounded-full bg-[var(--color-accent)]/10 blur-3xl" />
-        <div aria-hidden className="absolute bottom-0 -start-20 w-96 h-96 rounded-full bg-[var(--color-primary-light)]/30 blur-3xl" />
+        <HeroBackground />
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 md:py-32">
           <div className="max-w-3xl">

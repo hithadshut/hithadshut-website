@@ -66,7 +66,6 @@ export default function ProjectsShowcase() {
         <Reveal>
           <p className="mt-10 text-center text-sm text-[var(--color-muted)]">
             תיק עבודות מפורט עם תמונות וסרטונים מתעדכן בימים אלה.
-            <span className="text-[var(--color-muted-2)]"> [טעון עדכון בפועל]</span>
           </p>
         </Reveal>
       </div>

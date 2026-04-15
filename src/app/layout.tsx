@@ -26,7 +26,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — בינוי ויזמות | בניית ממ"ד, מיגון ומיגוניות`,
+    default: `בניית ממ״ד | התחדשות בינוי ויזמות — מיגון חדרים ומיגוניות`,
     template: `%s | ${site.name}`,
   },
   description: site.description,

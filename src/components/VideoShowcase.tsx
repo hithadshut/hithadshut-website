@@ -78,7 +78,7 @@ export default function VideoShowcase() {
               </div>
             </button>
             <p className="mt-4 text-xs text-white/50 text-center">
-              סרטון התדמית עולה בקרוב. [טעון עדכון בפועל]
+              סרטון התדמית עולה בקרוב.
             </p>
           </div>
         </Reveal>
