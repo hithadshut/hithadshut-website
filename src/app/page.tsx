@@ -4,16 +4,14 @@ import FAQ from "@/components/FAQ";
 import ContactCTA from "@/components/ContactCTA";
 import Reveal from "@/components/Reveal";
 import ServiceIcon from "@/components/ServiceIcon";
-import ProjectsShowcase from "@/components/ProjectsShowcase";
-import Testimonials from "@/components/Testimonials";
-import VideoShowcase from "@/components/VideoShowcase";
 import HeroBackground from "@/components/HeroBackground";
+import FounderSection from "@/components/FounderSection";
 import { protectionServices, constructionServices, guides, compare, site } from "@/lib/site";
 
 const faqs = [
   {
     q: "כמה עולה לבנות ממ\"ד?",
-    a: "ממ\"ד סטנדרטי 9 מ\"ר בבית פרטי: 160,000–200,000 ₪ + מע\"מ. ממ\"ד 12 מ\"ר: 200,000–220,000 ₪ + מע\"מ. באזורי קו קדמי או עובי קירות 40 ס\"מ — תוספת של 15%–25%. בדירה בקומה המחיר משתנה מאוד, לעיתים מעל 200,000 ₪ + מע\"מ. אצלנו הצעה פריט-פריט, מחיר סגור בחוזה.",
+    a: "ממ״ד סטנדרטי (9 מ״ר) בבית פרטי: 160,000–200,000 ₪ + מע״מ. ממ״ד 12 מ״ר: 200,000–220,000 ₪ + מע״מ. באזורי קו קדמי או עובי קירות 40 ס״מ — תוספת של 15-25%. המחיר תלוי בתנאי השטח, מפרט הגמר ומורכבות הפרויקט. אצלנו מקבלים הצעת מחיר שקופה עם כל רכיב בפני עצמו.",
   },
   {
     q: "כמה זמן לוקח לבנות ממ\"ד?",
@@ -199,6 +197,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== FOUNDER ===== */}
+      <FounderSection />
+
       {/* ===== PROCESS ===== */}
       <section id="process" className="bg-white py-20 md:py-28 relative">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -234,15 +235,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* ===== PROJECTS ===== */}
-      <ProjectsShowcase />
-
-      {/* ===== VIDEO SHOWCASE ===== */}
-      <VideoShowcase />
-
-      {/* ===== TESTIMONIALS ===== */}
-      <Testimonials />
 
       {/* ===== MAIN CTA ===== */}
       <ContactCTA

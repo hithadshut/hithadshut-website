@@ -1,0 +1,128 @@
+import Reveal from "@/components/Reveal";
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "אופק מזור",
+  "jobTitle": "מנכ״ל ומייסד",
+  "worksFor": { "@type": "Organization", "name": "התחדשות — בינוי ויזמות" },
+};
+
+export default function FounderSection() {
+  return (
+    <section className="bg-soft py-20 md:py-28">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          {/* Image column — first in DOM (in RTL, appears on right; on mobile, on top) */}
+          <Reveal>
+            <div className="flex flex-col items-center">
+              <figure className="w-[250px] h-[320px] rounded-2xl overflow-hidden shadow-card ring-1 ring-[var(--color-accent)]/30 relative">
+                <svg
+                  viewBox="0 0 250 320"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-full h-full"
+                  aria-label="תמונת אופק מזור - תתעדכן בקרוב"
+                >
+                  <defs>
+                    <linearGradient id="founder-bg" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#0A1628" />
+                      <stop offset="100%" stopColor="#1B365D" />
+                    </linearGradient>
+                  </defs>
+                  <rect width="250" height="320" fill="url(#founder-bg)" />
+                  {/* Gold circle outline */}
+                  <circle
+                    cx="125"
+                    cy="130"
+                    r="58"
+                    fill="none"
+                    stroke="#C8A97E"
+                    strokeWidth="2.5"
+                    opacity="0.85"
+                  />
+                  {/* Head */}
+                  <circle cx="125" cy="115" r="26" fill="#C8A97E" opacity="0.95" />
+                  {/* Shoulders */}
+                  <path
+                    d="M 70 185 Q 70 150 125 150 Q 180 150 180 185 L 180 200 L 70 200 Z"
+                    fill="#C8A97E"
+                    opacity="0.95"
+                  />
+                  {/* Placeholder text */}
+                  <text
+                    x="125"
+                    y="255"
+                    textAnchor="middle"
+                    fill="#ffffff"
+                    fontFamily="Heebo, sans-serif"
+                    fontSize="13"
+                    fontWeight="600"
+                    opacity="0.85"
+                  >
+                    תמונה תתעדכן בקרוב
+                  </text>
+                </svg>
+              </figure>
+              <div className="mt-5 text-center">
+                <div className="text-xl font-black text-[var(--color-primary)]">אופק מזור</div>
+                <div className="text-sm text-[var(--color-muted)] mt-1">
+                  מנכ״ל ומייסד, התחדשות בינוי ויזמות
+                </div>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Text column */}
+          <Reveal delay={120}>
+            <div>
+              <div className="h-1 w-16 gold-line mb-5" />
+              <div className="text-sm font-extrabold uppercase tracking-[0.22em] text-[var(--color-accent-dark)] mb-3">
+                הנהגה
+              </div>
+              <h2 className="text-3xl md:text-5xl font-black text-[var(--color-primary)] leading-tight">
+                מי עומד מאחורי התחדשות
+              </h2>
+              <p className="mt-6 text-lg text-[var(--color-muted)] leading-relaxed">
+                התחדשות נוסדה מתוך אמונה פשוטה: בעלי בתים בישראל מגיעים לפתרון מקצועי,
+                שקוף ואמין. אופק מזור, מנכ״ל ומייסד החברה, מוביל את הצוות עם גישה של
+                שקיפות מלאה — מחיר ברור, לוח זמנים מחייב, ואחריות אישית על כל פרויקט.
+              </p>
+              <p className="mt-4 text-lg text-[var(--color-muted)] leading-relaxed">
+                אנחנו לא חברה שמעבירה אתכם לקבלן משנה ונעלמת. אנחנו נמצאים בשטח,
+                מלווים כל שלב, ועומדים מאחורי כל מילה בחוזה.
+              </p>
+
+              <div className="mt-8 inline-flex items-center gap-3 rounded-xl border border-[var(--color-accent)]/30 bg-white px-5 py-4 shadow-card">
+                <span
+                  aria-hidden
+                  className="inline-flex w-10 h-10 rounded-lg bg-[var(--color-primary)] text-[var(--color-accent)] items-center justify-center"
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden>
+                    <path
+                      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </span>
+                <div className="text-[var(--color-primary)] font-bold">
+                  רוצים לדבר ישירות עם אופק? חייגו{" "}
+                  <a
+                    href="tel:054-671-2130"
+                    className="text-[var(--color-accent-dark)] underline underline-offset-4 hover:text-[var(--color-accent)]"
+                  >
+                    054-671-2130
+                  </a>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  );
+}
