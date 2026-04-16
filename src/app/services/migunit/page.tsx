@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import ServicePageLayout from "@/components/ServicePageLayout";
 import Section from "@/components/Section";
+import Reveal from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
 
 const PATH = "/services/migunit";
@@ -45,8 +46,24 @@ const faqs = [
     a: "כן — יש יצרנים שמספקים להשכרה לתקופות מוגדרות, מתאים לאירועים, בנייה או מצבי חירום זמניים. אנחנו יכולים לתווך גם את זה.",
   },
   {
-    q: "מה לגבי אוורור וסינון?",
-    a: "מיגונית תקנית חייבת פתח אוורור מתאים. רוב המיגוניות הסטנדרטיות לא כוללות מערכת סינון כימית — אם נדרש, יש דגמים מתקדמים בתוספת עלות.",
+    q: "מה לגבי מערכת סינון?",
+    a: "מיגונית תקנית חייבת פתח אוורור מוגן. סינון כימי-ביולוגי בסיסי נכלל בחלק מהדגמים, אבל לא בכולם — חשוב לבדוק מפרט כל דגם לפני הזמנה. מערכת סינון NBC מתקדמת (דומה לזו שיש בממ״ד תקני) זמינה בדגמים מתקדמים בתוספת של 8,000–18,000 ₪ [טעון אימות מקצועי]. אצלנו מפרטים בכתב איזה רכיבי סינון כלולים בכל דגם מוצע.",
+  },
+  {
+    q: "איך מחברים חשמל ותאורה?",
+    a: "החיבור החשמלי מתבצע מהבית הראשי באמצעות כבל מוגן בתעלה תת-קרקעית או עילית. הלוח החשמלי הפנימי של המיגונית כולל לרוב: שקעים, תאורה פנימית, נקודת חיבור למזגן קטן (אופציונלי), ונקודת תקשורת. מומלץ לחבר גם גיבוי סולארי/סוללה לתרחיש הפסקת חשמל. את החיבור מבצע חשמלאי מוסמך עם הוצאת תעודת חשמלאות.",
+  },
+  {
+    q: "מה התחזוקה הנדרשת?",
+    a: "המיגונית עצמה (הבטון והקונסטרוקציה) כמעט ולא דורשת תחזוקה. מה שכן צריך טיפול: בדיקה שנתית של דלת הדף (אטימה, צירים, מנגנון נעילה), החלפת פילטרי סינון לפי הוראות היצרן (בדרך כלל כל 5–10 שנים [טעון אימות מקצועי]), בדיקת פתחי אוורור ומאווררים, ניקוי פנימי תקופתי. מומלצת בדיקה מקצועית אחת לשנה-שנתיים.",
+  },
+  {
+    q: "מה קורה בחורף? יש בעיות של רטיבות?",
+    a: "מיגונית מבטון טרומי עמידה בגשם אבל דורשת תכנון נכון של ניקוז סביבה — שלא יצטברו מים ליד דלת הכניסה. אם המיגונית נמצאת במקום עם פני קרקע נמוכים, חובה להוסיף ניקוז סביב היסוד. חלק מהדגמים הבסיסיים רגישים ליצירת עיבוי (קונדנסציה) בחורף — הפתרון הוא אוורור תקופתי או הוספת יחידת איוורור קטנה. דגמים מתקדמים מגיעים עם איטום משופר שמפחית את הבעיה. לפני הצבה אנחנו בודקים את הניקוז של המקום ומטפלים בו אם צריך.",
+  },
+  {
+    q: "אפשר להעביר מיגונית מבית לבית?",
+    a: "כן — זו אחת היתרונות של מיגונית. היא עשויה מבטון טרומי כיחידה אחת, ואפשר להרים אותה במנוף ולהעביר. העברה כוללת: פירוק חיבורים חשמליים, הרמה במנוף (יום עבודה), שינוע, הכנת יסוד/משטח במיקום החדש, הצבה וחיבור מחדש. העלות — 8,000–20,000 ₪ [טעון אימות מקצועי], משמעותית פחות מרכישת מיגונית חדשה. הכול בתיאום עם הרשות המקומית החדשה להיתר במיקום החדש.",
   },
   {
     q: "אתם מספקים גם חיבור חשמל ותאורה?",
@@ -91,6 +108,14 @@ const benefits = [
   { title: "אחריות מלאה", text: "אחריות יצרן על המיגונית + אחריות קבלן על ההתקנה. גורם אחד לתמיכה." },
 ];
 
+type SizeRow = { occupants: string; dimensions: string; price: string; install: string };
+const sizeRows: SizeRow[] = [
+  { occupants: "2 אנשים", dimensions: "~1.6×1.6 מ׳ (2.5 מ״ר)", price: "25,000–40,000 ₪ + מע״מ [טעון אימות מקצועי]", install: "יום עבודה להצבה" },
+  { occupants: "4 אנשים", dimensions: "~2.0×2.0 מ׳ (4 מ״ר)", price: "35,000–55,000 ₪ + מע״מ", install: "יום עבודה להצבה" },
+  { occupants: "6 אנשים", dimensions: "~2.4×2.4 מ׳ (5.7 מ״ר)", price: "50,000–75,000 ₪ + מע״מ", install: "יום עבודה להצבה" },
+  { occupants: "8+ אנשים", dimensions: "~3.0×3.0 מ׳ (9 מ״ר)", price: "65,000–100,000 ₪ + מע״מ [טעון אימות מקצועי]", install: "יום-יומיים להצבה" },
+];
+
 export default function Page() {
   return (
     <ServicePageLayout
@@ -124,6 +149,78 @@ export default function Page() {
       faqs={faqs}
       defaultService="מיגונית"
     >
+      {/* Size + price table */}
+      <Section tone="white">
+        <Reveal>
+          <div className="max-w-4xl mx-auto">
+            <div className="h-1 w-16 gold-line mb-5" />
+            <h2 id="size-price-table" className="text-2xl md:text-3xl font-black text-[var(--color-primary)] leading-tight mb-4">
+              מיגונית לפי גודל ומחיר
+            </h2>
+            <p className="text-[var(--color-muted)] mb-6">
+              הטבלה מציגה גדלי מיגוניות נפוצים, מידות, טווחי מחיר וזמן התקנה מקובל. המחירים כוללים שינוע, הנפה והצבה, ואינם כוללים מע״מ.
+            </p>
+            <div className="overflow-x-auto rounded-2xl border border-[var(--color-border)] shadow-[var(--shadow-card)]">
+              <table className="w-full text-right">
+                <thead className="bg-[var(--color-primary)] text-white">
+                  <tr>
+                    <th className="p-4 font-black text-sm md:text-base">קיבולת</th>
+                    <th className="p-4 font-black text-sm md:text-base">מידות חיצוניות</th>
+                    <th className="p-4 font-black text-sm md:text-base">טווח מחיר</th>
+                    <th className="p-4 font-black text-sm md:text-base">זמן התקנה</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {sizeRows.map((row, i) => (
+                    <tr key={row.occupants} className={i % 2 === 0 ? "bg-white" : "bg-[var(--color-soft)]"}>
+                      <td className="p-4 font-bold text-[var(--color-ink)]">{row.occupants}</td>
+                      <td className="p-4 text-[var(--color-muted)]">{row.dimensions}</td>
+                      <td className="p-4 text-[var(--color-primary)] font-extrabold">{row.price}</td>
+                      <td className="p-4 text-[var(--color-muted)]">{row.install}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-xs text-[var(--color-muted)] mt-3">
+              המחירים כוללים מיגונית תקנית, שינוע, הנפה והצבה. תוספות: יסוד/משטח, חיבור חשמל, מערכת סינון מתקדמת, גמר פנימי — לפי הזמנה. טווחי זמן מתייחסים להצבה עצמה, לא כולל הכנת יסוד, אישורים וייצור.
+            </p>
+          </div>
+        </Reveal>
+      </Section>
+
+      {/* Home front command regulation */}
+      <Section tone="soft">
+        <Reveal>
+          <div className="max-w-4xl mx-auto">
+            <div className="h-1 w-16 gold-line mb-5" />
+            <h2 id="home-front-command" className="text-2xl md:text-3xl font-black text-[var(--color-primary)] leading-tight mb-4">
+              הסדרה מול פיקוד העורף
+            </h2>
+            <p className="text-[var(--color-ink)] leading-relaxed mb-4">
+              לא כל מיגונית היא מיגונית תקנית. פיקוד העורף מאשר דגמים ספציפיים בלבד — יצרנים שעברו בדיקות מקצועיות של חומרים, קונסטרוקציה, דלת הדף, פתחי אוורור וסינון. אצלנו רוכשים רק מיגוניות עם אישור פקע״ר בכתב — התעודה מצורפת לתיק הפרויקט, ומהווה חלק מהחוזה.
+            </p>
+            <p className="text-[var(--color-muted)] leading-relaxed mb-6">
+              הדגם המאושר חייב להיות זהה למה שמוצג באישור — גודל, חומרים, רכיבים, דלת, חלון. שינויים בדגם יכולים להפקיע את האישור. בנוסף — הצבת המיגונית צריכה להיות בהתאם למרחקים מקובלים מגבולות החלקה ושכנים. אנחנו מטפלים בכל התיאומים מול הרשות המקומית ומול פקע״ר.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href="/guides/home-front-command-approval"
+                className="inline-flex items-center justify-center bg-[var(--color-primary)] text-white font-extrabold px-6 py-3 rounded-xl hover:brightness-110 transition"
+              >
+                המדריך לאישורי פיקוד העורף →
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center bg-white border border-[var(--color-border)] text-[var(--color-primary)] font-extrabold px-6 py-3 rounded-xl hover:bg-white/70 transition"
+              >
+                לבירור על דגמים מאושרים
+              </Link>
+            </div>
+          </div>
+        </Reveal>
+      </Section>
+
       <Section tone="soft">
         <div className="max-w-4xl mx-auto text-center">
           <div className="text-sm font-extrabold uppercase tracking-[0.22em] text-[var(--color-accent-dark)] mb-3">

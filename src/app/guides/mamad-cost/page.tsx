@@ -3,15 +3,15 @@ import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import Section, { Prose } from "@/components/Section";
 import FAQ from "@/components/FAQ";
-import ContactCTA from "@/components/ContactCTA";
+import InlineLeadForm from "@/components/InlineLeadForm";
 import JsonLd from "@/components/JsonLd";
 import { buildMetadata } from "@/lib/metadata";
-import { articleJsonLd } from "@/lib/schema";
+import { articleJsonLd, breadcrumbJsonLd, faqJsonLd } from "@/lib/schema";
 
 const PATH = "/guides/mamad-cost";
 const TITLE = "כמה עולה לבנות ממ״ד? מחירים עדכניים 2026 — התחדשות";
 const DESCRIPTION =
-  "כמה עולה לבנות ממ״ד ב-2026? מ-160,000 ₪ + מע״מ. פירוט עלויות, מה משפיע על המחיר ואיך לחסוך. התחדשות בינוי ויזמות.";
+  "כמה עולה לבנות ממ״ד ב-2026? מ-160,000 ₪ + מע״מ. פירוט עלויות, טבלאות מחיר, מה משפיע על המחיר ואיך לחסוך. התחדשות בינוי ויזמות.";
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 
@@ -34,7 +34,7 @@ const faqs = [
   },
   {
     q: "האם יש סובסידיה או מענק ממשלתי?",
-    a: "בתקופות מסוימות (במיוחד אחרי אירועים ביטחוניים) התקבלו הסדרים, הקלות רגולטוריות או מענקים מוגבלים לאזורים מסוימים. התנאים משתנים — יש לבדוק מול משרד הביטחון, משרד הפנים, רשויות מקומיות ופיקוד העורף — הכללים מתעדכנים.",
+    a: "בתקופות מסוימות (במיוחד אחרי אירועים ביטחוניים) התקבלו הסדרים, הקלות רגולטוריות או מענקים מוגבלים לאזורים מסוימים. התנאים משתנים — יש לבדוק מול משרד הביטחון, משרד הפנים, רשויות מקומיות ופיקוד העורף — הכללים מתעדכנים. [טעון אימות מקצועי]",
   },
   {
     q: "האם ממ\"ד מעלה את שווי הדירה/הבית?",
@@ -48,6 +48,33 @@ const faqs = [
     q: "חוזה תשלומים — איך זה מקובל לעבוד?",
     a: "הסדר מקובל: מקדמה קטנה (5–15%), תשלום לפי אבני דרך (אחרי יסודות, אחרי יציקה, אחרי התקנת דלת וחלון, אחרי גמר), ותשלום סופי רק אחרי בדיקות ואישור גמר. להימנע מתשלום גבוה מראש ומ'שלבי תשלום' שלא קשורים לשלבי ביצוע אמיתיים.",
   },
+  {
+    q: "כמה עולה ממ״ד 16 מ״ר?",
+    a: "ממ״ד גדול של 16 מ״ר בבית פרטי נע בטווח של 230,000–280,000 ₪ + מע״מ [טעון אימות מקצועי]. גודל זה מתאים למשפחות גדולות או לשימוש כחדר שינה ראשי. התוספת על ממ״ד 12 מ״ר נובעת מיותר בטון, יסודות חזקים יותר, ויותר שטח גמר.",
+  },
+  {
+    q: "כמה עולה ממ״ד בדירה בקומה גבוהה?",
+    a: "ממ״ד בדירה בקומה הוא פרויקט מורכב יותר — יש לטפל בהגבהת מעלית עמסים לחומר, הגנה על שכנים, חיזוק רצפה. הטווח לרוב 200,000–260,000 ₪ + מע״מ [טעון אימות מקצועי], בהתאם לגישה, קומה וסוג הבניין. כל פרויקט נבדק פרטנית.",
+  },
+];
+
+type ImpactRow = { factor: string; delta: string; note: string };
+const impactRows: ImpactRow[] = [
+  { factor: "קו קדמי / קירות 40 ס״מ", delta: "+15% עד +25%", note: "דרישת תקן מוגברת באזורי גבול." },
+  { factor: "דירה בקומה", delta: "+10% עד +30%", note: "שינוע חומרים, הגנה על שכנים, חיזוק רצפה." },
+  { factor: "גישה קשה לאתר", delta: "+5% עד +15%", note: "סמטאות צרות, ללא גישת משאית לבטון." },
+  { factor: "גמר יוקרתי", delta: "+15,000 עד +40,000 ₪", note: "ריצוף פורצלן, דלתות פנים, גופי תאורה, חשמל מורחב." },
+  { factor: "מערכת סינון מתקדמת", delta: "+8,000 עד +20,000 ₪", note: "סינון NBC מעבר לסטנדרט פקע״ר המינימלי." },
+  { factor: "מיזוג בתוך הממ״ד", delta: "+4,000 עד +12,000 ₪", note: "מזגן מיני מרכזי, תשתית סמויה, יחידת עיבוי בחוץ." },
+  { factor: "קונסטרוקציה מחוזקת", delta: "+5% עד +12%", note: "חיזוק יסודות בקרקע חלשה או חישוב סיסמי מוגבר." },
+  { factor: "הריסת מבנה קיים", delta: "+10,000 עד +35,000 ₪", note: "פירוק קיר נושא, הגנה על הבית, פינוי פסולת." },
+];
+
+type SizeRow = { size: string; volume: string; price: string; time: string };
+const sizeRows: SizeRow[] = [
+  { size: "9 מ״ר", volume: "22.5 מ״ק", price: "160,000–200,000 ₪ + מע״מ", time: "6–10 שבועות" },
+  { size: "12 מ״ר", volume: "30 מ״ק", price: "200,000–220,000 ₪ + מע״מ", time: "8–12 שבועות" },
+  { size: "16 מ״ר", volume: "40 מ״ק [טעון אימות מקצועי]", price: "230,000–280,000 ₪ + מע״מ [טעון אימות מקצועי]", time: "10–14 שבועות" },
 ];
 
 export default function Page() {
@@ -61,92 +88,461 @@ export default function Page() {
       />
 
       <JsonLd data={articleJsonLd({ headline: TITLE, description: DESCRIPTION, url: PATH })} />
+      <JsonLd data={faqJsonLd(faqs)} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "בית", url: "/" },
+          { name: "מדריכים", url: "/#guides" },
+          { name: "מחיר ממ״ד", url: PATH },
+        ])}
+      />
 
-      <Section>
-        <Prose>
-          <h2>שורה תחתונה — טווחי מחירים עדכניים</h2>
-          <ul>
-            <li><strong>ממ״ד 9 מ״ר בבית פרטי</strong>: 160,000–200,000 ₪ + מע״מ</li>
-            <li><strong>ממ״ד 12 מ״ר</strong>: 200,000–220,000 ₪ + מע״מ</li>
-            <li><strong>קו קדמי / עובי קירות 40 ס״מ</strong>: תוספת של 15%–25%</li>
-            <li><strong>ממ״ד בדירה בקומה (עבודה מסובכת)</strong>: משתנה, לעיתים מעל 200,000 ₪ + מע״מ</li>
-          </ul>
-          <p><em>הטווחים מבוססים על נתוני שוק עדכניים 2026. כל המחירים אינם כוללים מע״מ. כל פרויקט נבדק לגופו.</em></p>
-
-          <h2>מה מרכיב את המחיר — פירוט</h2>
-          <h3>1. עבודות בנייה וקונסטרוקציה</h3>
-          <p>
-            יסודות, יציקת בטון מזוין (קירות, תקרה, רצפה), זיון, תבניות. זה החלק הכבד של התקציב —
-            בין 40% ל-55% מסך ההצעה.
-          </p>
-          <h3>2. דלתות וחלונות</h3>
-          <p>
-            דלת הדף תקנית וחלון ממ״ד יחד עשויים להגיע לעשרות אלפי ש״ח, תלוי ביצרן ובדגם.
-          </p>
-          <h3>3. מערכת אוורור וסינון</h3>
-          <p>
-            מערכת סינון כימי-ביולוגי תקנית — עלות נוספת משמעותית. במיקומי גבול ייתכנו דרישות
-            משופרות.
-          </p>
-          <h3>4. חשמל, מיזוג ואקוסטיקה</h3>
-          <p>
-            נקודות חשמל, תאורה, תשתית למיזוג, נקודות תקשורת. בגמר מתקדם — תוספת לפי בחירה.
-          </p>
-          <h3>5. גמרים</h3>
-          <p>
-            טיח, ריצוף, צבע, אבזרי חשמל. כאן יש גמישות — אפשר להיכנס בגמר בסיסי ולשדרג בעתיד.
-          </p>
-          <h3>6. תכנון, ניהול, אישורים</h3>
-          <p>
-            אדריכל, קונסטרוקטור, הגשה לפקע״ר/וועדה, אגרות. לרוב 7–12% מסך הפרויקט.
-          </p>
-          <h3>7. עבודות הכנה ופירוק</h3>
-          <p>
-            פירוק קיר קיים, הגנת הבית, פינוי פסולת — לפעמים לא כלול בהצעה הראשונית.
-          </p>
-
-          <h2>טעויות שמייקרות בפועל</h2>
-          <ul>
-            <li>
-              <strong>מתחילים בלי תכנית קונסטרוקטיבית מסודרת.</strong> התוצאה כמעט תמיד: תוספות מחיר
-              באמצע הפרויקט.
-            </li>
-            <li>
-              <strong>משווים הצעות מחיר שהן לא באותה רמה.</strong> הצעה זולה שלא כוללת את כל
-              העבודות תגיע בסוף למחיר ההצעה היקרה.
-            </li>
-            <li>
-              <strong>לא סוגרים מראש תוספות בכתב.</strong> כל שינוי באתר — בכתב, עם מחיר, חתום.
-            </li>
-            <li>
-              <strong>חוסכים על דלת ומערכת סינון.</strong> זה החלק שמבצע את ההגנה בפועל. זה לא המקום
-              לחסוך.
-            </li>
-            <li>
-              <strong>בוחרים קבלן לפי מחיר ולא לפי ניסיון בממ״דים.</strong> זו עבודה מיוחדת — ראו{" "}
-              <Link href="/guides/choosing-mamad-contractor">כיצד לבחור קבלן ממ״ד</Link>.
-            </li>
-          </ul>
-
-          <h2>איך להוציא הצעת מחיר שאפשר להשוות</h2>
-          <ol>
-            <li>תכנית אדריכלית מסודרת + מפרט טכני כתוב.</li>
-            <li>בקשו הצעה עם פירוט: עבודות בנייה, דלת, חלון, סינון, גמרים, חשמל — בנפרד.</li>
-            <li>הגדירו מה לא כלול בכתב (אגרות, חיבורים חיצוניים, פיתוח חצר).</li>
-            <li>פרקו את אבני הדרך של התשלום באותו מפרט.</li>
-            <li>בקשו את אותו מפרט מ-3 קבלנים לפחות.</li>
-          </ol>
-
-          <h2>הצעת מחיר אצלנו</h2>
-          <p>
-            בהתחדשות ההצעה פריט-פריט — כל מרכיב של הממ״ד במחיר נפרד, ברור ומנומק. אין &quot;כולל
-            הכל&quot; עם מספר אחד, ואין תוספות מפתיעות באמצע. המחיר הסגור בחוזה — הוא המחיר שתשלמו.
-          </p>
-        </Prose>
+      {/* TL;DR callout */}
+      <Section tone="soft">
+        <div className="max-w-4xl mx-auto">
+          <div className="card-premium p-6 md:p-8">
+            <div className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-[var(--color-accent-dark)] mb-3">
+              בקצרה
+            </div>
+            <h2 id="tldr" className="text-2xl md:text-3xl font-black text-[var(--color-primary)] mb-4">
+              כמה עולה ממ״ד — תשובה ישירה
+            </h2>
+            <p className="text-[var(--color-ink)] leading-relaxed mb-3">
+              <strong>ממ״ד 9 מ״ר בבית פרטי עולה 160,000–200,000 ₪ + מע״מ. ממ״ד 12 מ״ר עולה 200,000–220,000 ₪ + מע״מ. ממ״ד 16 מ״ר עולה 230,000–280,000 ₪ + מע״מ [טעון אימות מקצועי].</strong>
+            </p>
+            <p className="text-[var(--color-muted)] leading-relaxed mb-3">
+              באזורי קו קדמי או עובי קירות 40 ס״מ יש תוספת של 15%–25%. ממ״ד בדירה בקומה, בגישה קשה או בגמר יוקרתי יגיע לצד הגבוה של הטווח. המחיר תלוי בגודל, סוג, עובי קירות, גמר פנים, דלת הדף, מערכת סינון ותנאי הגישה לאתר.
+            </p>
+            <p className="text-[var(--color-muted)] leading-relaxed">
+              להצעת מחיר מדויקת לבית שלכם —{" "}
+              <Link href="/contact" className="font-bold text-[var(--color-primary)] underline">
+                צרו קשר עם התחדשות
+              </Link>
+              . נגיע לסיור ונוציא לכם פירוט מלא פריט-פריט.
+            </p>
+          </div>
+        </div>
       </Section>
 
-      <FAQ items={faqs} />
-      <ContactCTA />
+      {/* Table of Contents */}
+      <Section tone="white">
+        <div className="max-w-4xl mx-auto">
+          <div className="border border-[var(--color-border)] rounded-2xl p-6 md:p-7 bg-white">
+            <div className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-[var(--color-accent-dark)] mb-3">
+              תוכן עניינים
+            </div>
+            <h2 className="text-xl md:text-2xl font-black text-[var(--color-primary)] mb-4">מה תמצאו בעמוד</h2>
+            <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2 text-[var(--color-ink)]">
+              <li><a href="#price-tables" className="hover:underline">טבלאות מחיר לפי גודל ותוספות</a></li>
+              <li><a href="#what-drives-price" className="hover:underline">מה משפיע על המחיר — 12 גורמים</a></li>
+              <li><a href="#cost-breakdown" className="hover:underline">פירוט רכיבי המחיר</a></li>
+              <li><a href="#hidden-costs" className="hover:underline">עלויות נסתרות שכדאי לדעת</a></li>
+              <li><a href="#save-smart" className="hover:underline">איך לחסוך בלי להתפשר</a></li>
+              <li><a href="#real-vs-surprise" className="hover:underline">הצעה אמיתית מול הצעה שמפתיעה</a></li>
+              <li><a href="#compare-solutions" className="hover:underline">השוואה: ממ״ד / מיגון / מיגונית</a></li>
+              <li><a href="#payment-schedule" className="hover:underline">חוזה תשלומים — איך זה עובד</a></li>
+              <li><a href="#mistakes" className="hover:underline">טעויות שמייקרות את הפרויקט</a></li>
+              <li><a href="#how-to-compare" className="hover:underline">איך משווים הצעות מחיר</a></li>
+              <li><a href="#faq" className="hover:underline">שאלות נפוצות</a></li>
+            </ul>
+          </div>
+        </div>
+      </Section>
+
+      {/* Main content + sidebar */}
+      <Section tone="white">
+        <div className="grid lg:grid-cols-[minmax(0,1fr)_320px] gap-10">
+          <div>
+            <Prose>
+              <h2 id="price-tables">טבלאות מחיר — גודל ותוספות</h2>
+              <p>
+                טווחי המחיר למטה מבוססים על שוק ישראל 2026, עבור ממ״ד בבית פרטי עם גישה סבירה וגמר סטנדרטי. הטווחים אינדיקטיביים — הצעת מחיר סופית נקבעת לפי ביקור באתר, בדיקת תכנית אדריכלית ובדיקת מפרט טכני.
+              </p>
+            </Prose>
+
+            <h3 className="text-lg md:text-xl font-black text-[var(--color-primary)] mt-8 mb-4">
+              טבלה 1: מחיר ממ״ד לפי גודל
+            </h3>
+            <div className="overflow-x-auto rounded-2xl border border-[var(--color-border)] shadow-[var(--shadow-card)]">
+              <table className="w-full text-right">
+                <thead className="bg-[var(--color-primary)] text-white">
+                  <tr>
+                    <th className="p-4 font-black text-sm md:text-base">גודל ממ״ד</th>
+                    <th className="p-4 font-black text-sm md:text-base">נפח פנימי</th>
+                    <th className="p-4 font-black text-sm md:text-base">טווח מחיר</th>
+                    <th className="p-4 font-black text-sm md:text-base">זמן ביצוע</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {sizeRows.map((row, i) => (
+                    <tr key={row.size} className={i % 2 === 0 ? "bg-white" : "bg-[var(--color-soft)]"}>
+                      <td className="p-4 font-bold text-[var(--color-ink)]">{row.size}</td>
+                      <td className="p-4 text-[var(--color-muted)]">{row.volume}</td>
+                      <td className="p-4 text-[var(--color-ink)]">{row.price}</td>
+                      <td className="p-4 text-[var(--color-muted)]">{row.time}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-xs text-[var(--color-muted)] mt-3">
+              טווחים אינדיקטיביים לבתים פרטיים, גישה סבירה, גמר סטנדרטי. כל המחירים לא כוללים מע״מ.
+            </p>
+
+            <h3 className="text-lg md:text-xl font-black text-[var(--color-primary)] mt-10 mb-4">
+              טבלה 2: תוספות מחיר נפוצות
+            </h3>
+            <div className="overflow-x-auto rounded-2xl border border-[var(--color-border)] shadow-[var(--shadow-card)]">
+              <table className="w-full text-right">
+                <thead className="bg-[var(--color-primary)] text-white">
+                  <tr>
+                    <th className="p-4 font-black text-sm md:text-base">גורם תוספת</th>
+                    <th className="p-4 font-black text-sm md:text-base">השפעה על המחיר</th>
+                    <th className="p-4 font-black text-sm md:text-base">הסבר</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {impactRows.map((row, i) => (
+                    <tr key={row.factor} className={i % 2 === 0 ? "bg-white" : "bg-[var(--color-soft)]"}>
+                      <td className="p-4 font-bold text-[var(--color-ink)]">{row.factor}</td>
+                      <td className="p-4 text-[var(--color-primary)] font-extrabold">{row.delta}</td>
+                      <td className="p-4 text-[var(--color-muted)]">{row.note}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-xs text-[var(--color-muted)] mt-3">
+              התוספות מצטברות — ממ״ד באזור קו קדמי עם גמר יוקרתי יכול לעלות משמעותית מעל הטווח הבסיסי. [טעון אימות מקצועי]
+            </p>
+
+            <Prose>
+              <h2 id="what-drives-price">מה משפיע על המחיר — 12 גורמים מרכזיים</h2>
+              <p>
+                ההפרש בין ממ״ד שעולה 160 אלף ₪ לממ״ד שעולה 260 אלף ₪ לא מגיע מ&quot;קבלן יקר&quot; — הוא מגיע מגורמים טכניים ברורים. להלן הגורמים שמזיזים את המחיר בפועל:
+              </p>
+              <ol>
+                <li>
+                  <strong>גודל הממ״ד.</strong> 9 מ״ר, 12 מ״ר, 16 מ״ר. בכל קפיצה יש עוד בטון, יותר זיון, יסודות גדולים יותר וזמן עבודה ארוך יותר.
+                </li>
+                <li>
+                  <strong>עובי הקירות לפי אזור.</strong> בקו קדמי התקן מחייב עובי קירות ותקרה גבוה יותר — יותר בטון, יותר ברזל זיון, יותר שעות עבודה. תוספת של 15–25%.
+                </li>
+                <li>
+                  <strong>מיקום הממ״ד בבית.</strong> ממ״ד בקומת קרקע עם גישה ישירה זול משמעותית מממ״ד בקומה שנייה עם מעלית שירות מוגבלת או ממ״ד במרתף עם חפירה עמוקה.
+                </li>
+                <li>
+                  <strong>תנאי הגישה לאתר.</strong> האם משאית בטון יכולה להגיע עד ליציקה? האם צריך משאבת בטון? האם הדרך עוברת דרך סמטה צרה או שכונה עם חניה מוגבלת?
+                </li>
+                <li>
+                  <strong>דלת הדף וחלון ממ״ד.</strong> יש פערים של עד 20,000 ₪ בין דגמים בסיסיים לדגמים פרמיום. דלתות ברונזה, דלתות מעוצבות, חלונות דו-שמשה עם מסגרת מעוצבת — מעלים את המחיר.
+                </li>
+                <li>
+                  <strong>מערכת סינון.</strong> סינון פקע״ר בסיסי הוא סטנדרט. סינון NBC (כימי-ביולוגי-גרעיני) מתקדם — תוספת משמעותית. באזורי גבול הדרישה לרוב מחמירה יותר.
+                </li>
+                <li>
+                  <strong>רמת הגמר.</strong> טיח, צבע וריצוף בסיסיים לעומת ריצוף פורצלן גדול, קירות מעוצבים, ספוטים שקועים ומזגן מרכזי — הפרש של עשרות אלפי ₪.
+                </li>
+                <li>
+                  <strong>חשמל ותקשורת.</strong> נקודות חשמל מעטות לעומת חשמל חכם, נקודות תקשורת, רשת, טעינה וכדומה.
+                </li>
+                <li>
+                  <strong>מיזוג.</strong> מזגן נפרד לממ״ד, תשתית סמויה, יחידת עיבוי בחוץ — תוספת של 4–12 אלף ₪.
+                </li>
+                <li>
+                  <strong>חיזוקים מיוחדים.</strong> בקרקע חלשה, בקרבת מים תת-קרקעיים, או במבנה ישן — קונסטרוקטור עשוי לדרוש חיזוק יסודות, דיפון או ביסוס עמוק.
+                </li>
+                <li>
+                  <strong>עבודות הריסה והכנה.</strong> אם הממ״ד מחליף חדר קיים — יש להרוס קיר נושא, להגן על הבית בזמן העבודה, לפנות פסולת. עלות של 10–35 אלף ₪.
+                </li>
+                <li>
+                  <strong>פיתוח חוץ ושיקום הסביבה.</strong> שיקום חצר, אבנים משתלבות חדשות, קיר תומך, עץ שעברה הריסה. לעיתים לא כלול בהצעה הראשונית — לבדוק בכתב.
+                </li>
+              </ol>
+
+              <h2 id="cost-breakdown">פירוט רכיבי המחיר — איך מורכבת הצעת מחיר טובה</h2>
+              <p>
+                הצעת מחיר מקצועית לא מסתפקת במספר אחד &quot;הכל כלול&quot;. היא מפרטת כל סעיף בנפרד כדי שתוכלו להשוות בין קבלנים ולהבין איפה הולך הכסף.
+              </p>
+              <h3>1. עבודות בנייה וקונסטרוקציה (40%–55% מהתקציב)</h3>
+              <p>
+                יסודות, יציקת בטון מזוין לקירות, לתקרה ולרצפה. זיון פלדה לפי חישוב קונסטרוקטור. תבניות, משאבת בטון, עבודת זיון ויציקה. זה החלק הכבד של התקציב — ועל זה לא חוסכים. בטון באיכות נמוכה או זיון חסר — זו סכנה אמיתית.
+              </p>
+              <h3>2. דלת הדף וחלון ממ״ד (8%–15% מהתקציב)</h3>
+              <p>
+                דלת הדף תקנית: 12,000–25,000 ₪ לדלת רגילה; 25,000–45,000 ₪ לדגמים פרמיום [טעון אימות מקצועי]. חלון ממ״ד: 5,000–15,000 ₪ לחלון סטנדרטי. יש יצרנים מובילים — שחם, רב-בריח, ראב, כרמל מיגון — עם אישור פקע״ר לכל דגם.
+              </p>
+              <h3>3. מערכת אוורור וסינון (5%–10% מהתקציב)</h3>
+              <p>
+                גוף סינון כימי-ביולוגי תקני, פתחי יניקה ומאווררים. מערכת סטנדרט: 6,000–12,000 ₪. מערכת NBC מתקדמת: 15,000–25,000 ₪ [טעון אימות מקצועי]. באזורי גבול או בדרישות מיוחדות — לפעמים חובה מערכת משופרת.
+              </p>
+              <h3>4. חשמל, מיזוג ותקשורת (4%–10% מהתקציב)</h3>
+              <p>
+                נקודות חשמל, תאורה, שקעים, חיבור מיזוג, רשת, אינטרנט. הטווח משתנה לפי מספר הנקודות ורמת האבזור — מזגן קומפקטי, מזגן מיני-מרכזי, תאורה שקועה, מערכות בית חכם.
+              </p>
+              <h3>5. גמרים (8%–18% מהתקציב)</h3>
+              <p>
+                טיח, ריצוף, צבע, סיפים, אבזרי חשמל. כאן יש הכי הרבה גמישות — אפשר להתחיל בסיסי ולשדרג בהמשך. ריצוף פורצלן איכותי במקום קרמיקה בסיסית — 10,000–20,000 ₪ תוספת. דלתות פנים עם קופינג עיצוב — עוד 3–8 אלף.
+              </p>
+              <h3>6. תכנון, ניהול ואישורים (7%–12% מהתקציב)</h3>
+              <p>
+                אדריכל, קונסטרוקטור, הגשה לפקע״ר ולוועדה, אגרות רישוי. חלק מהסכום הוא שכר טרחה מקצועי, חלק הוא אגרות שמועברות לרשות. חלקים מהעלות משולמים ישירות לרשות ולא לקבלן — חשוב להפריד בהצעה.
+              </p>
+              <h3>7. עבודות הכנה, הריסה ופינוי (2%–8% מהתקציב)</h3>
+              <p>
+                פירוק קיר קיים, הגנת הבית, פינוי פסולת, ניקיון סופי. לפעמים לא כלול בהצעה הראשונית — חשוב לוודא בכתב שזה בפנים.
+              </p>
+
+              <h2 id="hidden-costs">עלויות נסתרות שכדאי לדעת עליהן לפני שחותמים</h2>
+              <p>
+                גם בהצעות מפורטות יש עלויות שמופיעות רק אחרי שהפרויקט מתחיל. זה לא תמיד &quot;רמאות&quot; — לפעמים זה סעיפים שאף אחד לא חשב עליהם מראש. להלן העלויות הנסתרות הנפוצות ביותר:
+              </p>
+              <ul>
+                <li>
+                  <strong>אגרות וועדה והיטלי פיתוח.</strong> תלויים ברשות המקומית — יכולים להגיע לאלפי ₪. לא כלולים בהצעות רוב הקבלנים.
+                </li>
+                <li>
+                  <strong>שכ״ט אדריכל וקונסטרוקטור.</strong> לפעמים הקבלן מספק כחלק מהשירות, לפעמים לא. לוודא בכתב.
+                </li>
+                <li>
+                  <strong>שינוי בתב״ע / הקלות.</strong> אם הממ״ד חורג מזכויות הבנייה — תהליך נפרד, עלות נפרדת.
+                </li>
+                <li>
+                  <strong>חיבורי חשמל וביוב חדשים.</strong> אם צריך נקודת חשמל חדשה מעבר לבית, או חיבור מים — דרך חברת החשמל ורשות המים, לא דרך הקבלן.
+                </li>
+                <li>
+                  <strong>העתקת מערכות קיימות.</strong> אם הממ״ד מחליף חלל שכבר יש בו חשמל/אינסטלציה/מיזוג — הסרה והעתקה יכולים לעלות אלפי ₪.
+                </li>
+                <li>
+                  <strong>גינון והחזרת מצב.</strong> עץ שנעקר, גדר שפורקה, דשא שנחפר — שיקום זה לעיתים לא כלול.
+                </li>
+                <li>
+                  <strong>פיקוח בנייה חיצוני.</strong> חלק מהלקוחות שוכרים מפקח עצמאי. שירות חשוב — 1%–3% מעלות הפרויקט.
+                </li>
+                <li>
+                  <strong>ביטוח עבודות קבלניות.</strong> צריך להיות על שם הקבלן — אבל בדקו את הפוליסה לפני שמתחילים.
+                </li>
+              </ul>
+
+              <h2 id="save-smart">איך לחסוך בלי להתפשר על איכות</h2>
+              <p>
+                ממ״ד הוא פרויקט שאי אפשר לעשות בו &quot;קיצורי דרך&quot; — זה מרחב הגנה, לא סלון. אבל יש מקומות שאפשר לחסוך בהם בלי לפגוע באיכות וביכולת ההגנה:
+              </p>
+              <ul>
+                <li>
+                  <strong>להתחיל בגמר בסיסי ולשדרג בהמשך.</strong> ריצוף פשוט, דלתות פנים סטנדרטיות, צבע לבן. אפשר לשדרג בעוד כמה שנים בלי להרוס שום דבר.
+                </li>
+                <li>
+                  <strong>לנצל את הממ״ד כחדר רגיל.</strong> במקום לבנות חדר נוסף ומרחב מוגן בנפרד — לנצל את הממ״ד כחדר שינה, חדר עבודה או חדר ילדים. חיסכון של עשרות אלפי ₪ על חדר נוסף.
+                </li>
+                <li>
+                  <strong>לשלב עם תוספת בנייה קיימת.</strong> אם מתכננים ממילא תוספת חדר או קומה — שילוב הממ״ד בה חוסך יציקות נפרדות, גגות נפרדים וחוזים כפולים.
+                </li>
+                <li>
+                  <strong>להוציא 3 הצעות מחיר מפורטות.</strong> הפרשים של 10–20% בין קבלנים מקצועיים הם שכיחים. חשוב — אותו מפרט טכני לשלושתם.
+                </li>
+                <li>
+                  <strong>להיות גמיש בלוח זמנים.</strong> קבלנים מעדיפים פרויקטים שאפשר לתזמן בחורף או בין עונות שיא. לפעמים זה מוריד 3–7%.
+                </li>
+                <li>
+                  <strong>לסגור תוספות מראש בכתב.</strong> &quot;יתכן שנגלה משהו בחפירה&quot; — אוקיי, אבל שיהיה מחיר סגור למקרה הזה, לא פתיחה חופשית של חשבון.
+                </li>
+              </ul>
+              <p>
+                <strong>מה <em>לא</em> לחסוך עליו:</strong> קבלן רשום ומבוטח, קונסטרוקטור, דלת הדף תקנית, מערכת סינון, פיקוח מקצועי. על הדברים האלה — לעולם אין קיצורי דרך.
+              </p>
+
+              <h2 id="real-vs-surprise">ההבדל בין הצעת מחיר אמיתית להצעה שמפתיעה באמצע</h2>
+              <p>
+                שתי הצעות שנראות זהות במספר הסופי יכולות להיות רחוקות מאוד אחת מהשנייה. הנה איך לזהות את ההבדל:
+              </p>
+              <h3>הצעה אמיתית — מה מאפיין אותה</h3>
+              <ul>
+                <li>פירוט מלא לפי סעיפים — לא &quot;חבילה כוללת&quot; עם מספר אחד.</li>
+                <li>מחיר נפרד לדלת הדף (כולל דגם ויצרן), לחלון, למערכת סינון.</li>
+                <li>אבני דרך ברורות לתשלום, צמודות לשלבי ביצוע ולא לתאריכי לוח.</li>
+                <li>רשימה מסודרת של מה <em>לא</em> כלול — לא רק מה כן.</li>
+                <li>הפניה למסמכים: תכניות, מפרט טכני, חישוב קונסטרוקטיבי.</li>
+                <li>חוזה כתוב עם תנאי תשלום, אחריות וביטוח.</li>
+              </ul>
+              <h3>הצעה שמפתיעה — סימני אזהרה</h3>
+              <ul>
+                <li>מחיר כולל בלי פירוט — &quot;אבל אל תדאג, הכל בפנים&quot;.</li>
+                <li>דרישה למקדמה גבוהה (מעל 15%) לפני שום עבודה באתר.</li>
+                <li>אין אזכור של קבלן רשום בפנקס הקבלנים או סיווג מתאים.</li>
+                <li>לוח זמנים מעורפל — &quot;בערך חודשיים&quot; בלי אבני דרך.</li>
+                <li>שפה כמו &quot;יכול להיות שיהיה צורך בתוספות&quot; בלי מחיר סגור לתוספות.</li>
+                <li>מחיר נמוך משמעותית מהטווח המקובל בשוק — לרוב חוסר ברכיב חיוני או עבודה לא מקצועית.</li>
+              </ul>
+              <p>
+                <Link href="/guides/choosing-mamad-contractor">המדריך המלא לבחירת קבלן ממ״ד</Link> מסביר איך לבדוק קבלן לפני שחותמים — רישיון, ביטוח, פרויקטים קודמים, 10 שאלות שחובה לשאול.
+              </p>
+
+              <h2 id="compare-solutions">השוואת עלויות: ממ״ד מול מיגון חדר מול מיגונית</h2>
+              <p>
+                ממ״ד הוא הפתרון היקר ביותר — והיחיד שמקבל אישור תקני מלא של פקע״ר עבור בנייה חדשה. מיגון חדר קיים הוא פתרון ביניים לבתים שאי אפשר לבנות בהם ממ״ד חדש. מיגונית היא פתרון חיצוני מהיר.
+              </p>
+              <ul>
+                <li>
+                  <strong>ממ״ד:</strong> 160,000–220,000 ₪ + מע״מ (9–12 מ״ר). הגנה תקנית מלאה, משמש כחדר ביום-יום, מעלה שווי נכס. זמן: 2–4 חודשים.
+                </li>
+                <li>
+                  <strong>מיגון חדר קיים:</strong> 40,000–150,000 ₪ + מע״מ [טעון אימות מקצועי]. שיפור הגנה ניכר אבל <em>לא</em> אישור ממ״ד תקני. זמן: 2–8 שבועות.
+                </li>
+                <li>
+                  <strong>מיגונית:</strong> 30,000–80,000 ₪ + מע״מ. פתרון מהיר חיצוני, דורש יציאה מהבית בחירום. זמן: 4–8 שבועות.
+                </li>
+              </ul>
+              <p>
+                להחלטה פרטנית בין שלושת הפתרונות — ראו{" "}
+                <Link href="/compare/mamad-vs-miggun-vs-migunit">ממ״ד מול מיגון חדר מול מיגונית — השוואה מלאה</Link>. אם אתם מתלבטים בין ממ״ד צמוד לבית או ממ״ד חיצוני —{" "}
+                <Link href="/compare/mamad-tzamud-vs-hitzoni">השוואה: ממ״ד צמוד מול חיצוני</Link>.
+              </p>
+
+              <h2 id="payment-schedule">חוזה תשלומים — איך זה מקובל לעבוד</h2>
+              <p>
+                חלוקת תשלום סבירה ובטוחה צמודה לאבני דרך ביצוע. להלן מבנה מקובל בשוק:
+              </p>
+              <ol>
+                <li><strong>מקדמה:</strong> 5%–15% עם חתימת החוזה — מכסה חומרים ראשוניים, אגרות, תכניות.</li>
+                <li><strong>לאחר יסודות וחפירה:</strong> 20%–25%.</li>
+                <li><strong>לאחר יציקת בטון (קירות + תקרה):</strong> 25%–30%.</li>
+                <li><strong>לאחר התקנת דלת הדף וחלון:</strong> 15%–20%.</li>
+                <li><strong>לאחר גמרים ומערכות:</strong> 10%–15%.</li>
+                <li><strong>תשלום סופי:</strong> 5%–10% רק אחרי בדיקות ואישור גמר פקע״ר.</li>
+              </ol>
+              <p>
+                <strong>מה להימנע ממנו:</strong> מקדמה של 30%+ לפני שום עבודה, תשלומים לפי תאריכים קבועים במקום לפי אבני דרך, &quot;תשלום נוסף&quot; שלא מופיע בחוזה. כל שינוי — בכתב, עם מחיר, חתום.
+              </p>
+
+              <h2 id="mistakes">טעויות שמייקרות את הפרויקט בפועל</h2>
+              <ul>
+                <li>
+                  <strong>מתחילים בלי תכנית קונסטרוקטיבית מסודרת.</strong> התוצאה כמעט תמיד: תוספות מחיר באמצע הפרויקט, אחרי שהבטון כבר נוצק.
+                </li>
+                <li>
+                  <strong>משווים הצעות מחיר שהן לא באותה רמה.</strong> הצעה זולה שלא כוללת את כל העבודות תגיע בסוף למחיר ההצעה היקרה — או אפילו יותר.
+                </li>
+                <li>
+                  <strong>לא סוגרים מראש תוספות בכתב.</strong> &quot;אנחנו נראה באמצע הפרויקט&quot; — זו טעות של 10,000–40,000 ₪.
+                </li>
+                <li>
+                  <strong>חוסכים על דלת ומערכת סינון.</strong> זה החלק שמבצע את ההגנה בפועל. לא מקום לחסוך.
+                </li>
+                <li>
+                  <strong>בוחרים קבלן לפי מחיר בלבד ולא לפי ניסיון בממ״דים.</strong> זו עבודה מיוחדת — דרושה התמחות.
+                </li>
+                <li>
+                  <strong>לא בודקים ביטוח עבודות קבלניות.</strong> אם קורה נזק במהלך העבודה — ההבדל בין ביטוח לאין ביטוח הוא עשרות אלפי ₪.
+                </li>
+                <li>
+                  <strong>לא מגדירים קנסות איחור בחוזה.</strong> פרויקט שהתאחר בחודשיים — מי משלם? בלי קנס, אף אחד.
+                </li>
+              </ul>
+              <p>
+                מדריך מלא לטעויות יקרות —{" "}
+                <Link href="/guides/mamad-mistakes">10 טעויות נפוצות בבניית ממ״ד ואיך להימנע מהן</Link>.
+              </p>
+
+              <h2 id="how-to-compare">איך משווים הצעות מחיר — פרוטוקול מעשי</h2>
+              <ol>
+                <li>
+                  <strong>להכין תכנית אדריכלית ומפרט טכני כתוב.</strong> בלי זה — כל הצעה מחיר היא ניחוש.
+                </li>
+                <li>
+                  <strong>לבקש הצעה עם פירוט:</strong> עבודות בנייה, דלת, חלון, סינון, גמרים, חשמל — בסעיפים נפרדים.
+                </li>
+                <li>
+                  <strong>להגדיר מה לא כלול בכתב.</strong> אגרות, חיבורים חיצוניים, פיתוח חצר, שכ״ט אדריכל.
+                </li>
+                <li>
+                  <strong>לפרק את אבני הדרך של התשלום</strong> באותו מפרט בכל ההצעות.
+                </li>
+                <li>
+                  <strong>לבקש את אותו מפרט מ-3 קבלנים לפחות.</strong> פחות מזה — אי אפשר להשוות.
+                </li>
+                <li>
+                  <strong>לבדוק רישום בפנקס הקבלנים, ביטוח וסיווג.</strong>{" "}
+                  <Link href="/compare/katlan-rashum-vs-hafer">קבלן רשום מול חאפר — מה ההבדל המשפטי</Link>.
+                </li>
+                <li>
+                  <strong>לבקש פרויקטים קודמים ולדבר עם לקוחות עבר.</strong> לא רק תמונות — דיבור ישיר.
+                </li>
+                <li>
+                  <strong>לקרוא את החוזה לפני חתימה.</strong> אבני דרך, אחריות, קנסות, ביטוח, מנגנון שינויים.
+                </li>
+              </ol>
+
+              <h2 id="our-approach">הצעת מחיר אצלנו בהתחדשות</h2>
+              <p>
+                בהתחדשות ההצעה פריט-פריט — כל מרכיב של הממ״ד במחיר נפרד, ברור ומנומק. אין &quot;כולל הכל&quot; עם מספר אחד, ואין תוספות מפתיעות באמצע. המחיר הסגור בחוזה — הוא המחיר שתשלמו. ליווי אחד מתחילת הפרויקט ועד קבלת תיק הפרויקט הסופי עם כל התעודות והאישורים.
+              </p>
+              <p>
+                אנחנו חברת בינוי ויזמות — הקבלנים, לא מתווכים. אנחנו מבצעים את העבודה בצוותים שלנו, עם אחריות מלאה על כל סעיף בחוזה. כל פרויקט נבדק פרטנית — ביקור באתר, בדיקת אפשרויות הנדסיות, ייעוץ ראשוני ללא עלות.
+              </p>
+            </Prose>
+          </div>
+
+          {/* Sidebar */}
+          <aside className="space-y-6">
+            <div className="card-premium p-6 sticky top-24">
+              <div className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-[var(--color-accent-dark)] mb-3">
+                לקריאה נוספת
+              </div>
+              <h3 className="text-lg font-black text-[var(--color-primary)] mb-4">קישורים פנימיים</h3>
+
+              <div className="text-xs font-extrabold text-[var(--color-muted)] uppercase tracking-wider mb-2">שירותים</div>
+              <ul className="space-y-1.5 mb-5 text-sm">
+                <li><Link href="/services/building-mamad" className="text-[var(--color-primary)] hover:underline">בניית ממ״ד</Link></li>
+                <li><Link href="/services/room-reinforcement" className="text-[var(--color-primary)] hover:underline">מיגון חדר קיים</Link></li>
+                <li><Link href="/services/migunit" className="text-[var(--color-primary)] hover:underline">מיגונית</Link></li>
+                <li><Link href="/services/prefab-mamad" className="text-[var(--color-primary)] hover:underline">ממ״ד מוכן</Link></li>
+              </ul>
+
+              <div className="text-xs font-extrabold text-[var(--color-muted)] uppercase tracking-wider mb-2">מדריכים</div>
+              <ul className="space-y-1.5 mb-5 text-sm">
+                <li><Link href="/guides/mamad-process" className="text-[var(--color-primary)] hover:underline">תהליך בניית ממ״ד</Link></li>
+                <li><Link href="/guides/home-front-command-approval" className="text-[var(--color-primary)] hover:underline">אישורי פיקוד העורף</Link></li>
+                <li><Link href="/guides/choosing-mamad-contractor" className="text-[var(--color-primary)] hover:underline">בחירת קבלן ממ״ד</Link></li>
+                <li><Link href="/guides/mamad-mistakes" className="text-[var(--color-primary)] hover:underline">10 טעויות נפוצות</Link></li>
+                <li><Link href="/guides/mamad-cost" className="text-[var(--color-primary)] hover:underline">מחיר ממ״ד (עמוד זה)</Link></li>
+              </ul>
+
+              <div className="text-xs font-extrabold text-[var(--color-muted)] uppercase tracking-wider mb-2">השוואות</div>
+              <ul className="space-y-1.5 mb-5 text-sm">
+                <li><Link href="/compare/mamad-vs-miggun-vs-migunit" className="text-[var(--color-primary)] hover:underline">ממ״ד / מיגון / מיגונית</Link></li>
+                <li><Link href="/compare/mamad-tzamud-vs-hitzoni" className="text-[var(--color-primary)] hover:underline">ממ״ד צמוד vs חיצוני</Link></li>
+                <li><Link href="/compare/migunit-vs-mamad-muchan" className="text-[var(--color-primary)] hover:underline">מיגונית vs ממ״ד מוכן</Link></li>
+                <li><Link href="/compare/katlan-rashum-vs-hafer" className="text-[var(--color-primary)] hover:underline">קבלן רשום vs חאפר</Link></li>
+              </ul>
+
+              <div className="text-xs font-extrabold text-[var(--color-muted)] uppercase tracking-wider mb-2">אזורי שירות</div>
+              <ul className="space-y-1.5 mb-5 text-sm">
+                <li><Link href="/areas/tel-aviv" className="text-[var(--color-primary)] hover:underline">בניית ממ״ד בתל אביב</Link></li>
+                <li><Link href="/areas/jerusalem" className="text-[var(--color-primary)] hover:underline">בניית ממ״ד בירושלים</Link></li>
+                <li><Link href="/areas/haifa" className="text-[var(--color-primary)] hover:underline">בניית ממ״ד בחיפה</Link></li>
+              </ul>
+
+              <Link
+                href="/contact"
+                className="block w-full text-center bg-[var(--color-primary)] text-white font-extrabold px-5 py-3 rounded-xl hover:brightness-110 transition"
+              >
+                קבלו הצעת מחיר →
+              </Link>
+            </div>
+          </aside>
+        </div>
+      </Section>
+
+      <InlineLeadForm
+        title="רוצים הצעת מחיר מדויקת לממ״ד שלכם?"
+        subtitle="השאירו פרטים — נגיע לסיור, נבדוק אפשרויות ונחזור אליכם עם הצעה מפורטת פריט-פריט."
+        defaultService="בניית ממ״ד"
+      />
+
+      <FAQ items={faqs} title="שאלות נפוצות — מחיר ממ״ד" eyebrow="שאלות ותשובות" includeSchema={false} />
+
+      <div id="faq" />
     </>
   );
 }

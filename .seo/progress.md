@@ -48,3 +48,55 @@
 
 ### Next stage
 - Stage D: internal link audit + sitemap lastmod refresh + schema validation pass.
+
+## Stage D — Commercial-intent page expansion (completed 2026-04-16)
+
+### Expanded
+- `src/app/guides/mamad-cost/page.tsx` — grew from ~780 words to ~2,700+ words. Added:
+  - TL;DR callout (card-premium) at top with canonical prices (9/12/16 m²) for AI citation.
+  - Table of Contents block with anchor links to all 10 H2 sections.
+  - 2 HTML tables: size→price (9/12/16 m² with volume, price range + מע״מ, build time); impact factors (8 rows, each with +X% or +Y ₪ deltas marked [טעון אימות מקצועי] where not canonical).
+  - Expanded sections: 12 price-impact factors, 7-part cost breakdown with percentages, 8-point hidden-costs list, save-smart section, real-vs-surprise quote checklist, 3-solution comparison with canonical prices, payment-schedule 6-step breakdown, 7 common mistakes, 8-step RFP protocol.
+  - Right-hand sidebar with 20 internal links (4 services, 5 guides, 4 compares, 3 top areas, /contact CTA).
+  - Added 2 new FAQs (16 m² pricing, apartment floor pricing), total 10 FAQs.
+  - JSON-LD: kept Article, added FAQPage + BreadcrumbList.
+  - Replaced generic ContactCTA with InlineLeadForm tailored to ממ״ד cost intent.
+
+- `src/app/services/building-mamad/page.tsx` — grew from ~530 words to ~1,900+ words. Added:
+  - New "סוגי ממ״דים — מדריך מפורט" section with 4 article cards (ממ״ד צמוד, ממ״ד חיצוני, ממ״ד על הגג, ממ״ד תת-קרקעי). Each 200+ words with summary, when-applies paragraph, pros list, cons list, price-impact explainer, and collapsible `<details>` block with 7–9 HowTo steps.
+  - Each of the 4 subtype cards emits an independent **HowTo JSON-LD** block (new schema type on this page — 4 HowTo graphs).
+  - FAQ grew from 10 to 12 questions — added σινון/אוורור explainer and דלת הדף standards Q.
+
+- `src/app/services/room-reinforcement/page.tsx` — grew from ~480 words to ~1,150+ words. Added:
+  - FAQ grew from 10 to 14 questions — added σינון/אוורור differences, דלת חיזוק vs דלת הדף, what NOT to reinforce, cost-saving tips. Timeline detail merged into FAQ #5. Permit variations by municipality noted in FAQ #7.
+  - New "מתי מיגון חדר לא מספיק" section with 4 scenarios (קו קדמי, weak existing structure, chemical protection need, cost-parity with ממ״ד), cross-linking to `/services/building-mamad` + `/compare/mamad-vs-miggun-vs-migunit`.
+
+- `src/app/services/migunit/page.tsx` — grew from ~540 words to ~1,450+ words. Added:
+  - Size + price HTML table: 4 rows (2/4/6/8+ occupants) with dimensions, price range + מע״מ [טעון אימות], install time. `overflow-x-auto` for mobile.
+  - FAQ grew from 10 to 14 questions — added σינון, חיבור חשמל, תחזוקה, חורף/רטיבות, העברה בין בתים. Existing Q9 (אוורור וסינון) rewritten for depth.
+  - New "הסדרה מול פיקוד העורף" subsection with explainer paragraph + CTA to `/guides/home-front-command-approval`.
+
+### Schema additions
+- 4× `HowTo` JSON-LD on `/services/building-mamad` (one per mamad subtype). First use of `howToJsonLd` helper.
+- `faqJsonLd` + `breadcrumbJsonLd` on `/guides/mamad-cost` (previously only Article).
+
+### Tables added
+- 2 on `/guides/mamad-cost` (size table, impact-factors table).
+- 1 on `/services/migunit` (size+price table).
+- All tables use `overflow-x-auto` wrapper for mobile.
+
+### FAQ counts per page (before → after)
+- `/guides/mamad-cost`: 8 → 10
+- `/services/building-mamad`: 10 → 12
+- `/services/room-reinforcement`: 10 → 14
+- `/services/migunit`: 10 → 14
+
+### Constraints held
+- No "יוזמה קהילתית" mentions anywhere.
+- Canonical pricing consistent: ממ״ד 9m² 160–200K, 12m² 200–220K, front-line +15–25%, migunit 30–80K, all + מע״מ.
+- All speculative figures marked `[טעון אימות מקצועי]`.
+- Every new H2 has `id` attribute for anchor navigation.
+- No duplication between mamad-cost deep dive and building-mamad service — service cross-links to the cost guide instead of repeating tables.
+
+### Next stage
+- Stage E: programmatic SEO for remaining area×service combos, LocalBusiness schema refresh, sitemap.xml lastmod sweep.
