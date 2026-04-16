@@ -208,3 +208,39 @@ Both tags render correctly on the homepage (via layout.tsx) and on every page th
 - migunit ServicePageLayout structural customizations preserved — RelatedLinks appended as final child inside existing children render.
 - Mobile-first; RelatedLinks cards `break-words` on all text; grid collapses cleanly to 1 column on mobile.
 - All link HREFs flow through `HREF_MAP` — single source of truth for target → path.
+
+## Stage H — CRO engagement (completed 2026-04-16)
+
+### Created
+- `src/components/TableOfContents.tsx` — client component. Props: `{ items: { id, label }[]; title? }`. Desktop (lg+): sticky `top-24` sidebar card with numbered anchor list, left-inline accent border, and `IntersectionObserver` active-section highlight. Mobile (below lg): collapsible `<details>`/`<summary>` accordion so it doesn't push main content. Wrapped in `<nav aria-label="תוכן עניינים">`. Uses logical-property inline-start border (RTL-correct). Safe no-op when `items` is empty.
+- `src/components/ReadingTimeBadge.tsx` — server component (no "use client"). Discriminated-union props `{ words } | { minutes }`; if `words` passed, computes `Math.max(1, Math.round(words / 200))`. Inline-flex pill with inline SVG clock icon, `border-[var(--color-accent)]/30`, `aria-label="זמן קריאה משוער X דקות"`, role="note". Self-contained — no external icon deps (safe for server rendering).
+- `src/components/RelatedArticles.tsx` — guide→guide "מאמרים נוספים שיעניינו אתכם" block. Maintains an internal 5-guide manifest (slug, href, title, 1-line description). Filters out `currentSlug`, takes first `limit` (default 3). Grid `grid-cols-1 md:grid-cols-3`, `card-premium` hover-lift, `<nav aria-label="מאמרים קשורים">`. Distinct from `RelatedLinks` (cross-type, anchor rotation) — this one is same-type only.
+
+### Wired into all 5 guides
+Each guide now renders (in order): PageHero → JSON-LD → TldrBlock → ReadingTimeBadge (centered row) → main content with `lg:grid-cols-[minmax(0,1fr)_280px]` layout: prose on the left, `<aside><TableOfContents /></aside>` sticky on the right (accordion on mobile) → FAQ → **RelatedArticles** (new) → RelatedLinks → ContactCTA.
+
+- `src/app/guides/mamad-cost/page.tsx` — REPLACED the hand-rolled inline TOC Section with `<TableOfContents items={TOC_ITEMS} />` in two modes: mobile accordion at top, and desktop sidebar inside the existing `<aside>` (above the existing "קישורים פנימיים" card). ReadingTimeBadge added after TL;DR. RelatedArticles added before RelatedLinks. `WORD_COUNT = 2700` (comment in file). Preserves the existing rich sidebar (services, guides, compares, areas, CTA).
+- `src/app/guides/mamad-process/page.tsx` — added H2 `id` attributes to all 4 H2s (`overview`, `permit-tracks`, `failures`, `our-approach`). Wrapped main Section in `lg:grid-cols-[minmax(0,1fr)_280px]`, added TOC sidebar + ReadingTimeBadge (`WORD_COUNT = 620`) + RelatedArticles.
+- `src/app/guides/home-front-command-approval/page.tsx` — added H2 `id`s (`why-important`, `process`, `whats-checked`, `delays`, `our-approach`). Same grid treatment + TOC + badge (`WORD_COUNT = 520`) + RelatedArticles.
+- `src/app/guides/choosing-mamad-contractor/page.tsx` — added H2 `id`s (`why-different`, `checklist`, `our-approach`). Same grid + TOC + badge (`WORD_COUNT = 540`) + RelatedArticles.
+- `src/app/guides/mamad-mistakes/page.tsx` — this page had a hybrid structure (Prose intro + raw `<ol>` mistakes list + Prose closing). Added 3 anchor targets: `<h2 id="intro" className="sr-only">` at the top of prose, `<h2 id="mistakes-list" className="sr-only">` before the mistake list, and a visible `<h2 id="how-to-avoid">` on the closing section. Grid layout wraps the whole mistake-list block plus the closing Prose. `WORD_COUNT = 480`.
+
+### Layout collision resolution — mamad-cost
+mamad-cost already uses a custom `lg:grid-cols-[minmax(0,1fr)_320px]` layout with a rich sidebar (services list, guides list, compares list, areas list, and a dark CTA). Rather than rip that out, Stage H stacks the new `TableOfContents` ABOVE the existing sidebar card on desktop, and renders a separate mobile-only accordion instance higher up on the page (right after the reading-time badge, before the main grid). Desktop TOC uses `hidden lg:block` wrapper; mobile TOC uses `lg:hidden`. No duplicate rendering at any breakpoint.
+
+### StickyMobileCTA
+Verified already mounted in `src/app/layout.tsx` line 89, inside `<body>` alongside `<Footer />`, `<WhatsAppButton />`, `<AccessibilityWidget />`, `<ExitIntentModal />`. No change needed.
+
+### ExitIntentModal
+Left untouched per spec.
+
+### Constraints held
+- No "יוזמה קהילתית".
+- All new components RTL-correct (`border-inline-start`, logical flex gap, `break-words`).
+- `html { scroll-behavior: smooth }` already in globals.css (verified at line 36–38) — smooth TOC anchor jumps work out-of-box.
+- TableOfContents is the only new client component; ReadingTimeBadge and RelatedArticles are pure server components (smaller JS bundle).
+- Mobile-first: TOC collapses to accordion below `lg` so it never competes with prose for vertical space.
+- `WORD_COUNT` values documented inline with comments on each guide page.
+- ReadingTimeBadge uses discriminated-union props — either `words` OR `minutes`, never both, caught at the type level.
+- No files deleted. No URL set changes. Sitemap unchanged.
+

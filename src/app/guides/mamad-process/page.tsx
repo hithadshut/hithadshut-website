@@ -7,8 +7,21 @@ import ContactCTA from "@/components/ContactCTA";
 import JsonLd from "@/components/JsonLd";
 import TldrBlock from "@/components/TldrBlock";
 import RelatedLinks from "@/components/RelatedLinks";
+import ReadingTimeBadge from "@/components/ReadingTimeBadge";
+import TableOfContents from "@/components/TableOfContents";
+import RelatedArticles from "@/components/RelatedArticles";
 import { buildMetadata } from "@/lib/metadata";
 import { articleJsonLd, howToJsonLd } from "@/lib/schema";
+
+// Approx word count for the main prose on this page (~7 steps + intro + 3 permit tracks + failures list + closing).
+const WORD_COUNT = 620;
+
+const TOC_ITEMS = [
+  { id: "overview", label: "מבט על — 7 שלבי התהליך" },
+  { id: "permit-tracks", label: "מסלולי רישוי — מה ההבדל" },
+  { id: "failures", label: "איפה נכשלים פרויקטים" },
+  { id: "our-approach", label: "איך אנחנו עושים את זה" },
+];
 
 const PATH = "/guides/mamad-process";
 const TITLE = "תהליך בניית ממ״ד | שלב אחר שלב — התחדשות בינוי ויזמות";
@@ -83,9 +96,16 @@ export default function Page() {
         ]}
       />
 
+      <Section tone="white">
+        <div className="flex justify-center">
+          <ReadingTimeBadge words={WORD_COUNT} />
+        </div>
+      </Section>
+
       <Section>
-        <Prose>
-          <h2>מבט על — 7 שלבי התהליך</h2>
+        <div className="grid lg:grid-cols-[minmax(0,1fr)_280px] gap-10">
+          <Prose>
+          <h2 id="overview">מבט על — 7 שלבי התהליך</h2>
           <ol>
             {steps.map((s, i) => (
               <li key={i}>
@@ -94,7 +114,7 @@ export default function Page() {
             ))}
           </ol>
 
-          <h2>מסלולי רישוי — מה ההבדל</h2>
+          <h2 id="permit-tracks">מסלולי רישוי — מה ההבדל</h2>
           <h3>מסלול פטור מהיתר</h3>
           <p>
             מתאים לרוב הבתים הנמוכים (עד 2 קומות). מבוסס על אישור פיקוד העורף והצהרת עורך הבקשה.
@@ -111,7 +131,7 @@ export default function Page() {
             בודד לרוב לא נדרש, אלא אם המבנה או התב״ע מחייבים זאת.
           </p>
 
-          <h2>איפה נכשלים פרויקטים</h2>
+          <h2 id="failures">איפה נכשלים פרויקטים</h2>
           <ul>
             <li>לא סוגרים תכנון לפני מחיר — ואז מגלים שהמחיר לא שלם.</li>
             <li>מגישים לפיקוד העורף בקשה חלקית — והיא חוזרת עם הערות ומתעכבת.</li>
@@ -120,17 +140,24 @@ export default function Page() {
             <li>לא עושים בדיקות בזמן — ומקבלים ממ״ד שלא עובר.</li>
           </ul>
 
-          <h2>איך אנחנו עושים את זה</h2>
+          <h2 id="our-approach">איך אנחנו עושים את זה</h2>
           <p>
             בהתחדשות אנחנו מבצעים את כל התהליך בעצמנו — תכנון, רישוי, בנייה, גמר ואישור פקע״ר.
             חברה אחת, חוזה אחד, מנהל פרויקט אחד שמלווה אתכם מהסיור הראשון ועד מסירת המפתח. קראו גם{" "}
             <Link href="/guides/choosing-mamad-contractor">איך בוחרים קבלן ממ״ד</Link>{" "}
             ו-<Link href="/guides/home-front-command-approval">אישורי פיקוד העורף</Link>.
           </p>
-        </Prose>
+          </Prose>
+
+          <aside>
+            <TableOfContents items={TOC_ITEMS} />
+          </aside>
+        </div>
       </Section>
 
       <FAQ items={faqs} />
+
+      <RelatedArticles currentSlug="mamad-process" />
 
       <RelatedLinks
         seed="guides/mamad-process"

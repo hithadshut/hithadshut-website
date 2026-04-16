@@ -7,8 +7,20 @@ import ContactCTA from "@/components/ContactCTA";
 import JsonLd from "@/components/JsonLd";
 import TldrBlock from "@/components/TldrBlock";
 import RelatedLinks from "@/components/RelatedLinks";
+import ReadingTimeBadge from "@/components/ReadingTimeBadge";
+import TableOfContents from "@/components/TableOfContents";
+import RelatedArticles from "@/components/RelatedArticles";
 import { buildMetadata } from "@/lib/metadata";
 import { articleJsonLd } from "@/lib/schema";
+
+// Word count estimated from prose + checklist + red-flags sections.
+const WORD_COUNT = 540;
+
+const TOC_ITEMS = [
+  { id: "why-different", label: "למה בחירת קבלן ממ״ד שונה" },
+  { id: "checklist", label: "רשימת בדיקה לפני חתימה" },
+  { id: "our-approach", label: "איך אנחנו עוזרים" },
+];
 
 const PATH = "/guides/choosing-mamad-contractor";
 const TITLE = "איך בוחרים קבלן ממ״ד? 10 שאלות שחובה לשאול — התחדשות";
@@ -73,16 +85,23 @@ export default function Page() {
         ]}
       />
 
+      <Section tone="white">
+        <div className="flex justify-center">
+          <ReadingTimeBadge words={WORD_COUNT} />
+        </div>
+      </Section>
+
       <Section>
-        <Prose>
-          <h2>למה בחירת קבלן ממ״ד היא לא כמו שיפוצים רגילים</h2>
+        <div className="grid lg:grid-cols-[minmax(0,1fr)_280px] gap-10">
+          <Prose>
+          <h2 id="why-different">למה בחירת קבלן ממ״ד היא לא כמו שיפוצים רגילים</h2>
           <p>
             ממ״ד הוא פרויקט עם דרישות תקן, מסמכים, אישורים, וחישובים הנדסיים.
             קבלן שיפוצים טוב בחדר רגיל לא בהכרח קבלן מתאים לממ״ד. אתם מחפשים מישהו
             שעשה ממ״דים — עדיף באזור שלכם — ויודע להתנהל מול פיקוד העורף.
           </p>
 
-          <h2>רשימת בדיקה לפני חתימה</h2>
+          <h2 id="checklist">רשימת בדיקה לפני חתימה</h2>
           <h3>מסמכים שחייבים לראות</h3>
           <ul>
             <li>תעודת רישום קבלן בפנקס הקבלנים, עם סיווג תואם להיקף העבודה.</li>
@@ -113,7 +132,7 @@ export default function Page() {
             <li>&quot;אנחנו עושים הכל, לא צריך מפקח&quot; — אדום בוהק.</li>
           </ul>
 
-          <h2>איך אנחנו עוזרים</h2>
+          <h2 id="our-approach">איך אנחנו עוזרים</h2>
           <p>
             אנחנו מחזיקים רשימה של קבלנים שעבדו איתנו בעבר — קבלנים שאנחנו יודעים שהם
             מגיעים בזמן, מתחייבים למחיר, ומטפלים נכון אחרי המסירה. אנחנו לא מחויבים
@@ -132,10 +151,17 @@ export default function Page() {
             </Link>{" "}
             (כולל 8 סימני אזהרה שחובה להכיר).
           </p>
-        </Prose>
+          </Prose>
+
+          <aside>
+            <TableOfContents items={TOC_ITEMS} />
+          </aside>
+        </div>
       </Section>
 
       <FAQ items={faqs} />
+
+      <RelatedArticles currentSlug="choosing-mamad-contractor" />
 
       <RelatedLinks
         seed="guides/choosing-mamad-contractor"

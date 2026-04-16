@@ -6,8 +6,29 @@ import FAQ from "@/components/FAQ";
 import InlineLeadForm from "@/components/InlineLeadForm";
 import JsonLd from "@/components/JsonLd";
 import RelatedLinks from "@/components/RelatedLinks";
+import ReadingTimeBadge from "@/components/ReadingTimeBadge";
+import TableOfContents from "@/components/TableOfContents";
+import RelatedArticles from "@/components/RelatedArticles";
 import { buildMetadata } from "@/lib/metadata";
 import { articleJsonLd, breadcrumbJsonLd, faqJsonLd } from "@/lib/schema";
+
+// Word count for the main prose: TL;DR + 10 H2 sections of detailed content + 10 FAQs.
+// Manual estimate — this page is ~2,700 words of Hebrew prose + tables.
+const WORD_COUNT = 2700;
+
+const TOC_ITEMS = [
+  { id: "price-tables", label: "טבלאות מחיר לפי גודל ותוספות" },
+  { id: "what-drives-price", label: "מה משפיע על המחיר — 12 גורמים" },
+  { id: "cost-breakdown", label: "פירוט רכיבי המחיר" },
+  { id: "hidden-costs", label: "עלויות נסתרות שכדאי לדעת" },
+  { id: "save-smart", label: "איך לחסוך בלי להתפשר" },
+  { id: "real-vs-surprise", label: "הצעה אמיתית מול הצעה שמפתיעה" },
+  { id: "compare-solutions", label: "השוואה: ממ״ד / מיגון / מיגונית" },
+  { id: "payment-schedule", label: "חוזה תשלומים — איך זה עובד" },
+  { id: "mistakes", label: "טעויות שמייקרות את הפרויקט" },
+  { id: "how-to-compare", label: "איך משווים הצעות מחיר" },
+  { id: "our-approach", label: "הצעת מחיר אצלנו בהתחדשות" },
+];
 
 const PATH = "/guides/mamad-cost";
 const TITLE = "כמה עולה לבנות ממ״ד? מחירים עדכניים 2026 — התחדשות";
@@ -125,28 +146,17 @@ export default function Page() {
         </div>
       </Section>
 
-      {/* Table of Contents */}
+      {/* Reading-time badge */}
       <Section tone="white">
-        <div className="max-w-4xl mx-auto">
-          <div className="border border-[var(--color-border)] rounded-2xl p-6 md:p-7 bg-white">
-            <div className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-[var(--color-accent-dark)] mb-3">
-              תוכן עניינים
-            </div>
-            <h2 className="text-xl md:text-2xl font-black text-[var(--color-primary)] mb-4">מה תמצאו בעמוד</h2>
-            <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2 text-[var(--color-ink)]">
-              <li><a href="#price-tables" className="hover:underline">טבלאות מחיר לפי גודל ותוספות</a></li>
-              <li><a href="#what-drives-price" className="hover:underline">מה משפיע על המחיר — 12 גורמים</a></li>
-              <li><a href="#cost-breakdown" className="hover:underline">פירוט רכיבי המחיר</a></li>
-              <li><a href="#hidden-costs" className="hover:underline">עלויות נסתרות שכדאי לדעת</a></li>
-              <li><a href="#save-smart" className="hover:underline">איך לחסוך בלי להתפשר</a></li>
-              <li><a href="#real-vs-surprise" className="hover:underline">הצעה אמיתית מול הצעה שמפתיעה</a></li>
-              <li><a href="#compare-solutions" className="hover:underline">השוואה: ממ״ד / מיגון / מיגונית</a></li>
-              <li><a href="#payment-schedule" className="hover:underline">חוזה תשלומים — איך זה עובד</a></li>
-              <li><a href="#mistakes" className="hover:underline">טעויות שמייקרות את הפרויקט</a></li>
-              <li><a href="#how-to-compare" className="hover:underline">איך משווים הצעות מחיר</a></li>
-              <li><a href="#faq" className="hover:underline">שאלות נפוצות</a></li>
-            </ul>
-          </div>
+        <div className="flex justify-center">
+          <ReadingTimeBadge words={WORD_COUNT} />
+        </div>
+      </Section>
+
+      {/* Mobile TOC — collapses into an accordion. Desktop TOC lives in the sidebar below. */}
+      <Section tone="white">
+        <div className="max-w-4xl mx-auto lg:hidden">
+          <TableOfContents items={TOC_ITEMS} />
         </div>
       </Section>
 
@@ -486,6 +496,10 @@ export default function Page() {
 
           {/* Sidebar */}
           <aside className="space-y-6">
+            {/* Desktop TOC (hidden on mobile — mobile gets the accordion version above) */}
+            <div className="hidden lg:block">
+              <TableOfContents items={TOC_ITEMS} />
+            </div>
             <div className="card-premium p-6 sticky top-24">
               <div className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-[var(--color-accent-dark)] mb-3">
                 לקריאה נוספת
@@ -542,6 +556,8 @@ export default function Page() {
       />
 
       <FAQ items={faqs} title="שאלות נפוצות — מחיר ממ״ד" eyebrow="שאלות ותשובות" includeSchema={false} />
+
+      <RelatedArticles currentSlug="mamad-cost" />
 
       <RelatedLinks
         seed="guides/mamad-cost"

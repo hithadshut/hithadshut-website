@@ -7,8 +7,22 @@ import ContactCTA from "@/components/ContactCTA";
 import JsonLd from "@/components/JsonLd";
 import TldrBlock from "@/components/TldrBlock";
 import RelatedLinks from "@/components/RelatedLinks";
+import ReadingTimeBadge from "@/components/ReadingTimeBadge";
+import TableOfContents from "@/components/TableOfContents";
+import RelatedArticles from "@/components/RelatedArticles";
 import { buildMetadata } from "@/lib/metadata";
 import { articleJsonLd } from "@/lib/schema";
+
+// Word count estimated from prose sections on this page.
+const WORD_COUNT = 520;
+
+const TOC_ITEMS = [
+  { id: "why-important", label: "למה האישור הזה חשוב" },
+  { id: "process", label: "התהליך בקצרה" },
+  { id: "whats-checked", label: "מה בודקים בבקשה" },
+  { id: "delays", label: "שלוש טעויות שמעכבות אישור" },
+  { id: "our-approach", label: "איך אנחנו מטפלים בזה" },
+];
 
 const PATH = "/guides/home-front-command-approval";
 const TITLE = "אישורי פיקוד העורף לממ״ד | תהליך ומסמכים — התחדשות";
@@ -73,16 +87,23 @@ export default function Page() {
         ]}
       />
 
+      <Section tone="white">
+        <div className="flex justify-center">
+          <ReadingTimeBadge words={WORD_COUNT} />
+        </div>
+      </Section>
+
       <Section>
-        <Prose>
-          <h2>למה האישור הזה חשוב</h2>
+        <div className="grid lg:grid-cols-[minmax(0,1fr)_280px] gap-10">
+          <Prose>
+          <h2 id="why-important">למה האישור הזה חשוב</h2>
           <p>
             אישור פיקוד העורף הוא תנאי בלעדיו אין לכל ממ״ד חוקי בישראל. הוא האישור שמאשר
             שהתכנון והביצוע עומדים בדרישות המיגון — עובי קירות, דלת, חלון, מערכת אוורור וסינון,
             חישוב סטטי ותפקוד בחירום. בלי האישור, מה שבניתם — אינו ממ״ד.
           </p>
 
-          <h2>התהליך בקצרה</h2>
+          <h2 id="process">התהליך בקצרה</h2>
           <ol>
             <li><strong>הכנת תיק הגשה</strong> אצל עורך הבקשה (אדריכל/מהנדס).</li>
             <li><strong>הגשה אלקטרונית</strong> במערכת של פיקוד העורף/מינהל התכנון.</li>
@@ -92,7 +113,7 @@ export default function Page() {
             <li><strong>הודעה על סיום הביצוע</strong> — לרוב בתוך 45 ימים מתום העבודה.</li>
           </ol>
 
-          <h2>מה בודקים בבקשה</h2>
+          <h2 id="whats-checked">מה בודקים בבקשה</h2>
           <ul>
             <li>מידות: שטח מינימום 9 מ״ר (לפעמים 5 מ״ר במקרים חריגים), נפח 22.5 מ״ק, גובה תקני.</li>
             <li>עובי קירות ותקרה לפי האזור (באזורי קו קדמי — דרישה מחמירה יותר).</li>
@@ -103,7 +124,7 @@ export default function Page() {
             <li>התאמה הנדסית למבנה הקיים.</li>
           </ul>
 
-          <h2>שלוש טעויות שמעכבות אישור</h2>
+          <h2 id="delays">שלוש טעויות שמעכבות אישור</h2>
           <ol>
             <li>
               <strong>הגשה לא מסודרת — מסמכים חסרים או פורמטים לא נכונים.</strong> עורך בקשה מנוסה
@@ -119,16 +140,23 @@ export default function Page() {
             </li>
           </ol>
 
-          <h2>איך אנחנו מטפלים בזה</h2>
+          <h2 id="our-approach">איך אנחנו מטפלים בזה</h2>
           <p>
             בהתחדשות אנחנו מטפלים בכל תהליך האישור עבורכם — הכנת התיק, הגשה, מענה להערות, ומעקב
             עד קבלת האישור. זה חלק מהחבילה המלאה, לא שירות נפרד. לקריאה על התהליך הכולל:{" "}
             <Link href="/guides/mamad-process">תהליך בניית ממ״ד</Link>.
           </p>
-        </Prose>
+          </Prose>
+
+          <aside>
+            <TableOfContents items={TOC_ITEMS} />
+          </aside>
+        </div>
       </Section>
 
       <FAQ items={faqs} />
+
+      <RelatedArticles currentSlug="home-front-command-approval" />
 
       <RelatedLinks
         seed="guides/home-front-command-approval"

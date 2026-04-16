@@ -7,8 +7,20 @@ import ContactCTA from "@/components/ContactCTA";
 import JsonLd from "@/components/JsonLd";
 import TldrBlock from "@/components/TldrBlock";
 import RelatedLinks from "@/components/RelatedLinks";
+import ReadingTimeBadge from "@/components/ReadingTimeBadge";
+import TableOfContents from "@/components/TableOfContents";
+import RelatedArticles from "@/components/RelatedArticles";
 import { buildMetadata } from "@/lib/metadata";
 import { articleJsonLd } from "@/lib/schema";
+
+// Word count estimated from intro + 10 mistakes + closing section.
+const WORD_COUNT = 480;
+
+const TOC_ITEMS = [
+  { id: "intro", label: "למה אותן טעויות חוזרות" },
+  { id: "mistakes-list", label: "10 הטעויות הנפוצות" },
+  { id: "how-to-avoid", label: "איך להימנע מרוב הטעויות" },
+];
 
 const PATH = "/guides/mamad-mistakes";
 const TITLE = "10 טעויות בבניית ממ״ד שעולות ביוקר — התחדשות בינוי ויזמות";
@@ -74,8 +86,17 @@ export default function Page() {
         ]}
       />
 
+      <Section tone="white">
+        <div className="flex justify-center">
+          <ReadingTimeBadge words={WORD_COUNT} />
+        </div>
+      </Section>
+
       <Section>
+        <div className="grid lg:grid-cols-[minmax(0,1fr)_280px] gap-10">
+          <div>
         <Prose>
+          <h2 id="intro" className="sr-only">למה אותן טעויות חוזרות</h2>
           <p>
             הבעיה הגדולה בבניית ממ״ד היא לא שיש טעויות — אלא שאותן טעויות חוזרות.
             הן לא בגלל שהאנשים לא חכמים, אלא בגלל שאין מסורת ברורה של איך בעל בית
@@ -83,6 +104,7 @@ export default function Page() {
             ושוב.
           </p>
         </Prose>
+        <h2 id="mistakes-list" className="sr-only">10 הטעויות הנפוצות</h2>
         <ol className="mt-6 space-y-4">
           {mistakes.map((m, i) => (
             <li key={i} className="flex gap-4 bg-white rounded-2xl border border-[var(--color-border)] shadow-[var(--shadow-card)] p-5">
@@ -98,7 +120,7 @@ export default function Page() {
         </ol>
         <div className="mt-10">
           <Prose>
-            <h2>איך להימנע מרוב הטעויות האלו</h2>
+            <h2 id="how-to-avoid">איך להימנע מרוב הטעויות האלו</h2>
             <p>
               הרוב מתחיל מארבעה דברים: תכנון לפני מחיר, קבלן עם ניסיון ספציפי בממ״דים, חוזה
               ברור, ומישהו לצידכם שלא מוכר ולא קונה — אלא מייעץ ומלווה. זה בדיוק מה שאנחנו
@@ -108,9 +130,17 @@ export default function Page() {
             </p>
           </Prose>
         </div>
+          </div>
+
+          <aside>
+            <TableOfContents items={TOC_ITEMS} />
+          </aside>
+        </div>
       </Section>
 
       <FAQ items={faqs} />
+
+      <RelatedArticles currentSlug="mamad-mistakes" />
 
       <RelatedLinks
         seed="guides/mamad-mistakes"
