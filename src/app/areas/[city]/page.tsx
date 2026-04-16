@@ -165,7 +165,7 @@ export default async function AreaPage({ params }: { params: Params }) {
               השירותים שלנו ב{area.name}
             </h2>
             <p className="mt-3 text-[var(--color-muted)]">
-              ארבעה פתרונות מיגון עיקריים, כולם מבוצעים על ידינו, עם ליווי הנדסי ואישור פקע״ר.
+              ארבעה פתרונות מיגון עיקריים, את כולם אנחנו מבצעים בעצמנו. ליווי הנדסי ואישור פקע״ר נכללים בכל אחד.
             </p>
           </div>
         </Reveal>

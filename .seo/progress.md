@@ -336,3 +336,42 @@ Hebrew copywriting does not use the em-dash (—, U+2014) or en-dash (–, U+201
 - `npm run lint` → 0 errors, 0 warnings.
 - `npm run build` → compiled successfully, all 168 pages generated.
 
+## Stage 3 — Writing quality pass (completed 2026-04-16)
+
+### Task 1 — Passive voice flip (1 occurrence)
+- `src/app/areas/[city]/page.tsx` L168:
+  - Before: `ארבעה פתרונות מיגון עיקריים, כולם מבוצעים על ידינו, עם ליווי הנדסי ואישור פקע״ר.`
+  - After: `ארבעה פתרונות מיגון עיקריים, את כולם אנחנו מבצעים בעצמנו. ליווי הנדסי ואישור פקע״ר נכללים בכל אחד.`
+
+### Task 2 — Filler cull (`בפועל`)
+- Total occurrences before: 17 (all `בפועל`; 0 `למעשה` / `באופן כללי` / `באופן מעשי` in scope).
+- After: 11.
+- Deleted: 6.
+- Kept: 11 — all acting as a legitimate theory-vs-practice contrast marker (e.g. "הסטנדרט המומלץ בפועל", "הצבה בפועל ביום אחד" contrasting with full timeline, "הקבלנים המבצעים בפועל, לא מתווכים", headings "מה ההבדל בפועל").
+- Deletions by file:
+  - `src/app/guides/mamad-cost/page.tsx` — 2 (L234 intro tail, L430 heading tail)
+  - `src/app/guides/choosing-mamad-contractor/page.tsx` — 1 (L51 FAQ tail)
+  - `src/app/compare/mamad-tzamud-vs-hitzoni/page.tsx` — 1 (L79 timeline row)
+  - `src/app/areas/[city]/[service]/page.tsx` — 2 (L61 execution mention, L212 card description)
+
+### Task 3 — Long-sentence splits (high-value pages)
+Audited 6 pages for sentences over 25 words. Existing prose is already tight after stages 1–2; only 2 splits needed:
+- `src/app/guides/mamad-process/page.tsx` FAQ #2 — split a 28-word opener at the natural clause boundary:
+  - Before: `בבתים עד 2 קומות ובכפוף לתנאים שקבועים בתקנות התכנון והבנייה, במקרים רבים אפשר לבנות ממ"ד במסלול פטור, המבוסס על אישור פיקוד העורף, הצהרת עורך הבקשה (אדריכל/מהנדס) והגשת הודעה בסיום.`
+  - After: `בבתים עד 2 קומות, ובכפוף לתנאים שקבועים בתקנות התכנון והבנייה, במקרים רבים אפשר לבנות ממ"ד במסלול פטור. המסלול מבוסס על אישור פיקוד העורף, הצהרת עורך הבקשה (אדריכל/מהנדס) והגשת הודעה בסיום.`
+- `src/app/guides/mamad-cost/page.tsx` "עבודות בנייה וקונסטרוקציה" paragraph — 5 sentences split into two `<p>` blocks at the topic boundary ("list of work" → "budget significance").
+
+### Task 4 — Paragraph splits
+- 1 paragraph split (covered above in mamad-cost; 5 sentences → 3 + 2).
+- Remaining candidate paragraphs in `services/building-mamad` + `services/migunit` are inside JS template-string data fields (`when`, FAQ `a`) rendered as single `<p>`. The FAQ component uses `whitespace-pre-line`, but those answers also feed into `FAQPage` JSON-LD schema — splitting them by inserting `\n\n` into the string would leak into structured data. Left them alone per "light touch" guideline; the underlying sentences in those fields are already short (avg 14–20 words).
+
+### Verification
+- `npm run lint` → 0 errors, 0 warnings.
+- `rm -rf .next && npm run build` → `✓ Compiled successfully in 10.8s`, all pages generated.
+
+### Constraints held
+- No em-dashes reintroduced. No AI-tell phrases reintroduced. No "יוזמה קהילתית".
+- No numbers, prices, phone, standards, URLs, schema, or component names touched.
+- All `[טעון אימות מקצועי]` markers preserved. `<strong>` / `<Link>` wrappers intact.
+- Canonical pricing untouched.
+
