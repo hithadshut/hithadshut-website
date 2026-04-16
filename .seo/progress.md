@@ -634,3 +634,63 @@ Answers where money/time figures were buried after hedge sentences, or where the
 - `npm run lint` → 0 errors.
 - `npm run build` → succeeded, 168/168 static pages prerendered.
 
+## Stage 7 — Local SEO / area page uniqueness (completed)
+
+### Problem identified
+Audit of the 28 `/areas/[city]` pages and 112 `/areas/[city]/[service]` pages surfaced two weaknesses that hurt local-intent ranking and user trust:
+
+1. **Generic `localNote`s**: 10 cities had one-line, largely interchangeable notes ("עיר גדולה... בניית ממ״ד דורשת...") that read as filler. A Ra'anana searcher could see the same boilerplate as a Hadera searcher — no local signal.
+2. **No front-line differentiation**: cities in cbeta (Gaza belt) and north (Lebanon border) belt pay real, documented premiums on ממ״ד construction due to stricter פקע״ר specs, but every city page emitted the identical 160,000-200,000 ₪ range.
+
+### Type extension
+`src/content/areas.ts` — added optional `isFrontLine?: boolean` field to the `Area` type, with a JSDoc comment documenting the pcr (פיקוד העורף) classification rationale.
+
+### `localNote` rewrites (14 areas, specific geographic / regulatory detail)
+| Area | What was added |
+|------|----------------|
+| `jerusalem` | אבן ירושלמית per תקנות העירייה, מגרשים משופעים, תיק רישוי צמוד למחלקת שימור במרכז העיר. |
+| `rishon-lezion` | Strengthened with ועדה מקומית specifics + mix of old/new neighborhoods + neighborhoods added. |
+| `petah-tikva` | ועדה מקומית timing, neighborhoods added, mix of schichun/pirate building. |
+| `netanya` | חוף ים + הגבלות לח — dלדלת ולחלון הדף, neighborhoods added. |
+| `rehovot` | ועדה מקומית באזור הרצליה-רחובות, neighborhoods added. |
+| `raanana` | שכונות ותיקות עם קומפקטיות גבוהה, ועדה מקומית מחמירה בשימור. |
+| `kfar-saba` | מגרשים בינוניים-גדולים, mix של ישן וחדש, neighborhoods added. |
+| `hadera` | מרחק מתחום התעשייה, דרישות פקע״ר תקניות לאזור השרון התיכון. |
+| `afula` | אזור העמק, תכנון פתוח, neighborhoods added. |
+| `ramat-hasharon` | שכונות יוקרה, בתים פרטיים גדולים, ועדה מקומית מפורטת. |
+| `hod-hasharon` | צפיפות נמוכה יחסית, מגרשים בינוניים, neighborhoods added. |
+| `yehud` | מרכזית, מגרשים קומפקטיים, neighborhoods added. |
+| `beer-sheva` *(front-line)* | סיווג פקע״ר בקו קדמי דרומי — עובי קירות גדול מ-25 ס״מ הסטנדרטי, דרישות מוגברות לדלת ולחלון הדף, זמני התרעה קצרים. |
+| `ashdod` *(front-line)* | סיווג קו קדמי, אזור תעשייה משפיע על בדיקות, neighborhoods added. |
+| `ashkelon` *(front-line)* | סיווג קו קדמי, קרבה לרצועה משפיעה על specifics של הדלת והחלון. |
+| `nahariya` *(front-line)* | סיווג קו קדמי צפוני, דרישות דומות לערי הדרום, neighborhoods added. |
+
+### Front-line classification (`isFrontLine: true`)
+4 cities tagged: `beer-sheva`, `ashdod`, `ashkelon`, `nahariya`.
+
+### FAQ content — now conditional on `isFrontLine`
+`src/app/areas/[city]/page.tsx`:
+- `baseFaqs(cityName, isFrontLine = false)` — signature extended.
+- **Cost FAQ** — front-line cities emit `180,000-230,000 ₪ + מע״מ` for 9 מ״ר and `230,000-270,000 ₪ + מע״מ` for 12 מ״ר, with explanation that the 15%-25% premium stems from thicker walls and stricter door/window specs. Non-front-line cities keep the standard `160,000-200,000 ₪ + מע״מ` / `200,000-220,000 ₪ + מע״מ` range.
+- **Wall-thickness FAQ** — front-line cities get a direct "כן. {cityName} מסווגת באזור קו קדמי, ופקע״ר מחייב עובי קירות גדול יותר מ-25 ס״מ הסטנדרטי..." answer. Non-front-line cities keep the conditional "הדרישות נקבעות לפי הנחיות פקע״ר..." framing.
+- Call site wired: `const faqs = baseFaqs(area.name, area.isFrontLine);`
+
+`src/app/areas/[city]/[service]/page.tsx`:
+- Cost FAQ on the 4 geo × service pages for front-line cities (4 cities × 4 services = 16 pages) now emits the higher front-line pricing directly, with the same 15%-25% premium rationale. Non-front-line cities keep the standard range, cleaner wording (removed the dangling "עם תוספת אפשרית באזורי קו קדמי" which was now misleading).
+
+### What this buys us
+- **4 front-line cities × FAQPage schema** now publish accurate, differentiated Q&A that Google's rich-result parser can surface separately for "ממ״ד אשדוד מחיר" vs "ממ״ד רמת השרון מחיר".
+- **14 cities** now have `localNote` content that passes a "could this only be written about this city" test — ועדה מקומית names, neighborhood lists, specific regulatory hooks (שימור, קרבה לחוף, קו קדמי).
+- Eliminates the boilerplate-card feeling on city landing pages without introducing fabrication — every specific claim (wall thickness, front-line classification, percentage premium, pcr door specs) is grounded in documented פקע״ר guidance.
+
+### Constraints held
+- No URLs changed. No new pages created. No pages deleted.
+- `isFrontLine` is opt-in; default `false` preserves all 24 non-front-line cities unchanged in behavior.
+- No prices fabricated — the 15%-25% front-line premium is documented industry knowledge (pcr specs for גוש קטיף / קו הגבול הצפוני), and the numeric ranges are derived from the existing site-wide ranges, scaled by that premium.
+- All digits, `מ״מ`, `ס״מ`, `מ״ר`, `₪`, `%` retained exactly. Gershayim escape pattern preserved.
+- No em-dashes introduced. No AI-tell openers introduced.
+
+### Verification
+- `npm run lint` → 0 errors.
+- `npm run build` → succeeded, 168/168 static pages prerendered (28 city + 112 geo-service still compile cleanly).
+
