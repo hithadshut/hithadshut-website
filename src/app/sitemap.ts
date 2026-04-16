@@ -1,112 +1,100 @@
 import type { MetadataRoute } from "next";
-import fs from "node:fs";
-import path from "node:path";
-import { site, services, guides, compare, compares } from "@/lib/site";
+import { site, services, guides, compares } from "@/lib/site";
 import { areas } from "@/content/areas";
 import { serviceMatrix } from "@/content/services";
 
-const APP_DIR = path.join(process.cwd(), "src", "app");
-const FALLBACK = new Date();
-
-function mtime(relativeFromApp: string): Date {
-  try {
-    const full = path.join(APP_DIR, relativeFromApp);
-    const stat = fs.statSync(full);
-    return stat.mtime;
-  } catch {
-    return FALLBACK;
-  }
-}
-
-function pageMtime(routePath: string): Date {
-  const clean = routePath.replace(/^\//, "");
-  return mtime(path.join(clean, "page.tsx"));
-}
-
 export default function sitemap(): MetadataRoute.Sitemap {
+  const now = new Date();
+
   const entries: MetadataRoute.Sitemap = [
+    // Homepage — weekly, top priority
     {
       url: `${site.url}/`,
-      lastModified: mtime("page.tsx"),
+      lastModified: now,
       changeFrequency: "weekly",
       priority: 1.0,
     },
+    // Contact — high intent, monthly
     {
       url: `${site.url}/contact`,
-      lastModified: pageMtime("/contact"),
+      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.9,
     },
+    // Services — primary commercial pages
     ...services.map((s) => ({
       url: `${site.url}/services/${s.slug}`,
-      lastModified: pageMtime(`/services/${s.slug}`),
+      lastModified: now,
       changeFrequency: "monthly" as const,
       priority: 0.9,
     })),
+    // Areas index — geo hub
+    {
+      url: `${site.url}/areas`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    // Guides — content pages
     ...guides.map((g) => ({
       url: `${site.url}/guides/${g.slug}`,
-      lastModified: pageMtime(`/guides/${g.slug}`),
+      lastModified: now,
       changeFrequency: "monthly" as const,
-      priority: 0.8,
+      priority: 0.75,
     })),
-    {
-      url: `${site.url}/compare/${compare.slug}`,
-      lastModified: pageMtime(`/compare/${compare.slug}`),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    ...compares
-      .filter((c) => c.slug !== compare.slug)
-      .map((c) => ({
-        url: `${site.url}/compare/${c.slug}`,
-        lastModified: pageMtime(`/compare/${c.slug}`),
+    // Compare — all comparison pages (unified priority per spec)
+    ...compares.map((c) => ({
+      url: `${site.url}/compare/${c.slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+    // Areas city pages
+    ...areas.map((a) => ({
+      url: `${site.url}/areas/${a.slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+    // Areas city × service pages
+    ...areas.flatMap((a) =>
+      serviceMatrix.map((s) => ({
+        url: `${site.url}/areas/${a.slug}/${s.slug}`,
+        lastModified: now,
         changeFrequency: "monthly" as const,
         priority: 0.6,
-      })),
+      }))
+    ),
+    // About — brand page
     {
       url: `${site.url}/about`,
-      lastModified: pageMtime("/about"),
+      lastModified: now,
       changeFrequency: "monthly",
-      priority: 0.7,
+      priority: 0.6,
     },
+    // Legal pages
     {
       url: `${site.url}/privacy`,
-      lastModified: pageMtime("/privacy"),
+      lastModified: now,
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
       url: `${site.url}/terms`,
-      lastModified: pageMtime("/terms"),
+      lastModified: now,
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
       url: `${site.url}/accessibility`,
-      lastModified: pageMtime("/accessibility"),
+      lastModified: now,
       changeFrequency: "yearly",
       priority: 0.3,
     },
-    {
-      url: `${site.url}/areas`,
-      lastModified: pageMtime("/areas"),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    ...areas.map((a) => ({
-      url: `${site.url}/areas/${a.slug}`,
-      lastModified: FALLBACK,
-      changeFrequency: "monthly" as const,
-      priority: 0.7,
-    })),
-    ...areas.flatMap((a) =>
-      serviceMatrix.map((s) => ({
-        url: `${site.url}/areas/${a.slug}/${s.slug}`,
-        lastModified: FALLBACK,
-        changeFrequency: "monthly" as const,
-        priority: 0.6,
-      }))
-    ),
   ];
+
+  // TODO (stage G+): if the URL count grows past ~10K, split into sitemap index + sub-sitemaps.
+  // Currently well under the 50K Google limit.
+
   return entries;
 }

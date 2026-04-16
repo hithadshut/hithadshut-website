@@ -133,3 +133,49 @@
 
 ### Next stage
 - Stage F: client-provided social URLs swap (replace sameAs TODO placeholders), real GBP/Google Maps URL, additional programmatic area×service depth.
+
+## Stage F — Technical SEO hardening (completed 2026-04-16)
+
+### Created
+- `src/lib/indexnow.ts` — IndexNow integration module. Exports `INDEXNOW_KEY`, `INDEXNOW_KEY_LOCATION`, and `submitUrlsToIndexNow(urls)`. Posts JSON payload to `https://api.indexnow.org/indexnow` with `host`/`key`/`keyLocation`/`urlList`. Returns `{ ok, status, statusText, body, submittedCount }`.
+- `scripts/notify-indexnow.ts` — manual post-deploy tool. Fetches live `/sitemap.xml`, extracts `<loc>` URLs via regex, submits all to IndexNow in a single batch. Logs HTTP response, exits 0 on 2xx.
+- `public/a1b2c3d4e5f678901234567890abcdef.txt` — IndexNow key file. Content is exactly the 32-char hex key (no trailing newline, 32 bytes).
+
+### Updated
+- `next.config.ts` — upgraded from empty stub to full spec: `poweredByHeader: false`, `compress: true`, `experimental.optimizePackageImports: ["lucide-react"]`, `images.formats: ["image/avif", "image/webp"]`. Added `async headers()` returning three blocks: sitemap.xml caching (1h), llms.txt (text/plain + 1h cache), global security headers (`X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `Strict-Transport-Security: max-age=63072000; includeSubDomains; preload`, `X-DNS-Prefetch-Control: on`).
+- `src/lib/metadata.ts` — extended `alternates` in `buildMetadata()` with `languages: { "he-IL": url, "x-default": url }`. Canonical behavior preserved.
+- `src/app/layout.tsx` — root layout `metadata.alternates` also gained hreflang `{ "he-IL": "/", "x-default": "/" }` so homepage gets the signal (home doesn't use `buildMetadata`).
+- `src/app/sitemap.ts` — rewrote with unified `new Date()` lastModified per deploy + priority distribution per spec: home 1.0 (weekly), services 0.9, areas index 0.85, guides 0.75, compares 0.7, city pages 0.7, city×service 0.6, about 0.6, legal 0.3. Dropped `fs.statSync` mtime approach in favor of simple now-per-deploy signal. 163 URLs (same as before — no URL set changed). Added `TODO` comment for post-10K URL index split.
+- `package.json` — added `tsx ^4.19.2` to devDependencies, added `"notify-indexnow": "tsx scripts/notify-indexnow.ts"` npm script.
+
+### Sitemap priority breakdown (verified from built sitemap.xml)
+- 1.0 × 1 (home)
+- 0.9 × 8 (contact + 7 services)
+- 0.85 × 1 (areas index)
+- 0.75 × 5 (guides)
+- 0.7 × 32 (4 compares + 28 city pages)
+- 0.6 × 113 (112 city×service + about)
+- 0.3 × 3 (privacy, terms, accessibility)
+
+### Hreflang verification
+Inspected `.next/server/app/index.html` and `.next/server/app/about.html` after build:
+```
+<link rel="canonical" href="https://hithadshut.co.il"/>
+<link rel="alternate" hrefLang="he-IL" href="https://hithadshut.co.il"/>
+<link rel="alternate" hrefLang="x-default" href="https://hithadshut.co.il"/>
+```
+Both tags render correctly on the homepage (via layout.tsx) and on every page that uses `buildMetadata()`.
+
+### Next 16 API notes
+- `experimental.optimizePackageImports` is still under `experimental` in 16.2.3 (confirmed via `node_modules/next/dist/docs/01-app/03-api-reference/05-config/01-next-config-js/optimizePackageImports.md`), despite the key now also appearing at the config root level. Kept under `experimental` to match docs.
+- Next 16.2.3 + Turbopack builds cleanly with the `headers()` async function — no breaking changes from prior versions.
+
+### Constraints held
+- 163 URLs preserved — no additions, no deletions.
+- Canonical logic in `buildMetadata` unchanged; hreflang added alongside.
+- OG + Twitter meta unchanged.
+- No "יוזמה קהילתית".
+- IndexNow script is manual-only (documented in script header); not wired into build pipeline.
+
+### Next stage
+- Stage G: post-deploy — run `npm run notify-indexnow` once after first production deploy. Replace Organization `sameAs` placeholders with real social URLs when client provides. Consider sitemap index split if URL count crosses ~10K.

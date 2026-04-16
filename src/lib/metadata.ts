@@ -21,6 +21,10 @@ export function buildMetadata({
     description,
     alternates: {
       canonical: url,
+      languages: {
+        "he-IL": url,
+        "x-default": url,
+      },
     },
     openGraph: {
       type: "website",

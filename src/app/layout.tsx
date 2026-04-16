@@ -47,7 +47,13 @@ export const metadata: Metadata = {
     "הרחבות בנייה",
     "התחדשות בינוי ויזמות",
   ],
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/",
+    languages: {
+      "he-IL": "/",
+      "x-default": "/",
+    },
+  },
   openGraph: {
     type: "website",
     locale: "he_IL",
