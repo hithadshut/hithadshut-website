@@ -294,3 +294,45 @@ Hebrew copywriting does not use the em-dash (—, U+2014) or en-dash (–, U+201
 - Metadata signatures (`buildMetadata({ title, description, path })`) unchanged.
 - No URL set changes, no sitemap changes, no file deletions.
 
+## Stage 2 — Purge AI-tell phrases (completed)
+
+### Category A — formal fluff (replaced)
+| Pattern | Before | After | Notes |
+|---|---|---|---|
+| `ניתן ל...` | 17 | 0 | Replaced with `אפשר ל...` / `אי אפשר ל...` / relative `שאפשר ל` |
+| `באמצעות` | 6 | 0 | Replaced with `עם` / `דרך` / `בעזרת` (incl. legal text: `באמצעותם` → `דרכם`) |
+| `כאשר` | 3 | 0 | Collapsed to `כש...` (e.g. `וכאשר בניית ממ״ד לא אפשרית` → `וגם כשבניית ממ״ד לא אפשרית`) |
+| `על מנת` / `כמו כן` / `בנוסף לכך` / `מן הסתם` / `כידוע` / `כאמור` | 0 | 0 | already clean from Stage 1 |
+
+### Category B — empty generalizations (replaced with specifics)
+| Pattern | Before | After |
+|---|---|---|
+| `ברמה הגבוהה (ביותר)` | 2 | 0 |
+| `ליווי מקצועי` | 1 | 0 |
+| `מגוון רחב` | 2 | 0 |
+| `פתרונות מקצועיים` / `שירות מהמעלה` / `חווית לקוח` / `ערך מוסף` / `באופן מיטבי` / `מבלי להתפשר` / `הסטנדרט הגבוה` | 0 | 0 |
+
+### Category C — passive voice
+- `src/app/services/extensions/page.tsx` — `הכל מתוכנן ומבוצע על ידינו` → `אנחנו מתכננים ומבצעים הכל`.
+
+### Example before/after pairs
+1. `src/app/page.tsx` (hero subtitle):
+   - Before: `בניית ממ״דים, מיגון חדרים ומיגוניות ברמה הגבוהה ביותר.`
+   - After: `בניית ממ״דים, מיגון חדרים ומיגוניות לפי תקן פקע״ר, עם מהנדס קונסטרוקציה רשום.`
+2. `src/content/services.ts` (prefab blurb):
+   - Before: `...מתי זו רק יחידה ממוגנת גנרית. ליווי מקצועי בבחירה.`
+   - After: `...מתי זו רק יחידה ממוגנת גנרית. מהנדס מלווה את הבחירה.`
+3. `src/app/services/private-construction/page.tsx` (subtitle):
+   - Before: `...תכנון מותאם, ביצוע ברמה הגבוהה, עם דגש על שקיפות ואיכות.`
+   - After: `...תכנון מותאם, ביצוע לפי מפרט טכני מחייב, עם דגש על שקיפות ואיכות.`
+
+### Phrases intentionally kept
+- `בהתאם ל...` — kept in engineering/legal contexts (`יציקה בהתאם לחישוב`, `תכנון הממ״ד בהתאם לזכויות בנייה`). Correct technical Hebrew.
+- `מקצה לקצה` — kept only in `guides/mamad-process` where it refers to literal project timeline ("2-4 חודשים מקצה לקצה"). Precise, not fluff.
+- `ניתן מסלול פטור` — kept in `building-mamad/page.tsx` FAQ; this is passive "a path is granted", not modal "can".
+
+### Verification
+- Re-grep on `src/` for the 20-pattern set → 0 matches.
+- `npm run lint` → 0 errors, 0 warnings.
+- `npm run build` → compiled successfully, all 168 pages generated.
+

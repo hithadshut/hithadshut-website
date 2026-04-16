@@ -82,7 +82,7 @@ export default function ExitIntentModal() {
         <div className="p-8">
           <p className="text-[var(--color-muted)] leading-relaxed">
             חברת התחדשות בינוי ויזמות. ייעוץ ראשוני ללא עלות וללא התחייבות.
-            מסבירים לכם בדיוק איך בונים ממ״ד, מה העלויות, ומה ניתן לעשות בבית שלכם.
+            מסבירים לכם בדיוק איך בונים ממ״ד, מה העלויות, ומה אפשר לעשות בבית שלכם.
           </p>
           <div className="mt-6 flex flex-col sm:flex-row gap-3">
             <Link

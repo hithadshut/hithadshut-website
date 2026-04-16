@@ -82,7 +82,7 @@ export default function Home() {
               <span className="text-[var(--color-accent)]">מהתכנון ועד המפתח</span>
             </h1>
             <p className="hero-in hero-in-3 mt-7 text-lg md:text-xl text-white/85 max-w-2xl leading-relaxed">
-              חברת התחדשות בינוי ויזמות. בניית ממ״דים, מיגון חדרים ומיגוניות ברמה הגבוהה ביותר.
+              חברת התחדשות בינוי ויזמות. בניית ממ״דים, מיגון חדרים ומיגוניות לפי תקן פקע״ר, עם מהנדס קונסטרוקציה רשום.
               תכנון, ביצוע ואישורי פיקוד העורף. הכל אצלנו, תחת גג אחד.
             </p>
             <div className="hero-in hero-in-4 mt-10 flex flex-wrap gap-3">
