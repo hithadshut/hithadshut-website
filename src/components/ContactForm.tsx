@@ -41,12 +41,27 @@ export default function ContactForm({ defaultService }: { defaultService?: strin
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-      if (!res.ok) throw new Error("send failed");
+      const data = (await res.json().catch(() => ({}))) as { ok?: boolean; message?: string };
+      if (!res.ok || !data.ok) {
+        throw new Error(data.message || "send failed");
+      }
+      // GA4 lead event (no-op if gtag not loaded)
+      if (typeof window !== "undefined") {
+        const w = window as unknown as { gtag?: (...args: unknown[]) => void };
+        if (typeof w.gtag === "function") {
+          w.gtag("event", "generate_lead", {
+            event_category: "contact_form",
+            event_label: payload.service || "general",
+            value: 1,
+          });
+        }
+      }
       setStatus("success");
       (e.target as HTMLFormElement).reset();
-    } catch {
+    } catch (err) {
       setStatus("error");
-      setErrorMsg("משהו השתבש. אפשר להתקשר ישירות: 054-671-2130");
+      const msg = err instanceof Error && err.message && err.message !== "send failed" ? err.message : null;
+      setErrorMsg(msg || "משהו השתבש. אפשר להתקשר ישירות: 054-671-2130");
     }
   }
 
