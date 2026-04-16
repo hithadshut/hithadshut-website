@@ -8,6 +8,7 @@ import JsonLd from "@/components/JsonLd";
 import TldrBlock from "@/components/TldrBlock";
 import RelatedLinks from "@/components/RelatedLinks";
 import ReadingTimeBadge from "@/components/ReadingTimeBadge";
+import Byline from "@/components/Byline";
 import TableOfContents from "@/components/TableOfContents";
 import RelatedArticles from "@/components/RelatedArticles";
 import { buildMetadata } from "@/lib/metadata";
@@ -87,7 +88,8 @@ export default function Page() {
       />
 
       <Section tone="white">
-        <div className="flex justify-center">
+        <div className="flex flex-wrap justify-center items-center gap-3">
+          <Byline />
           <ReadingTimeBadge words={WORD_COUNT} />
         </div>
       </Section>

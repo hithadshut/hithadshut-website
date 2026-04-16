@@ -51,13 +51,10 @@ export function organizationJsonLd() {
       "שיפוצים",
       "הרחבות ותוספות בנייה",
     ],
-    sameAs: [
-      "https://www.google.com/maps/search/?api=1&query=התחדשות+בינוי+ויזמות",
-      // TODO: replace with live URL from client
-      "https://www.facebook.com/hithadshut",
-      // TODO: replace with live URL from client
-      "https://www.linkedin.com/company/hithadshut",
-    ],
+    // TODO: populate once client supplies real Google Business Profile,
+    // Facebook page, and LinkedIn company URLs. Fabricated or guessed URLs
+    // hurt E-E-A-T signals if they 404 or land on the wrong entity.
+    sameAs: [],
   };
 }
 

@@ -8,6 +8,7 @@ import JsonLd from "@/components/JsonLd";
 import TldrBlock from "@/components/TldrBlock";
 import RelatedLinks from "@/components/RelatedLinks";
 import ReadingTimeBadge from "@/components/ReadingTimeBadge";
+import Byline from "@/components/Byline";
 import TableOfContents from "@/components/TableOfContents";
 import RelatedArticles from "@/components/RelatedArticles";
 import { buildMetadata } from "@/lib/metadata";
@@ -38,7 +39,7 @@ const faqs = [
   },
   {
     q: "אילו מסמכים נדרשים?",
-    a: "בקשה חתומה על ידי עורך הבקשה (אדריכל/מהנדס), תכניות אדריכליות של הממ\"ד, תכנית קונסטרוקטיבית, מפרט טכני של דלת וחלון, מפרט מערכת אוורור/סינון, והצהרות נדרשות. ברישוי מקוצר/רגיל נדרשים מסמכים נוספים. [פרטים מדויקים באתר פיקוד העורף ומינהל התכנון].",
+    a: "בקשה חתומה על ידי עורך הבקשה (אדריכל/מהנדס), תכניות אדריכליות של הממ\"ד, תכנית קונסטרוקטיבית, מפרט טכני של דלת וחלון, מפרט מערכת אוורור/סינון, והצהרות נדרשות. ברישוי מקוצר/רגיל נדרשים מסמכים נוספים. הרשימה הרשמית והעדכנית מפורסמת באתר פיקוד העורף (oref.org.il) ובאתר מינהל התכנון (gov.il).",
   },
   {
     q: "מי מגיש את הבקשה?",
@@ -88,7 +89,8 @@ export default function Page() {
       />
 
       <Section tone="white">
-        <div className="flex justify-center">
+        <div className="flex flex-wrap justify-center items-center gap-3">
+          <Byline />
           <ReadingTimeBadge words={WORD_COUNT} />
         </div>
       </Section>
@@ -101,6 +103,27 @@ export default function Page() {
             אישור פיקוד העורף הוא תנאי בלעדיו אין לכל ממ״ד חוקי בישראל. הוא האישור שמאשר
             שהתכנון והביצוע עומדים בדרישות המיגון: עובי קירות, דלת, חלון, מערכת אוורור וסינון,
             חישוב סטטי ותפקוד בחירום. בלי האישור, מה שבניתם אינו ממ״ד.
+          </p>
+          <p>
+            ההנחיות הרשמיות, טפסי הבקשה והנחיות הביצוע מפורסמים באתר{" "}
+            <a
+              href="https://www.oref.org.il/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-[var(--color-accent)] underline-offset-4 hover:text-[var(--color-accent-dark)]"
+            >
+              פיקוד העורף (oref.org.il)
+            </a>
+            . מסלולי הרישוי, היתרים והפטור מפורסמים באתר{" "}
+            <a
+              href="https://www.gov.il/he/departments/topics/planning_and_building/govil-landing-page"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-[var(--color-accent)] underline-offset-4 hover:text-[var(--color-accent-dark)]"
+            >
+              מינהל התכנון (gov.il)
+            </a>
+            . אנחנו מטפלים בתהליך עבורכם, מהגשה ועד אישור.
           </p>
 
           <h2 id="process">התהליך בקצרה</h2>

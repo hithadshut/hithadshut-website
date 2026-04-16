@@ -515,3 +515,69 @@ Expected Lighthouse deltas: Mobile Performance ±0 (no asset changes), SEO +3–
 - No content deletions. No schema removed. Title template change preserves canonical brand, just moves the responsibility to the page-level TITLE constants.
 - All `[טעון אימות מקצועי]` markers preserved.
 
+## Stage 5 — E-E-A-T + Helpful Content (completed 2026-04-16)
+
+### Audit (general-purpose agent, read-only). Priority summary:
+| # | Severity | Item | Acted? |
+|---|---|---|---|
+| 1 | 🔴 | Remove visible `[טעון אימות מקצועי]` markers from user-facing prose | ✅ fixed |
+| 2 | 🔴 | Remove fake Facebook/LinkedIn URLs from `sameAs` in `lib/schema.ts` | ✅ fixed |
+| 3 | 🟠 | Add Trust Bar with `[טעון עדכון בפועל]` placeholders | deferred (needs client counts) |
+| 4 | 🟠 | License number placeholder in Footer + About | deferred (needs client license #) |
+| 5 | 🟠 | Outbound authority links to oref.org.il, gov.il | ✅ fixed |
+| 6 | 🟠 | Expand `/about` content | deferred (Stage 8) |
+| 7 | 🟠 | Author byline on guide pages | ✅ fixed |
+| 8 | 🟠 | Request testimonials, add `Review` schema helper | deferred (needs client data) |
+| 9 | 🟠 | Physical address disclosure decision | deferred (policy decision) |
+| 10 | 🟡 | Deduplicate hardcoded phone strings | deferred (cleanup) |
+| 11 | 🟡 | Cookie/analytics disclosure in Privacy | deferred (depends on analytics setup) |
+
+### Task 1 — Debug markers → natural Hebrew (19 occurrences across 7 files)
+All user-facing `[טעון אימות מקצועי]` and similar bracketed debug markers removed or converted to natural professional caveats. Prices and numbers preserved exactly.
+- `src/app/guides/mamad-cost/page.tsx` — 9 occurrences cleaned (FAQ answers L59, L75, L79; size table L100 ×2; TL;DR L134; accumulation note L228; breakdown L288, L292; comparison L405).
+- `src/app/services/migunit/page.tsx` — 5 occurrences cleaned (FAQ L51, L59, L67; size table L114, L117).
+- `src/app/services/building-mamad/page.tsx` — 3 occurrences cleaned (subtype priceImpact L201, L233; FAQ L61 about NBC filter replacement).
+- `src/app/services/room-reinforcement/page.tsx` — 2 occurrences cleaned (FAQ L43 about municipality approval, L59 about door prices).
+- `src/app/compare/mamad-tzamud-vs-hitzoni/page.tsx` — 1 (L162, re-phrased as "(בכפוף לרשות המקומית ולתכנית המתאר הספציפית)").
+- `src/app/compare/katlan-rashum-vs-hafer/page.tsx` — 1 (L190, re-phrased as "לכל מקרה פרטני מומלץ ייעוץ משפטי").
+- `src/app/guides/home-front-command-approval/page.tsx` — 1 (FAQ L41, "[פרטים מדויקים באתר פיקוד העורף ומינהל התכנון]" → sentence with authoritative domains named).
+
+### Task 2 — Fake `sameAs` URLs removed from Organization schema
+`src/lib/schema.ts:54-60` — the 3 URLs (Google Maps search, `facebook.com/hithadshut`, `linkedin.com/company/hithadshut`) were either speculative or 404. A broken `sameAs` entry hurts E-E-A-T more than an empty array. Replaced with empty array + TODO comment requesting client's real Google Business Profile, Facebook page, and LinkedIn company URLs.
+
+### Task 3 — Authoritative external links added
+Three clickable outbound links to Israeli government authorities (with `target="_blank" rel="noopener noreferrer"`):
+- `src/app/guides/home-front-command-approval/page.tsx` — new paragraph after the intro H2 citing oref.org.il (Home Front Command) and the gov.il planning administration page.
+- `src/app/compare/katlan-rashum-vs-hafer/page.tsx` L289 — the "bottom disclaimer" text now links רשם הקבלנים to the gov.il Ministry of Construction and Housing page.
+- FAQ L41 of the פקע״ר guide also names the two domains as plain text references.
+
+### Task 4 — Author byline on guide pages
+New component `src/components/Byline.tsx`: collective-attribution pill "מאת: צוות המומחים של התחדשות בינוי ויזמות" with a user icon. No fabricated individual name — safe collective authorship signal.
+Inserted into all 5 guide pages next to the existing `ReadingTimeBadge`:
+- `src/app/guides/mamad-process/page.tsx`
+- `src/app/guides/mamad-cost/page.tsx`
+- `src/app/guides/home-front-command-approval/page.tsx`
+- `src/app/guides/choosing-mamad-contractor/page.tsx`
+- `src/app/guides/mamad-mistakes/page.tsx`
+
+When the client nominates a named engineer or architect to take article bylines, the component can be extended with an optional `author` prop and the page's `articleJsonLd` can emit a `Person` schema with `jobTitle` and `worksFor`.
+
+### Deferred items (require client input or larger scope)
+- **Trust bar on homepage** with "X+ פרויקטים", "X+ שנים": need real numbers.
+- **Footer license-number line**: need actual רשם הקבלנים registration number.
+- **Testimonials / `Review` schema**: need real testimonials with permission to publish.
+- **Physical address decision**: need a policy call from the client.
+- **Phone string deduplication**: cosmetic, scheduled for Stage 8 cleanup.
+- **Cookie/GA disclosure**: depends on whether analytics/pixels are active.
+
+### Verification
+- `npm run lint` → 0 errors, 0 warnings.
+- `rm -rf .next && npm run build` → `✓ Compiled successfully in 10.6s`, 168/168 static pages.
+
+### Constraints held
+- No fabricated names, numbers, testimonials, addresses, or license numbers.
+- No em-dashes reintroduced. No AI-tell phrases reintroduced.
+- No prices changed — only the surrounding debug text.
+- No schema removed — `sameAs` changed from `[3 speculative URLs]` to `[]`, which is factually safer.
+- All Stage 1–4 outputs preserved.
+
