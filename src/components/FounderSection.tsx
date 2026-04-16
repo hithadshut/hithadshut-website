@@ -6,7 +6,7 @@ const personJsonLd = {
   "@type": "Person",
   "name": "אופק מזור",
   "jobTitle": "מנכ״ל ומייסד",
-  "worksFor": { "@type": "Organization", "name": "התחדשות — בינוי ויזמות" },
+  "worksFor": { "@type": "Organization", "name": "התחדשות בינוי ויזמות" },
   "image": "https://hithadshut.co.il/ofek-mazor.jpg",
   "telephone": "+972-54-671-2130",
 };
@@ -20,7 +20,7 @@ export default function FounderSection() {
       />
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Image column — first in DOM (in RTL, appears on right; on mobile, on top) */}
+          {/* Image column: first in DOM (in RTL, appears on right; on mobile, on top) */}
           <Reveal>
             <div className="flex flex-col items-center">
               <figure className="w-[250px] h-[320px] rounded-2xl overflow-hidden shadow-card ring-1 ring-[var(--color-accent)]/30 relative">
@@ -56,7 +56,7 @@ export default function FounderSection() {
               <p className="mt-6 text-lg text-[var(--color-muted)] leading-relaxed">
                 התחדשות נוסדה מתוך אמונה פשוטה: בעלי בתים בישראל מגיעים לפתרון מקצועי,
                 שקוף ואמין. אופק מזור, מנכ״ל ומייסד החברה, מוביל את הצוות עם גישה של
-                שקיפות מלאה — מחיר ברור, לוח זמנים מחייב, ואחריות אישית על כל פרויקט.
+                שקיפות מלאה: מחיר ברור, לוח זמנים מחייב, ואחריות אישית על כל פרויקט.
               </p>
               <p className="mt-4 text-lg text-[var(--color-muted)] leading-relaxed">
                 אנחנו לא חברה שמעבירה אתכם לקבלן משנה ונעלמת. אנחנו נמצאים בשטח,

@@ -134,7 +134,7 @@ export default function ContactForm({ defaultService }: { defaultService?: strin
         disabled={status === "loading"}
         className="mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--color-accent)] hover:bg-[var(--color-accent-dark)] text-[var(--color-primary)] font-extrabold px-6 py-4 shadow-[var(--shadow-cta)] disabled:opacity-60 transition"
       >
-        {status === "loading" ? "שולח..." : "שלחו — קבלו הצעת מחיר"}
+        {status === "loading" ? "שולח..." : "שלחו וקבלו הצעת מחיר"}
       </button>
 
       <p className="text-xs text-[var(--color-muted-2)] text-center">

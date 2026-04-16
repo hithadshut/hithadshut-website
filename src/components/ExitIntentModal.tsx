@@ -65,7 +65,7 @@ export default function ExitIntentModal() {
               רגע לפני שעוזבים
             </div>
             <h2 id="exit-title" className="text-2xl md:text-3xl font-black leading-tight">
-              השאירו פרטים — נחזור אליכם עם הצעה מותאמת
+              השאירו פרטים ונחזור אליכם עם הצעה מותאמת
             </h2>
           </div>
           <button
@@ -81,7 +81,7 @@ export default function ExitIntentModal() {
         </div>
         <div className="p-8">
           <p className="text-[var(--color-muted)] leading-relaxed">
-            חברת התחדשות — בינוי ויזמות. ייעוץ ראשוני ללא עלות וללא התחייבות.
+            חברת התחדשות בינוי ויזמות. ייעוץ ראשוני ללא עלות וללא התחייבות.
             מסבירים לכם בדיוק איך בונים ממ״ד, מה העלויות, ומה ניתן לעשות בבית שלכם.
           </p>
           <div className="mt-6 flex flex-col sm:flex-row gap-3">

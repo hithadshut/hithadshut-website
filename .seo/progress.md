@@ -244,3 +244,53 @@ Left untouched per spec.
 - ReadingTimeBadge uses discriminated-union props — either `words` OR `minutes`, never both, caught at the type level.
 - No files deleted. No URL set changes. Sitemap unchanged.
 
+## Stage 1 — Em/en-dash cleanup across Hebrew copy (2026-04-16)
+
+### Why
+Hebrew copywriting does not use the em-dash (—, U+2014) or en-dash (–, U+2013) the way English does. The prose across the site was auto-generated with dashes that read as AI-translated and break naturally Hebrew rhythm. Replaced all occurrences in `src/` with contextually appropriate punctuation: period between complete clauses, comma for appositives, colon for definitions, hyphen "-" for numeric ranges, "התחדשות בינוי ויזמות" as a single noun phrase (no dash).
+
+### Files touched (Stage 1)
+- `src/app/services/private-construction/page.tsx` (carry-over from prior pass; verified clean)
+- `src/app/services/prefab-mamad/page.tsx` (25 dashes → 0)
+- `src/app/areas/[city]/[service]/page.tsx` (17 dashes → 0; hyphen preserved in LocalBusiness `name` template literal for schema consistency)
+- `src/app/compare/mamad-vs-miggun-vs-migunit/page.tsx` (18 dashes → 0)
+- `src/app/compare/mamad-tzamud-vs-hitzoni/page.tsx` (18 dashes → 0)
+- `src/app/guides/home-front-command-approval/page.tsx` (15 dashes → 0)
+- `src/app/guides/mamad-mistakes/page.tsx` (17 dashes → 0)
+- `src/app/about/page.tsx` (10 dashes → 0; title normalized to "התחדשות בינוי ויזמות")
+- `src/app/guides/choosing-mamad-contractor/page.tsx` (17 dashes → 0)
+- `src/app/services/building-mamad/page.tsx` (39 dashes → 0)
+- `src/app/services/renovations/page.tsx` (15 dashes → 0; DESCRIPTION normalized)
+- `src/app/areas/page.tsx` (8 dashes → 0)
+- `src/app/contact/page.tsx` (2 dashes → 0)
+- `src/app/privacy/page.tsx` (2 dashes → 0)
+- `src/app/accessibility/page.tsx` (3 en + 1 em → 0; law year hyphens "התשנ״ח-1998", heading range "H1-H4")
+- `src/app/terms/page.tsx` (1 dash → 0)
+
+### Patterns applied
+- "התחדשות — בינוי ויזמות" → "התחדשות בינוי ויזמות" (single company name, no dash)
+- Numeric ranges: "160,000–200,000" → "160,000-200,000", "5–15%" → "5-15%", "14–45 ימים" → "14-45 ימים"
+- Definition em-dash in headings: "בחירת קבלן ממ״ד — רשימת בדיקה" → "בחירת קבלן ממ״ד: רשימת בדיקה"
+- Em-dash between clauses → period: "לא תפגשו את בעל המקצוע. אותו גורם אחראי על הכל, קל יותר"
+- Appositive em-dash → comma: "אנחנו פועלים בכל הארץ, ממרכז ותל אביב..."
+- Preserved: gershayim ״, geresh ׳, HTML entities (`&quot;`, `&bdquo;`, `&rdquo;`), JSX structure (`<strong>`, `<em>`, `<Link>`), LocalBusiness schema `name` field template literal.
+
+### Tricky restructures
+- `${site.name} — ${svc.name} ${area.name}` in `areas/[city]/[service]/page.tsx`: changed to hyphen "-" (not dropped) to keep LocalBusiness schema `name` readable as "Brand - Service City".
+- TldrBlock bullets in `choosing-mamad-contractor/page.tsx`: "קבלן רשום מול חאפר — ההבדל המעשי: ... חאפר — ללא רישום" → "קבלן רשום מול חאפר, ההבדל המעשי: ... חאפר פועל ללא רישום", preserving `<strong>` wrapper on the label.
+- FAQ answer with nested `&quot;` in `home-front-command-approval/page.tsx`: restructured "בתוך 45 ימים מתום הביצוע — בלעדיה הממ״ד לא &quot;סגור&quot;" to "בתוך 45 ימים מתום הביצוע. בלעדיה הממ״ד לא &quot;סגור&quot;" without breaking the entity escapes.
+- Accessibility legal citations: Hebrew year suffixes "התשנ״ח–1998" and "התשע״ג–2013" use en-dash by convention, but converted to hyphen for consistency with the rest of the site (legal meaning unchanged).
+
+### Verification
+- `grep -r '[—–]' src/` → 0 matches across all file types.
+- `src/app/globals.css` → 0 em/en-dashes (CSS comments were already clean).
+- `npm run lint` → 0 errors, 0 warnings.
+- `npm run build` → compiled successfully in 11.1s, TypeScript in 9.2s, 168 static pages generated.
+
+### Constraints held
+- JSX structure preserved everywhere (no accidental rewraps of `<strong>`, `<em>`, `<Link>`).
+- HTML entities (`&quot;`, `&bdquo;`, `&rdquo;`) left intact.
+- Schema.org data untouched (Article, FAQPage, HowTo, BreadcrumbList, LocalBusiness, Service, Organization).
+- Metadata signatures (`buildMetadata({ title, description, path })`) unchanged.
+- No URL set changes, no sitemap changes, no file deletions.
+

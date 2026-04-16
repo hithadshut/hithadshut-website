@@ -7,7 +7,7 @@ type Props = {
 };
 
 /**
- * TldrBlock — "בקצרה" summary card at the top of long-form content.
+ * TldrBlock - "בקצרה" summary card at the top of long-form content.
  * Optimized for AI citation: short, factual, keyword-rich direct answers.
  * Gold-accented, RTL, mobile-friendly.
  */

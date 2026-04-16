@@ -5,7 +5,7 @@ import { buildMetadata } from "@/lib/metadata";
 
 const PATH = "/terms";
 const TITLE = "תנאי שימוש";
-const DESCRIPTION = "תנאי השימוש באתר התחדשות — כללי שימוש, הגבלת אחריות וזכויות.";
+const DESCRIPTION = "תנאי השימוש באתר התחדשות: כללי שימוש, הגבלת אחריות וזכויות.";
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 

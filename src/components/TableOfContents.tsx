@@ -10,7 +10,7 @@ type Props = {
 };
 
 /**
- * TableOfContents — sticky sidebar on desktop (lg+), collapsible accordion on mobile.
+ * TableOfContents - sticky sidebar on desktop (lg+), collapsible accordion on mobile.
  * - Client component: IntersectionObserver highlights the active section on desktop.
  * - RTL-correct: uses margin-inline / padding-inline via Tailwind logical properties.
  * - Accessible: wrapper is <nav aria-label="תוכן עניינים">.

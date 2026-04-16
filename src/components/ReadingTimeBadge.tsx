@@ -3,7 +3,7 @@ type Props =
   | { words?: never; minutes: number };
 
 /**
- * ReadingTimeBadge — inline pill ("זמן קריאה: ~X דק׳") with a clock SVG icon.
+ * ReadingTimeBadge - inline pill ("זמן קריאה: ~X דק׳") with a clock SVG icon.
  * Server component (no "use client"). Pure render.
  * Accepts either `words` (auto-divides by 200 wpm) or `minutes` directly.
  */

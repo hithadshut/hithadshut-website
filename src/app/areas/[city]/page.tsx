@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   if (!area) return {};
   return buildMetadata({
     title: `בניית ממ״ד ב${area.name} | קבלן מורשה פקע״ר | התחדשות`,
-    description: `בניית ממ״ד ב${area.name} — חברת בינוי ויזמות, ליווי מלא מתכנון ועד אישור פיקוד העורף. הצעת מחיר תוך 24 שעות.`,
+    description: `בניית ממ״ד ב${area.name}: חברת בינוי ויזמות, ליווי מלא מתכנון ועד אישור פיקוד העורף. הצעת מחיר תוך 24 שעות.`,
     path: `/areas/${area.slug}`,
   });
 }
@@ -38,23 +38,23 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
 const baseFaqs = (cityName: string) => [
   {
     q: `כמה עולה לבנות ממ״ד ב${cityName}?`,
-    a: `ממ״ד 9 מ״ר בבית פרטי ב${cityName}: טווח כללי של 160,000–200,000 ₪ + מע״מ. ממ״ד 12 מ״ר: 200,000–220,000 ₪ + מע״מ. באזורי קו קדמי תוספת של 15%–25% לעובי קירות. ההצעה הסופית מותאמת לנכס ולדרישות פקע״ר באזור.`,
+    a: `ממ״ד 9 מ״ר בבית פרטי ב${cityName}: טווח כללי של 160,000-200,000 ₪ + מע״מ. ממ״ד 12 מ״ר: 200,000-220,000 ₪ + מע״מ. באזורי קו קדמי תוספת של 15%-25% לעובי קירות. ההצעה הסופית מותאמת לנכס ולדרישות פקע״ר באזור.`,
   },
   {
     q: `כמה זמן לוקח לבנות ממ״ד ב${cityName}?`,
-    a: `אישור פיקוד העורף: עד 14 ימי עבודה במסלול פטור. ביצוע: 6–10 שבועות לממ״ד סטנדרטי. סך הכל: 2–4 חודשים מהפנייה ועד מסירה, בכפוף לוועדה המקומית ב${cityName}.`,
+    a: `אישור פיקוד העורף: עד 14 ימי עבודה במסלול פטור. ביצוע: 6-10 שבועות לממ״ד סטנדרטי. סך הכל: 2-4 חודשים מהפנייה ועד מסירה, בכפוף לוועדה המקומית ב${cityName}.`,
   },
   {
     q: `אילו אישורים נדרשים לבניית ממ״ד ב${cityName}?`,
-    a: `אישור פיקוד העורף (חובה), ובהתאם למסלול — פטור מהיתר, רישוי מקוצר או היתר מלא מהוועדה המקומית ב${cityName}. אנחנו מלווים את התהליך מול כל הגורמים.`,
+    a: `אישור פיקוד העורף (חובה), ובהתאם למסלול: פטור מהיתר, רישוי מקוצר או היתר מלא מהוועדה המקומית ב${cityName}. אנחנו מלווים את התהליך מול כל הגורמים.`,
   },
   {
     q: "האם אתם עובדים עם קבלן משנה או מבצעים בעצמכם?",
-    a: "התחדשות היא חברת בינוי ויזמות — אנחנו הקבלנים המבצעים. חוזה אחד, חברה אחת, אחריות מלאה על כל הפרויקט.",
+    a: "התחדשות היא חברת בינוי ויזמות. אנחנו הקבלנים המבצעים. חוזה אחד, חברה אחת, אחריות מלאה על כל הפרויקט.",
   },
   {
     q: `האם יש הבדל בעובי קירות הממ״ד ב${cityName} לעומת אזורים אחרים?`,
-    a: `הדרישות נקבעות לפי הנחיות פקע״ר לאזור. באזורי קו קדמי או חזית דרומית / צפונית ייתכן שיידרש עובי קירות גדול יותר מ-25 ס״מ הסטנדרטי — אנחנו בודקים את הדרישות הספציפיות ל${cityName} כחלק מהתכנון.`,
+    a: `הדרישות נקבעות לפי הנחיות פקע״ר לאזור. באזורי קו קדמי או חזית דרומית / צפונית ייתכן שיידרש עובי קירות גדול יותר מ-25 ס״מ הסטנדרטי. אנחנו בודקים את הדרישות הספציפיות ל${cityName} כחלק מהתכנון.`,
   },
 ];
 
@@ -76,12 +76,12 @@ export default async function AreaPage({ params }: { params: Params }) {
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "GeneralContractor"],
     "@id": `${site.url}${areaUrl}#localbusiness`,
-    name: `${site.name} — ${area.name}`,
+    name: `${site.name} - ${area.name}`,
     url: `${site.url}${areaUrl}`,
     telephone: site.phoneE164,
     email: site.email,
     image: `${site.url}${site.ogImage}`,
-    description: `בניית ממ״ד, מיגון חדר ומיגוניות ב${area.name} — חברת בינוי ויזמות, ליווי מלא.`,
+    description: `בניית ממ״ד, מיגון חדר ומיגוניות ב${area.name}: חברת בינוי ויזמות, ליווי מלא.`,
     priceRange: "₪₪₪",
     areaServed: { "@type": "City", name: area.name },
     address: {
@@ -103,8 +103,8 @@ export default async function AreaPage({ params }: { params: Params }) {
     <>
       <PageHero
         eyebrow={`אזור שירות · ${area.district}`}
-        title={`בניית ממ״ד ב${area.name} — חברת התחדשות`}
-        subtitle={`חברת בינוי ויזמות ב${area.name} — בניית ממ״דים, מיגון חדרים, מיגוניות וממ״דים מוכנים. ליווי מלא, אישורי פקע״ר, עבודה מקצועית.`}
+        title={`בניית ממ״ד ב${area.name}: חברת התחדשות`}
+        subtitle={`חברת בינוי ויזמות ב${area.name}: בניית ממ״דים, מיגון חדרים, מיגוניות וממ״דים מוכנים. ליווי מלא, אישורי פקע״ר, עבודה מקצועית.`}
         crumbs={[
           { name: "אזורי שירות", href: "/areas" },
           { name: area.name, href: areaUrl },
@@ -122,13 +122,13 @@ export default async function AreaPage({ params }: { params: Params }) {
             </h2>
             <p className="text-[var(--color-muted)] leading-relaxed">
               {area.localNote ??
-                `אנחנו מבצעים פרויקטים של בניית ממ״ד ומיגון ב${area.name} וסביבתה. חברת בינוי ויזמות — לא מתווכים, לא קבלני משנה חיצוניים. הקבלנים, המהנדסים והאדריכלים פועלים תחת חוזה אחד ואחריות אחת.`}{" "}
+                `אנחנו מבצעים פרויקטים של בניית ממ״ד ומיגון ב${area.name} וסביבתה. חברת בינוי ויזמות: לא מתווכים, לא קבלני משנה חיצוניים. הקבלנים, המהנדסים והאדריכלים פועלים תחת חוזה אחד ואחריות אחת.`}{" "}
               כל פרויקט נבחן פרטנית מול סוג הבית, רמת האיום באזור והדרישות של פיקוד העורף לאזור {area.district}.
             </p>
             <p className="mt-4 text-[var(--color-muted)] leading-relaxed">
-              ההתמחות המרכזית שלנו היא ממ״דים — זה הליבה של החברה. בנוסף אנחנו מבצעים מיגון חדרים
+              ההתמחות המרכזית שלנו היא ממ״דים. זה הליבה של החברה. בנוסף אנחנו מבצעים מיגון חדרים
               קיימים, התקנת מיגוניות ותכנון ממ״דים מוכנים. לכל פתרון פרופיל עלות, לוח זמנים ורמת
-              הגנה שונה — ובעמוד הזה תמצאו את ההבדלים והפתרון שמתאים לכם ב{area.name}.
+              הגנה שונה, ובעמוד הזה תמצאו את ההבדלים והפתרון שמתאים לכם ב{area.name}.
             </p>
           </div>
         </Reveal>
@@ -165,7 +165,7 @@ export default async function AreaPage({ params }: { params: Params }) {
               השירותים שלנו ב{area.name}
             </h2>
             <p className="mt-3 text-[var(--color-muted)]">
-              ארבעה פתרונות מיגון עיקריים — כולם מבוצעים על ידינו, עם ליווי הנדסי ואישור פקע״ר.
+              ארבעה פתרונות מיגון עיקריים, כולם מבוצעים על ידינו, עם ליווי הנדסי ואישור פקע״ר.
             </p>
           </div>
         </Reveal>
@@ -196,7 +196,7 @@ export default async function AreaPage({ params }: { params: Params }) {
           <div className="max-w-3xl mb-10">
             <div className="h-1 w-16 gold-line mb-5" />
             <h2 className="text-2xl md:text-4xl font-black text-[var(--color-primary)] leading-tight">
-              התהליך ב{area.name} — ארבעה שלבים
+              התהליך ב{area.name}: ארבעה שלבים
             </h2>
           </div>
         </Reveal>
@@ -204,7 +204,7 @@ export default async function AreaPage({ params }: { params: Params }) {
           {[
             {
               t: "פנייה וסיור",
-              d: `אתם משאירים פרטים, אנחנו מתאמים סיור ב${area.name} — ללא עלות, ללא התחייבות.`,
+              d: `אתם משאירים פרטים, אנחנו מתאמים סיור ב${area.name} ללא עלות, ללא התחייבות.`,
             },
             {
               t: "תכנון ואישורים",
@@ -212,7 +212,7 @@ export default async function AreaPage({ params }: { params: Params }) {
             },
             {
               t: "חוזה וביצוע",
-              d: "חוזה עם מפרט ולוח זמנים, חפירה, יציקה, מערכות וגמר — הכל על ידי צוותים שלנו.",
+              d: "חוזה עם מפרט ולוח זמנים, חפירה, יציקה, מערכות וגמר. הכל על ידי צוותים שלנו.",
             },
             {
               t: "בדיקות ומסירה",
@@ -239,10 +239,10 @@ export default async function AreaPage({ params }: { params: Params }) {
           <div className="max-w-3xl">
             <div className="h-1 w-16 gold-line mb-5" />
             <h2 className="text-2xl md:text-4xl font-black text-[var(--color-primary)] leading-tight mb-5">
-              עוד על בניית ממ״ד — מדריכים מקצועיים
+              עוד על בניית ממ״ד: מדריכים מקצועיים
             </h2>
             <p className="text-[var(--color-muted)] leading-relaxed">
-              לפני שמתחילים פרויקט ב{area.name} — שווה לקרוא את המדריכים שלנו על עלויות, תהליך ומסלולי
+              לפני שמתחילים פרויקט ב{area.name}, שווה לקרוא את המדריכים שלנו על עלויות, תהליך ומסלולי
               הרישוי. גם אם תבחרו שלא לעבוד איתנו, המידע יעזור לכם לקבל החלטה מושכלת.
             </p>
             <ul className="mt-5 grid sm:grid-cols-2 gap-3 text-sm">
@@ -253,7 +253,7 @@ export default async function AreaPage({ params }: { params: Params }) {
               </li>
               <li>
                 <Link href="/guides/mamad-process" className="font-bold text-[var(--color-primary)] hover:text-[var(--color-accent-dark)]">
-                  ← איך בונים ממ״ד — שלב אחר שלב
+                  ← איך בונים ממ״ד, שלב אחר שלב
                 </Link>
               </li>
               <li>
@@ -268,7 +268,7 @@ export default async function AreaPage({ params }: { params: Params }) {
               </li>
               <li>
                 <Link href="/compare/mamad-vs-miggun-vs-migunit" className="font-bold text-[var(--color-primary)] hover:text-[var(--color-accent-dark)]">
-                  ← ממ״ד מול מיגון מול מיגונית — השוואה
+                  ← ממ״ד מול מיגון מול מיגונית: השוואה
                 </Link>
               </li>
               <li>
@@ -292,7 +292,7 @@ export default async function AreaPage({ params }: { params: Params }) {
         targets={["building-mamad", "mamad-cost", "compare-main", "contact"]}
       />
 
-      <FAQ items={faqs} eyebrow="שאלות ותשובות" title={`שאלות נפוצות — ${area.name}`} tone="soft" />
+      <FAQ items={faqs} eyebrow="שאלות ותשובות" title={`שאלות נפוצות: ${area.name}`} tone="soft" />
     </>
   );
 }

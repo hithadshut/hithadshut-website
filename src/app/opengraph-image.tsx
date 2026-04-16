@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "התחדשות — בינוי ויזמות | בניית ממ\"ד, מיגון ומיגוניות";
+export const alt = "התחדשות בינוי ויזמות | בניית ממ\"ד, מיגון ומיגוניות";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -69,7 +69,7 @@ export default async function Image() {
               letterSpacing: "-0.02em",
             }}
           >
-            בניית ממ״ד ומיגון הבית — מהתכנון ועד המפתח
+            בניית ממ״ד ומיגון הבית, מהתכנון ועד המפתח
           </div>
           <div
             style={{

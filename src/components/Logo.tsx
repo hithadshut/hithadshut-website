@@ -25,7 +25,7 @@ export default function Logo({
   return (
     <span
       className={`inline-flex items-center gap-2.5 ${className}`}
-      aria-label="התחדשות — בינוי ויזמות"
+      aria-label="התחדשות בינוי ויזמות"
     >
       <svg
         width={mark.w}
@@ -35,7 +35,7 @@ export default function Logo({
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
       >
-        {/* Shield silhouette — architectural + protective */}
+        {/* Shield silhouette: architectural + protective */}
         <defs>
           <linearGradient id="logoGrad" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
             <stop offset="0%" stopColor={gold} />

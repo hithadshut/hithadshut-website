@@ -239,7 +239,7 @@ export default function ServicePageLayout({
 
       <InlineLeadForm
         title="מתעניינים בפרויקט? בואו נדבר."
-        subtitle="השאירו פרטים ונחזור אליכם תוך שעות ספורות עם שיחת ייעוץ ראשונית — ללא עלות."
+        subtitle="השאירו פרטים ונחזור אליכם תוך שעות ספורות עם שיחת ייעוץ ראשונית, ללא עלות."
         defaultService={defaultService}
       />
 

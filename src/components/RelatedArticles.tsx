@@ -25,7 +25,7 @@ const GUIDES: GuideEntry[] = [
     slug: "mamad-process",
     href: "/guides/mamad-process",
     title: "תהליך בניית ממ״ד",
-    description: "שבעה שלבים — מהייעוץ הראשוני ועד מסירת המפתח ואישורי הגמר.",
+    description: "שבעה שלבים, מהייעוץ הראשוני ועד מסירת המפתח ואישורי הגמר.",
   },
   {
     slug: "home-front-command-approval",
@@ -43,7 +43,7 @@ const GUIDES: GuideEntry[] = [
     slug: "mamad-mistakes",
     href: "/guides/mamad-mistakes",
     title: "10 טעויות בבניית ממ״ד",
-    description: "הטעויות היקרות ביותר בפרויקטים אמיתיים — ואיך להימנע מהן מראש.",
+    description: "הטעויות היקרות ביותר בפרויקטים אמיתיים, ואיך להימנע מהן מראש.",
   },
 ];
 
@@ -54,7 +54,7 @@ type Props = {
 };
 
 /**
- * RelatedArticles — guide→guide "מאמרים נוספים שיעניינו אתכם" block.
+ * RelatedArticles - guide->guide "מאמרים נוספים שיעניינו אתכם" block.
  * Distinct from RelatedLinks (which is cross-type with anchor rotation).
  * Filters out currentSlug, shows up to `limit` same-type guides.
  */

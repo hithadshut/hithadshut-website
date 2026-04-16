@@ -37,7 +37,7 @@ export default function Header() {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-18 py-3">
-          <Link href="/" aria-label="דף הבית — התחדשות בינוי ויזמות">
+          <Link href="/" aria-label="דף הבית של התחדשות בינוי ויזמות">
             <Logo size="md" />
           </Link>
 
@@ -75,7 +75,7 @@ export default function Header() {
                   </Link>
                 ))}
                 <Link href={`/compare/${compare.slug}`} className="block px-3 py-2 rounded-lg text-sm font-semibold text-[var(--color-accent-dark)] hover:bg-[var(--color-soft)] border-t border-[var(--color-border)] mt-1">
-                  השוואה — ממ״ד / מיגון / מיגונית
+                  השוואה: ממ״ד / מיגון / מיגונית
                 </Link>
               </div>
             </div>
@@ -88,7 +88,7 @@ export default function Header() {
             <a
               href={`tel:${site.phoneDial}`}
               className="hidden sm:inline-flex items-center gap-2 text-sm font-extrabold text-[var(--color-primary)] hover:text-[var(--color-accent-dark)] transition"
-              aria-label={`התקשרו אלינו — ${site.phone}`}
+              aria-label={`התקשרו אלינו ${site.phone}`}
             >
               <span className="inline-flex w-8 h-8 rounded-full bg-[var(--color-primary)]/5 items-center justify-center">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
@@ -128,7 +128,7 @@ export default function Header() {
           <div className="mx-auto max-w-7xl px-4 py-3 space-y-1 max-h-[75vh] overflow-y-auto">
             <details className="group">
               <summary className="flex items-center justify-between py-3 font-bold cursor-pointer list-none">
-                שירותים — מיגון וממ״ד
+                שירותים: מיגון וממ״ד
                 <span className="text-xs faq-chevron">▾</span>
               </summary>
               <div className="ps-3 pb-2">
@@ -141,7 +141,7 @@ export default function Header() {
             </details>
             <details className="group">
               <summary className="flex items-center justify-between py-3 font-bold cursor-pointer list-none">
-                שירותים — בנייה ושיפוצים
+                שירותים: בנייה ושיפוצים
                 <span className="text-xs faq-chevron">▾</span>
               </summary>
               <div className="ps-3 pb-2">
@@ -164,7 +164,7 @@ export default function Header() {
                   </Link>
                 ))}
                 <Link href={`/compare/${compare.slug}`} onClick={() => setOpen(false)} className="block py-2 text-sm font-bold text-[var(--color-accent-dark)]">
-                  השוואה — ממ״ד / מיגון / מיגונית
+                  השוואה: ממ״ד / מיגון / מיגונית
                 </Link>
               </div>
             </details>

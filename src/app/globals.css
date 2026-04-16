@@ -2,13 +2,13 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  /* Primary — deep navy (near black-blue), enterprise grade */
+  /* Primary: deep navy (near black-blue), enterprise grade */
   --color-primary: #0A1628;
   --color-primary-2: #0D2137;
   --color-primary-3: #14304F;
   --color-primary-light: #1F3A5F;
 
-  /* Accent — champagne gold, premium */
+  /* Accent: champagne gold, premium */
   --color-accent: #C8A97E;
   --color-accent-dark: #A8874F;
   --color-accent-light: #E2CBA3;
@@ -124,7 +124,7 @@ img, svg, video, canvas, iframe {
 }
 
 /* ===========================================
-   ANIMATIONS — Reveal on scroll
+   ANIMATIONS - Reveal on scroll
    =========================================== */
 
 .reveal {
@@ -164,7 +164,7 @@ img, svg, video, canvas, iframe {
   }
 }
 
-/* Hero entrance — staggered */
+/* Hero entrance: staggered */
 @keyframes heroIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: none; }

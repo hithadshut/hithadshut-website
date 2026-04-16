@@ -5,7 +5,7 @@ import { buildMetadata } from "@/lib/metadata";
 
 const PATH = "/privacy";
 const TITLE = "מדיניות פרטיות";
-const DESCRIPTION = "מדיניות הפרטיות של אתר התחדשות — איזה מידע אנחנו אוספים ומה אנחנו עושים בו.";
+const DESCRIPTION = "מדיניות הפרטיות של אתר התחדשות: איזה מידע אנחנו אוספים ומה אנחנו עושים בו.";
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 
@@ -64,7 +64,7 @@ export default function Page() {
           <h2>עוגיות (Cookies)</h2>
           <p>
             האתר עשוי להשתמש בעוגיות לצורכי שיפור חוויית המשתמש וסטטיסטיקה. אפשר לחסום
-            עוגיות בהגדרות הדפדפן — ייתכן שחלק מהתפקוד ייפגע.
+            עוגיות בהגדרות הדפדפן. ייתכן שחלק מהתפקוד ייפגע.
           </p>
 
           <h2>יצירת קשר</h2>

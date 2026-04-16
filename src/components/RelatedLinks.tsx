@@ -75,7 +75,7 @@ export default function RelatedLinks({
               >
                 {item.anchor}
               </Link>
-              <span className="text-[var(--color-muted)]"> — {item.summary}</span>
+              <span className="text-[var(--color-muted)]">: {item.summary}</span>
             </li>
           ))}
         </ul>

@@ -46,7 +46,7 @@ export async function POST(req: Request) {
 
   const record = { ts, name, phone, city, service, notes, userAgent, ip };
 
-  // 1) Log to stdout — shows in Vercel logs
+  // 1) Log to stdout - shows in Vercel logs
   console.log("[LEAD]", JSON.stringify(record));
 
   // 2) Optional: forward to Formspree-like endpoint via LEAD_WEBHOOK_URL env var
@@ -76,7 +76,7 @@ export async function POST(req: Request) {
         body: JSON.stringify({
           from: process.env.LEAD_FROM_EMAIL || "Hithadshut <leads@hithadshut.co.il>",
           to: [site.email],
-          subject: `ליד חדש מהאתר — ${name}`,
+          subject: `ליד חדש מהאתר מאת ${name}`,
           text: `שם: ${name}\nטלפון: ${phone}\nעיר: ${city}\nשירות: ${service}\n\nהערות:\n${notes}\n\nזמן: ${ts}\nIP: ${ip}`,
         }),
       });

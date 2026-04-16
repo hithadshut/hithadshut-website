@@ -7,42 +7,42 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
   const entries: MetadataRoute.Sitemap = [
-    // Homepage — weekly, top priority
+    // Homepage: weekly, top priority
     {
       url: `${site.url}/`,
       lastModified: now,
       changeFrequency: "weekly",
       priority: 1.0,
     },
-    // Contact — high intent, monthly
+    // Contact: high intent, monthly
     {
       url: `${site.url}/contact`,
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.9,
     },
-    // Services — primary commercial pages
+    // Services: primary commercial pages
     ...services.map((s) => ({
       url: `${site.url}/services/${s.slug}`,
       lastModified: now,
       changeFrequency: "monthly" as const,
       priority: 0.9,
     })),
-    // Areas index — geo hub
+    // Areas index: geo hub
     {
       url: `${site.url}/areas`,
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.85,
     },
-    // Guides — content pages
+    // Guides: content pages
     ...guides.map((g) => ({
       url: `${site.url}/guides/${g.slug}`,
       lastModified: now,
       changeFrequency: "monthly" as const,
       priority: 0.75,
     })),
-    // Compare — all comparison pages (unified priority per spec)
+    // Compare: all comparison pages (unified priority per spec)
     ...compares.map((c) => ({
       url: `${site.url}/compare/${c.slug}`,
       lastModified: now,
@@ -65,7 +65,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.6,
       }))
     ),
-    // About — brand page
+    // About: brand page
     {
       url: `${site.url}/about`,
       lastModified: now,
