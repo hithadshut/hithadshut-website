@@ -5,6 +5,7 @@ import Section, { Prose } from "@/components/Section";
 import FAQ from "@/components/FAQ";
 import ContactCTA from "@/components/ContactCTA";
 import JsonLd from "@/components/JsonLd";
+import TldrBlock from "@/components/TldrBlock";
 import { buildMetadata } from "@/lib/metadata";
 import { articleJsonLd } from "@/lib/schema";
 
@@ -61,6 +62,15 @@ export default function Page() {
       />
 
       <JsonLd data={articleJsonLd({ headline: TITLE, description: DESCRIPTION, url: PATH })} />
+
+      <TldrBlock
+        bullets={[
+          <><strong>שלוש בדיקות שאי אפשר לוותר עליהן:</strong> רישום בפנקס הקבלנים עם סיווג תואם להיקף הפרויקט, ביטוח עבודות קבלניות וצד ג׳ בתוקף, וחוזה מפורט בכתב הכולל מפרט טכני, אבני דרך לתשלום ואחריות.</>,
+          <><strong>שלושה דגלים אדומים מרכזיים:</strong> מחיר נמוך משמעותית מהשוק (לרוב חסר רכיב), דרישה למקדמה מעל 20–25% לפני תחילת עבודה, ולחץ לחתום &quot;היום&quot; או לפני &quot;עליית מחיר&quot;.</>,
+          <><strong>קבלן רשום מול חאפר — ההבדל המעשי:</strong> קבלן רשום עובד מול חוק, מבוטח, חייב באחריות שנה/3/7 לפי חוק המכר, ומנפיק חשבוניות מס. חאפר — ללא רישום, ללא ביטוח, ללא אחריות משפטית. נזק באתר = כיס פרטי שלכם.</>,
+          <><strong>ניסיון ספציפי בממ״דים חשוב יותר ממחיר.</strong> ממ״ד דורש ידע בבטון מזוין, דלתות הדף, מערכות סינון מאושרות פקע״ר וחישוב סטטי ייעודי — קבלן שיפוצים כללי אינו בהכרח מתאים.</>,
+        ]}
+      />
 
       <Section>
         <Prose>

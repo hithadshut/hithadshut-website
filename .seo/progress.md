@@ -100,3 +100,36 @@
 
 ### Next stage
 - Stage E: programmatic SEO for remaining area×service combos, LocalBusiness schema refresh, sitemap.xml lastmod sweep.
+
+## Stage E — AI visibility layer (completed 2026-04-16)
+
+### Created
+- `src/components/TldrBlock.tsx` — reusable "בקצרה" card component. Props: `{ title?, bullets: (string | ReactNode)[], id? }`. Gold accent border-inline-start, role="region" aria-labelledby, RTL, mobile-safe (break-words, no horizontal overflow).
+- `public/llms.txt` — plain-text AI-readable site index following the emerging llms.txt standard. Served at `/llms.txt`. Sections: intro > services > guides > comparisons > service areas > contact. Canonical pricing included for all services.
+
+### Updated
+- `src/app/guides/mamad-process/page.tsx` — TldrBlock added (4 bullets: 7-step process, 2–4 month total, 3 permit tracks, who-approves-what).
+- `src/app/guides/home-front-command-approval/page.tsx` — TldrBlock added (4 bullets: 3 permit tracks, ~14 working-day approval, required documents, 45-day post-build notice).
+- `src/app/guides/choosing-mamad-contractor/page.tsx` — TldrBlock added (4 bullets: 3 non-negotiable checks, 3 red flags, registered-vs-hafer distinction, ממ״ד-specific experience).
+- `src/app/guides/mamad-mistakes/page.tsx` — TldrBlock added (4 bullets: top 3 mistakes by cost impact, golden rule for prevention).
+- `src/app/guides/mamad-cost/page.tsx` — existing inline TL;DR verified in place, not duplicated. FAQ Q5 (סובסידיה) first sentence polished to direct-answer form.
+- `src/app/page.tsx` — homepage FAQ Q4 (היתר בנייה) first sentence polished to direct-answer form.
+- `src/app/services/building-mamad/page.tsx` — FAQ Q4 (היתר בנייה) first sentence polished to direct-answer form.
+- `src/lib/schema.ts` — Organization schema `sameAs` populated with Google Maps search URL + Facebook/LinkedIn placeholders marked with `TODO: replace with live URL from client`.
+
+### AI citation optimizations
+- Every guide now opens with a bolded, direct-answer TL;DR block visible above the fold — designed for AI extract-and-cite patterns.
+- llms.txt provides a single-file structured overview that AI models can ingest to understand site scope, services, and canonical pricing in one pass.
+- sameAs signals cross-reference the Organization entity across Google Maps, Facebook, LinkedIn (placeholders for social).
+- Polished FAQ first-sentences on 3 pages (mamad-cost Q5, homepage Q4, building-mamad Q4) so each answer leads with a direct standalone statement.
+
+### Constraints held
+- No "יוזמה קהילתית" mentions.
+- All TL;DR pricing includes `+ מע״מ`.
+- No invented regulatory facts; speculative values marked `[טעון אימות מקצועי]`.
+- Canonical prices consistent with Stages B–D: ממ״ד 9m² 160–200K, 12m² 200–220K, front-line +15–25%, migunit 30–80K, all + מע״מ.
+- `/llms.txt` intentionally NOT added to sitemap.xml (it's a machine-readable index, not indexable content).
+- TldrBlock not added to service pages (strong hero + subtitle already) — guides are where direct-answer TL;DR matters most.
+
+### Next stage
+- Stage F: client-provided social URLs swap (replace sameAs TODO placeholders), real GBP/Google Maps URL, additional programmatic area×service depth.

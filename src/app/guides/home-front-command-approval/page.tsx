@@ -5,6 +5,7 @@ import Section, { Prose } from "@/components/Section";
 import FAQ from "@/components/FAQ";
 import ContactCTA from "@/components/ContactCTA";
 import JsonLd from "@/components/JsonLd";
+import TldrBlock from "@/components/TldrBlock";
 import { buildMetadata } from "@/lib/metadata";
 import { articleJsonLd } from "@/lib/schema";
 
@@ -61,6 +62,15 @@ export default function Page() {
       />
 
       <JsonLd data={articleJsonLd({ headline: TITLE, description: DESCRIPTION, url: PATH })} />
+
+      <TldrBlock
+        bullets={[
+          <><strong>שלושה מסלולי רישוי:</strong> פטור מהיתר (רוב הבתים עד 2 קומות, על בסיס אישור פקע״ר + הצהרת עורך בקשה), רישוי מקוצר (ועדה מקומית עם מסמכים מצומצמים), ורישוי רגיל (היתר בנייה מלא). בכל המסלולים — אישור פיקוד העורף הוא תנאי חובה.</>,
+          <><strong>זמן אישור: עד כ-14 ימי עבודה</strong> בהגשה אלקטרונית מסודרת. תיקון הערות והגשה חוזרת — שבוע נוסף. הזמנים משתנים לפי עומסים.</>,
+          <><strong>מסמכים נדרשים:</strong> בקשה חתומה על ידי עורך בקשה (אדריכל/מהנדס), תכניות אדריכליות וקונסטרוקטיביות, מפרט דלת הדף וחלון תקני, מפרט מערכת אוורור וסינון מאושרת, וחישוב סטטי.</>,
+          <><strong>בסיום העבודה במסלול פטור:</strong> עורך הבקשה מגיש הודעת סיום לרשות הרישוי ולפקע״ר בתוך 45 ימים מתום הביצוע — בלעדיה הממ״ד לא &quot;סגור&quot; פורמלית.</>,
+        ]}
+      />
 
       <Section>
         <Prose>

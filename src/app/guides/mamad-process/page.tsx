@@ -5,6 +5,7 @@ import Section, { Prose } from "@/components/Section";
 import FAQ from "@/components/FAQ";
 import ContactCTA from "@/components/ContactCTA";
 import JsonLd from "@/components/JsonLd";
+import TldrBlock from "@/components/TldrBlock";
 import { buildMetadata } from "@/lib/metadata";
 import { articleJsonLd, howToJsonLd } from "@/lib/schema";
 
@@ -71,6 +72,15 @@ export default function Page() {
       />
 
       <JsonLd data={[articleJsonLd({ headline: TITLE, description: DESCRIPTION, url: PATH }), howToJsonLd({ name: "איך בונים ממ\"ד", description: DESCRIPTION, steps })]} />
+
+      <TldrBlock
+        bullets={[
+          <><strong>בניית ממ״ד בישראל היא תהליך של 7 שלבים</strong> — מייעוץ ראשוני וסקר היתכנות, דרך תכנון אדריכלי-קונסטרוקטיבי, קביעת מסלול רישוי, אישור פיקוד העורף והוועדה, ביצוע, בדיקות ואישור גמר.</>,
+          <><strong>זמן כולל מקצה לקצה: 2–4 חודשים</strong> במסלול פטור מהיתר (תכנון ~2–4 שבועות + אישור פקע״ר עד 14 ימי עבודה + ביצוע 6–10 שבועות). במסלול רישוי רגיל: 6–9 חודשים.</>,
+          <><strong>שלושה מסלולי רישוי:</strong> פטור מהיתר (רוב הבתים עד 2 קומות, על בסיס אישור פקע״ר והצהרת עורך בקשה), רישוי מקוצר (ועדה מקומית, מסמכים מצומצמים), או רישוי רגיל (היתר בנייה מלא עם פרסומים).</>,
+          <><strong>מי מאשר מה:</strong> פיקוד העורף מאשר את תקן המיגון; הוועדה המקומית מאשרת תכנון ובנייה אזרחית; עורך הבקשה (אדריכל/מהנדס) מגיש הודעת סיום בתוך 45 ימים במסלול פטור.</>,
+        ]}
+      />
 
       <Section>
         <Prose>

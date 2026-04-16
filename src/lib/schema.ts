@@ -51,7 +51,13 @@ export function organizationJsonLd() {
       "שיפוצים",
       "הרחבות ותוספות בנייה",
     ],
-    sameAs: [],
+    sameAs: [
+      "https://www.google.com/maps/search/?api=1&query=התחדשות+בינוי+ויזמות",
+      // TODO: replace with live URL from client
+      "https://www.facebook.com/hithadshut",
+      // TODO: replace with live URL from client
+      "https://www.linkedin.com/company/hithadshut",
+    ],
   };
 }
 

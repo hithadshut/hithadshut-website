@@ -5,6 +5,7 @@ import Section, { Prose } from "@/components/Section";
 import FAQ from "@/components/FAQ";
 import ContactCTA from "@/components/ContactCTA";
 import JsonLd from "@/components/JsonLd";
+import TldrBlock from "@/components/TldrBlock";
 import { buildMetadata } from "@/lib/metadata";
 import { articleJsonLd } from "@/lib/schema";
 
@@ -62,6 +63,15 @@ export default function Page() {
       />
 
       <JsonLd data={articleJsonLd({ headline: TITLE, description: DESCRIPTION, url: PATH })} />
+
+      <TldrBlock
+        bullets={[
+          <><strong>הטעות היקרה ביותר:</strong> חתימה על מחיר לפני תכנון קונסטרוקטיבי מלא. בלי חישוב סטטי, כל אומדן הוא ניחוש — תוספות באמצע הפרויקט עולות עשרות אלפי ₪. <em>הפתרון:</em> תכנון קודם, מחיר אחרי.</>,
+          <><strong>הטעות השנייה:</strong> בחירת קבלן לפי מחיר בלבד ולא לפי ניסיון ספציפי בממ״דים. הצעה זולה לרוב חסרה רכיבים חיוניים. <em>הפתרון:</em> 3 הצעות עם אותו מפרט מקבלנים רשומים ומבוטחים.</>,
+          <><strong>הטעות השלישית:</strong> חיסכון על דלת הדף או מערכת סינון לא מאושרות פקע״ר — התוצאה: סירוב אישור גמר והחלפה בעלות כפולה. <em>הפתרון:</em> רק רכיבים מיצרנים מאושרים, עם אישור בכתב.</>,
+          <><strong>כלל זהב למניעת רוב הטעויות:</strong> חוזה כתוב ומפורט, מקדמה עד 15%, תשלומים לפי אבני דרך ביצוע (לא תאריכי לוח), ושינויים רק בכתב עם מחיר סגור.</>,
+        ]}
+      />
 
       <Section>
         <Prose>
