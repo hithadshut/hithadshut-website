@@ -25,7 +25,7 @@ const TOC_ITEMS = [
 const PATH = "/guides/mamad-mistakes";
 const TITLE = "10 טעויות בבניית ממ״ד שעולות ביוקר | התחדשות בינוי ויזמות";
 const DESCRIPTION =
-  "10 טעויות נפוצות בבניית ממ״ד שעולות עשרות אלפי שקלים. למדו מטעויות של אחרים. התחדשות בינוי ויזמות.";
+  "10 טעויות נפוצות בבניית ממ״ד שעולות עשרות אלפי שקלים: קבלן לא רשום, תכנון חסר, חומרים זולים, דילוג על פקע״ר, חוזה חלש. למדו לפני שתתחילו.";
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 

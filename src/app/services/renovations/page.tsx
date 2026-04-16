@@ -6,7 +6,7 @@ import { buildMetadata } from "@/lib/metadata";
 const PATH = "/services/renovations";
 const TITLE = "שיפוצים מקיפים לבתים ודירות | התחדשות בינוי ויזמות";
 const DESCRIPTION =
-  "שיפוצים מקיפים לבתים ודירות: מטבחים, חדרי רחצה, רצפות, קירות, חשמל ואינסטלציה. חברת התחדשות בינוי ויזמות. מקצועיות, שקיפות, תוצאה.";
+  "שיפוצים מקיפים לדירות ובתים: מטבחים, חדרי רחצה, ריצוף, חשמל, אינסטלציה ומיזוג. אפשרות לשלב ממ״ד או מיגון חדר במסגרת השיפוץ. חוזה, מפרט טכני ואחריות לפי חוק.";
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 

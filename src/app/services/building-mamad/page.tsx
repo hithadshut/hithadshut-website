@@ -11,7 +11,7 @@ import { howToJsonLd } from "@/lib/schema";
 const PATH = "/services/building-mamad";
 const TITLE = "בניית ממ״ד | מחיר, תהליך ואישורים | התחדשות בינוי ויזמות";
 const DESCRIPTION =
-  "בניית ממ״ד בבית פרטי החל מ-160,000 ₪ + מע״מ. תכנון, אישורי פיקוד העורף וביצוע מלא. התחדשות בינוי ויזמות. קבלו הצעת מחיר.";
+  "בניית ממ״ד תקני לבית פרטי מ-160,000 ₪ + מע״מ. ממ״ד צמוד, חיצוני או על הגג. תכנון, אישורי פקע״ר, חיזוק קונסטרוקטיבי וביצוע מלא עד מסירה. קבלני ממ״ד רשומים.";
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 

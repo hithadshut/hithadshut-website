@@ -6,7 +6,7 @@ import { buildMetadata } from "@/lib/metadata";
 const PATH = "/services/extensions";
 const TITLE = "הרחבות ותוספות בנייה | התחדשות בינוי ויזמות";
 const DESCRIPTION =
-  "הרחבות ותוספות בנייה לבתים קיימים: חדרים, קומות, מרפסות, יחידות דיור. חברת התחדשות בינוי ויזמות. תכנון, רישוי וביצוע מלא.";
+  "הרחבות ותוספות בנייה לבתים קיימים: חדרים נוספים, תוספת קומה, מרפסות, יחידות דיור צמודות וממ״ד בתוך התוספת. תכנון אדריכלי, רישוי בוועדה המקומית וביצוע מלא עד מסירה.";
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 

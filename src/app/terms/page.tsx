@@ -4,8 +4,9 @@ import Section, { Prose } from "@/components/Section";
 import { buildMetadata } from "@/lib/metadata";
 
 const PATH = "/terms";
-const TITLE = "תנאי שימוש";
-const DESCRIPTION = "תנאי השימוש באתר התחדשות: כללי שימוש, הגבלת אחריות וזכויות.";
+const TITLE = "תנאי שימוש | התחדשות בינוי ויזמות";
+const DESCRIPTION =
+  "תנאי השימוש באתר התחדשות בינוי ויזמות: כללי שימוש, הגבלת אחריות, זכויות יוצרים ותנאי פנייה. קראו לפני שליחת טופס או יצירת קשר.";
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 

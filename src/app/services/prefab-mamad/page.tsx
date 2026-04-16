@@ -8,7 +8,7 @@ import { buildMetadata } from "@/lib/metadata";
 const PATH = "/services/prefab-mamad";
 const TITLE = "ממ״ד מוכן | יחידה ממוגנת מהמפעל | התחדשות בינוי ויזמות";
 const DESCRIPTION =
-  "ממ״ד מוכן מהמפעל: יחידה ממוגנת שמגיעה מוכנה ומתחברת לבית. יתרונות, חסרונות ומחירים. התחדשות בינוי ויזמות.";
+  "ממ״ד מוכן מהמפעל: יחידה ממוגנת מתועשת שמגיעה עם אישור פקע״ר ומתחברת לבית. 180,000-250,000 ₪ + מע״מ. יתרונות, חסרונות ומתי זו בחירה נכונה מול ממ״ד בנוי.";
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 

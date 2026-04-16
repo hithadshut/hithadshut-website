@@ -6,7 +6,7 @@ import { buildMetadata } from "@/lib/metadata";
 const PATH = "/accessibility";
 const TITLE = "הצהרת נגישות";
 const DESCRIPTION =
-  "הצהרת נגישות של אתר התחדשות בינוי ויזמות. האתר מונגש לפי תקן WCAG 2.1 AA ודרישות החוק הישראלי.";
+  "הצהרת נגישות של אתר התחדשות בינוי ויזמות. האתר מונגש לפי תקן WCAG 2.1 ברמה AA, תקן ישראלי ת״י 5568 וחוק שוויון זכויות לאנשים עם מוגבלות. פרטי רכז נגישות ודיווח על תקלות.";
 
 export const metadata: Metadata = buildMetadata({
   title: `${TITLE} | התחדשות בינוי ויזמות`,

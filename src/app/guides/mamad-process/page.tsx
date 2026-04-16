@@ -26,7 +26,7 @@ const TOC_ITEMS = [
 const PATH = "/guides/mamad-process";
 const TITLE = "תהליך בניית ממ״ד | שלב אחר שלב | התחדשות בינוי ויזמות";
 const DESCRIPTION =
-  "תהליך בניית ממ״ד שלב אחר שלב: מתכנון ואישורים ועד מסירת מפתח. מסלולי רישוי, זמנים ומסמכים. התחדשות.";
+  "תהליך בניית ממ״ד שלב אחר שלב: תכנון הנדסי, הגשה לפקע״ר ולוועדה, חפירה ויסודות, יציקת קונסטרוקציה, דלת ומערכות, מסירת מפתח. מסלולי רישוי, זמנים ומסמכים מלאים.";
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 

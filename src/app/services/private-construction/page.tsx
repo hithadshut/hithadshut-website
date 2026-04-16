@@ -6,7 +6,7 @@ import { buildMetadata } from "@/lib/metadata";
 const PATH = "/services/private-construction";
 const TITLE = "בנייה פרטית ווילות | התחדשות בינוי ויזמות";
 const DESCRIPTION =
-  "בנייה פרטית של בתי מגורים ווילות: מגרש, תכנון, רישוי ובנייה עד מסירה. חברת התחדשות בינוי ויזמות. מקצועיות, שקיפות, איכות.";
+  "בנייה פרטית של בתי מגורים ווילות: רכישת מגרש, תכנון אדריכלי וקונסטרוקטיבי, רישוי, ביצוע מלא ומסירת מפתח. חוזה במכפיל בנייה או עלות-פלוס עם מפרט טכני מלא ולוח זמנים מחייב.";
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 

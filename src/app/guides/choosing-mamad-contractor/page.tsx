@@ -25,7 +25,7 @@ const TOC_ITEMS = [
 const PATH = "/guides/choosing-mamad-contractor";
 const TITLE = "איך בוחרים קבלן ממ״ד? 10 שאלות שחובה לשאול | התחדשות";
 const DESCRIPTION =
-  "איך בוחרים קבלן ממ״ד? 10 שאלות שחובה לשאול, דגלים אדומים ומה לבדוק ברישיונות. התחדשות בינוי ויזמות.";
+  "איך בוחרים קבלן ממ״ד שלא יבריח אתכם: 10 שאלות חובה, 8 דגלים אדומים, בדיקת סיווג ברשם הקבלנים, חוזה בכתב, אחריות בנייה. מדריך מעשי להימנע מחאפרים.";
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 

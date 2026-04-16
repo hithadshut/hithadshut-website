@@ -27,7 +27,7 @@ const TOC_ITEMS = [
 const PATH = "/guides/home-front-command-approval";
 const TITLE = "אישורי פיקוד העורף לממ״ד | תהליך ומסמכים | התחדשות";
 const DESCRIPTION =
-  "אישורי פיקוד העורף לממ״ד: תהליך מלא, מסמכים נדרשים, זמני אישור וטעויות שכדאי להימנע מהן. התחדשות בינוי ויזמות.";
+  "אישורי פיקוד העורף לממ״ד: תהליך בקשה מלא, מסמכי חובה, עד 14 ימי עבודה לאישור, טעויות שמעכבות חודשים, הודעת גמר 45 ימים. התחדשות בינוי ויזמות מלווה את כל התהליך.";
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 

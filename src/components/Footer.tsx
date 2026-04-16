@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Logo from "./Logo";
-import { site, guides, compares } from "@/lib/site";
+import { site, guides, compares, constructionServices } from "@/lib/site";
 import { getArea } from "@/content/areas";
 import { HREF_MAP, TARGET_LABEL } from "@/lib/anchors";
 
@@ -69,13 +69,26 @@ export default function Footer() {
 
         <nav aria-label="שירותים">
           <h3 className="text-sm font-extrabold uppercase tracking-[0.2em] text-[var(--color-accent)] mb-5">
-            שירותים
+            מיגון וממ״ד
           </h3>
           <ul className="space-y-2.5 text-sm text-white/80">
             {SERVICE_TARGETS.map((t) => (
               <li key={t}>
                 <Link href={HREF_MAP[t]} className="hover:text-[var(--color-accent)]">
                   {TARGET_LABEL[t]}
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          <h3 className="text-sm font-extrabold uppercase tracking-[0.2em] text-[var(--color-accent)] mt-6 mb-5">
+            בנייה ושיפוצים
+          </h3>
+          <ul className="space-y-2.5 text-sm text-white/80">
+            {constructionServices.map((s) => (
+              <li key={s.slug}>
+                <Link href={`/services/${s.slug}`} className="hover:text-[var(--color-accent)]">
+                  {s.shortTitle}
                 </Link>
               </li>
             ))}

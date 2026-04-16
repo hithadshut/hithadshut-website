@@ -9,7 +9,7 @@ import { buildMetadata } from "@/lib/metadata";
 const PATH = "/services/room-reinforcement";
 const TITLE = "מיגון חדר קיים | פתרון מהיר לביטחון הבית | התחדשות";
 const DESCRIPTION =
-  "מיגון חדר קיים: פתרון מהיר ומשתלם לביטחון הבית. חיזוק חדר קיים לרמת הגנה גבוהה. התחדשות בינוי ויזמות. חייגו עכשיו.";
+  "מיגון חדר קיים: חיזוק קונסטרוקטיבי, דלת הדף, חלון ממ״ד ואטימה. 40,000-150,000 ₪ + מע״מ, ביצוע של 2-8 שבועות. פתרון מהיר ומשתלם כשבניית ממ״ד חדש לא אפשרית.";
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 

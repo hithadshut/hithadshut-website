@@ -14,7 +14,7 @@ import { site } from "@/lib/site";
 const PATH = "/compare/migunit-vs-mamad-muchan";
 const TITLE = "מיגונית מול ממ״ד מוכן | השוואה | התחדשות";
 const DESCRIPTION =
-  "מיגונית או ממ״ד מוכן? הבדלים, יתרונות, מחירים ולמי כל פתרון מתאים. התחדשות בינוי ויזמות. קבלו הצעה.";
+  "מיגונית או ממ״ד מוכן? הבדלי הגנה, מחירים (30-80K מול 180-250K ₪ + מע״מ), זמן התקנה, אישורי פקע״ר ומתי כל פתרון מתאים. מדריך החלטה מהתחדשות בינוי ויזמות.";
 
 export const metadata: Metadata = buildMetadata({
   title: TITLE,

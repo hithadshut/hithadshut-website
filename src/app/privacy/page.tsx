@@ -4,8 +4,9 @@ import Section, { Prose } from "@/components/Section";
 import { buildMetadata } from "@/lib/metadata";
 
 const PATH = "/privacy";
-const TITLE = "מדיניות פרטיות";
-const DESCRIPTION = "מדיניות הפרטיות של אתר התחדשות: איזה מידע אנחנו אוספים ומה אנחנו עושים בו.";
+const TITLE = "מדיניות פרטיות | התחדשות בינוי ויזמות";
+const DESCRIPTION =
+  "מדיניות הפרטיות של אתר התחדשות בינוי ויזמות: איזה מידע אישי אנחנו אוספים, איך אנחנו שומרים עליו, שימוש ב-Cookies וזכויותיכם לפי חוק הגנת הפרטיות.";
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 

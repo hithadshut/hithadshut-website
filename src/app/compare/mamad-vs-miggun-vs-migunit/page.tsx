@@ -12,7 +12,7 @@ import { buildMetadata } from "@/lib/metadata";
 const PATH = "/compare/mamad-vs-miggun-vs-migunit";
 const TITLE = "ממ״ד מול מיגון חדר מול מיגונית | השוואה מלאה | התחדשות";
 const DESCRIPTION =
-  "ממ״ד, מיגון חדר או מיגונית? השוואה מלאה: עלות, זמן, רמת הגנה ואישורים. התחדשות בינוי ויזמות.";
+  "ממ״ד, מיגון חדר או מיגונית? השוואה מלאה: עלויות (160-220K / 40-150K / 30-80K ₪ + מע״מ), זמני ביצוע, רמת הגנה, אישורי פקע״ר ולמי כל פתרון מתאים.";
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 

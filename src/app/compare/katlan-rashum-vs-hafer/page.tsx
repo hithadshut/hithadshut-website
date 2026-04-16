@@ -14,7 +14,7 @@ import { site } from "@/lib/site";
 const PATH = "/compare/katlan-rashum-vs-hafer";
 const TITLE = "קבלן רשום מול חאפר | איך בוחרים נכון | התחדשות";
 const DESCRIPTION =
-  "איך לזהות קבלן רשום מול חאפר? 8 דגלים אדומים, שאלות לבדיקה ומה שאסור לוותר עליו בממ״ד. התחדשות בינוי ויזמות.";
+  "קבלן רשום מול חאפר: 8 דגלים אדומים, 3 שאלות חובה לפני חתימה, בדיקת סיווג ברשם הקבלנים, חוזה בכתב, ביטוח ואחריות. מה שאסור לוותר עליו בבניית ממ״ד.";
 
 export const metadata: Metadata = buildMetadata({
   title: TITLE,

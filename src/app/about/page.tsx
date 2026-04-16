@@ -10,7 +10,7 @@ import { organizationJsonLd } from "@/lib/schema";
 const PATH = "/about";
 const TITLE = "אודות התחדשות | חברת בינוי ויזמות מובילה בישראל";
 const DESCRIPTION =
-  "התחדשות בינוי ויזמות: חברה המתמחה בבניית ממ״דים, מיגון, בנייה פרטית, שיפוצים והרחבות. מקצועיות, שקיפות, אחריות מהתכנון ועד המפתח.";
+  "התחדשות בינוי ויזמות: חברת קבלן רשום המתמחה בבניית ממ״דים, מיגון חדרים, מיגוניות, בנייה פרטית, שיפוצים והרחבות. ליווי מלא מתכנון ואישורי פקע״ר ועד מסירת מפתח בכל הארץ.";
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 

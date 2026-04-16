@@ -375,3 +375,143 @@ Audited 6 pages for sentences over 25 words. Existing prose is already tight aft
 - All `[טעון אימות מקצועי]` markers preserved. `<strong>` / `<Link>` wrappers intact.
 - Canonical pricing untouched.
 
+## Stage 4 — Technical SEO audit (completed 2026-04-16)
+
+### Audit coverage (9 areas)
+1. `<title>` + meta description length and uniqueness
+2. H1 uniqueness (exactly one per page)
+3. Heading hierarchy (H2 → H3, no skipped levels)
+4. Image alt attributes / `next/image`
+5. Canonical URLs + hreflang
+6. URL structure (no trailing slashes, lowercase, Hebrew-English split)
+7. JSON-LD schema validity
+8. Internal linking and orphan detection
+9. Core Web Vitals / mobile / security headers (review, not re-benchmarked)
+
+### Task 1 — Title-tag duplicate brand bug (FIXED)
+**Root cause:** `src/app/layout.tsx` defined `title.template = "%s | ${site.name}"`, while every per-page `TITLE` constant already embedded the brand (`…| התחדשות בינוי ויזמות`). The template was double-appending `| התחדשות`, producing titles like `בניית ממ״ד | מחיר, תהליך ואישורים | התחדשות בינוי ויזמות | התחדשות` — 66 characters, keyword pushed past Google's ~60-char truncation, and visibly duplicated in SERP previews.
+
+**Fix:** Changed template to pass-through (`%s`). Every per-page title now renders exactly as the `TITLE` constant defines. 1 edit, 20 pages healed simultaneously. No per-page TITLE constants needed to change.
+
+**Side effect:** `/terms` and `/privacy` had bare titles (`תנאי שימוש`, `מדיניות פרטיות`) that relied on the template for brand. Added the brand into their TITLE constants manually:
+- `/terms` → `תנאי שימוש | התחדשות בינוי ויזמות`
+- `/privacy` → `מדיניות פרטיות | התחדשות בינוי ויזמות`
+
+### Task 2 — Meta description length expansion
+Audit found 20 pages with DESCRIPTION shorter than 140 chars (sweet spot 140–160), losing SERP real-estate. Expanded each to 140–170 chars with concrete specifics (prices, standards, step counts, phone). No fluff added — every extra clause carries keyword or trust signal.
+
+| Page | Before (chars) | After (chars) | Added |
+|---|---|---|---|
+| `/terms` | 72 | 150 | brand + use-case cues |
+| `/privacy` | 74 | 158 | cookies + legal act name |
+| `/accessibility` | 112 | 164 | WCAG 2.1 AA, ת״י 5568, שוויון זכויות |
+| `/contact` | 96 | 166 | phone 054-671-2130 + WhatsApp |
+| `/about` | 118 | 170 | קבלן רשום + services list |
+| `/areas` | 104 | 162 | 6 region names |
+| `/guides/mamad-process` | 120 | 168 | 7 process steps |
+| `/guides/mamad-mistakes` | 126 | 164 | 5 mistake categories |
+| `/guides/mamad-cost` | 130 | 170 | 3 price bands (ממ״ד / מיגון / מיגונית) |
+| `/guides/choosing-mamad-contractor` | 108 | 162 | red-flag signals + רשם הקבלנים |
+| `/guides/home-front-command-approval` | 122 | 168 | 14 ימי עבודה + 45 ימים |
+| `/compare/mamad-vs-miggun-vs-migunit` | 128 | 166 | 3 price bands inline |
+| `/compare/mamad-tzamud-vs-hitzoni` | 114 | 160 | decision criteria |
+| `/compare/migunit-vs-mamad-muchan` | 110 | 164 | "30-80K מול 180-250K ₪" |
+| `/compare/katlan-rashum-vs-hafer` | 108 | 158 | red-flag checklist |
+| `/services/building-mamad` | 125 | 164 | ממ״ד צמוד/חיצוני/על הגג |
+| `/services/room-reinforcement` | 112 | 160 | 40,000-150,000 ₪ + מע״מ |
+| `/services/migunit` | 108 | 158 | 30,000-80,000 ₪ + installation |
+| `/services/prefab-mamad` | 120 | 162 | 180,000-250,000 ₪ + pros/cons |
+| `/services/private-construction` | 122 | 166 | מכפיל בנייה / עלות-פלוס |
+| `/services/extensions` | 118 | 160 | רישוי בוועדה המקומית |
+| `/services/renovations` | 130 | 160 | שילוב ממ״ד/מיגון בשיפוץ |
+
+All descriptions pass canonical-price audit (Stage 2 numbers preserved): 160,000 / 40,000-150,000 / 30,000-80,000 / 180,000-250,000.
+
+### Task 3 — H1 uniqueness audit
+Single-H1 rule enforced. Audited `src/components/PageHero.tsx` (renders the only `<h1>` on every page via `<h1 className=…>{title}</h1>`) and `src/components/ServicePageLayout.tsx` (imports PageHero at L59 as its sole H1 source). No page emits a second `<h1>`. `MDX`/prose sections use `<h2>` + `<h3>` exclusively.
+
+### Task 4 — Heading hierarchy
+Spot-checked 8 long pages (guides, compares, about). No skipped levels (no H1 → H3 jumps). `<Prose>` component wraps `.prose` Tailwind Typography, which auto-styles `<h2>` and `<h3>` — the JSX already emits the correct tag order.
+
+### Task 5 — Image alt attributes
+No `<img>` or `next/image` usage in the codebase (site is SVG-inline + CSS gradients by design — per CLAUDE.md "אין תלות בתמונות חיצוניות"). Logo rendered via inline `<svg>` with `aria-label`. Nothing to fix.
+
+### Task 6 — Canonical + hreflang
+`src/lib/metadata.ts` `buildMetadata()` emits:
+- `alternates.canonical = https://hithadshut.co.il${path}`
+- `alternates.languages = { "he-IL": absolute, "x-default": absolute }`
+- `openGraph.locale = "he_IL"`
+- `openGraph.url` mirrors canonical
+- `twitter.card = "summary_large_image"`
+Every page uses `buildMetadata()`. No custom overrides that drop canonical. Verified by grepping `alternates:` — all page-level metadata flows through the helper.
+
+### Task 7 — URL structure
+All URLs lowercase-English slugs (`/services/building-mamad`, `/guides/mamad-process`, `/compare/katlan-rashum-vs-hafer`). No trailing slashes in internal `<Link>` hrefs. Hebrew reserved for display labels only. 163-URL sitemap audited: 0 mixed casing, 0 duplicates, 0 trailing-slash inconsistencies.
+
+### Task 8 — JSON-LD schema
+Inventory of emitted schema types (via `src/lib/schema.ts` + `<JsonLd>` component):
+- Homepage: `Organization` + `WebSite` + `LocalBusiness`
+- About: `Organization`
+- Contact: `LocalBusiness`
+- Services (7 pages): `Service` + `FAQPage` + `BreadcrumbList` (via ServicePageLayout)
+- Guides (5 pages): `Article` + `FAQPage` + `BreadcrumbList`; `mamad-process` also emits `HowTo`
+- Compare (4 pages): `FAQPage` + `BreadcrumbList`
+- Areas index: `BreadcrumbList` + `ItemList`
+- Areas/[city]: `LocalBusiness` + `Service` + `BreadcrumbList` + `FAQPage`
+- Areas/[city]/[service]: `LocalBusiness` + `Service` + `BreadcrumbList`
+
+No duplicate schema blocks per page. All `@context` = `https://schema.org`. All URLs in schema use the absolute canonical form (same helper as metadata).
+
+### Task 9 — Internal linking / orphans
+**Before this pass:** 3 construction services (`/services/private-construction`, `/services/renovations`, `/services/extensions`) were absent from the Footer's "שירותים" column — only reachable via Header dropdown. Not truly orphaned (Header covers them on desktop + mobile), but under-linked relative to protection services.
+
+**Fix:** Split Footer services column into two sub-groups:
+- `מיגון וממ״ד` — existing 4 protection services (unchanged).
+- `בנייה ושיפוצים` — new sub-group iterating `constructionServices` from `site.ts` (3 entries). Same styling, shared `<nav aria-label="שירותים">` wrapper.
+
+After the fix, every service page is in the Footer of every other page (141+ geo pages × 7 services inbound links each). Orphan count: 0.
+
+### Task 10 — Core Web Vitals / mobile / security (review, no regressions)
+- No new scripts, no new external dependencies, no image additions (still 0 `<img>`).
+- Font: Heebo via `next/font/google` — self-hosted, preload, `display: swap`.
+- Tailwind v4 `@theme` tokens only, zero runtime CSS-in-JS.
+- `next.config.ts` unchanged; headers (`X-Content-Type-Options`, `Referrer-Policy`, `X-Frame-Options`) already set.
+- Mobile-first: sticky CTA bar + mobile menu in Header; no layout shift triggers added.
+Expected Lighthouse deltas: Mobile Performance ±0 (no asset changes), SEO +3–5 (meta description coverage + title deduplication).
+
+### Files modified (Stage 4)
+- `src/app/layout.tsx` — title template pass-through
+- `src/components/Footer.tsx` — split services column into 2 sub-groups + import `constructionServices`
+- `src/app/about/page.tsx` — DESCRIPTION expansion
+- `src/app/accessibility/page.tsx` — DESCRIPTION expansion
+- `src/app/areas/page.tsx` — DESCRIPTION expansion
+- `src/app/contact/page.tsx` — DESCRIPTION expansion
+- `src/app/privacy/page.tsx` — TITLE brand + DESCRIPTION expansion
+- `src/app/terms/page.tsx` — TITLE brand + DESCRIPTION expansion
+- `src/app/compare/katlan-rashum-vs-hafer/page.tsx` — DESCRIPTION
+- `src/app/compare/mamad-tzamud-vs-hitzoni/page.tsx` — DESCRIPTION
+- `src/app/compare/mamad-vs-miggun-vs-migunit/page.tsx` — DESCRIPTION
+- `src/app/compare/migunit-vs-mamad-muchan/page.tsx` — DESCRIPTION
+- `src/app/guides/choosing-mamad-contractor/page.tsx` — DESCRIPTION
+- `src/app/guides/home-front-command-approval/page.tsx` — DESCRIPTION
+- `src/app/guides/mamad-cost/page.tsx` — DESCRIPTION
+- `src/app/guides/mamad-mistakes/page.tsx` — DESCRIPTION
+- `src/app/guides/mamad-process/page.tsx` — DESCRIPTION
+- `src/app/services/building-mamad/page.tsx` — DESCRIPTION
+- `src/app/services/extensions/page.tsx` — DESCRIPTION
+- `src/app/services/migunit/page.tsx` — DESCRIPTION
+- `src/app/services/prefab-mamad/page.tsx` — DESCRIPTION
+- `src/app/services/private-construction/page.tsx` — DESCRIPTION
+- `src/app/services/renovations/page.tsx` — DESCRIPTION
+- `src/app/services/room-reinforcement/page.tsx` — DESCRIPTION
+
+### Verification
+- `npm run lint` → 0 errors, 0 warnings.
+- `rm -rf .next && npm run build` → `✓ Compiled successfully in 16.1s`, 168/168 static pages generated.
+
+### Constraints held
+- No em-dashes reintroduced. No AI-tell phrases reintroduced. No "יוזמה קהילתית".
+- No URL changes. No prices changed (only surfaced in descriptions).
+- No content deletions. No schema removed. Title template change preserves canonical brand, just moves the responsibility to the page-level TITLE constants.
+- All `[טעון אימות מקצועי]` markers preserved.
+

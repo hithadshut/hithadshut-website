@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
     default: `בניית ממ״ד | התחדשות בינוי ויזמות | מיגון חדרים ומיגוניות`,
-    template: `%s | ${site.name}`,
+    template: `%s`,
   },
   description: site.description,
   applicationName: site.name,

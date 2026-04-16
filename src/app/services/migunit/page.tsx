@@ -9,7 +9,7 @@ import { buildMetadata } from "@/lib/metadata";
 const PATH = "/services/migunit";
 const TITLE = "מיגונית | יחידת מיגון מוכנה להתקנה | התחדשות בינוי ויזמות";
 const DESCRIPTION =
-  "מיגונית: יחידת מיגון מוכנה מהמפעל. התקנה מהירה בחצר או במרחב חיצוני. התחדשות בינוי ויזמות. קבלו הצעה.";
+  "מיגונית: יחידת מיגון מאושרת פקע״ר מהמפעל. גדלים ל-2-8 נפשות, 30,000-80,000 ₪ + מע״מ, התקנה תוך ימים. פתרון מיידי לחצר או למרחב חיצוני ללא בנייה.";
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 

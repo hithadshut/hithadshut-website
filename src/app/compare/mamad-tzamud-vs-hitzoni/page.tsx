@@ -14,7 +14,7 @@ import { site } from "@/lib/site";
 const PATH = "/compare/mamad-tzamud-vs-hitzoni";
 const TITLE = "ממ״ד צמוד מול ממ״ד חיצוני | השוואה | התחדשות";
 const DESCRIPTION =
-  "ממ״ד צמוד או חיצוני? השוואה מלאה: עלות, רישוי, תכנון ומתי כדאי לבחור בכל פתרון. התחדשות בינוי ויזמות.";
+  "ממ״ד צמוד או ממ״ד חיצוני? השוואה מפורטת: עלויות בנייה, מסלולי רישוי, השפעה על שטח הבית, זמן ביצוע ומתי כדאי לבחור בכל פתרון. מדריך מלא להחלטה.";
 
 export const metadata: Metadata = buildMetadata({
   title: TITLE,
