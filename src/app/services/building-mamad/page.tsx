@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import ServicePageLayout from "@/components/ServicePageLayout";
+import Section from "@/components/Section";
 import { buildMetadata } from "@/lib/metadata";
 
 const PATH = "/services/building-mamad";
@@ -121,6 +123,26 @@ export default function Page() {
       pricing="ממ״ד 9 מ״ר: 160,000–200,000 ₪ + מע״מ. ממ״ד 12 מ״ר: 200,000–220,000 ₪ + מע״מ. קו קדמי / עובי קירות 40 ס״מ: תוספת 15%–25%. דירה בקומה: משתנה, לעיתים מעל 200,000 ₪ + מע״מ."
       faqs={faqs}
       defaultService="בניית ממ״ד"
-    />
+    >
+      <Section tone="soft">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="text-sm font-extrabold uppercase tracking-[0.22em] text-[var(--color-accent-dark)] mb-3">
+            מתלבטים
+          </div>
+          <h2 className="text-2xl md:text-3xl font-black text-[var(--color-primary)] mb-4">
+            ממ״ד צמוד לבית או ממ״ד חיצוני בחצר?
+          </h2>
+          <p className="text-[var(--color-muted)] mb-6">
+            השוואה מלאה — עלות, זמן, תכנון ורמת הגנה. נעזור לכם להחליט מה נכון לבית שלכם.
+          </p>
+          <Link
+            href="/compare/mamad-tzamud-vs-hitzoni"
+            className="inline-flex items-center justify-center bg-[var(--color-primary)] text-white font-extrabold px-7 py-3.5 rounded-xl hover:brightness-110 transition"
+          >
+            להשוואה המלאה: ממ״ד צמוד מול חיצוני ←
+          </Link>
+        </div>
+      </Section>
+    </ServicePageLayout>
   );
 }

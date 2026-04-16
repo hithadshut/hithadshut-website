@@ -129,6 +129,25 @@ export const compare = {
   title: "ממ״ד מול מיגון חדר קיים מול מיגונית — מה מתאים לכם?",
 };
 
+export const compares = [
+  {
+    slug: "mamad-vs-miggun-vs-migunit",
+    short: "ממ״ד vs מיגון vs מיגונית",
+  },
+  {
+    slug: "mamad-tzamud-vs-hitzoni",
+    short: "ממ״ד צמוד vs חיצוני",
+  },
+  {
+    slug: "migunit-vs-mamad-muchan",
+    short: "מיגונית vs ממ״ד מוכן",
+  },
+  {
+    slug: "katlan-rashum-vs-hafer",
+    short: "קבלן רשום vs חאפר",
+  },
+] as const;
+
 export const protectionServices = services.filter((s) => s.category === "protection");
 export const constructionServices = services.filter((s) => s.category === "construction");
 

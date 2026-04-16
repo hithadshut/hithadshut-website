@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Logo from "./Logo";
-import { site, protectionServices, constructionServices, guides, compare } from "@/lib/site";
+import { site, protectionServices, constructionServices, guides, compare, compares } from "@/lib/site";
 import { getArea } from "@/content/areas";
 
 const TOP_AREA_SLUGS = [
@@ -80,6 +80,16 @@ export default function Footer() {
               <li key={g.slug}>
                 <Link href={`/guides/${g.slug}`} className="hover:text-[var(--color-accent)]">
                   {g.short}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <h3 className="text-sm font-extrabold uppercase tracking-[0.2em] text-[var(--color-accent)] mt-6 mb-5">עוזרים להחליט</h3>
+          <ul className="space-y-2.5 text-sm text-white/80">
+            {compares.map((c) => (
+              <li key={c.slug}>
+                <Link href={`/compare/${c.slug}`} className="hover:text-[var(--color-accent)]">
+                  {c.short}
                 </Link>
               </li>
             ))}

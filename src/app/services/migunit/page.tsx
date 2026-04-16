@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import ServicePageLayout from "@/components/ServicePageLayout";
+import Section from "@/components/Section";
 import { buildMetadata } from "@/lib/metadata";
 
 const PATH = "/services/migunit";
@@ -121,6 +123,26 @@ export default function Page() {
       pricing="מיגונית סטנדרטית 30,000–60,000 ₪ + מע״מ. דגמים מתקדמים עם סינון ואבזור — 60,000–100,000 ₪ + מע״מ. כולל שינוע והצבה."
       faqs={faqs}
       defaultService="מיגונית"
-    />
+    >
+      <Section tone="soft">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="text-sm font-extrabold uppercase tracking-[0.22em] text-[var(--color-accent-dark)] mb-3">
+            השוואה
+          </div>
+          <h2 className="text-2xl md:text-3xl font-black text-[var(--color-primary)] mb-4">
+            מיגונית או ממ״ד מוכן — מה ההבדל?
+          </h2>
+          <p className="text-[var(--color-muted)] mb-6">
+            השוואה טכנית מלאה — עלות, רמת הגנה, זמני ביצוע, אישור פקע״ר.
+          </p>
+          <Link
+            href="/compare/migunit-vs-mamad-muchan"
+            className="inline-flex items-center justify-center bg-[var(--color-primary)] text-white font-extrabold px-7 py-3.5 rounded-xl hover:brightness-110 transition"
+          >
+            להשוואה המלאה: מיגונית מול ממ״ד מוכן ←
+          </Link>
+        </div>
+      </Section>
+    </ServicePageLayout>
   );
 }

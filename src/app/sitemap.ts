@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import fs from "node:fs";
 import path from "node:path";
-import { site, services, guides, compare } from "@/lib/site";
+import { site, services, guides, compare, compares } from "@/lib/site";
 import { areas } from "@/content/areas";
 import { serviceMatrix } from "@/content/services";
 
@@ -55,6 +55,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.8,
     },
+    ...compares
+      .filter((c) => c.slug !== compare.slug)
+      .map((c) => ({
+        url: `${site.url}/compare/${c.slug}`,
+        lastModified: pageMtime(`/compare/${c.slug}`),
+        changeFrequency: "monthly" as const,
+        priority: 0.6,
+      })),
     {
       url: `${site.url}/about`,
       lastModified: pageMtime("/about"),

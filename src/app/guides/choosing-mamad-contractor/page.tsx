@@ -114,6 +114,13 @@ export default function Page() {
             <Link href="/guides/mamad-mistakes">טעויות נפוצות בבניית ממ״ד</Link>,{" "}
             <Link href="/guides/mamad-cost">כמה עולה ממ״ד</Link>.
           </p>
+          <p>
+            השוואה מפורטת:{" "}
+            <Link href="/compare/katlan-rashum-vs-hafer">
+              קבלן רשום מול חאפר — איך לזהות את ההבדל
+            </Link>{" "}
+            (כולל 8 סימני אזהרה שחובה להכיר).
+          </p>
         </Prose>
       </Section>
 
