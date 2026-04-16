@@ -581,3 +581,56 @@ When the client nominates a named engineer or architect to take article bylines,
 - No schema removed — `sameAs` changed from `[3 speculative URLs]` to `[]`, which is factually safer.
 - All Stage 1–4 outputs preserved.
 
+---
+
+## Stage 6 — FAQ / featured-snippet format check
+**Commit target:** `copy(seo): [stage 6] FAQ format — direct-answer openers, length trim`
+
+### Goal
+Featured-snippet readiness for every `faqs` block: each `a:` field must open with a direct answer sentence (no "זה תלוי", "לרוב", "לפעמים" as first word), compress 100+ word rambles into 40-60 word answers, and surface money/time figures in the first sentence.
+
+### Audit coverage
+Dispatched audit agent over 16 `page.tsx` files containing `faqs` arrays. Agent identified 58 answers needing rewrite, triaged into 3 buckets (must-fix, high-value, length-trim). This stage executes the critical 15 items; remaining length-trim items scheduled for Stage 8 polish if capacity allows.
+
+### Executed rewrites — must-fix hedge-first openers (10)
+Every answer below previously opened with a forbidden hedge word:
+
+| File | Line | Old opener | New opener |
+|---|---|---|---|
+| `compare/migunit-vs-mamad-muchan/page.tsx` | 165 | "זה תלוי בצורך." | "מיגונית מאושרת פקע\"ר היא פתרון לגיטימי..." |
+| `guides/mamad-cost/page.tsx` | 60 | "לפעמים, במקרים חריגים..." | "ברירת המחדל היא שאין סובסידיה קבועה..." |
+| `guides/mamad-process/page.tsx` | 55 | "לרוב זה לא דחייה מוחלטת..." | "ברוב המקרים מדובר בהערות לתיקון..." |
+| `services/room-reinforcement/page.tsx` | 43 | "תלוי בהיקף. חיזוק..." | "חיזוק קונסטרוקטיבי או החלפת דלת הדף דורשים לרוב..." |
+| `services/renovations/page.tsx` | 20 | "תלוי בהיקף..." | "שיפוץ קל (צבע, רצפה, מטבח ללא שינוי קירות) נמשך 4-8 שבועות..." |
+| `services/renovations/page.tsx` | 36 | "תלוי בהיקף..." | "שיפוצים קלים אפשר לבצע כשהדירה מאוכלסת..." |
+| `services/migunit/page.tsx` | 35 | "תלוי בגודל, מיקום ותב״ע..." | "מיגוניות קטנות במסלול פטור מהיתר הן אופציה רווחת..." |
+| `compare/mamad-vs-miggun-vs-migunit/page.tsx` | 96 | "תלוי במצב הבית..." | "מיגונית מאושרת פקע\"ר מתאימה לבית עם חצר..." |
+| `compare/mamad-vs-miggun-vs-migunit/page.tsx` | 104 | "תלוי. הפער המרכזי..." | "ממ\"ד עדיף כמעט תמיד כשהוא אפשרי..." |
+| `compare/mamad-tzamud-vs-hitzoni/page.tsx` | 170 | "לרוב כן, אבל לא תמיד..." | "ממ\"ד צמוד זול יותר ברוב המקרים, אך לא בכולם..." |
+
+### Executed rewrites — buried-answer / length-trim (5)
+Answers where money/time figures were buried after hedge sentences, or where the answer rambled beyond 100 Hebrew words:
+
+| File | Line | Fix type | Summary |
+|---|---|---|---|
+| `guides/mamad-cost/page.tsx` | 80 | Buried price | Opens now with "200,000-260,000 ₪ + מע״מ" instead of construction rationale. |
+| `services/room-reinforcement/page.tsx` | 47 | 140→60 words | Compressed NBC filtering ramble. Direct statement first: "אינו כולל מערכת סינון NBC כסטנדרט". |
+| `services/room-reinforcement/page.tsx` | 59 | 120→55 words | Door comparison: opens with price anchors (4,000-10,000 ₪ vs 15,000-30,000 ₪) in first two sentences. |
+| `services/room-reinforcement/page.tsx` | 63 | 110→55 words | "Don't recommend" list now enumerated in one sentence, rationale in second. |
+| `services/migunit/page.tsx` | 63 | 130→60 words | Winter/moisture ramble compressed. |
+
+### Constraints held
+- No `q:` (question) fields modified — only `a:` answer text.
+- Every price, number and time range preserved exactly. No new figures invented.
+- Gershayim escape pattern `\"` preserved in every edit.
+- No em/en-dashes introduced. No AI-tell openers introduced (audited manually on each replacement).
+- Total FAQ schema count unchanged; `faqJsonLd` serialization unaffected.
+
+### Deferred (for Stage 8 if capacity)
+- ~43 remaining length-trim candidates (answers 70-100 words where a 50-word version would read tighter).
+- Several secondary pages (`building-mamad.tsx`, `private-construction.tsx`, `home-front-command-approval.tsx`) FAQ sections were direct-answer already — no Stage 6 edits needed, re-audit in Stage 8.
+
+### Verification
+- `npm run lint` → 0 errors.
+- `npm run build` → succeeded, 168/168 static pages prerendered.
+
