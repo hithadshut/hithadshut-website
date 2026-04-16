@@ -3,6 +3,7 @@ import Link from "next/link";
 import ServicePageLayout from "@/components/ServicePageLayout";
 import Section from "@/components/Section";
 import Reveal from "@/components/Reveal";
+import RelatedLinks from "@/components/RelatedLinks";
 import { buildMetadata } from "@/lib/metadata";
 
 const PATH = "/services/migunit";
@@ -240,6 +241,17 @@ export default function Page() {
           </Link>
         </div>
       </Section>
+
+      <RelatedLinks
+        seed="services/migunit"
+        targets={[
+          "mamad-cost",
+          "home-front-command-approval",
+          "choosing-mamad-contractor",
+          "compare-migunit-muchan",
+          "areas",
+        ]}
+      />
     </ServicePageLayout>
   );
 }

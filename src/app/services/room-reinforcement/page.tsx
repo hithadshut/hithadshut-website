@@ -3,6 +3,7 @@ import Link from "next/link";
 import ServicePageLayout from "@/components/ServicePageLayout";
 import Section from "@/components/Section";
 import Reveal from "@/components/Reveal";
+import RelatedLinks from "@/components/RelatedLinks";
 import { buildMetadata } from "@/lib/metadata";
 
 const PATH = "/services/room-reinforcement";
@@ -193,6 +194,17 @@ export default function Page() {
           </div>
         </Reveal>
       </Section>
+
+      <RelatedLinks
+        seed="services/room-reinforcement"
+        targets={[
+          "mamad-cost",
+          "choosing-mamad-contractor",
+          "mamad-mistakes",
+          "compare-main",
+          "areas",
+        ]}
+      />
     </ServicePageLayout>
   );
 }

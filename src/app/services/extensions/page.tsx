@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ServicePageLayout from "@/components/ServicePageLayout";
+import RelatedLinks from "@/components/RelatedLinks";
 import { buildMetadata } from "@/lib/metadata";
 
 const PATH = "/services/extensions";
@@ -132,6 +133,17 @@ export default function Page() {
       pricing="תוספת חדר (~20–25 מ״ר): 300,000–600,000 ₪ + מע״מ. תוספת קומה שלמה (~80–120 מ״ר): 1.5–3 מיליון ₪ + מע״מ. שילוב ממ״ד — מוסיף 160,000–220,000 ₪ + מע״מ."
       faqs={faqs}
       defaultService="הרחבות ותוספות בנייה"
-    />
+    >
+      <RelatedLinks
+        seed="services/extensions"
+        targets={[
+          "building-mamad",
+          "mamad-cost",
+          "mamad-process",
+          "compare-main",
+          "areas",
+        ]}
+      />
+    </ServicePageLayout>
   );
 }

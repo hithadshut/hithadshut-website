@@ -7,11 +7,20 @@ import InlineLeadForm from "@/components/InlineLeadForm";
 import FAQ from "@/components/FAQ";
 import Reveal from "@/components/Reveal";
 import JsonLd from "@/components/JsonLd";
+import RelatedLinks from "@/components/RelatedLinks";
 import { buildMetadata } from "@/lib/metadata";
 import { breadcrumbJsonLd, faqJsonLd, serviceJsonLd } from "@/lib/schema";
 import { site } from "@/lib/site";
 import { areas, getArea } from "@/content/areas";
 import { serviceMatrix, getServiceMeta } from "@/content/services";
+import type { LinkTarget } from "@/lib/anchors";
+
+const SERVICE_SLUG_TO_TARGET: Record<string, LinkTarget> = {
+  "building-mamad": "building-mamad",
+  "room-reinforcement": "room-reinforcement",
+  "migunit": "migunit",
+  "prefab-mamad": "prefab-mamad",
+};
 
 type Params = Promise<{ city: string; service: string }>;
 
@@ -282,6 +291,16 @@ export default async function GeoServicePage({ params }: { params: Params }) {
         title={`${svc.name} ב${area.name} — בואו נדבר`}
         subtitle="השאירו פרטים ונחזור אליכם תוך שעות עם הצעה מותאמת."
         defaultService={svc.name}
+      />
+
+      <RelatedLinks
+        seed={`areas/${area.slug}/${svc.slug}`}
+        targets={(() => {
+          const primary = SERVICE_SLUG_TO_TARGET[svc.slug] ?? "building-mamad";
+          const secondary: LinkTarget =
+            hashStr(area.slug + svc.slug) % 2 === 0 ? "mamad-cost" : "compare-main";
+          return [primary, secondary, "contact", "areas"] as LinkTarget[];
+        })()}
       />
 
       <FAQ

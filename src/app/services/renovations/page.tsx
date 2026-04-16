@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ServicePageLayout from "@/components/ServicePageLayout";
+import RelatedLinks from "@/components/RelatedLinks";
 import { buildMetadata } from "@/lib/metadata";
 
 const PATH = "/services/renovations";
@@ -131,6 +132,17 @@ export default function Page() {
       pricing="שיפוץ דירת 100 מ״ר עם מטבח וחדר רחצה: 250,000–500,000 ₪ + מע״מ. שיפוץ קל: 80,000–180,000 ₪ + מע״מ. גמר פרימיום ותוספות מגדילים."
       faqs={faqs}
       defaultService="שיפוצים"
-    />
+    >
+      <RelatedLinks
+        seed="services/renovations"
+        targets={[
+          "building-mamad",
+          "room-reinforcement",
+          "mamad-cost",
+          "compare-main",
+          "areas",
+        ]}
+      />
+    </ServicePageLayout>
   );
 }

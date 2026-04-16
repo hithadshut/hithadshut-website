@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ServicePageLayout from "@/components/ServicePageLayout";
+import RelatedLinks from "@/components/RelatedLinks";
 import { buildMetadata } from "@/lib/metadata";
 
 const PATH = "/services/private-construction";
@@ -132,6 +133,17 @@ export default function Page() {
       pricing="טווח של 9,000–15,000+ ₪ + מע״מ למ״ר לבית מגמר סטנדרטי. לבית 250 מ״ר — 2.5–4 מיליון ₪ + מע״מ. גמר פרימיום ומרתף מוסיפים."
       faqs={faqs}
       defaultService="בנייה פרטית ווילות"
-    />
+    >
+      <RelatedLinks
+        seed="services/private-construction"
+        targets={[
+          "building-mamad",
+          "mamad-cost",
+          "mamad-process",
+          "compare-main",
+          "areas",
+        ]}
+      />
+    </ServicePageLayout>
   );
 }

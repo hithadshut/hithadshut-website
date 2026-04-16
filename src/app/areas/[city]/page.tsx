@@ -7,6 +7,7 @@ import InlineLeadForm from "@/components/InlineLeadForm";
 import FAQ from "@/components/FAQ";
 import Reveal from "@/components/Reveal";
 import JsonLd from "@/components/JsonLd";
+import RelatedLinks from "@/components/RelatedLinks";
 import { buildMetadata } from "@/lib/metadata";
 import {
   breadcrumbJsonLd,
@@ -284,6 +285,11 @@ export default async function AreaPage({ params }: { params: Params }) {
         title={`מעוניינים בממ״ד ב${area.name}?`}
         subtitle="השאירו פרטים ונחזור אליכם תוך שעות עם הצעה מותאמת לבית ולאזור שלכם."
         defaultService="בניית ממ״ד"
+      />
+
+      <RelatedLinks
+        seed={`areas/${area.slug}`}
+        targets={["building-mamad", "mamad-cost", "compare-main", "contact"]}
       />
 
       <FAQ items={faqs} eyebrow="שאלות ותשובות" title={`שאלות נפוצות — ${area.name}`} tone="soft" />

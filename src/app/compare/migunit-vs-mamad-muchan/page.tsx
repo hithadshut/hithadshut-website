@@ -6,6 +6,7 @@ import FAQ from "@/components/FAQ";
 import InlineLeadForm from "@/components/InlineLeadForm";
 import JsonLd from "@/components/JsonLd";
 import Reveal from "@/components/Reveal";
+import RelatedLinks from "@/components/RelatedLinks";
 import { faqJsonLd, breadcrumbJsonLd } from "@/lib/schema";
 import { buildMetadata } from "@/lib/metadata";
 import { site } from "@/lib/site";
@@ -369,6 +370,17 @@ export default function Page() {
       </Section>
 
       <FAQ items={faqs} includeSchema={false} />
+
+      <RelatedLinks
+        seed="compare/migunit-vs-mamad-muchan"
+        targets={[
+          "migunit",
+          "prefab-mamad",
+          "home-front-command-approval",
+          "compare-main",
+        ]}
+      />
+
       <InlineLeadForm
         title="רוצים ייעוץ אישי — מיגונית או ממ״ד מוכן?"
         subtitle="מהנדס מטעמנו יבוא לבית, יבחן את האפשרויות ויציג את הפתרון שנכון באמת — ללא עלות, ללא התחייבות."

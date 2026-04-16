@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Logo from "./Logo";
-import { site, protectionServices, constructionServices, guides, compare, compares } from "@/lib/site";
+import { site, guides, compares } from "@/lib/site";
 import { getArea } from "@/content/areas";
+import { HREF_MAP, TARGET_LABEL } from "@/lib/anchors";
 
 const TOP_AREA_SLUGS = [
   "tel-aviv",
@@ -15,6 +16,20 @@ const TOP_AREA_SLUGS = [
   "netanya",
   "beer-sheva",
 ];
+
+const SERVICE_TARGETS = [
+  "building-mamad",
+  "room-reinforcement",
+  "migunit",
+  "prefab-mamad",
+] as const;
+
+const COMPARE_TARGETS = [
+  "compare-main",
+  "compare-tzamud",
+  "compare-migunit-muchan",
+  "compare-rashum-hafer",
+] as const;
 
 export default function Footer() {
   return (
@@ -30,14 +45,21 @@ export default function Footer() {
             ליווי מלא מהתכנון ועד מסירת המפתח.
           </p>
           <div className="mt-6 space-y-2.5 text-sm">
-            <a href={`tel:${site.phoneDial}`} className="flex items-center gap-2 hover:text-[var(--color-accent)] transition font-semibold">
+            <a
+              href={`tel:${site.phoneDial}`}
+              className="flex items-center gap-2 hover:text-[var(--color-accent)] transition font-semibold"
+            >
               <span aria-hidden className="text-[var(--color-accent)]">📞</span> {site.phone}
             </a>
-            <a href={`mailto:${site.email}`} className="flex items-center gap-2 hover:text-[var(--color-accent)] transition">
+            <a
+              href={`mailto:${site.email}`}
+              className="flex items-center gap-2 hover:text-[var(--color-accent)] transition"
+            >
               <span aria-hidden className="text-[var(--color-accent)]">✉️</span> {site.email}
             </a>
             <div className="text-white/70 flex items-center gap-2">
-              <span aria-hidden className="text-[var(--color-accent)]">📍</span> אזור שירות: {site.serviceArea}
+              <span aria-hidden className="text-[var(--color-accent)]">📍</span> אזור שירות:{" "}
+              {site.serviceArea}
             </div>
             <div className="text-white/70 flex items-center gap-2">
               <span aria-hidden className="text-[var(--color-accent)]">🕒</span> {site.hours}
@@ -45,38 +67,27 @@ export default function Footer() {
           </div>
         </div>
 
-        <div>
-          <h3 className="text-sm font-extrabold uppercase tracking-[0.2em] text-[var(--color-accent)] mb-5">מיגון וממ״ד</h3>
+        <nav aria-label="שירותים">
+          <h3 className="text-sm font-extrabold uppercase tracking-[0.2em] text-[var(--color-accent)] mb-5">
+            שירותים
+          </h3>
           <ul className="space-y-2.5 text-sm text-white/80">
-            {protectionServices.map((s) => (
-              <li key={s.slug}>
-                <Link href={`/services/${s.slug}`} className="hover:text-[var(--color-accent)]">
-                  {s.shortTitle}
+            {SERVICE_TARGETS.map((t) => (
+              <li key={t}>
+                <Link href={HREF_MAP[t]} className="hover:text-[var(--color-accent)]">
+                  {TARGET_LABEL[t]}
                 </Link>
               </li>
             ))}
-            <li className="pt-2 border-t border-white/10 mt-3">
-              <Link href={`/compare/${compare.slug}`} className="hover:text-[var(--color-accent)]">
-                השוואה בין הפתרונות
-              </Link>
-            </li>
           </ul>
-        </div>
+        </nav>
 
-        <div>
-          <h3 className="text-sm font-extrabold uppercase tracking-[0.2em] text-[var(--color-accent)] mb-5">בנייה ושיפוצים</h3>
+        <nav aria-label="מדריכים">
+          <h3 className="text-sm font-extrabold uppercase tracking-[0.2em] text-[var(--color-accent)] mb-5">
+            מדריכים
+          </h3>
           <ul className="space-y-2.5 text-sm text-white/80">
-            {constructionServices.map((s) => (
-              <li key={s.slug}>
-                <Link href={`/services/${s.slug}`} className="hover:text-[var(--color-accent)]">
-                  {s.shortTitle}
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <h3 className="text-sm font-extrabold uppercase tracking-[0.2em] text-[var(--color-accent)] mt-6 mb-5">מדריכים</h3>
-          <ul className="space-y-2.5 text-sm text-white/80">
-            {guides.slice(0, 3).map((g) => (
+            {guides.map((g) => (
               <li key={g.slug}>
                 <Link href={`/guides/${g.slug}`} className="hover:text-[var(--color-accent)]">
                   {g.short}
@@ -84,20 +95,12 @@ export default function Footer() {
               </li>
             ))}
           </ul>
-          <h3 className="text-sm font-extrabold uppercase tracking-[0.2em] text-[var(--color-accent)] mt-6 mb-5">עוזרים להחליט</h3>
-          <ul className="space-y-2.5 text-sm text-white/80">
-            {compares.map((c) => (
-              <li key={c.slug}>
-                <Link href={`/compare/${c.slug}`} className="hover:text-[var(--color-accent)]">
-                  {c.short}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+        </nav>
 
-        <div>
-          <h3 className="text-sm font-extrabold uppercase tracking-[0.2em] text-[var(--color-accent)] mb-5">אזורי שירות</h3>
+        <nav aria-label="אזורים">
+          <h3 className="text-sm font-extrabold uppercase tracking-[0.2em] text-[var(--color-accent)] mb-5">
+            אזורים
+          </h3>
           <ul className="space-y-2.5 text-sm text-white/80">
             {TOP_AREA_SLUGS.map((slug) => {
               const a = getArea(slug);
@@ -111,23 +114,65 @@ export default function Footer() {
               );
             })}
             <li className="pt-2 border-t border-white/10 mt-3">
-              <Link href="/areas" className="hover:text-[var(--color-accent)] font-semibold">
+              <Link
+                href={HREF_MAP["areas"]}
+                className="hover:text-[var(--color-accent)] font-semibold"
+              >
                 כל האזורים ←
               </Link>
             </li>
           </ul>
-        </div>
+        </nav>
 
-        <div>
-          <h3 className="text-sm font-extrabold uppercase tracking-[0.2em] text-[var(--color-accent)] mb-5">החברה</h3>
+        <nav aria-label="השוואות">
+          <h3 className="text-sm font-extrabold uppercase tracking-[0.2em] text-[var(--color-accent)] mb-5">
+            השוואות
+          </h3>
           <ul className="space-y-2.5 text-sm text-white/80">
-            <li><Link href="/about" className="hover:text-[var(--color-accent)]">אודות</Link></li>
-            <li><Link href="/contact" className="hover:text-[var(--color-accent)]">צור קשר</Link></li>
-            <li><Link href="/privacy" className="hover:text-[var(--color-accent)]">מדיניות פרטיות</Link></li>
-            <li><Link href="/accessibility" className="hover:text-[var(--color-accent)]">הצהרת נגישות</Link></li>
-            <li><Link href="/terms" className="hover:text-[var(--color-accent)]">תנאי שימוש</Link></li>
+            {COMPARE_TARGETS.map((t) => {
+              const meta = compares.find((c) => HREF_MAP[t].endsWith(c.slug));
+              const label = meta?.short ?? TARGET_LABEL[t];
+              return (
+                <li key={t}>
+                  <Link href={HREF_MAP[t]} className="hover:text-[var(--color-accent)]">
+                    {label}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
-        </div>
+
+          <h3 className="text-sm font-extrabold uppercase tracking-[0.2em] text-[var(--color-accent)] mt-6 mb-5">
+            החברה
+          </h3>
+          <ul className="space-y-2.5 text-sm text-white/80">
+            <li>
+              <Link href="/about" className="hover:text-[var(--color-accent)]">
+                אודות
+              </Link>
+            </li>
+            <li>
+              <Link href="/accessibility" className="hover:text-[var(--color-accent)]">
+                הצהרת נגישות
+              </Link>
+            </li>
+            <li>
+              <Link href="/privacy" className="hover:text-[var(--color-accent)]">
+                מדיניות פרטיות
+              </Link>
+            </li>
+            <li>
+              <Link href="/terms" className="hover:text-[var(--color-accent)]">
+                תנאי שימוש
+              </Link>
+            </li>
+            <li>
+              <Link href={HREF_MAP["contact"]} className="hover:text-[var(--color-accent)]">
+                צור קשר
+              </Link>
+            </li>
+          </ul>
+        </nav>
       </div>
 
       <div className="relative border-t border-white/10">

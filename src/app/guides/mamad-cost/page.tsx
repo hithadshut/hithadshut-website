@@ -5,6 +5,7 @@ import Section, { Prose } from "@/components/Section";
 import FAQ from "@/components/FAQ";
 import InlineLeadForm from "@/components/InlineLeadForm";
 import JsonLd from "@/components/JsonLd";
+import RelatedLinks from "@/components/RelatedLinks";
 import { buildMetadata } from "@/lib/metadata";
 import { articleJsonLd, breadcrumbJsonLd, faqJsonLd } from "@/lib/schema";
 
@@ -541,6 +542,17 @@ export default function Page() {
       />
 
       <FAQ items={faqs} title="שאלות נפוצות — מחיר ממ״ד" eyebrow="שאלות ותשובות" includeSchema={false} />
+
+      <RelatedLinks
+        seed="guides/mamad-cost"
+        targets={[
+          "building-mamad",
+          "room-reinforcement",
+          "compare-main",
+          "mamad-process",
+          "choosing-mamad-contractor",
+        ]}
+      />
 
       <div id="faq" />
     </>

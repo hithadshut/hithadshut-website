@@ -6,6 +6,7 @@ import FAQ from "@/components/FAQ";
 import ContactCTA from "@/components/ContactCTA";
 import JsonLd from "@/components/JsonLd";
 import TldrBlock from "@/components/TldrBlock";
+import RelatedLinks from "@/components/RelatedLinks";
 import { buildMetadata } from "@/lib/metadata";
 import { articleJsonLd } from "@/lib/schema";
 
@@ -135,6 +136,18 @@ export default function Page() {
       </Section>
 
       <FAQ items={faqs} />
+
+      <RelatedLinks
+        seed="guides/choosing-mamad-contractor"
+        targets={[
+          "building-mamad",
+          "room-reinforcement",
+          "compare-rashum-hafer",
+          "mamad-mistakes",
+          "mamad-cost",
+        ]}
+      />
+
       <ContactCTA />
     </>
   );

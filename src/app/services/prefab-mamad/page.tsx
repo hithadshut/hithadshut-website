@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import ServicePageLayout from "@/components/ServicePageLayout";
 import Section from "@/components/Section";
+import RelatedLinks from "@/components/RelatedLinks";
 import { buildMetadata } from "@/lib/metadata";
 
 const PATH = "/services/prefab-mamad";
@@ -144,6 +145,17 @@ export default function Page() {
           </Link>
         </div>
       </Section>
+
+      <RelatedLinks
+        seed="services/prefab-mamad"
+        targets={[
+          "mamad-cost",
+          "home-front-command-approval",
+          "mamad-process",
+          "compare-migunit-muchan",
+          "areas",
+        ]}
+      />
     </ServicePageLayout>
   );
 }

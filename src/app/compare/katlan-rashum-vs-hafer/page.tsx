@@ -6,6 +6,7 @@ import FAQ from "@/components/FAQ";
 import InlineLeadForm from "@/components/InlineLeadForm";
 import JsonLd from "@/components/JsonLd";
 import Reveal from "@/components/Reveal";
+import RelatedLinks from "@/components/RelatedLinks";
 import { faqJsonLd, breadcrumbJsonLd, articleJsonLd } from "@/lib/schema";
 import { buildMetadata } from "@/lib/metadata";
 import { site } from "@/lib/site";
@@ -451,6 +452,17 @@ export default function Page() {
       </Section>
 
       <FAQ items={faqs} includeSchema={false} />
+
+      <RelatedLinks
+        seed="compare/katlan-rashum-vs-hafer"
+        targets={[
+          "building-mamad",
+          "room-reinforcement",
+          "choosing-mamad-contractor",
+          "compare-main",
+        ]}
+      />
+
       <InlineLeadForm
         title="רוצים לעבוד עם קבלן רשום?"
         subtitle="התחדשות בינוי ויזמות — רשומים בפנקס הקבלנים, ביטוח מלא, חוזה מסודר, אחריות לפי חוק. השאירו פרטים — נחזור תוך שעות."

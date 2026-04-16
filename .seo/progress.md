@@ -179,3 +179,32 @@ Both tags render correctly on the homepage (via layout.tsx) and on every page th
 
 ### Next stage
 - Stage G: post-deploy — run `npm run notify-indexnow` once after first production deploy. Replace Organization `sameAs` placeholders with real social URLs when client provides. Consider sitemap index split if URL count crosses ~10K.
+
+## Stage G — Internal link mesh + anchor diversity (completed 2026-04-16)
+
+### Created
+- `src/lib/anchors.ts` — anchor-text utility. Exports `LinkTarget` union (15 targets), `ANCHOR_VARIANTS` (7–8 Hebrew anchor variations per target, 109 total), `pickAnchor(target, seed, usedIndices)` for deterministic seed-based rotation with per-page deduplication, `HREF_MAP` (LinkTarget → path), `TARGET_SUMMARY` (1-line card summaries), `TARGET_LABEL` (plain Hebrew labels for footer/nav).
+- `src/components/RelatedLinks.tsx` — reusable "לקריאה נוספת" block. Props: `{ seed, targets, title?, variant?, tone?, wrap? }`. Grid variant renders `card-premium` cards with rotated anchor + summary + "קראו עוד ←"; inline variant renders a bulleted list. `<nav aria-label="קישורים קשורים">` wrapper. Mobile-first grid `grid-cols-1 md:grid-cols-2 lg:grid-cols-3`. Shared `usedIndices` Set prevents repeated anchors on the same page.
+
+### Wired RelatedLinks into 18 content pages (20+ static pages after generateStaticParams expansion)
+- **Services (7)**: `building-mamad`, `room-reinforcement`, `migunit` (appended as additional child inside ServicePageLayout, preserving existing custom sections), `prefab-mamad`, `private-construction`, `renovations`, `extensions`.
+- **Guides (5)**: `mamad-cost`, `mamad-process`, `home-front-command-approval`, `choosing-mamad-contractor`, `mamad-mistakes`.
+- **Areas (2 routes, 29 static pages)**: `/areas/[city]` (28 cities) — targets: building-mamad, mamad-cost, compare-main, contact. `/areas/[city]/[service]` (112 geo×service) — primary service target via slug map + hash-based secondary (mamad-cost OR compare-main) + contact + areas.
+- **Compares (4)**: `mamad-vs-miggun-vs-migunit`, `mamad-tzamud-vs-hitzoni`, `migunit-vs-mamad-muchan`, `katlan-rashum-vs-hafer`.
+
+### Anchor variety
+- 7–8 anchor variations per target × 15 targets = 109 anchor variants total.
+- Seed-based hash rotation ensures anchor text varies by source page; `usedIndices` Set prevents same page from repeating an anchor across multiple targets in its RelatedLinks block.
+
+### Footer rebuild (`src/components/Footer.tsx`)
+- 5 columns now (was 4 content + brand column): שירותים (4 protection services via HREF_MAP), מדריכים (all 5 guides), אזורים (top 10 cities + "כל האזורים ←"), השוואות (all 4 compare pages) + החברה (about, accessibility, privacy, terms, contact).
+- Each column wrapped in `<nav aria-label>` for accessibility.
+- Footer uses plain Hebrew labels (not anchor rotation) — rotation intentionally reserved for in-body links.
+- Dropped the construction-services column (bנייה פרטית/שיפוצים/הרחבות) in favor of the spec-mandated layout — those services remain reachable via homepage and in-page navigation.
+
+### Constraints held
+- No "יוזמה קהילתית".
+- No duplicate links on pages that already link inline — RelatedLinks sits as a footer block, prose links untouched.
+- migunit ServicePageLayout structural customizations preserved — RelatedLinks appended as final child inside existing children render.
+- Mobile-first; RelatedLinks cards `break-words` on all text; grid collapses cleanly to 1 column on mobile.
+- All link HREFs flow through `HREF_MAP` — single source of truth for target → path.

@@ -5,6 +5,7 @@ import Section from "@/components/Section";
 import FAQ from "@/components/FAQ";
 import ContactCTA from "@/components/ContactCTA";
 import JsonLd from "@/components/JsonLd";
+import RelatedLinks from "@/components/RelatedLinks";
 import { faqJsonLd } from "@/lib/schema";
 import { buildMetadata } from "@/lib/metadata";
 
@@ -186,6 +187,17 @@ export default function Page() {
       </Section>
 
       <FAQ items={faqs} />
+
+      <RelatedLinks
+        seed="compare/mamad-vs-miggun-vs-migunit"
+        targets={[
+          "building-mamad",
+          "room-reinforcement",
+          "mamad-cost",
+          "compare-tzamud",
+        ]}
+      />
+
       <ContactCTA />
     </>
   );

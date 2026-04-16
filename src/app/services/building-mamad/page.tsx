@@ -4,6 +4,7 @@ import ServicePageLayout from "@/components/ServicePageLayout";
 import Section from "@/components/Section";
 import JsonLd from "@/components/JsonLd";
 import Reveal from "@/components/Reveal";
+import RelatedLinks from "@/components/RelatedLinks";
 import { buildMetadata } from "@/lib/metadata";
 import { howToJsonLd } from "@/lib/schema";
 
@@ -397,6 +398,17 @@ export default function Page() {
           </Link>
         </div>
       </Section>
+
+      <RelatedLinks
+        seed="services/building-mamad"
+        targets={[
+          "mamad-cost",
+          "mamad-process",
+          "choosing-mamad-contractor",
+          "compare-tzamud",
+          "areas",
+        ]}
+      />
     </ServicePageLayout>
   );
 }

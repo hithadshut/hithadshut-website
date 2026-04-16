@@ -6,6 +6,7 @@ import FAQ from "@/components/FAQ";
 import ContactCTA from "@/components/ContactCTA";
 import JsonLd from "@/components/JsonLd";
 import TldrBlock from "@/components/TldrBlock";
+import RelatedLinks from "@/components/RelatedLinks";
 import { buildMetadata } from "@/lib/metadata";
 import { articleJsonLd, howToJsonLd } from "@/lib/schema";
 
@@ -130,6 +131,18 @@ export default function Page() {
       </Section>
 
       <FAQ items={faqs} />
+
+      <RelatedLinks
+        seed="guides/mamad-process"
+        targets={[
+          "building-mamad",
+          "room-reinforcement",
+          "compare-main",
+          "home-front-command-approval",
+          "choosing-mamad-contractor",
+        ]}
+      />
+
       <ContactCTA />
     </>
   );

@@ -6,6 +6,7 @@ import FAQ from "@/components/FAQ";
 import InlineLeadForm from "@/components/InlineLeadForm";
 import JsonLd from "@/components/JsonLd";
 import Reveal from "@/components/Reveal";
+import RelatedLinks from "@/components/RelatedLinks";
 import { faqJsonLd, breadcrumbJsonLd } from "@/lib/schema";
 import { buildMetadata } from "@/lib/metadata";
 import { site } from "@/lib/site";
@@ -375,6 +376,17 @@ export default function Page() {
       </Section>
 
       <FAQ items={faqs} includeSchema={false} />
+
+      <RelatedLinks
+        seed="compare/mamad-tzamud-vs-hitzoni"
+        targets={[
+          "building-mamad",
+          "prefab-mamad",
+          "mamad-process",
+          "compare-main",
+        ]}
+      />
+
       <InlineLeadForm
         title="לא בטוחים איזה ממ״ד מתאים לבית?"
         subtitle="מהנדס מטעמנו מגיע לבית, בוחן את האפשרויות ומציג את הפתרון הנכון — ללא עלות, ללא התחייבות."
