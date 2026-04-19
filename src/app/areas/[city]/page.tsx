@@ -296,7 +296,7 @@ export default async function AreaPage({ params }: { params: Params }) {
         targets={["building-mamad", "mamad-cost", "compare-main", "contact"]}
       />
 
-      <FAQ items={faqs} eyebrow="שאלות ותשובות" title={`שאלות נפוצות: ${area.name}`} tone="soft" />
+      <FAQ items={faqs} eyebrow="שאלות ותשובות" title={`שאלות נפוצות: ${area.name}`} tone="soft" includeSchema={false} />
     </>
   );
 }

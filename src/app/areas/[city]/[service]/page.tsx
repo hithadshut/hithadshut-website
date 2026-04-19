@@ -310,6 +310,7 @@ export default async function GeoServicePage({ params }: { params: Params }) {
         eyebrow="שאלות ותשובות"
         title={`${svc.shortName} ב${area.name}: שאלות נפוצות`}
         tone="soft"
+        includeSchema={false}
       />
     </>
   );

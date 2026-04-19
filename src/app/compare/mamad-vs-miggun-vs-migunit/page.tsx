@@ -186,7 +186,7 @@ export default function Page() {
         </div>
       </Section>
 
-      <FAQ items={faqs} />
+      <FAQ items={faqs} includeSchema={false} />
 
       <RelatedLinks
         seed="compare/mamad-vs-miggun-vs-migunit"
