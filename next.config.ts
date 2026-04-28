@@ -3,12 +3,28 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   compress: true,
+  // Canonical URL shape: no trailing slash, no www subdomain.
+  // Pairs with the host-based redirect below to give Google a single canonical
+  // URL per page and resolve GSC "duplicate without canonical" / "redirected".
+  trailingSlash: false,
   experimental: {
     optimizePackageImports: ["lucide-react"],
   },
   images: {
     formats: ["image/avif", "image/webp"],
     // No remote domains needed — all images are local (/public)
+  },
+  async redirects() {
+    return [
+      // Force www → apex (non-www). HTTPS upgrade is handled automatically by
+      // Vercel's edge so we do not need an http→https rule here.
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.hithadshut.co.il" }],
+        destination: "https://hithadshut.co.il/:path*",
+        permanent: true,
+      },
+    ];
   },
   async headers() {
     return [
