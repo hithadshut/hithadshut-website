@@ -122,6 +122,21 @@ export const guides = [
     title: "10 טעויות נפוצות בבניית ממ״ד",
     short: "טעויות בבניית ממ״ד",
   },
+  {
+    slug: "mamad-permit-exemption-2026",
+    title: "מסלול פטור מהיתר 2026",
+    short: "פטור מהיתר 2026",
+  },
+  {
+    slug: "mamad-vs-shelter",
+    title: "ממ״ד מול מקלט בבניין",
+    short: "ממ״ד vs מקלט",
+  },
+  {
+    slug: "mamad-air-filter-system",
+    title: "מערכת אוורור וסינון לממ״ד",
+    short: "מערכת אוורור וסינון",
+  },
 ] as const;
 
 export const compare = {
