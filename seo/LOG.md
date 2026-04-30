@@ -4,6 +4,85 @@
 
 ---
 
+## סיכום סשן [2026-04-30] — Continuous Execution Run
+
+### הסשן הזה כיסה: W1 → W2 → W3 → W4 → W5 → W6 (חלקי) → W9 (early lift) → W10 → W12 (חלקי, llms.txt)
+
+7 commits, 7 push events. Build ירוק ב-0 שגיאות בכל commit.
+
+### מצב ה-/seo/ folder
+- `LOG.md` (זה) — 7 ערכים שבועיים, מסיכום ומטה.
+- `BACKLOG.md` — מתועדף.
+- `KEYWORD_MAP.md` — 60+ ביטויים, 6 קטגוריות.
+- `MONEY_PAGES.md` — מצב כל money page.
+- `AREA_PAGES.md` — סיכום audit מלא של 30 ערים, מטריצה מעודכנת אחרי W5.
+- `CONTENT_GUARDRAILS.md` — מקורות מאומתים בלבד + טבלת הצהרות שדורשות אימות W12.
+- `GEO_TRACKING.md` — מבנה לבדיקות baseline (W11+, חוסם על משימה ידנית).
+- `INTERNAL_LINKING.md` — מטריצת קישוריות.
+- `SCHEMA_MAP.md` — אינוונטר schemas פוסט-W3.
+- `BLOCKERS.md` — דחיפות P0-P3, פעולה ברגע פתרון.
+- `GBP_SETUP.md` — תבנית מלאה ל-Ofek להקמת Google Business Profile.
+
+### קוד שהוסף לסשן
+- `src/app/icon.svg` — favicon SVG מותגי
+- `src/app/apple-icon.tsx` — Apple touch icon (180×180 PNG via ImageResponse)
+- `public/manifest.webmanifest` — PWA manifest
+- `src/app/about/ofek-mazor/page.tsx` — עמוד author
+- `src/components/TrustStrip.tsx` — רצועת trust 4 עמודים מתחת להירו
+- `src/components/KeyStats.tsx` — קלפי נתונים מאומתים
+- `src/content/indexable-geo.ts` — שער דורווי לצמדי city×service
+- `src/app/guides/mamad-permit-exemption-2026/page.tsx`
+- `src/app/guides/mamad-vs-shelter/page.tsx`
+- `src/app/guides/mamad-air-filter-system/page.tsx`
+
+### קוד שהורחב
+- `src/lib/schema.ts` — `OFEK_PERSON_ID`, `ofekPersonJsonLd()`, `articleJsonLd` עם `authorPersonId`.
+- `src/components/Byline.tsx` — author + dateModified visible.
+- `src/components/FounderSection.tsx` — מקור Person אחיד + קישור author.
+- `src/components/ServicePageLayout.tsx` — `quickAnswer` prop. כל 7 השירותים אומצו.
+- `src/content/areas.ts` — type הורחב (localCommittee, localPlans, extendedNotes, noindexReason). 4 ערים A: givatayim, ramat-gan, herzliya, modiin. 6 ערים noindex.
+- `src/app/areas/[city]/page.tsx` — render שדות חדשים + noindex.
+- `src/app/areas/[city]/[service]/page.tsx` — noindex כברירת מחדל.
+- `src/app/sitemap.ts` — סינון לפי allowlist + noindex flag.
+- `src/app/robots.ts` — AI bots allowlist (GPTBot, PerplexityBot, ClaudeBot, Google-Extended, Bingbot, וכו׳).
+- `src/lib/site.ts` — 8 מדריכים (היו 5).
+- `src/app/page.tsx` — TrustStrip + LocalBusiness schema.
+- `src/app/about/page.tsx` — קישורים ל-author.
+- 5 מדריכים + 1 compare מקבלים byline=ofek + Article author=Person.
+- `public/llms.txt` — עודכן עם 8 מדריכים, הוספת sections "על הצוות".
+
+### חסומים פעילים (Ofek action required)
+P0:
+- B-001: לוגו מקור באיכות גבוהה (לא חוסם, יוצר חוב טכני).
+- B-002: אימות Google Search Console.
+- B-003: אימות Bing Webmaster Tools.
+- B-004: GA4 Measurement ID.
+
+P1:
+- B-010: הקמת Google Business Profile (תבנית מלאה ב-`seo/GBP_SETUP.md`).
+- B-011: rename master → main (לא קריטי).
+
+P2:
+- B-020: 5-15 פרויקטים אמיתיים עם תמונות (חוסם /projects).
+- B-021: 5-10 ביקורות אמיתיות (חוסם /reviews + AggregateRating).
+- B-022: שם + רישיון מהנדס קונסטרוקציה.
+
+P3:
+- B-030: sameAs לאופק (לינקדאין/פייסבוק/אינסטגרם).
+- B-031: שיפור ערך ויקיפדיה.
+
+### מה הבא (ברגע ש-Ofek מחזיר)
+1. Ofek מאשר את ה-favicon SVG החדש בדפדפן + תאשר שלא נפגע — אם הכל בסדר, B-001 הופך ל-cosmetic-only.
+2. אופק מקים GBP לפי `seo/GBP_SETUP.md`. אחרי אימות, אני מחבר את `Organization.sameAs` + מוסיף Reviews CTA ב-/contact.
+3. אופק מאמת GSC. אני מחבר את meta verification ב-layout. בעוד 14-21 יום נראה את השפעת W2-W10 על ה-SERP.
+4. אופק שולח 5-10 ביקורות אמיתיות בכתב + הסכמה. אני בונה /reviews + Review schema.
+5. אופק שולח 3-5 פרויקטים אמיתיים עם תמונות. אני בונה /projects + ImageObject schema + משבץ ב-services + ב-areas.
+
+### המודל לסשן הבא
+"רוץ סשן הבא" → אני קורא את הסיכום הזה + BLOCKERS + git log -15 + sitemap → מבצע פעולות חדשות לפי הסטטוס של החוסמים. אם אופק לא פתח שום חוסם, ממשיך ב-W11 (GEO baseline manual queries — אפשר לי לתעד baseline structure גם בלי לרוץ בפועל) ובהרחבת תוכן עם ערים נוספות שעוברות אודיט A (kfar-saba, raanana, נוספות).
+
+---
+
 ## שבוע 10 [2026-04-30] — 3 מדריכים חדשים
 
 ### בוצע
