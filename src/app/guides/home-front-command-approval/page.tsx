@@ -11,6 +11,7 @@ import ReadingTimeBadge from "@/components/ReadingTimeBadge";
 import Byline from "@/components/Byline";
 import TableOfContents from "@/components/TableOfContents";
 import RelatedArticles from "@/components/RelatedArticles";
+import KeyStats from "@/components/KeyStats";
 import { buildMetadata } from "@/lib/metadata";
 import {
   articleJsonLd,
@@ -145,6 +146,70 @@ export default function Page() {
             . אנחנו מטפלים בתהליך עבורכם, מהגשה ועד אישור.
           </p>
 
+          </Prose>
+
+          <KeyStats
+            eyebrow="נתונים מאומתים · אישור פקע״ר"
+            title="המספרים החשובים"
+            stats={[
+              {
+                value: "עד 14 ימי עבודה",
+                label: "זמן אישור פקע״ר",
+                note: "במסלול פטור עם הגשה אלקטרונית מסודרת.",
+                source: {
+                  label: "פיקוד העורף — מערכת רישוי",
+                  href: "https://www.oref-rishuy.org.il",
+                },
+              },
+              {
+                value: "9 מ״ר",
+                label: "שטח מינימלי לממ״ד דירתי",
+                note: "במקרים חריגים: 5 מ״ר.",
+                source: {
+                  label: "פיקוד העורף",
+                  href: "https://www.oref.org.il",
+                },
+              },
+              {
+                value: "22.5 מ״ק",
+                label: "נפח פנימי מינימלי",
+                note: "ממ״ד דירתי סטנדרטי.",
+                source: {
+                  label: "פיקוד העורף",
+                  href: "https://www.oref.org.il",
+                },
+              },
+              {
+                value: "45 ימים",
+                label: "הודעת סיום ביצוע",
+                note: "במסלול פטור — עורך הבקשה מודיע לרשות הרישוי ולפקע״ר.",
+                source: {
+                  label: "מינהל התכנון",
+                  href: "https://www.iplan.gov.il",
+                },
+              },
+              {
+                value: "3 מסלולים",
+                label: "פטור מהיתר / מקוצר / רגיל",
+                note: "פיקוד העורף נדרש בכל המסלולים.",
+                source: {
+                  label: "מינהל התכנון — מסלולי רישוי",
+                  href: "https://www.gov.il/he/departments/topics/planning_and_building",
+                },
+              },
+              {
+                value: "אדריכל / מהנדס",
+                label: "מי מגיש את הבקשה",
+                note: "עורך הבקשה — לא הקבלן ולא בעל הנכס.",
+                source: {
+                  label: "פיקוד העורף",
+                  href: "https://www.oref.org.il",
+                },
+              },
+            ]}
+          />
+
+          <Prose>
           <h2 id="process">התהליך בקצרה</h2>
           <ol>
             <li><strong>הכנת תיק הגשה</strong> אצל עורך הבקשה (אדריכל/מהנדס).</li>

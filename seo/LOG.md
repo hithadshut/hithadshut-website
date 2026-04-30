@@ -4,6 +4,34 @@
 
 ---
 
+## שבוע 6+9 [2026-04-30] — GEO Layer 2 + AI Bots Allowlist
+
+### בוצע
+- **`KeyStats` רכיב חדש** (`src/components/KeyStats.tsx`): קלפי נתונים מאומתים בפורמט (value, label, note, source). external sources עם rel="nofollow noopener". מותאם ל-citation by AI engines — כל קלף הוא triple נקי (number, label, source) שמודל יכול להעתיק verbatim.
+- **KeyStats ב-2 מדריכים מרכזיים**:
+  - `/guides/mamad-cost`: 6 קלפים — מחיר 9 מ״ר, 12 מ״ר, frontline uplift, זמן פקע״ר, זמן ביצוע, הודעת סיום. מקורות: התחדשות (מחירים), oref-rishuy.org.il (זמן אישור), iplan.gov.il (45 ימים).
+  - `/guides/home-front-command-approval`: 6 קלפים — זמן אישור, שטח מינימלי, נפח, הודעת סיום, 3 מסלולי רישוי, מי מגיש. מקורות: oref.org.il, iplan.gov.il, gov.il.
+- **W9 Early Lift — AI bots allowlist ב-`app/robots.ts`**: User-Agent מפורש לכל אחד: GPTBot, OAI-SearchBot, ChatGPT-User, PerplexityBot, Perplexity-User, ClaudeBot, anthropic-ai, Claude-Web, Google-Extended, CCBot, Bingbot, Applebot-Extended. כל אחד עם `allow: /`. גם הרחבת disallow של wildcard ל-`/_next/`.
+
+### היגיון אסטרטגי
+- ה-wildcard כבר מאשר את כולם, אבל enumeration מפורש (א) הופך את המדיניות לקריאה ל-bot operators ול-audit וועדה משפטית עתידית; (ב) מגן על המדיניות אם מישהו עתידי יחמיר את ה-wildcard ל-disallow כללי בלי להבין שהוא חוסם AI search; (ג) מסמל לבוטים שאנחנו מארחים אותם בכוונה (אזכור = trust signal זעיר).
+- KeyStats פותר בעיה ב-מאמר ארוך: AI engines מעדיפים sentences קצרות עם מספר ומקור. במקום שיחפשו את הנתון בפסקה, יש להם עכשיו טבלה.
+- W6 חלקי: ציטוטים inline כבר קיימים בעמוד home-front-command-approval (oref.org.il, gov.il). אין צורך להוסיף יותר ב-2 העמודים האלה. הציטוטים החסרים בשאר 3 המדריכים ידחו ל-W6 follow-up.
+
+### דחיות מ-W6
+- **Listicle reformat** ל-/guides/mamad-mistakes ול-/guides/choosing-mamad-contractor: עברו ל-BACKLOG. הסיבה: שני העמודים האלה כבר מציגים את הרשימות שלהם כ-ordered-list ב-TldrBlock + ב-Prose, ושינוי ל-H2 numbered headings הוא restructure גדול לרווח שולי. עדיף בעתיד עם פרק תוכן חדש מבוסס listicle.
+- ציטוטים inline נוספים ב-3 מדריכים אחרים (mamad-cost, mamad-process, mamad-mistakes, choosing-mamad-contractor): עברו ל-BACKLOG. Key Stats שהוספנו מספק מקורות הסמכות העיקריים.
+
+### חסום על אופק
+ללא חוסם חדש.
+
+### Top-3 לשבוע הבא (W10 — 3 מדריכים חדשים)
+1. `/guides/mamad-permit-exemption-2026` — money topic לפני סיום הוראת חרבות ברזל בנובמבר 2026.
+2. `/guides/mamad-vs-shelter` — שאלה מבולבלת בקרב ישראלים (ממ״ד מול מקלט בבניין).
+3. `/guides/mamad-air-filter-system` — ביטוי חיפוש מובהק שעוד לא מכוסה.
+
+---
+
 ## שבוע 5 [2026-04-30] — Area Pages Survival
 
 ### בוצע

@@ -10,6 +10,7 @@ import ReadingTimeBadge from "@/components/ReadingTimeBadge";
 import Byline from "@/components/Byline";
 import TableOfContents from "@/components/TableOfContents";
 import RelatedArticles from "@/components/RelatedArticles";
+import KeyStats from "@/components/KeyStats";
 import { buildMetadata } from "@/lib/metadata";
 import {
   articleJsonLd,
@@ -192,6 +193,55 @@ export default function Page() {
                 טווחי המחיר למטה מבוססים על שוק ישראל 2026, עבור ממ״ד בבית פרטי עם גישה סבירה וגמר סטנדרטי. הטווחים אינדיקטיביים. הצעת מחיר סופית נקבעת לפי ביקור באתר, בדיקת תכנית אדריכלית ובדיקת מפרט טכני.
               </p>
             </Prose>
+
+            <KeyStats
+              eyebrow="נתונים מאומתים · 2026"
+              title="מספרי מחיר וזמן בתמצית"
+              stats={[
+                {
+                  value: "160-200K ₪",
+                  label: "ממ״ד 9 מ״ר בבית פרטי",
+                  note: "טווח מחיר בנייה סטנדרטית, לא כולל מע״מ.",
+                  source: { label: "התחדשות בינוי ויזמות" },
+                },
+                {
+                  value: "200-220K ₪",
+                  label: "ממ״ד 12 מ״ר בבית פרטי",
+                  note: "טווח מחיר בנייה סטנדרטית, לא כולל מע״מ.",
+                  source: { label: "התחדשות בינוי ויזמות" },
+                },
+                {
+                  value: "+15-25%",
+                  label: "תוספת קו קדמי / קיר 40 ס״מ",
+                  note: "ערים בקו קדמי או דרישות פקע״ר מחמירות.",
+                  source: { label: "התחדשות בינוי ויזמות" },
+                },
+                {
+                  value: "עד 14 ימי עבודה",
+                  label: "אישור פיקוד העורף",
+                  note: "במסלול פטור עם הגשה אלקטרונית מלאה.",
+                  source: {
+                    label: "פיקוד העורף — מערכת רישוי",
+                    href: "https://www.oref-rishuy.org.il",
+                  },
+                },
+                {
+                  value: "6-10 שבועות",
+                  label: "ביצוע ממ״ד סטנדרטי",
+                  note: "מתחילת יציקה ועד מסירה, גודל 9-12 מ״ר.",
+                  source: { label: "התחדשות בינוי ויזמות" },
+                },
+                {
+                  value: "45 ימים",
+                  label: "הודעת סיום ביצוע",
+                  note: "במסלול פטור — עורך הבקשה מודיע לרשות הרישוי ולפקע״ר.",
+                  source: {
+                    label: "מינהל התכנון",
+                    href: "https://www.iplan.gov.il",
+                  },
+                },
+              ]}
+            />
 
             <h3 className="text-lg md:text-xl font-black text-[var(--color-primary)] mt-8 mb-4">
               טבלה 1: מחיר ממ״ד לפי גודל
