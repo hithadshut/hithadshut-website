@@ -31,6 +31,12 @@ type Props = {
   pricing?: string;
   faqs: FaqItem[];
   defaultService: string;
+  /**
+   * 40-60 word direct answer to the page's primary search intent.
+   * Rendered as a "בקצרה" Quick Answer card below the hero.
+   * Optimized for AI-engine extraction and Google AI Overviews.
+   */
+  quickAnswer?: ReactNode;
   children?: ReactNode;
 };
 
@@ -52,6 +58,7 @@ export default function ServicePageLayout({
   pricing,
   faqs,
   defaultService,
+  quickAnswer,
   children,
 }: Props) {
   return (
@@ -66,6 +73,27 @@ export default function ServicePageLayout({
           serviceType: serviceName,
         })}
       />
+
+      {quickAnswer && (
+        <Section tone="soft">
+          <div className="max-w-4xl mx-auto">
+            <div
+              className="relative rounded-2xl bg-white border border-[var(--color-border)] shadow-[var(--shadow-card)] p-6 md:p-8"
+              style={{ borderInlineStartWidth: 6, borderInlineStartColor: "var(--color-accent)" }}
+            >
+              <div className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-[var(--color-accent-dark)] mb-3">
+                בקצרה
+              </div>
+              <h2 className="text-xl md:text-2xl font-black text-[var(--color-primary)] mb-3">
+                התשובה בקצרה
+              </h2>
+              <div className="text-base md:text-[17px] text-[var(--color-ink)] leading-relaxed">
+                {quickAnswer}
+              </div>
+            </div>
+          </div>
+        </Section>
+      )}
 
       {/* Intro + trust badges */}
       <Section tone="white">

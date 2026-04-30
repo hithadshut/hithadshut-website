@@ -4,6 +4,40 @@
 
 ---
 
+## שבוע 3 [2026-04-30] — GEO Layer 1 (Quick Answers + Schema Audit)
+
+### בוצע
+- **`ServicePageLayout` הורחב**: prop חדש `quickAnswer?: ReactNode`. כשסופק, רנדר רכיב "בקצרה" מתחת ל-PageHero לפני האינטרו, באותו עיצוב של TldrBlock במדריכים (קלף לבן עם פס זהב inline-start).
+- **Quick Answer ב-7 עמודי שירות**:
+  - building-mamad: גודל / מחיר / זמן + אזכור פטור מהיתר
+  - room-reinforcement: עלות / זמן + הבחנה חדה ש-≠ ממ״ד תקני
+  - migunit: עלות / זמן / מקרה שימוש (חצר)
+  - prefab-mamad: ההבחנה הקריטית בין טרומי תקני לבין יחידה ממוגנת גנרית
+  - private-construction: ערך הצעה (חוזה אחד, ממ״ד משולב)
+  - renovations: ערך הצעה (שיפוץ + ממ״ד באותה מסגרת)
+  - extensions: ערך הצעה (תב״ע, שילוב ממ״ד בתוספת)
+- **FAQ schema audit (כל האתר)**: ✓ עבר. אין כפילויות (dup-fix מ-dc3b670 עובד נכון). כל עמוד עם FAQ visible פולט בדיוק FAQPage אחד.
+- **`SCHEMA_MAP.md` עודכן**: רישום מלא של schemas לכל עמוד post-W3.
+
+### היגיון אסטרטגי
+- מנועי AI (ChatGPT/Perplexity/Gemini/AIO) מחלצים תשובות ישירות. עמוד שירות בלי "תשובה ישירה בתחילת הדף" מאבד citation למתחרה שיש לו אחת.
+- 5 המדריכים כבר היו ב-spec (TldrBlock או TL;DR card inline). הפער היה בעמודי השירות. סגרתי אותו.
+- visible dateModified כבר נוסף ב-W2 בכל המדריכים. בעמודי שירות פחות קריטי (פחות time-sensitive); נשמר כ-future enhancement.
+
+### לבדוק ב-GSC בעוד 14-21 יום
+- האם Quick Answer של מחיר ממ״ד מופיע ב-AIO / People Also Ask.
+- האם prefab-mamad מתחיל לדרג על "ממ״ד טרומי תקני" / "יחידה ממוגנת אישור פקע״ר".
+
+### חסום על אופק
+ללא חוסם חדש. כל הפעילות ב-W3 הייתה אוטונומית.
+
+### Top-3 לשבוע הבא (W4 — Local SEO Push)
+1. LocalBusiness schema על דף הבית (כרגע יש Organization + WebSite בלבד; עמודי `[city]` כבר פולטים LocalBusiness — לאחד את הסיגנל גם בשורש).
+2. אופציה לשדרג עמוד `/areas/givatayim` למודל מלא (שכונות אמיתיות, ועדה גבעתיים-רמת-גן, תב״ע, קייס אנונימי). התשתית קיימת ב-`src/content/areas.ts`; נדרשת הוספת neighborhoods + הרחבת localNote.
+3. הכנת תיעוד ל-GBP setup (BLOCKERS B-010) — תבנית לאופק עם כל ה-fields נדרשים, כך שכשהוא יקים את ה-GBP הוא לא יחסר שדה.
+
+---
+
 ## שבוע 2 [2026-04-30] — E-E-A-T Layer 1
 
 ### בוצע

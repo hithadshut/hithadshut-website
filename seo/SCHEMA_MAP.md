@@ -4,18 +4,29 @@
 
 ---
 
-## Currently Active
+## Currently Active (post-W3)
 
 | URL | Schemas | Source | Validated |
 |---|---|---|---|
-| / | Organization, WebSite | layout.tsx (JsonLd component) | needs Rich Results Test (W3) |
-| /services/* | Service, BreadcrumbList, FAQPage | per-page emit | needs validation |
-| /guides/* | Article (collective author), BreadcrumbList, FAQPage | per-page emit | needs validation |
-| /compare/* | Article + FAQPage on some, BreadcrumbList | per-page (commit dc3b670 fixed dup FAQPage) | needs revalidation post-fix |
-| /areas/[city] | likely BreadcrumbList + Service | per-page | audit W5 |
-| /areas/[city]/[service] | likely BreadcrumbList + Service | per-page | audit W5 |
-| /contact | likely BreadcrumbList | per-page | audit |
-| /about | likely BreadcrumbList | per-page | W2 add Person when bio live |
+| / | Organization, WebSite, Person (Ofek inline via FounderSection) | layout.tsx + components | needs Rich Results Test |
+| /about | Organization | per-page | OK |
+| /about/ofek-mazor | Organization, Person, BreadcrumbList | W2 new page | needs RR Test |
+| /services/* | Service, BreadcrumbList, FAQPage | ServicePageLayout (FAQ default emits FAQPage) | needs validation |
+| /guides/mamad-cost | Article(author=Person), Person, BreadcrumbList, FAQPage | per-page | needs validation |
+| /guides/mamad-process | Article(author=Person), Person, HowTo, FAQPage (via FAQ default) | per-page | needs validation |
+| /guides/home-front-command-approval | Article(author=Person), Person, FAQPage | per-page | needs validation |
+| /guides/choosing-mamad-contractor | Article(author=Person), Person, FAQPage | per-page | needs validation |
+| /guides/mamad-mistakes | Article(author=Person), Person, FAQPage | per-page | needs validation |
+| /compare/mamad-vs-miggun-vs-migunit | FAQPage, BreadcrumbList | per-page | OK |
+| /compare/mamad-tzamud-vs-hitzoni | FAQPage, BreadcrumbList | per-page | OK |
+| /compare/migunit-vs-mamad-muchan | FAQPage, BreadcrumbList | per-page | OK |
+| /compare/katlan-rashum-vs-hafer | Article(author=Person), Person, FAQPage, BreadcrumbList | per-page | needs validation |
+| /areas | FAQPage | per-page | OK |
+| /areas/[city] | LocalBusiness, Service, FAQPage, BreadcrumbList | per-page | audit W4/W5 |
+| /areas/[city]/[service] | LocalBusiness, Service, FAQPage, BreadcrumbList | per-page | audit W5 |
+
+## FAQ schema audit (W3 result)
+✓ All pages with visible FAQ emit exactly one FAQPage. No duplicates (the dup-fix from commit dc3b670 holds — pages with `includeSchema={false}` on `<FAQ>` correctly emit `faqJsonLd(faqs)` separately).
 
 ## Planned (by week)
 
