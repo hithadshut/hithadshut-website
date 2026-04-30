@@ -11,6 +11,7 @@ import ReadingTimeBadge from "@/components/ReadingTimeBadge";
 import Byline from "@/components/Byline";
 import TableOfContents from "@/components/TableOfContents";
 import RelatedArticles from "@/components/RelatedArticles";
+import KeyStats from "@/components/KeyStats";
 import { buildMetadata } from "@/lib/metadata";
 import {
   articleJsonLd,
@@ -111,6 +112,54 @@ export default function Page() {
           <Byline author="ofek-mazor" dateModified={DATE_MODIFIED} />
           <ReadingTimeBadge words={WORD_COUNT} />
         </div>
+      </Section>
+
+      <Section tone="white">
+        <KeyStats
+          eyebrow="עלות הטעויות"
+          title="כמה עולה כל טעות נפוצה"
+          stats={[
+            {
+              value: "10-40K ₪",
+              label: "תוספת מתוספות באמצע",
+              note: "בלי תכנון קונסטרוקטיבי מלא לפני חתימה.",
+              source: { label: "התחדשות בינוי ויזמות" },
+            },
+            {
+              value: "כפול",
+              label: "החלפת רכיב לא מאושר",
+              note: "דלת/חלון/סינון בלי אישור פקע״ר → רכישה והתקנה מחדש.",
+              source: { label: "פיקוד העורף", href: "https://www.oref.org.il" },
+            },
+            {
+              value: "10-20%",
+              label: "פער בין 3 הצעות",
+              note: "באותו מפרט מקבלנים מקצועיים.",
+              source: { label: "התחדשות בינוי ויזמות" },
+            },
+            {
+              value: "15% מקס׳",
+              label: "מקדמה סבירה",
+              note: "מעבר לזה — סימן אזהרה.",
+              source: { label: "התחדשות בינוי ויזמות" },
+            },
+            {
+              value: "45 ימים",
+              label: "חלון הודעת סיום",
+              note: "ללא הגשה — הממ״ד לא 'סגור' מול הרשויות.",
+              source: { label: "מינהל התכנון", href: "https://www.iplan.gov.il" },
+            },
+            {
+              value: "1 / 3 / 7",
+              label: "שנות אחריות לפי חוק המכר",
+              note: "מתחילים רק כשהחוזה מוגדר נכון.",
+              source: {
+                label: "כל זכות",
+                href: "https://www.kolzchut.org.il",
+              },
+            },
+          ]}
+        />
       </Section>
 
       <Section>

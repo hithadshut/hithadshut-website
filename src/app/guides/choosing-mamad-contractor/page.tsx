@@ -11,6 +11,7 @@ import ReadingTimeBadge from "@/components/ReadingTimeBadge";
 import Byline from "@/components/Byline";
 import TableOfContents from "@/components/TableOfContents";
 import RelatedArticles from "@/components/RelatedArticles";
+import KeyStats from "@/components/KeyStats";
 import { buildMetadata } from "@/lib/metadata";
 import {
   articleJsonLd,
@@ -110,6 +111,57 @@ export default function Page() {
           <Byline author="ofek-mazor" dateModified={DATE_MODIFIED} />
           <ReadingTimeBadge words={WORD_COUNT} />
         </div>
+      </Section>
+
+      <Section tone="white">
+        <KeyStats
+          eyebrow="נתונים מאומתים"
+          title="לפני שחותמים — המספרים החשובים"
+          stats={[
+            {
+              value: "5-15%",
+              label: "מקדמה סבירה",
+              note: "מעל 20-25% לפני תחילת עבודה — סימן אזהרה.",
+              source: { label: "התחדשות בינוי ויזמות" },
+            },
+            {
+              value: "1 / 3 / 7 שנים",
+              label: "אחריות קבלן לפי חוק המכר",
+              note: "תקלות / מערכות / קונסטרוקציה.",
+              source: {
+                label: "כל זכות — חוק המכר",
+                href: "https://www.kolzchut.org.il",
+              },
+            },
+            {
+              value: "פנקס הקבלנים",
+              label: "רישום חובה",
+              note: "סיווג תואם להיקף הפרויקט.",
+              source: {
+                label: "רשם הקבלנים",
+                href: "https://www.gov.il/he/departments/units/contractors_registrar",
+              },
+            },
+            {
+              value: "ביטוח חובה",
+              label: "עבודות קבלניות + צד ג׳",
+              note: "תעודה בתוקף לפני תחילת ביצוע.",
+              source: { label: "התחדשות בינוי ויזמות" },
+            },
+            {
+              value: "3 הצעות",
+              label: "מינימום להשוואה",
+              note: "אותו מפרט טכני בכל אחת.",
+              source: { label: "התחדשות בינוי ויזמות" },
+            },
+            {
+              value: "אישור פקע״ר",
+              label: "לכל רכיב מיגון",
+              note: "דלת, חלון, מערכת סינון — מספר אישור בכתב.",
+              source: { label: "פיקוד העורף", href: "https://www.oref.org.il" },
+            },
+          ]}
+        />
       </Section>
 
       <Section>

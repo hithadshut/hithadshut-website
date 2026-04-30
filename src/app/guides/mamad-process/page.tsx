@@ -11,6 +11,7 @@ import ReadingTimeBadge from "@/components/ReadingTimeBadge";
 import Byline from "@/components/Byline";
 import TableOfContents from "@/components/TableOfContents";
 import RelatedArticles from "@/components/RelatedArticles";
+import KeyStats from "@/components/KeyStats";
 import { buildMetadata } from "@/lib/metadata";
 import {
   articleJsonLd,
@@ -123,6 +124,51 @@ export default function Page() {
           <Byline author="ofek-mazor" dateModified={DATE_MODIFIED} />
           <ReadingTimeBadge words={WORD_COUNT} />
         </div>
+      </Section>
+
+      <Section tone="white">
+        <KeyStats
+          eyebrow="נתונים מאומתים · תהליך 2026"
+          title="המספרים החשובים"
+          stats={[
+            {
+              value: "7 שלבים",
+              label: "מהייעוץ ועד אישור גמר",
+              note: "ייעוץ → תכנון → רישוי → פקע״ר → ועדה → ביצוע → גמר.",
+              source: { label: "התחדשות בינוי ויזמות" },
+            },
+            {
+              value: "2-4 חודשים",
+              label: "זמן כולל במסלול פטור",
+              note: "במסלול רישוי רגיל: 6-9 חודשים.",
+              source: { label: "התחדשות בינוי ויזמות" },
+            },
+            {
+              value: "עד 14 ימי עבודה",
+              label: "אישור פקע״ר במסלול פטור",
+              note: "הגשה אלקטרונית מסודרת.",
+              source: { label: "פיקוד העורף", href: "https://www.oref-rishuy.org.il" },
+            },
+            {
+              value: "6-10 שבועות",
+              label: "ביצוע ממ״ד סטנדרטי",
+              note: "9-12 מ״ר, מתחילת הקונסטרוקציה ועד גמר.",
+              source: { label: "התחדשות בינוי ויזמות" },
+            },
+            {
+              value: "45 ימים",
+              label: "הודעת סיום ביצוע",
+              note: "במסלול פטור — לרשות הרישוי ולפקע״ר.",
+              source: { label: "מינהל התכנון", href: "https://www.iplan.gov.il" },
+            },
+            {
+              value: "3 מסלולים",
+              label: "פטור / מקוצר / רגיל",
+              note: "פיקוד העורף נדרש בכולם.",
+              source: { label: "מינהל התכנון", href: "https://www.iplan.gov.il" },
+            },
+          ]}
+        />
       </Section>
 
       <Section>
