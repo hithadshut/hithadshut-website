@@ -7,6 +7,8 @@ import ServiceIcon from "@/components/ServiceIcon";
 import HeroBackground from "@/components/HeroBackground";
 import FounderSection from "@/components/FounderSection";
 import TrustStrip from "@/components/TrustStrip";
+import JsonLd from "@/components/JsonLd";
+import { localBusinessJsonLd } from "@/lib/schema";
 import { protectionServices, constructionServices, guides, compare, site } from "@/lib/site";
 
 const faqs = [
@@ -67,6 +69,12 @@ const mainServices = protectionServices.slice(0, 3);
 export default function Home() {
   return (
     <>
+      {/* LocalBusiness on the home page only — Organization + WebSite are
+          already in layout.tsx and apply site-wide. Per-area pages emit their
+          own LocalBusiness with city-specific @id, so this top-level node is
+          scoped to / to avoid graph collisions. */}
+      <JsonLd data={localBusinessJsonLd()} />
+
       {/* ===== HERO ===== */}
       <section className="bg-hero-animated text-white relative overflow-hidden">
         <HeroBackground />

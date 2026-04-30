@@ -11,6 +11,18 @@ export type Area = {
    * stricter window/door specs, shorter alert windows.
    */
   isFrontLine?: boolean;
+  /** Local planning committee name (used on the city page for E-E-A-T). */
+  localCommittee?: string;
+  /** Active local urban-plan name(s) influencing construction (תב״ע) — short, factual. */
+  localPlans?: string[];
+  /**
+   * Extra paragraphs that go beyond `localNote` — rendered as a body section
+   * with a header. Use to surface verifiable, city-specific construction
+   * realities (e.g. typical building age, soil traits, committee posture).
+   * Avoid marketing fluff; this content carries the city out of doorway-page
+   * risk after the March-2026 Google update.
+   */
+  extendedNotes?: string[];
 };
 
 export const areas: Area[] = [
@@ -127,7 +139,24 @@ export const areas: Area[] = [
     name: "גבעתיים",
     nameEn: "Givatayim",
     district: "מחוז תל אביב",
-    localNote: "בנייה צפופה ושכונות ותיקות. מיגון חדר קיים הוא פתרון נפוץ במקום ממ״ד חדש.",
+    neighborhoods: [
+      "בורוכוב",
+      "ארלוזורוב",
+      "מרכז העיר",
+      "רמת חן",
+      "גבעת רמב״ם",
+      "שינקין",
+    ],
+    localNote:
+      "גבעתיים היא עיר צפופה במחוז תל אביב, מאופיינת בעיקר במבנים בני 50+ שנה: קוטג׳ים ישנים בשכונות בורוכוב וארלוזורוב, ובניינים נמוכים של 3-4 קומות. במלאי הקיים אין בדרך כלל ממ״ד דירתי, ומכאן הביקוש הגבוה לשתי קטגוריות: מיגון חדר קיים בדירות, וממ״ד צמוד או חיצוני בקוטג׳ים פרטיים. כל פרויקט עובר את הוועדה המקומית גבעתיים-רמת-גן, שעובדת מול תכנית מתאר ארצית 38 (תמ״א 38) ותכניות מקומיות.",
+    localCommittee: "ועדה מקומית גבעתיים-רמת-גן",
+    localPlans: ["תמ״א 38", "תב״ע מקומית גבעתיים"],
+    extendedNotes: [
+      "אופי הבנייה: שני סוגים שכיחים. הראשון, קוטג׳ים פרטיים בני 1.5-2 קומות מסוף שנות ה-50 ועד שנות ה-70, שבהם תוספת ממ״ד צמוד היא לרוב פתרון מעשי. השני, בניינים בני 3-4 קומות בלי מעלית, שבהם מיגון חדר קיים בדירה מציאותי הרבה יותר מבנייה של ממ״ד חדש.",
+      "שיקולי תכנון בגבעתיים: חניות מצומצמות ורחובות צרים בשכונות הוותיקות מחייבים תכנון לוגיסטי קפדני של משאיות בטון ושינוע חומרים. בכמה שכונות (בורוכוב במיוחד) נדרש תיאום מוקדם עם העירייה לחסימת רחוב לזמני יציקה.",
+      "הוועדה המקומית גבעתיים-רמת-גן: עובדת בקצב סדיר ולרוב נקראת מקצועית. מסלול פטור מהיתר מתאים בבתים פרטיים עד שתי קומות. בבניינים גבוהים יותר נדרש לרוב רישוי מקוצר. אישור פיקוד העורף הוא תנאי מקדים בכל מסלול.",
+      "תוספת ערך: בעיר צפופה כמו גבעתיים, תוספת ממ״ד תקני לקוטג׳ הוותיק או מיגון חדר תקני בדירת קומה ראשונה משפיעים בעלייה על שווי הנכס לעומת נכסים זהים בלי מיגון. לפני התחלת הפרויקט מומלץ לבדוק מול שמאי מקרקעין שמכיר את שכונת היעד.",
+    ],
   },
   {
     slug: "herzliya",

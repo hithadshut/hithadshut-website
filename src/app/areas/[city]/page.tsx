@@ -159,7 +159,60 @@ export default async function AreaPage({ params }: { params: Params }) {
             </div>
           </Reveal>
         )}
+
+        {(area.localCommittee || (area.localPlans && area.localPlans.length > 0)) && (
+          <Reveal>
+            <div className="mt-10 grid sm:grid-cols-2 gap-5">
+              {area.localCommittee && (
+                <div className="card-premium p-5">
+                  <div className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[var(--color-accent-dark)] mb-2">
+                    ועדה מקומית
+                  </div>
+                  <div className="font-bold text-[var(--color-primary)]">
+                    {area.localCommittee}
+                  </div>
+                  <p className="mt-1 text-sm text-[var(--color-muted)] leading-snug">
+                    אנחנו מגישים בקשות, מטפלים בהערות ומקבלים אישורים מול הוועדה.
+                  </p>
+                </div>
+              )}
+              {area.localPlans && area.localPlans.length > 0 && (
+                <div className="card-premium p-5">
+                  <div className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[var(--color-accent-dark)] mb-2">
+                    תכניות החלות
+                  </div>
+                  <ul className="font-bold text-[var(--color-primary)] space-y-0.5">
+                    {area.localPlans.map((p) => (
+                      <li key={p}>{p}</li>
+                    ))}
+                  </ul>
+                  <p className="mt-1 text-sm text-[var(--color-muted)] leading-snug">
+                    משפיעות על מסלול הרישוי וזכויות הבנייה.
+                  </p>
+                </div>
+              )}
+            </div>
+          </Reveal>
+        )}
       </Section>
+
+      {area.extendedNotes && area.extendedNotes.length > 0 && (
+        <Section tone="white">
+          <Reveal>
+            <div className="max-w-3xl">
+              <div className="h-1 w-16 gold-line mb-5" />
+              <h2 className="text-2xl md:text-4xl font-black text-[var(--color-primary)] leading-tight mb-5">
+                מה כדאי לדעת על בנייה ומיגון ב{area.name}
+              </h2>
+              <div className="space-y-4 text-[var(--color-muted)] leading-relaxed">
+                {area.extendedNotes.map((para, i) => (
+                  <p key={i}>{para}</p>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+        </Section>
+      )}
 
       <Section tone="soft">
         <Reveal>
