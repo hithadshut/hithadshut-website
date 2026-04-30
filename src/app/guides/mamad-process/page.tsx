@@ -12,7 +12,15 @@ import Byline from "@/components/Byline";
 import TableOfContents from "@/components/TableOfContents";
 import RelatedArticles from "@/components/RelatedArticles";
 import { buildMetadata } from "@/lib/metadata";
-import { articleJsonLd, howToJsonLd } from "@/lib/schema";
+import {
+  articleJsonLd,
+  howToJsonLd,
+  ofekPersonJsonLd,
+  OFEK_PERSON_ID,
+} from "@/lib/schema";
+
+const DATE_PUBLISHED = "2026-04-15";
+const DATE_MODIFIED = "2026-04-30";
 
 // Approx word count for the main prose on this page (~7 steps + intro + 3 permit tracks + failures list + closing).
 const WORD_COUNT = 620;
@@ -86,7 +94,20 @@ export default function Page() {
         crumbs={[{ name: "מדריכים", href: "/#guides" }, { name: "תהליך בניית ממ״ד", href: PATH }]}
       />
 
-      <JsonLd data={[articleJsonLd({ headline: TITLE, description: DESCRIPTION, url: PATH }), howToJsonLd({ name: "איך בונים ממ\"ד", description: DESCRIPTION, steps })]} />
+      <JsonLd
+        data={[
+          articleJsonLd({
+            headline: TITLE,
+            description: DESCRIPTION,
+            url: PATH,
+            datePublished: DATE_PUBLISHED,
+            dateModified: DATE_MODIFIED,
+            authorPersonId: OFEK_PERSON_ID,
+          }),
+          howToJsonLd({ name: "איך בונים ממ\"ד", description: DESCRIPTION, steps }),
+          ofekPersonJsonLd(),
+        ]}
+      />
 
       <TldrBlock
         bullets={[
@@ -99,7 +120,7 @@ export default function Page() {
 
       <Section tone="white">
         <div className="flex flex-wrap justify-center items-center gap-3">
-          <Byline />
+          <Byline author="ofek-mazor" dateModified={DATE_MODIFIED} />
           <ReadingTimeBadge words={WORD_COUNT} />
         </div>
       </Section>

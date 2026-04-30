@@ -72,6 +72,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.6,
     },
+    // Author page (Ofek Mazor) — anchors Person schema for E-E-A-T
+    {
+      url: `${site.url}/about/ofek-mazor`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.55,
+    },
     // Legal pages
     {
       url: `${site.url}/privacy`,

@@ -7,7 +7,16 @@ import InlineLeadForm from "@/components/InlineLeadForm";
 import JsonLd from "@/components/JsonLd";
 import Reveal from "@/components/Reveal";
 import RelatedLinks from "@/components/RelatedLinks";
-import { faqJsonLd, breadcrumbJsonLd, articleJsonLd } from "@/lib/schema";
+import {
+  faqJsonLd,
+  breadcrumbJsonLd,
+  articleJsonLd,
+  ofekPersonJsonLd,
+  OFEK_PERSON_ID,
+} from "@/lib/schema";
+
+const DATE_PUBLISHED = "2026-04-15";
+const DATE_MODIFIED = "2026-04-30";
 import { buildMetadata } from "@/lib/metadata";
 import { site } from "@/lib/site";
 
@@ -225,11 +234,17 @@ export default function Page() {
       />
       <JsonLd data={faqJsonLd(faqs)} />
       <JsonLd
-        data={articleJsonLd({
-          headline: TITLE,
-          description: DESCRIPTION,
-          url: PATH,
-        })}
+        data={[
+          articleJsonLd({
+            headline: TITLE,
+            description: DESCRIPTION,
+            url: PATH,
+            datePublished: DATE_PUBLISHED,
+            dateModified: DATE_MODIFIED,
+            authorPersonId: OFEK_PERSON_ID,
+          }),
+          ofekPersonJsonLd(),
+        ]}
       />
 
       <Section>

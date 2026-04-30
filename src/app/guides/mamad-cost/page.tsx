@@ -11,7 +11,16 @@ import Byline from "@/components/Byline";
 import TableOfContents from "@/components/TableOfContents";
 import RelatedArticles from "@/components/RelatedArticles";
 import { buildMetadata } from "@/lib/metadata";
-import { articleJsonLd, breadcrumbJsonLd, faqJsonLd } from "@/lib/schema";
+import {
+  articleJsonLd,
+  breadcrumbJsonLd,
+  faqJsonLd,
+  ofekPersonJsonLd,
+  OFEK_PERSON_ID,
+} from "@/lib/schema";
+
+const DATE_MODIFIED = "2026-04-30";
+const DATE_PUBLISHED = "2026-04-15";
 
 // Word count for the main prose: TL;DR + 10 H2 sections of detailed content + 10 FAQs.
 // Manual estimate: this page is ~2,700 words of Hebrew prose + tables.
@@ -111,7 +120,17 @@ export default function Page() {
         crumbs={[{ name: "מדריכים", href: "/#guides" }, { name: "מחיר ממ״ד", href: PATH }]}
       />
 
-      <JsonLd data={articleJsonLd({ headline: TITLE, description: DESCRIPTION, url: PATH })} />
+      <JsonLd
+        data={articleJsonLd({
+          headline: TITLE,
+          description: DESCRIPTION,
+          url: PATH,
+          datePublished: DATE_PUBLISHED,
+          dateModified: DATE_MODIFIED,
+          authorPersonId: OFEK_PERSON_ID,
+        })}
+      />
+      <JsonLd data={ofekPersonJsonLd()} />
       <JsonLd data={faqJsonLd(faqs)} />
       <JsonLd
         data={breadcrumbJsonLd([
@@ -151,7 +170,7 @@ export default function Page() {
       {/* Byline + reading-time */}
       <Section tone="white">
         <div className="flex flex-wrap justify-center items-center gap-3">
-          <Byline />
+          <Byline author="ofek-mazor" dateModified={DATE_MODIFIED} />
           <ReadingTimeBadge words={WORD_COUNT} />
         </div>
       </Section>

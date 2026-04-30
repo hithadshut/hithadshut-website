@@ -6,6 +6,7 @@ import Reveal from "@/components/Reveal";
 import ServiceIcon from "@/components/ServiceIcon";
 import HeroBackground from "@/components/HeroBackground";
 import FounderSection from "@/components/FounderSection";
+import TrustStrip from "@/components/TrustStrip";
 import { protectionServices, constructionServices, guides, compare, site } from "@/lib/site";
 
 const faqs = [
@@ -105,6 +106,9 @@ export default function Home() {
         {/* bottom gradient fade */}
         <div aria-hidden className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-white to-transparent" />
       </section>
+
+      {/* ===== TRUST STRIP (W2 — entity-level trust signals below hero) ===== */}
+      <TrustStrip />
 
       {/* ===== MAIN SERVICES (3 big cards) ===== */}
       <section id="services" className="bg-white py-20 md:py-28">

@@ -144,6 +144,8 @@ export function articleJsonLd(params: {
   url: string;
   datePublished?: string;
   dateModified?: string;
+  /** When provided, set Article.author to a Person reference instead of the Organization. */
+  authorPersonId?: string;
 }) {
   const now = new Date().toISOString();
   return {
@@ -154,13 +156,62 @@ export function articleJsonLd(params: {
     inLanguage: "he-IL",
     datePublished: params.datePublished ?? "2026-04-15",
     dateModified: params.dateModified ?? now.slice(0, 10),
-    author: { "@id": `${site.url}/#organization` },
+    author: params.authorPersonId
+      ? { "@id": params.authorPersonId }
+      : { "@id": `${site.url}/#organization` },
     publisher: { "@id": `${site.url}/#organization` },
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": params.url.startsWith("http") ? params.url : `${site.url}${params.url}`,
     },
     image: `${site.url}${site.ogImage}`,
+  };
+}
+
+/** Stable @id for Ofek's Person node — referenced by Article.author across guides. */
+export const OFEK_PERSON_ID = `${site.url}/about/ofek-mazor#person`;
+
+/**
+ * Person schema for Ofek Mazor — founder & CEO of Hithadshut.
+ * Includes the verified Israeli real-estate broker license (#3246290).
+ * `sameAs` left empty until Ofek supplies authoritative social URLs (B-030).
+ */
+export function ofekPersonJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": OFEK_PERSON_ID,
+    name: "אופק מזור",
+    givenName: "אופק",
+    familyName: "מזור",
+    jobTitle: "מנכ״ל ומייסד",
+    worksFor: { "@id": `${site.url}/#organization` },
+    url: `${site.url}/about/ofek-mazor`,
+    image: `${site.url}/ofek-mazor.jpg`,
+    telephone: site.phoneE164,
+    email: site.email,
+    knowsLanguage: ["he", "en"],
+    knowsAbout: [
+      "בניית ממ״ד",
+      "מיגון חדר קיים",
+      "מיגונית",
+      "תקן פיקוד העורף",
+      "ניהול פרויקטי בנייה",
+      "נדל״ן ושוק מקרקעין בישראל",
+    ],
+    hasCredential: [
+      {
+        "@type": "EducationalOccupationalCredential",
+        credentialCategory: "license",
+        name: "רישיון מתווך מקרקעין מורשה (ישראל)",
+        identifier: "3246290",
+        recognizedBy: {
+          "@type": "GovernmentOrganization",
+          name: "משרד המשפטים — רשם המתווכים",
+        },
+      },
+    ],
+    sameAs: [],
   };
 }
 

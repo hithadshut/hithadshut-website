@@ -12,7 +12,14 @@ import Byline from "@/components/Byline";
 import TableOfContents from "@/components/TableOfContents";
 import RelatedArticles from "@/components/RelatedArticles";
 import { buildMetadata } from "@/lib/metadata";
-import { articleJsonLd } from "@/lib/schema";
+import {
+  articleJsonLd,
+  ofekPersonJsonLd,
+  OFEK_PERSON_ID,
+} from "@/lib/schema";
+
+const DATE_PUBLISHED = "2026-04-15";
+const DATE_MODIFIED = "2026-04-30";
 
 // Word count estimated from prose sections on this page.
 const WORD_COUNT = 520;
@@ -77,7 +84,19 @@ export default function Page() {
         crumbs={[{ name: "מדריכים", href: "/#guides" }, { name: "אישורי פיקוד העורף", href: PATH }]}
       />
 
-      <JsonLd data={articleJsonLd({ headline: TITLE, description: DESCRIPTION, url: PATH })} />
+      <JsonLd
+        data={[
+          articleJsonLd({
+            headline: TITLE,
+            description: DESCRIPTION,
+            url: PATH,
+            datePublished: DATE_PUBLISHED,
+            dateModified: DATE_MODIFIED,
+            authorPersonId: OFEK_PERSON_ID,
+          }),
+          ofekPersonJsonLd(),
+        ]}
+      />
 
       <TldrBlock
         bullets={[
@@ -90,7 +109,7 @@ export default function Page() {
 
       <Section tone="white">
         <div className="flex flex-wrap justify-center items-center gap-3">
-          <Byline />
+          <Byline author="ofek-mazor" dateModified={DATE_MODIFIED} />
           <ReadingTimeBadge words={WORD_COUNT} />
         </div>
       </Section>

@@ -1,23 +1,13 @@
 import Image from "next/image";
+import Link from "next/link";
 import Reveal from "@/components/Reveal";
-
-const personJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "אופק מזור",
-  "jobTitle": "מנכ״ל ומייסד",
-  "worksFor": { "@type": "Organization", "name": "התחדשות בינוי ויזמות" },
-  "image": "https://hithadshut.co.il/ofek-mazor.jpg",
-  "telephone": "+972-54-671-2130",
-};
+import JsonLd from "@/components/JsonLd";
+import { ofekPersonJsonLd } from "@/lib/schema";
 
 export default function FounderSection() {
   return (
     <section className="bg-soft py-20 md:py-28">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
-      />
+      <JsonLd data={ofekPersonJsonLd()} />
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Image column: first in DOM (in RTL, appears on right; on mobile, on top) */}
@@ -85,6 +75,15 @@ export default function FounderSection() {
                     054-671-2130
                   </a>
                 </div>
+              </div>
+
+              <div className="mt-5 text-sm">
+                <Link
+                  href="/about/ofek-mazor"
+                  className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]"
+                >
+                  קראו עוד על אופק מזור — מתווך מקרקעין מורשה (#3246290) ←
+                </Link>
               </div>
             </div>
           </Reveal>
