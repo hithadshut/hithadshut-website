@@ -70,7 +70,12 @@ export const metadata: Metadata = {
     images: [site.ogImage],
   },
   robots: { index: true, follow: true },
-  icons: { icon: "/favicon.ico" },
+  manifest: "/manifest.webmanifest",
+  // Icons are auto-emitted by Next.js file conventions:
+  //   src/app/favicon.ico  → <link rel="icon" href="/favicon.ico">
+  //   src/app/icon.svg     → <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  //   src/app/apple-icon.tsx → <link rel="apple-touch-icon" ...>
+  // Do not also set metadata.icons or links will duplicate.
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

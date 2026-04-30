@@ -1,0 +1,25 @@
+{
+  "name": "התחדשות בינוי ויזמות",
+  "short_name": "התחדשות",
+  "description": "חברת התחדשות בינוי ויזמות. בניית ממ״דים, מיגון חדרים ומיגוניות בכל הארץ.",
+  "lang": "he",
+  "dir": "rtl",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#0A1628",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-icon",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
