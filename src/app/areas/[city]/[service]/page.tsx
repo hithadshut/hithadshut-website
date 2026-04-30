@@ -13,6 +13,7 @@ import { breadcrumbJsonLd, faqJsonLd, serviceJsonLd } from "@/lib/schema";
 import { site } from "@/lib/site";
 import { areas, getArea } from "@/content/areas";
 import { serviceMatrix, getServiceMeta } from "@/content/services";
+import { isGeoPairIndexable } from "@/content/indexable-geo";
 import type { LinkTarget } from "@/lib/anchors";
 
 const SERVICE_SLUG_TO_TARGET: Record<string, LinkTarget> = {
@@ -76,11 +77,18 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   // keep title <=60
   const title = `${svc.shortName} ב${area.name} | התחדשות בינוי ויזמות`;
   const description = `${svc.shortName} ב${area.name}: חברת בינוי ויזמות עם ליווי מלא, אישורי פקע״ר ואחריות קבלן. קבלו הצעת מחיר מותאמת.`;
-  return buildMetadata({
+  const base = buildMetadata({
     title,
     description,
     path: `/areas/${area.slug}/${svc.slug}`,
   });
+  // Templated city×service pages are noindex by default to avoid the
+  // doorway-pages penalty. The crawler can still follow internal links
+  // (follow:true) so equity reaches the canonical service / area pages.
+  if (!isGeoPairIndexable(area.slug, svc.slug)) {
+    base.robots = { index: false, follow: true };
+  }
+  return base;
 }
 
 export default async function GeoServicePage({ params }: { params: Params }) {

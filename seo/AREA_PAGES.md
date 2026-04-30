@@ -13,7 +13,7 @@ Doorway Risk Score:
 
 | Slug | City | Score | שכונות | LocalNote depth | FrontLine | Action |
 |---|---|---|---|---|---|---|
-| givatayim | גבעתיים | C → A (W4) | none | short | – | **W4: rewrite as model area page** (first lead came from here) |
+| givatayim | גבעתיים | A (W4 done) | 6 | strong | – | ✓ DONE: 6 שכונות אמיתיות, ועדה גבעתיים-רמת-גן, 4 פסקאות הרחבה |
 | tel-aviv | תל אביב | B | 7 | medium | – | W5: add ועדה + תב״ע + case |
 | jerusalem | ירושלים | B | 7 | strong | – | W5: minor expansion |
 | haifa | חיפה | B | 5 | medium | – | W5: ועדה + topographic case |
@@ -24,28 +24,29 @@ Doorway Risk Score:
 | ashdod | אשדוד | B | 6 | strong | ✓ | W5: highlight rovaim system |
 | ashkelon | אשקלון | B | 6 | strong | ✓ | W5: schedule flexibility note |
 | rehovot | רחובות | B | 5 | strong | – | W5: minor expansion |
-| ramat-gan | רמת גן | C | none | short | – | W5: rewrite or noindex |
-| herzliya | הרצליה | C | none | short | – | W5: rewrite |
+| ramat-gan | רמת גן | A (W5 done) | 7 | strong | – | ✓ DONE: ועדה גבעתיים-רמת-גן, תכניות (תמ״א 38, רג/2000), 4 פסקאות |
+| herzliya | הרצליה | A (W5 done) | 6 | strong | – | ✓ DONE: ועדה הרצליה, תמ״א 38, נושא קורוזיה ים, 4 פסקאות |
 | raanana | רעננה | B | 5 | strong | – | W5: minor expansion |
 | kfar-saba | כפר סבא | B | 6 | strong | – | W5: minor expansion |
-| modiin | מודיעין | C | none | short | – | W5: rewrite or noindex |
+| modiin | מודיעין | A (W5 done) | 7 | strong | – | ✓ DONE: ועדה מודיעין-מכבים-רעות, מד/2030, פוקוס שדרוג + תוספות |
 | hadera | חדרה | B | 5 | strong | – | W5: minor expansion |
 | nahariya | נהריה | B | 5 | strong | ✓ | W5: highlight frontline |
-| kiryat | הקריות | C | none | short | – | W5: rewrite or noindex |
+| kiryat | הקריות | C → noindex | none | short | – | ✓ noindex (W5) — לעדכון בעתיד |
 | afula | עפולה | B | 4 | medium | – | W5: minor expansion |
 | ramat-hasharon | רמת השרון | B | 5 | strong | – | W5: minor expansion |
 | hod-hasharon | הוד השרון | B | 5 | strong | – | W5: minor expansion |
 | yehud | יהוד | B | 4 | strong | – | W5: minor expansion |
-| ganei-tikva | גני תקווה | C | none | short | – | W5: rewrite or noindex |
-| or-yehuda | אור יהודה | C | none | short | – | W5: rewrite or noindex |
-| rosh-haayin | ראש העין | C | none | short | – | W5: rewrite |
-| shoham | שוהם | C | none | short | – | W5: rewrite or noindex |
-| zichron-yaakov | זכרון יעקב | C | none | short | – | W5: rewrite or noindex |
+| ganei-tikva | גני תקווה | C → noindex | none | short | – | ✓ noindex (W5) |
+| or-yehuda | אור יהודה | C → noindex | none | short | – | ✓ noindex (W5) |
+| rosh-haayin | ראש העין | C → noindex | none | short | – | ✓ noindex (W5) |
+| shoham | שוהם | C → noindex | none | short | – | ✓ noindex (W5) |
+| zichron-yaakov | זכרון יעקב | C → noindex | none | short | – | ✓ noindex (W5) |
 
-## City × Service (120 permutations: 30 × 4)
-- Each city has 4 service sub-pages: building-mamad, room-reinforcement, migunit, prefab-mamad.
-- **Risk**: if these are templated (just inject city name into a service description), Google's March 2026 update penalizes.
-- **W5 action**: read `src/app/areas/[city]/[service]/page.tsx`, score template-vs-unique, mass `noindex` if templated until real per-city differentiation built.
+## City × Service (120 permutations: 30 × 4) — W5 audit
+- **Verdict**: TEMPLATED. The page renders 5 rotated intro paragraphs hashed by `city + service`. That is textbook doorway-pages structure.
+- **Action taken (W5)**: ALL 120 pairs are now `robots: noindex, follow`. They still build and are internally linked from `/areas/[city]`. They're excluded from `sitemap.xml`. Equity from internal links still flows because `follow:true`.
+- **Promotion path**: a pair becomes indexable only after a human pass adds genuinely city-specific content. To promote: add `"<city-slug>/<service-slug>"` to `INDEXABLE_GEO_PAIRS` in `src/content/indexable-geo.ts`.
+- **No URL is deleted; no 301 needed.** This is a soft removal from the index, fully reversible.
 
 ## Givatayim model (W4) — what makes a city page ship-worthy
 

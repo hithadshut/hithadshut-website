@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { site, services, guides, compares } from "@/lib/site";
 import { areas } from "@/content/areas";
 import { serviceMatrix } from "@/content/services";
+import { isGeoPairIndexable } from "@/content/indexable-geo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -49,21 +50,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.7,
     })),
-    // Areas city pages
-    ...areas.map((a) => ({
-      url: `${site.url}/areas/${a.slug}`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority: 0.7,
-    })),
-    // Areas city × service pages
-    ...areas.flatMap((a) =>
-      serviceMatrix.map((s) => ({
-        url: `${site.url}/areas/${a.slug}/${s.slug}`,
+    // Areas city pages — skip cities flagged with noindexReason (failed
+    // the doorway-page audit; see seo/AREA_PAGES.md).
+    ...areas
+      .filter((a) => !a.noindexReason)
+      .map((a) => ({
+        url: `${site.url}/areas/${a.slug}`,
         lastModified: now,
         changeFrequency: "monthly" as const,
-        priority: 0.6,
-      }))
+        priority: 0.7,
+      })),
+    // Areas city × service pages — only the allowlisted, content-
+    // differentiated pairs ship to the sitemap. The rest are noindex
+    // (see src/content/indexable-geo.ts) to prevent doorway-page risk.
+    ...areas.flatMap((a) =>
+      serviceMatrix
+        .filter((s) => isGeoPairIndexable(a.slug, s.slug))
+        .map((s) => ({
+          url: `${site.url}/areas/${a.slug}/${s.slug}`,
+          lastModified: now,
+          changeFrequency: "monthly" as const,
+          priority: 0.6,
+        }))
     ),
     // About: brand page
     {

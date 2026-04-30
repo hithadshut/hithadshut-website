@@ -28,11 +28,18 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const { city } = await params;
   const area = getArea(city);
   if (!area) return {};
-  return buildMetadata({
+  const meta = buildMetadata({
     title: `בניית ממ״ד ב${area.name} | קבלן מורשה פקע״ר | התחדשות`,
     description: `בניית ממ״ד ב${area.name}: חברת בינוי ויזמות, ליווי מלא מתכנון ועד אישור פיקוד העורף. הצעת מחיר תוך 24 שעות.`,
     path: `/areas/${area.slug}`,
   });
+  // Cities flagged with noindexReason fail the doorway-pages quality bar
+  // and stay out of Google's index until their content is upgraded. The
+  // page still renders and is internally linked.
+  if (area.noindexReason) {
+    meta.robots = { index: false, follow: true };
+  }
+  return meta;
 }
 
 const baseFaqs = (cityName: string, isFrontLine = false) => [
