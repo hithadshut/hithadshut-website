@@ -73,6 +73,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
           priority: 0.6,
         }))
     ),
+    // Projects: real-work portfolio
+    {
+      url: `${site.url}/projects`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
     // About: brand page
     {
       url: `${site.url}/about`,

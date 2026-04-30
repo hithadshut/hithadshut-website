@@ -7,6 +7,8 @@ import ServiceIcon from "@/components/ServiceIcon";
 import HeroBackground from "@/components/HeroBackground";
 import FounderSection from "@/components/FounderSection";
 import TrustStrip from "@/components/TrustStrip";
+import HomeQuickAnswer from "@/components/HomeQuickAnswer";
+import ProjectsTeaser from "@/components/ProjectsTeaser";
 import JsonLd from "@/components/JsonLd";
 import { localBusinessJsonLd } from "@/lib/schema";
 import { protectionServices, constructionServices, guides, compare, site } from "@/lib/site";
@@ -117,6 +119,9 @@ export default function Home() {
 
       {/* ===== TRUST STRIP (W2 — entity-level trust signals below hero) ===== */}
       <TrustStrip />
+
+      {/* ===== QUICK ANSWER (S2 — direct-answer block for AI citation) ===== */}
+      <HomeQuickAnswer />
 
       {/* ===== MAIN SERVICES (3 big cards) ===== */}
       <section id="services" className="bg-white py-20 md:py-28">
@@ -261,6 +266,9 @@ export default function Home() {
         title="מה שבעלי בתים שואלים אותנו הכי הרבה"
         tone="soft"
       />
+
+      {/* ===== PROJECTS TEASER (S2 — real-work signal, B-020) ===== */}
+      <ProjectsTeaser />
 
       {/* ===== "WE BUILD EVERYTHING" ===== */}
       <section className="bg-dark-section text-white py-20 md:py-28 relative overflow-hidden">
