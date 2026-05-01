@@ -4,6 +4,54 @@
 
 ---
 
+## סשן 4 [2026-05-01] — GA4 + Projects flip-ready + GSC actionables
+
+### חדשות הסשן
+- ✅ GSC מאומת. 145 עמודים באינדקס, ~3 עמודים ביום.
+- ✅ GA4 ID: `G-90BL1Y9K3C`.
+- ⚠ אופק התכוון ש-5 התמונות נשלחו אבל בפועל אין JPGs ב-`public/projects/`. אינפרסטרוקטורה מוכנה ל-flip מיידי כשהן יישמרו.
+
+### בוצע
+**Task 1 — GA4 (commit `ga4-init`):**
+- `src/lib/analytics.ts`: `GA_MEASUREMENT_ID = "G-90BL1Y9K3C"`. `track(name, params)` wrapper שעושה no-op בלי gtag.
+- `src/components/Analytics.tsx`: server component שמטעין gtag.js + init script דרך `next/script` עם `strategy="afterInteractive"`. `anonymize_ip: true`.
+- `src/components/ClickTracker.tsx`: client-only event delegation על document. אוטומטית פולט `phone_click` לכל `tel:`, `whatsapp_click` לכל wa.me/whatsapp.com, `cta_click` ל-mailto. אין צורך לעדכן רכיבים קיימים.
+- `src/app/layout.tsx`: `<Analytics />` מוטמע פעם אחת אחרי ה-modals.
+- `src/components/ContactForm.tsx`: פולט גם `lead_form_submit` (custom) וגם `generate_lead` (GA4 standard) על success.
+
+**Task 2 — Projects flip-ready (commit `proj-infra`):**
+- `src/content/projects.ts`: הורחב עם `showcaseOnService` field (כל פרויקט מקושר לשירות הרלוונטי) + helpers `getProject` ו-`getProjectForService`.
+- `src/app/projects/[slug]/page.tsx`: דינמי. Article schema + ImageObject (רק כש-hasRealImage=true). 5 routes pre-rendered. Sidebar עם פרויקטים נוספים.
+- `src/components/ServiceProjectShowcase.tsx`: רכיב additive שמוטמע אוטומטית בכל עמוד שירות. מחזיר null עד flip — לא מקלקל UI עד שהתמונות שם.
+- `src/components/ServicePageLayout.tsx`: ServiceProjectShowcase מוצג לפני {children} בכל הדפים. slug derived מ-`path` prop.
+- `src/app/sitemap.ts`: 5 פרויקטים בודדים בסייטמאפ priority 0.6.
+
+**Task 3 — Index audit + GSC guide (commit `audit-docs`):**
+- `seo/INDEX_AUDIT_2026_05.md`: ניתוח הפער 145 vs ~55. השערה ראשית — legacy index של 120 צמדי city×service ב-noindex מ-W5, בקצב הסרה ~3 ביום = 30-45 יום. כולל 4 בדיקות ספציפיות לאופק ב-GSC.
+- `seo/SEARCH_CONSOLE_GUIDE.md`: מדריך עבודה מלא לאופק על Performance/Pages/URL Inspection/Enhancements. תזמון יומי/שבועי/חודשי. URLs לבקש indexing מיידית עבור 5 העמודים החדשים.
+
+**Task 4 — IndexNow setup doc (commit `indexnow-doc`):**
+- `seo/INDEXNOW_SETUP.md`: תיעוד שלם של ה-IndexNow הקיים (כבר מותקן מסשן קודם — מפתח, lib, script). מתי להריץ ידנית, אופציות אוטומציה (Vercel postbuild / GitHub Action), בדיקת חיוּת המפתח.
+
+### היגיון אסטרטגי
+- GA4 דרך next/script + delegated click listener = אפס צורך לעדכן רכיבים קיימים. כל phone/whatsapp link נוסף בעתיד יקבל tracking אוטומטי.
+- Projects infra "flip-ready" — Ofek שומר 5 JPG וערוך flag, ויש לנו תמונות אמיתיות ב-7 מיקומים (home teaser, /projects index, 5x /projects/[slug] details, 5x service pages, גם schema ImageObject מתעדכן).
+- האודיט של 145 vs ~55 הופך מ-"בעיה עלומה" ל-"תהליך צפוי וזמני" — Ofek יודע מה לחפש ב-GSC ואיך לעקוב אחר ההתקדמות.
+
+### סטטוס חוסמים אחרי הסשן
+- ✅ **B-004 GA4** — סגור.
+- ⚠ **B-002 GSC** — חלקית פתור (מאומת, indexing started).
+- ↓ **B-003 Bing** — עדיפות הורדה (IndexNow מספק את עיקר התועלת).
+- ⚠ **B-020 Projects images** — אינפרסטרוקטורה מוכנה ל-flip מיידי, נשאר רק שאופק יחזיר את ה-5 JPGs לתיקייה.
+- 🆕 **B-031 145 vs ~55 audit** — אופק לבצע בדיקות GSC ולעדכן.
+
+### Top-3 לסשן הבא
+1. כשאופק שומר 5 JPGs + flip — גלריה מלאה תידלק. לאחר הפעלה: שיבוץ נוסף בעמודי אזור רלוונטיים (givatayim → migunit, ramat-gan → mamad-walls, וכו׳).
+2. ניתוח Performance ראשון מ-GSC: אילו ביטויים כבר מקבלים impressions, אילו כדאי לחזק.
+3. הקמת PR למחיקת `RelatedArticles` או הרחבתו ל-8 מדריכים — כעת היא תומכת רק ב-5.
+
+---
+
 ## סשן 3 [2026-05-01] — סגירת פערים מאודיט אופק
 
 ### בוצע

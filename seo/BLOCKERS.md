@@ -12,21 +12,17 @@
 - **מה אעשה כשזה יסופק**: יצירת `apple-touch-icon.png` 180px, `icon-192.png`, `icon-512.png` מהמקור עצמו במקום מהלוגו ב-SVG הקוד.
 - **Workaround עכשיו**: ייצור גרסאות הפאביקון ישירות מה-Logo.tsx SVG (זהה למה שגולש רואה ב-Header). עובד, אך לא אופטימלי.
 
-### B-002 · אימות Google Search Console
-- **מה צריך**: גישת admin ל-DNS של hithadshut.co.il, או הוספת קוד meta verification (אופק יוסיף או יספק).
-- **למה חוסם**: בלי GSC אין נתוני impressions/clicks/CTR/position. אי אפשר לאמת תוצאות W3+.
-- **מה אעשה**: ברגע שיש קוד אימות → אכניס ל-`metadata.verification.google` ב-`app/layout.tsx`.
+### B-002 · אימות Google Search Console — חלקית פתור (S4)
+- **סטטוס 2026-05-01**: GSC אומת. אופק דיווח: 145 עמודים באינדקס, השאר בטיפול בקצב ~3 ביום.
+- **מה נשאר**: (1) אופק לבצע 4 בדיקות שמופיעות ב-`seo/INDEX_AUDIT_2026_05.md` כדי לאמת שהפער 145 → ~55 הצפוי הוא legacy של ה-120 צמדי city×service בתהליך הסרה. (2) הוספת `metadata.verification.google` ב-`layout.tsx` אם אופק רוצה גם כן (לא קריטי כי האימות כבר עבר ב-DNS / HTML file).
 
-### B-003 · אימות Bing Webmaster Tools
-- **מה צריך**: כניסה ל-Bing Webmaster + אימות domain.
-- **למה חוסם**: Bing מזין ChatGPT (Web Search) ו-Copilot. אי-נוכחות שם = אי-נוכחות ב-AI.
-- **מה אעשה**: ברגע שיש meta tag → אכניס `metadata.verification.other.bing`.
+### B-003 · אימות Bing Webmaster Tools — עדיפות הורדה
+- **סטטוס 2026-05-01**: עדיין פתוח אבל ירדה עדיפות.
+- **למה ירדה**: IndexNow כבר פעיל (`seo/INDEXNOW_SETUP.md`) ומספק את עיקר התועלת — הודעה ל-Bingbot על URLs חדשים. אימות Webmaster יוסיף רק את הצד הניתוחי.
+- **מה אעשה**: ברגע שיש meta tag → אכניס `metadata.verification.other.bing`. עד אז — לא חוסם.
 
-### B-004 · GA4 Measurement ID
-- **מה צריך**: G-XXXXXXX מ-Google Analytics.
-- **למה חוסם**: בלי analytics אי אפשר לעקוב אחרי conversions.
-- **מה אעשה**: אכניס Script tag ב-layout (next/script strategy=afterInteractive) + הגדר GTM אם צריך.
-- **חלופה**: עד GA4 — אפשר להשתמש ב-Vercel Analytics built-in.
+### B-004 · GA4 — סגור (S4)
+- **סטטוס 2026-05-01**: ✓ סגור. אופק סיפק `G-90BL1Y9K3C`. הוטמע ב-`src/components/Analytics.tsx` עם `next/script strategy="afterInteractive"`. ClickTracker פעיל לטלפון/וואטסאפ. ContactForm פולט `lead_form_submit` + `generate_lead`.
 
 ## P1 — חוסם שבוע 4-5
 
@@ -42,15 +38,14 @@
 
 ## P2 — חוסם שבוע 7-8
 
-### B-020 · תמונות פרויקטים אמיתיים — חלקית פתור (S3)
-- **סטטוס**: אופק שלח 5 תמונות אמיתיות ב-2026-04-30: וילה דו-קומתית בשלד, מיגונית מותקנת, יציקת תקרה, יסודות לממ״ד, קירות ממ״ד יצוקים.
-- **מה בוצע**: גלריית התשתית מוכנה. `src/content/projects.ts` מכיל 5 ערכי פרויקטים עם metadata מלא (כותרת, סוג שירות, מיקום, תיאור, alt טקסט). דף `/projects` חי. `ProjectsTeaser` מוצג בעמוד הבית. כל פרויקט עם דגל `hasRealImage: false` מציג placeholder מכובד "תמונה מתעדכנת בקרוב".
-- **מה נשאר לאופק**:
-  1. שמור את 5 קבצי ה-JPG ב-`public/projects/` בשמות המדויקים: `private-villa-structure.jpg`, `migunit-backyard-finished.jpg`, `extension-roof-pour.jpg`, `mamad-foundation-rebar.jpg`, `mamad-walls-cast.jpg`. ראה `public/projects/README.md`.
-  2. הפעל את כל פרויקט: ערוך `src/content/projects.ts`, הפוך `hasRealImage: true` לכל אחד.
-  3. `npm run build`. דחוף.
-  - הזמן הצפוי: 5 דקות אחרי קבלת התמונות.
-- **שלב הבא (אחרי הפעלת התמונות)**: הוספת תמונות פרויקט לעמודי שירות + עמודי אזור (case studies לפי עיר).
+### B-020 · תמונות פרויקטים אמיתיים — עדיין חוסם
+- **סטטוס 2026-05-01**: אופק דיווח שהוא "שלח את 5 התמונות" אבל בפועל אין JPG ב-`public/projects/` — רק README.md. ייתכן שאופק התכוון "שלח לקלוד" (ולא ניתן לשמור attachment בצ׳אט לדיסק) או שהקבצים נשמרו בענן/בנתיב אחר.
+- **מה בוצע ב-S4 בכל זאת**: הקמתי את כל התשתית הנדרשת. `/projects/[slug]` דינמי לכל פרויקט עם Article + ImageObject schema. `ServiceProjectShowcase` מוטמע בכל עמוד שירות (no-op עד flip). `showcaseOnService` מוגדר לכל פרויקט: building-mamad, room-reinforcement, migunit, private-construction, extensions.
+- **מה נשאר לאופק (5 דקות)**:
+  1. שמור 5 קבצי JPG ב-`public/projects/` בשמות המדויקים שמופיעים ב-`public/projects/README.md`.
+  2. ערוך `src/content/projects.ts` → `hasRealImage: true` לכל אחד.
+  3. `npm run build && git push`.
+- **תוצאה אוטומטית אחרי flip**: ProjectsTeaser בעמוד הבית מציג תמונות → /projects גלריה מלאה → /projects/[slug] עם תמונה גדולה + schema → ServiceProjectShowcase מופיע ב-5 עמודי שירות.
 
 ### B-021 · ביקורות אמיתיות (כתובות + הסכמה)
 - **מה צריך**: 5-10 ביקורות אמיתיות מלקוחות + אישור פרסום בכתב.
@@ -61,6 +56,11 @@
 - **מה צריך**: שם המהנדס המעורב + מספר רישיון.
 - **למה חוסם**: trust strip מתייחס ל"מהנדס קונסטרוקציה רשום" — נכון לאמת זאת בעמוד.
 - **מה אעשה**: אם אופק מספק — Person schema + הצגה בעמוד /about.
+
+### B-031 · אימות הפער 145 vs ~55 באינדקס (S4)
+- **סטטוס**: דרוש מאופק לבצע 4 בדיקות ב-GSC (פירוט ב-`seo/INDEX_AUDIT_2026_05.md`).
+- **למה חוסם**: ההשערה הסבירה היא ש-90 העמודים העודפים הם ה-120 צמדי city×service legacy בתהליך הסרה ע״י Google (~3 ביום). לוודא.
+- **מה אעשה**: כשאופק חוזר עם תוצאות הבדיקה — עדכון ה-AUDIT וקביעת מסקנה.
 
 ## P3 — לא חוסם, אבל יידרש בהמשך
 
