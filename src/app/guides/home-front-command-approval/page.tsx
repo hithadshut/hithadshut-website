@@ -157,7 +157,7 @@ export default function Page() {
                 label: "זמן אישור פקע״ר",
                 note: "במסלול פטור עם הגשה אלקטרונית מסודרת.",
                 source: {
-                  label: "פיקוד העורף — מערכת רישוי",
+                  label: "פיקוד העורף: מערכת רישוי",
                   href: "https://www.oref-rishuy.org.il",
                 },
               },
@@ -182,7 +182,7 @@ export default function Page() {
               {
                 value: "45 ימים",
                 label: "הודעת סיום ביצוע",
-                note: "במסלול פטור — עורך הבקשה מודיע לרשות הרישוי ולפקע״ר.",
+                note: "במסלול פטור: עורך הבקשה מודיע לרשות הרישוי ולפקע״ר.",
                 source: {
                   label: "מינהל התכנון",
                   href: "https://www.iplan.gov.il",
@@ -193,14 +193,14 @@ export default function Page() {
                 label: "פטור מהיתר / מקוצר / רגיל",
                 note: "פיקוד העורף נדרש בכל המסלולים.",
                 source: {
-                  label: "מינהל התכנון — מסלולי רישוי",
+                  label: "מינהל התכנון: מסלולי רישוי",
                   href: "https://www.gov.il/he/departments/topics/planning_and_building",
                 },
               },
               {
                 value: "אדריכל / מהנדס",
                 label: "מי מגיש את הבקשה",
-                note: "עורך הבקשה — לא הקבלן ולא בעל הנכס.",
+                note: "עורך הבקשה: לא הקבלן ולא בעל הנכס.",
                 source: {
                   label: "פיקוד העורף",
                   href: "https://www.oref.org.il",

@@ -27,7 +27,7 @@ export default function HomeQuickAnswer() {
             id="home-quick-answer-heading"
             className="text-xl md:text-2xl font-black text-[var(--color-primary)] mb-4"
           >
-            בניית ממ״ד בישראל 2026 — תמונה מהירה
+            בניית ממ״ד בישראל 2026: תמונה מהירה
           </h2>
           <p className="text-base md:text-[17px] text-[var(--color-ink)] leading-relaxed mb-3">
             <strong>בנייה של ממ״ד תקני לבית פרטי בישראל ב-2026 עולה 160,000–220,000 ₪ + מע״מ ולוקחת 2–4 חודשים</strong>{" "}
@@ -35,7 +35,7 @@ export default function HomeQuickAnswer() {
             <Link href="/guides/mamad-permit-exemption-2026" className="font-bold text-[var(--color-primary)] underline">
               הוראת חרבות ברזל
             </Link>{" "}
-            (תוקפה הצפוי עד נובמבר 2026), בתים פרטיים עד 2 קומות זכאים למסלול פטור מהיתר. אישור פיקוד העורף ניתן עד 14 ימי עבודה. דלת הדף, מערכת סינון, חישוב סטטי וקירות בעובי תקני — חובה.
+            (תוקפה הצפוי עד נובמבר 2026), בתים פרטיים עד 2 קומות זכאים למסלול פטור מהיתר. אישור פיקוד העורף ניתן עד 14 ימי עבודה. דלת הדף, מערכת סינון, חישוב סטטי וקירות בעובי תקני: חובה.
           </p>
           <p className="text-sm text-[var(--color-muted)] leading-relaxed">
             לקריאה מעמיקה:{" "}

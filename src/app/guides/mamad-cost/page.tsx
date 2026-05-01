@@ -221,7 +221,7 @@ export default function Page() {
                   label: "אישור פיקוד העורף",
                   note: "במסלול פטור עם הגשה אלקטרונית מלאה.",
                   source: {
-                    label: "פיקוד העורף — מערכת רישוי",
+                    label: "פיקוד העורף: מערכת רישוי",
                     href: "https://www.oref-rishuy.org.il",
                   },
                 },
@@ -234,7 +234,7 @@ export default function Page() {
                 {
                   value: "45 ימים",
                   label: "הודעת סיום ביצוע",
-                  note: "במסלול פטור — עורך הבקשה מודיע לרשות הרישוי ולפקע״ר.",
+                  note: "במסלול פטור: עורך הבקשה מודיע לרשות הרישוי ולפקע״ר.",
                   source: {
                     label: "מינהל התכנון",
                     href: "https://www.iplan.gov.il",

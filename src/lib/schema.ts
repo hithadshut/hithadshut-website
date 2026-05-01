@@ -207,7 +207,7 @@ export function ofekPersonJsonLd() {
         identifier: "3246290",
         recognizedBy: {
           "@type": "GovernmentOrganization",
-          name: "משרד המשפטים — רשם המתווכים",
+          name: "משרד המשפטים, רשם המתווכים",
         },
       },
     ],

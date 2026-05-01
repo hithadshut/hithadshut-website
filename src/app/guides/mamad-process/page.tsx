@@ -158,7 +158,7 @@ export default function Page() {
             {
               value: "45 ימים",
               label: "הודעת סיום ביצוע",
-              note: "במסלול פטור — לרשות הרישוי ולפקע״ר.",
+              note: "במסלול פטור: לרשות הרישוי ולפקע״ר.",
               source: { label: "מינהל התכנון", href: "https://www.iplan.gov.il" },
             },
             {

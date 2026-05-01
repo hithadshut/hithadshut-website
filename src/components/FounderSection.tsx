@@ -82,7 +82,7 @@ export default function FounderSection() {
                   href="/about/ofek-mazor"
                   className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]"
                 >
-                  קראו עוד על אופק מזור — מתווך מקרקעין מורשה (#3246290) ←
+                  קראו עוד על אופק מזור ←
                 </Link>
               </div>
             </div>

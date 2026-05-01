@@ -116,12 +116,12 @@ export default function Page() {
       <Section tone="white">
         <KeyStats
           eyebrow="נתונים מאומתים"
-          title="לפני שחותמים — המספרים החשובים"
+          title="לפני שחותמים: המספרים החשובים"
           stats={[
             {
               value: "5-15%",
               label: "מקדמה סבירה",
-              note: "מעל 20-25% לפני תחילת עבודה — סימן אזהרה.",
+              note: "מעל 20-25% לפני תחילת עבודה. סימן אזהרה.",
               source: { label: "התחדשות בינוי ויזמות" },
             },
             {
@@ -129,7 +129,7 @@ export default function Page() {
               label: "אחריות קבלן לפי חוק המכר",
               note: "תקלות / מערכות / קונסטרוקציה.",
               source: {
-                label: "כל זכות — חוק המכר",
+                label: "כל זכות: חוק המכר",
                 href: "https://www.kolzchut.org.il",
               },
             },
@@ -157,7 +157,7 @@ export default function Page() {
             {
               value: "אישור פקע״ר",
               label: "לכל רכיב מיגון",
-              note: "דלת, חלון, מערכת סינון — מספר אישור בכתב.",
+              note: "דלת, חלון, מערכת סינון: מספר אישור בכתב.",
               source: { label: "פיקוד העורף", href: "https://www.oref.org.il" },
             },
           ]}

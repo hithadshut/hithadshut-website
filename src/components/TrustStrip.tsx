@@ -85,27 +85,6 @@ const PILLARS: Pillar[] = [
       </svg>
     ),
   },
-  {
-    title: "מתווך מקרקעין מורשה",
-    detail: "מנכ״ל החברה אופק מזור · רישיון #3246290",
-    href: "/about/ofek-mazor",
-    icon: (
-      <svg
-        viewBox="0 0 24 24"
-        width="22"
-        height="22"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        aria-hidden
-      >
-        <path d="M9 12l2 2 4-4" />
-        <circle cx="12" cy="12" r="10" />
-      </svg>
-    ),
-  },
 ];
 
 export default function TrustStrip() {
@@ -115,7 +94,7 @@ export default function TrustStrip() {
       className="bg-[var(--color-primary)] text-white border-t border-[var(--color-accent)]/20"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 md:py-7">
-        <ul className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+        <ul className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
           {PILLARS.map((p) => {
             const inner = (
               <div className="flex items-start gap-3">

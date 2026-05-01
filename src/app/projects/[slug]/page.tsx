@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const p = getProject(slug);
   if (!p) return {};
   return buildMetadata({
-    title: `${p.title} — ${p.serviceType} | פרויקטים | התחדשות`,
+    title: `${p.title} | ${p.serviceType} | פרויקטים | התחדשות`,
     description: p.description,
     path: `/projects/${slug}`,
     ogImage: p.hasRealImage ? p.image : undefined,
