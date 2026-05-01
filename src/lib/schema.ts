@@ -1,5 +1,8 @@
 import { site } from "./site";
 
+/** Stable @id for Ofek's Person node — referenced by Article.author across guides. */
+export const OFEK_PERSON_ID = `${site.url}/about/ofek-mazor#person`;
+
 type BreadcrumbItem = { name: string; url: string };
 
 export function breadcrumbJsonLd(items: BreadcrumbItem[]) {
@@ -21,15 +24,31 @@ export function organizationJsonLd() {
     "@type": ["Organization", "GeneralContractor"],
     "@id": `${site.url}/#organization`,
     name: site.legalName,
-    alternateName: [site.name, site.nameEn],
+    // Disambiguates from the generic "התחדשות עירונית" market term that
+    // dominates Israeli urban-renewal SERP. Listing the brand-only short
+    // forms helps Google bind queries to this specific entity.
+    alternateName: ["התחדשות בינוי", "התחדשות", site.nameEn],
     url: site.url,
-    logo: `${site.url}/logo.png`,
+    logo: {
+      "@type": "ImageObject",
+      url: `${site.url}/icon.svg`,
+      width: 64,
+      height: 64,
+    },
     image: `${site.url}${site.ogImage}`,
     description: site.description,
     telephone: site.phoneE164,
     email: site.email,
     slogan: site.tagline,
     priceRange: "₪₪₪",
+    foundingDate: "2024",
+    founder: {
+      "@type": "Person",
+      "@id": OFEK_PERSON_ID,
+      name: "אופק מזור",
+      jobTitle: "מנכ״ל ומייסד",
+      url: `${site.url}/about/ofek-mazor`,
+    },
     serviceType: [
       "בניית ממ״ד",
       "מיגון חדר קיים",
@@ -47,6 +66,9 @@ export function organizationJsonLd() {
       "מיגונית",
       "ממ״ד מוכן",
       "אישורי פיקוד העורף",
+      "תקן פיקוד העורף 4422",
+      "מסלול פטור מהיתר",
+      "בדיקות אטימות",
       "בנייה פרטית",
       "שיפוצים",
       "הרחבות ותוספות בנייה",
@@ -167,9 +189,6 @@ export function articleJsonLd(params: {
     image: `${site.url}${site.ogImage}`,
   };
 }
-
-/** Stable @id for Ofek's Person node — referenced by Article.author across guides. */
-export const OFEK_PERSON_ID = `${site.url}/about/ofek-mazor#person`;
 
 /**
  * Person schema for Ofek Mazor — founder & CEO of Hithadshut.
