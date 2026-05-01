@@ -45,10 +45,16 @@ export default function ContactForm({ defaultService }: { defaultService?: strin
       if (!res.ok || !data.ok) {
         throw new Error(data.message || "send failed");
       }
-      // GA4 lead event (no-op if gtag not loaded)
+      // GA4 lead events (no-op if gtag not loaded)
       if (typeof window !== "undefined") {
         const w = window as unknown as { gtag?: (...args: unknown[]) => void };
         if (typeof w.gtag === "function") {
+          // Custom event matching the operator's analytics taxonomy.
+          w.gtag("event", "lead_form_submit", {
+            service: payload.service || "general",
+            city: payload.city || "unknown",
+          });
+          // GA4-recommended event for lead conversion tracking.
           w.gtag("event", "generate_lead", {
             event_category: "contact_form",
             event_label: payload.service || "general",
