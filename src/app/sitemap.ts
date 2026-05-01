@@ -3,6 +3,7 @@ import { site, services, guides, compares } from "@/lib/site";
 import { areas } from "@/content/areas";
 import { serviceMatrix } from "@/content/services";
 import { isGeoPairIndexable } from "@/content/indexable-geo";
+import { projects } from "@/content/projects";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -80,6 +81,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    // Per-project pages — index list page + each project detail.
+    // Detail pages stay in the sitemap even when their JPG isn't on disk
+    // yet; the page renders a placeholder. Removing them later would
+    // create needless 404s in GSC if Google has already discovered them.
+    ...projects.map((p) => ({
+      url: `${site.url}/projects/${p.slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    })),
     // About: brand page
     {
       url: `${site.url}/about`,

@@ -5,6 +5,7 @@ import InlineLeadForm from "./InlineLeadForm";
 import JsonLd from "./JsonLd";
 import Reveal from "./Reveal";
 import ServiceIcon from "./ServiceIcon";
+import ServiceProjectShowcase from "./ServiceProjectShowcase";
 import { serviceJsonLd, type FaqItem } from "@/lib/schema";
 import type { ReactNode } from "react";
 
@@ -262,6 +263,11 @@ export default function ServicePageLayout({
           </div>
         </Section>
       )}
+
+      {/* Real-project showcase — auto-renders for the service slug if a
+          tagged project has hasRealImage:true. No-op until Ofek saves
+          the JPGs and flips the flag in src/content/projects.ts. */}
+      <ServiceProjectShowcase serviceSlug={path.replace("/services/", "")} />
 
       {children}
 

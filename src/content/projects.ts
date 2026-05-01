@@ -55,7 +55,26 @@ export type Project = {
    * upload.
    */
   hasRealImage: boolean;
+  /** Optional which service slug this project showcases — used to embed it on the service page. */
+  showcaseOnService?:
+    | "building-mamad"
+    | "room-reinforcement"
+    | "migunit"
+    | "prefab-mamad"
+    | "private-construction"
+    | "renovations"
+    | "extensions";
 };
+
+/** Helper: get the first project (with image) tagged for a given service. */
+export function getProjectForService(slug: string): Project | undefined {
+  return projects.find((p) => p.showcaseOnService === slug);
+}
+
+/** Helper: lookup project by slug for the dynamic /projects/[slug] route. */
+export function getProject(slug: string): Project | undefined {
+  return projects.find((p) => p.slug === slug);
+}
 
 /**
  * Five real projects shown to us by Ofek (the 5 photos sent on session 2).
@@ -78,6 +97,7 @@ export const projects: Project[] = [
     width: 1600,
     height: 1200,
     hasRealImage: false,
+    showcaseOnService: "private-construction",
   },
   {
     slug: "migunit-backyard-finished",
@@ -93,6 +113,7 @@ export const projects: Project[] = [
     width: 1600,
     height: 1200,
     hasRealImage: false,
+    showcaseOnService: "migunit",
   },
   {
     slug: "extension-roof-pour",
@@ -108,6 +129,7 @@ export const projects: Project[] = [
     width: 1200,
     height: 1600,
     hasRealImage: false,
+    showcaseOnService: "extensions",
   },
   {
     slug: "mamad-foundation-rebar",
@@ -123,6 +145,7 @@ export const projects: Project[] = [
     width: 1200,
     height: 1600,
     hasRealImage: false,
+    showcaseOnService: "building-mamad",
   },
   {
     slug: "mamad-walls-cast",
@@ -138,6 +161,7 @@ export const projects: Project[] = [
     width: 1600,
     height: 900,
     hasRealImage: false,
+    showcaseOnService: "room-reinforcement",
   },
 ];
 
