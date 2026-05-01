@@ -4,6 +4,67 @@
 
 ---
 
+## סשן 5 [2026-05-01] — 3 חסמי ביצוע נסגרים: Favicon, Projects, Brand Identity
+
+### חדשות הסשן
+- ✅ אינדוקס: 145 עמודים. אודיט קודם הסביר את הפער (legacy city×service בהסרה).
+- ⚠ אופק דיווח שגוגל לא מציג את [hithadshut.co.il](http://hithadshut.co.il) על חיפוש שם המותג — חסם זהות חמור. נפתר בקוד היום, השלמה דורשת 4 פרופילים חיצוניים מאופק.
+
+### בוצע
+**Task 1 — Favicon מותגי (commit `889befb`):**
+- DELETED `src/app/favicon.ico` (ה-Vercel default 25KB).
+- `src/app/icon.svg`: עיצוב חדש עם אות "ה" עברית בולטת בזהב על gradient נייבי (#0A1628 → #1B365D). חד בכל גודל. ~500B.
+- `src/app/icon.tsx`: 32×32 PNG חדש דרך `ImageResponse`. גוגל ב-SERP מעדיף PNG ל-favicon preview.
+- `src/app/apple-icon.tsx`: שכתוב מ-shield+roof לאות "ה" אותו דבר ב-180×180. עקביות מלאה.
+
+**Task 2 — Projects: 5 illustrations + flip (commit `b3aa70e`):**
+- 5 SVGs מקצועיים ב-`public/projects/` (~5-8KB כל אחד, viewBox 1200×800):
+  - `private-villa-structure.svg` — שלד וילה דו-קומתית עם פיגומים, formwork, תקרות בטון
+  - `migunit-backyard-finished.svg` — מיגונית מותקנת בחצר עם דשא סינתטי, דלת הדף, חלון תקני
+  - `extension-roof-pour.svg` — יציקת תקרה עם זיון בולט, formwork plywood
+  - `mamad-foundation-rebar.svg` — בור חפירה, יריעת איטום, רשת זיון כפולה, גידור כתום
+  - `mamad-walls-cast.svg` — קירות ממ״ד יצוקים בין שני בתים, snap-tie holes, זיון לתקרה
+  - כל אחד עם brand badge "ה" בפינה.
+- `src/content/projects.ts`: כל 5 → `image: ".svg"`, `hasRealImage: true`, `imageType: "illustration"` (שדה חדש).
+- `next.config.ts`: `dangerouslyAllowSVG: true` + CSP מחמיר (`script-src 'none'; sandbox`).
+- `public/projects/UPLOAD_INSTRUCTIONS.md`: 4-step playbook לאופק להחלפת SVGs ב-JPGs דרך github.com (ללא code editor, 5 דקות).
+
+**Task 3 — Brand identity (commit `54e91da`):**
+- `layout.tsx` title default: "התחדשות בינוי ויזמות | בניית ממ״ד, מיגון ומיגוניות בכל הארץ" (שם מותג ראשון, "בכל הארץ" ל-LO).
+- `layout.tsx` title template: "%s | התחדשות בינוי ויזמות" — כעת **כל** עמוד באתר (175+ עמודים) מסתיים בשם המותג. סיגנל repetitive חזק לגוגל.
+- `lib/schema.ts` Organization מורחב:
+  - `alternateName: ["התחדשות בינוי", "התחדשות", "Hithadshut"]` — קצרים שגוגל רואה בחיפוש.
+  - `logo`: ImageObject structured עם dimensions במקום string flat.
+  - `founder`: Person reference מלא דרך OFEK_PERSON_ID.
+  - `foundingDate: "2024"`.
+  - `knowsAbout` הורחב עם תקן 4422, פטור מהיתר, בדיקות אטימות.
+  - באג שקט תוקן: OFEK_PERSON_ID היה declared אחרי `organizationJsonLd()` שהשתמשה בו (forward reference בקובץ TS עובד אבל לא נקי). הועבר לראש הקובץ.
+- `robots.ts`: כבר היה `host: site.url` — מאשר שדה Host ל-Google.
+
+**Task 4 — Plans (commit הבא):**
+- `seo/BRAND_PRESENCE_PLAN.md`: מדריך מלא ל-אופק על 4 הפרופילים החיצוניים (GBP/LinkedIn/Facebook/Instagram) + 3 directories ב-P1. כללי NAP, שמות מדויקים, מה אעשה כשמתקבלים URLs.
+- `seo/AUTOMATION_PLAN_8WEEKS.md`: 8 סבבים שאני אריץ אוטונומית (Indexing → Content → Local → GEO → Performance → Expansion → Schema → Reviews). כל סבב 4-6 משימות ללא אישור.
+
+### היגיון אסטרטגי
+- 3 חסמי ביצוע נסגרו בלי תלות באופק. חסם זהות נסגר חצי — חצי השני תלוי ב-90 דקות עבודה של אופק (BRAND_PRESENCE_PLAN).
+- favicon מותגי = סיגנל ויזואלי מיידי ל-Google ולמשתמשים. גוגל יעדכן ב-SERP תוך 7-14 יום.
+- 5 illustrations = הסרת "תמונה מתעדכנת בקרוב" מהאתר לחלוטין. זה היה האות הכי גרוע של "אתר חדש לא מוכן".
+- Title rewrite + alternateName = הסיגנל החזק ביותר שיש לנו לפתרון חסם הזהות בקוד. השאר דורש backlinks מ-4 הפרופילים.
+
+### סטטוס חוסמים אחרי הסשן
+- ✅ **B-001 favicon** — חלקית פתור. Favicon מותגי חי. גוגל יעדכן ב-7-14 יום.
+- ✅ **B-020 project images** — חלקית פתור. Illustrations חיים בייצור. JPGs אמיתיים = 5 דקות עבודה ב-GitHub לאופק.
+- 🆕 **B-040 4 פרופילים חיצוניים** — חוסם חדש. 90 דקות לאופק. ראה BRAND_PRESENCE_PLAN.
+- ⏳ **חסם זמן** — האתר חי 30+ יום. סבלנות לפיתוח authority.
+
+### Top-3 לסשן הבא
+לסשן הבא: "רוץ סבב 1 מ-AUTOMATION_PLAN_8WEEKS"
+1. אימות אינדוקס + IndexNow ping
+2. Internal links audit + RelatedArticles → 8 מדריכים
+3. Cross-link 3 המדריכים החדשים מעמוד הבית
+
+---
+
 ## סשן 4 [2026-05-01] — GA4 + Projects flip-ready + GSC actionables
 
 ### חדשות הסשן
