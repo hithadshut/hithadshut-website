@@ -1,16 +1,19 @@
 import { ImageResponse } from "next/og";
 
-export const size = { width: 180, height: 180 };
+export const size = { width: 32, height: 32 };
 export const contentType = "image/png";
 
 /**
- * Apple touch icon — 180×180 PNG for iOS home screen + Safari pinned tabs.
+ * Brand favicon — 32×32 PNG, generated at build time.
  *
- * Same Hebrew "ה" brand mark as the SVG favicon, scaled up. iOS doesn't
- * honor SVG icons yet, so this is the canonical large-format brand mark
- * for that ecosystem.
+ * Renders the same Hebrew "ה" mark as `app/icon.svg`, in the brand
+ * navy + gold. Browsers that prefer PNG (or that don't honor SVG
+ * favicons yet) will pick this one.
+ *
+ * Google's favicon preview in SERP also reads from PNG when available
+ * and uses it for the small icon next to the result title.
  */
-export default function AppleIcon() {
+export default function Icon() {
   return new ImageResponse(
     (
       <div
@@ -24,10 +27,9 @@ export default function AppleIcon() {
           color: "#E0C287",
           fontWeight: 900,
           fontFamily: "sans-serif",
-          fontSize: 140,
+          fontSize: 26,
           lineHeight: 1,
           letterSpacing: "-0.04em",
-          borderRadius: 36,
         }}
       >
         ה
