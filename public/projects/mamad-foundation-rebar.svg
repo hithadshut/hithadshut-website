@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="יסודות וזיון לתוספת ממ״ד">
+  <defs>
+    <linearGradient id="skyF" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#b3cae5"/>
+      <stop offset="100%" stop-color="#e2eaf3"/>
+    </linearGradient>
+    <linearGradient id="brandF" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0A1628"/>
+      <stop offset="100%" stop-color="#1B365D"/>
+    </linearGradient>
+    <pattern id="dirt" width="20" height="20" patternUnits="userSpaceOnUse">
+      <rect width="20" height="20" fill="#a8866a"/>
+      <circle cx="3" cy="5" r="1.2" fill="#7a5e44" opacity="0.6"/>
+      <circle cx="14" cy="11" r="0.9" fill="#c9a17e" opacity="0.6"/>
+      <circle cx="8" cy="17" r="1" fill="#7a5e44" opacity="0.6"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="900" fill="url(#skyF)"/>
+  <!-- existing house wall (background) -->
+  <rect x="0" y="220" width="1200" height="440" fill="#d9c9a8"/>
+  <rect x="0" y="220" width="1200" height="14" fill="#a48d6a"/>
+  <!-- existing house windows -->
+  <rect x="320" y="320" width="120" height="80" fill="#5b6a82"/>
+  <rect x="320" y="320" width="120" height="80" fill="none" stroke="#fff" stroke-width="6"/>
+  <line x1="380" y1="320" x2="380" y2="400" stroke="#fff" stroke-width="3"/>
+  <rect x="540" y="320" width="120" height="80" fill="#5b6a82"/>
+  <rect x="540" y="320" width="120" height="80" fill="none" stroke="#fff" stroke-width="6"/>
+  <line x1="600" y1="320" x2="600" y2="400" stroke="#fff" stroke-width="3"/>
+  <!-- house lamp -->
+  <g transform="translate(820,300)">
+    <rect x="-3" y="0" width="6" height="40" fill="#3a3a3a"/>
+    <polygon points="-22,40 22,40 16,80 -16,80" fill="#3a3a3a"/>
+  </g>
+  <!-- ground -->
+  <rect y="640" width="1200" height="260" fill="url(#dirt)"/>
+  <!-- foundation excavation pit -->
+  <polygon points="180,640 1020,640 940,820 260,820" fill="#5e4c38"/>
+  <polygon points="200,650 1000,650 940,815 260,815" fill="#3e3024"/>
+  <!-- waterproof membrane (black sheet) -->
+  <polygon points="220,665 980,665 935,805 265,805" fill="#0a0a0a"/>
+  <!-- rebar grid (top down with double layer) -->
+  <g stroke="#3e2f20" stroke-width="3">
+    <!-- horizontal bars -->
+    <line x1="240" y1="690" x2="960" y2="690"/>
+    <line x1="240" y1="710" x2="960" y2="710"/>
+    <line x1="240" y1="730" x2="960" y2="730"/>
+    <line x1="240" y1="750" x2="960" y2="750"/>
+    <line x1="240" y1="770" x2="960" y2="770"/>
+    <line x1="240" y1="790" x2="960" y2="790"/>
+  </g>
+  <g stroke="#5a4530" stroke-width="3">
+    <!-- vertical bars -->
+    <line x1="280" y1="680" x2="280" y2="800"/>
+    <line x1="320" y1="680" x2="320" y2="800"/>
+    <line x1="360" y1="680" x2="360" y2="800"/>
+    <line x1="400" y1="680" x2="400" y2="800"/>
+    <line x1="440" y1="680" x2="440" y2="800"/>
+    <line x1="480" y1="680" x2="480" y2="800"/>
+    <line x1="520" y1="680" x2="520" y2="800"/>
+    <line x1="560" y1="680" x2="560" y2="800"/>
+    <line x1="600" y1="680" x2="600" y2="800"/>
+    <line x1="640" y1="680" x2="640" y2="800"/>
+    <line x1="680" y1="680" x2="680" y2="800"/>
+    <line x1="720" y1="680" x2="720" y2="800"/>
+    <line x1="760" y1="680" x2="760" y2="800"/>
+    <line x1="800" y1="680" x2="800" y2="800"/>
+    <line x1="840" y1="680" x2="840" y2="800"/>
+    <line x1="880" y1="680" x2="880" y2="800"/>
+    <line x1="920" y1="680" x2="920" y2="800"/>
+  </g>
+  <!-- vertical rebar starters (cage edge) -->
+  <g stroke="#2a1f15" stroke-width="4">
+    <line x1="260" y1="690" x2="260" y2="600"/>
+    <line x1="320" y1="690" x2="320" y2="595"/>
+    <line x1="380" y1="690" x2="380" y2="600"/>
+    <line x1="440" y1="690" x2="440" y2="592"/>
+    <line x1="500" y1="690" x2="500" y2="600"/>
+    <line x1="560" y1="690" x2="560" y2="595"/>
+    <line x1="620" y1="690" x2="620" y2="600"/>
+    <line x1="680" y1="690" x2="680" y2="592"/>
+    <line x1="740" y1="690" x2="740" y2="600"/>
+    <line x1="800" y1="690" x2="800" y2="595"/>
+    <line x1="860" y1="690" x2="860" y2="600"/>
+    <line x1="920" y1="690" x2="920" y2="592"/>
+  </g>
+  <!-- safety fence (orange mesh) -->
+  <g>
+    <line x1="1020" y1="640" x2="1020" y2="900" stroke="#7a3a20" stroke-width="6"/>
+    <line x1="1080" y1="640" x2="1080" y2="900" stroke="#7a3a20" stroke-width="6"/>
+    <rect x="1010" y="640" width="80" height="260" fill="#e84d2c" opacity="0.85"/>
+    <g stroke="#fff" stroke-width="1.5" opacity="0.7">
+      <line x1="1010" y1="660" x2="1090" y2="660"/>
+      <line x1="1010" y1="680" x2="1090" y2="680"/>
+      <line x1="1010" y1="700" x2="1090" y2="700"/>
+      <line x1="1010" y1="720" x2="1090" y2="720"/>
+      <line x1="1010" y1="740" x2="1090" y2="740"/>
+      <line x1="1010" y1="760" x2="1090" y2="760"/>
+      <line x1="1010" y1="780" x2="1090" y2="780"/>
+      <line x1="1010" y1="800" x2="1090" y2="800"/>
+      <line x1="1010" y1="820" x2="1090" y2="820"/>
+      <line x1="1010" y1="840" x2="1090" y2="840"/>
+      <line x1="1010" y1="860" x2="1090" y2="860"/>
+      <line x1="1010" y1="880" x2="1090" y2="880"/>
+    </g>
+  </g>
+  <!-- brand badge -->
+  <g transform="translate(70,790)">
+    <rect x="0" y="0" width="80" height="80" rx="14" fill="url(#brandF)"/>
+    <text x="40" y="60" text-anchor="middle" font-family="Arial Hebrew, Arial, sans-serif" font-size="58" font-weight="900" fill="#E0C287">ה</text>
+  </g>
+</svg>

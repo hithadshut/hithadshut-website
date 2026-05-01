@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="וילה דו-קומתית בשלב שלד">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#cfe1f3"/>
+      <stop offset="100%" stop-color="#f5f7fa"/>
+    </linearGradient>
+    <linearGradient id="concrete" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#c4c8cd"/>
+      <stop offset="100%" stop-color="#9aa0a8"/>
+    </linearGradient>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0A1628"/>
+      <stop offset="100%" stop-color="#1B365D"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#sky)"/>
+  <!-- ground -->
+  <rect y="780" width="1200" height="120" fill="#b8a98e"/>
+  <rect y="775" width="1200" height="6" fill="#8c7d5f"/>
+  <!-- back houses (faded) -->
+  <g opacity="0.35" fill="#7f8a99">
+    <rect x="70" y="600" width="140" height="180"/>
+    <polygon points="70,600 140,540 210,600"/>
+    <rect x="950" y="610" width="170" height="170"/>
+    <polygon points="950,610 1035,545 1120,610"/>
+  </g>
+  <!-- scaffolding (left) -->
+  <g stroke="#8a6a3e" stroke-width="6" stroke-linecap="round" fill="none">
+    <line x1="180" y1="280" x2="180" y2="780"/>
+    <line x1="280" y1="280" x2="280" y2="780"/>
+    <line x1="180" y1="350" x2="280" y2="350"/>
+    <line x1="180" y1="500" x2="280" y2="500"/>
+    <line x1="180" y1="650" x2="280" y2="650"/>
+    <line x1="180" y1="350" x2="280" y2="500"/>
+    <line x1="280" y1="350" x2="180" y2="500"/>
+    <line x1="180" y1="500" x2="280" y2="650"/>
+    <line x1="280" y1="500" x2="180" y2="650"/>
+  </g>
+  <!-- planks -->
+  <rect x="170" y="345" width="120" height="8" fill="#caa376"/>
+  <rect x="170" y="495" width="120" height="8" fill="#caa376"/>
+  <!-- main house frame: two stories cast concrete -->
+  <!-- ground floor slab -->
+  <rect x="370" y="710" width="640" height="70" fill="url(#concrete)" stroke="#7e848d" stroke-width="2"/>
+  <!-- ground floor columns -->
+  <rect x="385" y="510" width="40" height="200" fill="url(#concrete)"/>
+  <rect x="975" y="510" width="40" height="200" fill="url(#concrete)"/>
+  <rect x="680" y="510" width="40" height="200" fill="url(#concrete)"/>
+  <!-- first floor slab -->
+  <rect x="360" y="475" width="660" height="40" fill="url(#concrete)" stroke="#7e848d" stroke-width="2"/>
+  <!-- first floor columns -->
+  <rect x="385" y="280" width="40" height="195" fill="url(#concrete)"/>
+  <rect x="975" y="280" width="40" height="195" fill="url(#concrete)"/>
+  <rect x="680" y="280" width="40" height="195" fill="url(#concrete)"/>
+  <!-- roof slab with cantilever -->
+  <polygon points="340,260 1040,260 1040,290 340,290" fill="url(#concrete)" stroke="#7e848d" stroke-width="2"/>
+  <!-- block infill walls (lighter, partial) -->
+  <rect x="425" y="540" width="120" height="170" fill="#d4d0c4" opacity="0.85"/>
+  <rect x="720" y="540" width="120" height="170" fill="#d4d0c4" opacity="0.85"/>
+  <rect x="425" y="305" width="100" height="170" fill="#d4d0c4" opacity="0.85"/>
+  <!-- window openings (empty) -->
+  <rect x="555" y="320" width="105" height="80" fill="#1f2c45"/>
+  <rect x="555" y="325" width="105" height="6" fill="#3a4a6b" opacity="0.6"/>
+  <rect x="855" y="320" width="105" height="80" fill="#1f2c45"/>
+  <rect x="855" y="325" width="105" height="6" fill="#3a4a6b" opacity="0.6"/>
+  <rect x="555" y="555" width="105" height="80" fill="#1f2c45"/>
+  <rect x="855" y="555" width="105" height="80" fill="#1f2c45"/>
+  <!-- formwork residue / wood beams sticking out from roof -->
+  <g fill="#caa376">
+    <rect x="690" y="240" width="60" height="20"/>
+    <rect x="800" y="240" width="60" height="20"/>
+    <rect x="900" y="240" width="60" height="20"/>
+  </g>
+  <!-- foreground concrete wall stub with brand mark -->
+  <rect x="120" y="700" width="180" height="80" fill="url(#concrete)"/>
+  <rect x="120" y="694" width="180" height="8" fill="#7e848d"/>
+  <!-- brand badge corner -->
+  <g transform="translate(1090,790)">
+    <rect x="0" y="0" width="80" height="80" rx="14" fill="url(#brand)"/>
+    <text x="40" y="60" text-anchor="middle" font-family="Arial Hebrew, Arial, sans-serif" font-size="58" font-weight="900" fill="#E0C287">ה</text>
+  </g>
+</svg>

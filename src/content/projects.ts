@@ -48,13 +48,20 @@ export type Project = {
   width: number;
   height: number;
   /**
-   * Set true once the real photo is in place at `image` path. While
-   * false, the gallery renders a "תמונה תיווסף" placeholder card with
-   * the description and skips the broken image. This lets us ship the
-   * gallery infra now and turn each project on as Ofek confirms the
-   * upload.
+   * Set true once an image (illustration OR real photograph) exists at
+   * `image` path. While false, the gallery renders a "תמונה תיווסף"
+   * placeholder card with the description.
    */
   hasRealImage: boolean;
+  /**
+   * Distinguishes a brand-built SVG illustration from a real
+   * on-site photograph. AI engines and screen readers benefit from
+   * knowing which one is shown — illustrations are not photographic
+   * evidence. Default treatment: same UI, but caption + alt note that
+   * a photograph is the next step. Replace `.svg` with `.jpg` and
+   * flip this to "photograph" once Ofek uploads the real images.
+   */
+  imageType?: "illustration" | "photograph";
   /** Optional which service slug this project showcases — used to embed it on the service page. */
   showcaseOnService?:
     | "building-mamad"
@@ -92,11 +99,12 @@ export const projects: Project[] = [
     stage: "structure",
     description:
       "וילה דו-קומתית בבנייה פרטית מלאה: יציקת קונסטרוקציה, קירות בטון מזוין, ושלד מוכן לחיפוי. תכנון משלב ממ״ד דירתי בקומת הקרקע.",
-    image: "/projects/private-villa-structure.jpg",
+    image: "/projects/private-villa-structure.svg",
     alt: "וילה דו-קומתית בשלב שלד עם פיגום ויציקות בטון מזוין. פרויקט בנייה פרטית של התחדשות בינוי ויזמות",
     width: 1600,
     height: 1200,
-    hasRealImage: false,
+    hasRealImage: true,
+    imageType: "illustration",
     showcaseOnService: "private-construction",
   },
   {
@@ -108,11 +116,12 @@ export const projects: Project[] = [
     stage: "finished",
     description:
       "מיגונית מותקנת בחצר אחורית קטנה: דלת הדף תקנית, חלון אטום, חיבור חשמל. התקנה מהירה ללא בנייה רטובה. החצר עובדה לדשא סינתטי.",
-    image: "/projects/migunit-backyard-finished.jpg",
+    image: "/projects/migunit-backyard-finished.svg",
     alt: "מיגונית מוכנה מותקנת בחצר אחורית עם דשא סינתטי, דלת הדף לבנה וחלון תקני. התחדשות בינוי ויזמות",
     width: 1600,
     height: 1200,
-    hasRealImage: false,
+    hasRealImage: true,
+    imageType: "illustration",
     showcaseOnService: "migunit",
   },
   {
@@ -124,11 +133,12 @@ export const projects: Project[] = [
     stage: "slab",
     description:
       "יציקת תקרת בטון מזוין בתוספת בנייה לבית פרטי. זיון לפי חישוב סטטי, יציקה ביום אחד, בלי לחסום את הבית הראשי.",
-    image: "/projects/extension-roof-pour.jpg",
+    image: "/projects/extension-roof-pour.svg",
     alt: "יציקת תקרת בטון רטוב על זיון פלדה בתוספת בנייה. פרויקט של התחדשות בינוי ויזמות",
     width: 1200,
     height: 1600,
-    hasRealImage: false,
+    hasRealImage: true,
+    imageType: "illustration",
     showcaseOnService: "extensions",
   },
   {
@@ -140,11 +150,12 @@ export const projects: Project[] = [
     stage: "foundation",
     description:
       "ביסוס וזיון פלדה לתוספת ממ״ד צמוד לבית פרטי קיים. רשת זיון כפולה לפי חישוב קונסטרוקטור, יריעת איטום, והכנה ליציקת בטון מזוין.",
-    image: "/projects/mamad-foundation-rebar.jpg",
+    image: "/projects/mamad-foundation-rebar.svg",
     alt: "יסודות וזיון פלדה כפול לפני יציקה לתוספת ממ״ד צמוד לבית פרטי. התחדשות בינוי ויזמות",
     width: 1200,
     height: 1600,
-    hasRealImage: false,
+    hasRealImage: true,
+    imageType: "illustration",
     showcaseOnService: "building-mamad",
   },
   {
@@ -156,11 +167,12 @@ export const projects: Project[] = [
     stage: "walls",
     description:
       "תוספת ממ״ד צמוד לבית פרטי קיים: קירות בטון מזוין יצוקים בעובי תקני, זיון לתקרה מוכן, מיקום בין שני בתים בשכונה צפופה.",
-    image: "/projects/mamad-walls-cast.jpg",
+    image: "/projects/mamad-walls-cast.svg",
     alt: "קירות בטון מזוין יצוקים לתוספת ממ״ד צמוד עם זיון לתקרה בולט. פרויקט של התחדשות בינוי ויזמות",
     width: 1600,
     height: 900,
-    hasRealImage: false,
+    hasRealImage: true,
+    imageType: "illustration",
     showcaseOnService: "room-reinforcement",
   },
 ];

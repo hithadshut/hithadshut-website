@@ -12,7 +12,13 @@ const nextConfig: NextConfig = {
   },
   images: {
     formats: ["image/avif", "image/webp"],
-    // No remote domains needed — all images are local (/public)
+    // No remote domains needed — all images are local (/public).
+    // Allow next/image to serve SVGs from /public/projects/. The SVGs are
+    // brand-built (no scripts) and the CSP below forbids any script
+    // execution within served images — defense in depth against future
+    // SVG additions.
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   async redirects() {
     return [
