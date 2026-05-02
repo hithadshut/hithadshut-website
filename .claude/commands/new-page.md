@@ -53,44 +53,98 @@ Before writing:
 
 ### Step 3 — Scaffold the page file
 
-Create the page at the right path. Use the canonical 9-section structure from seo-content.md:
+Create the page at the right path. Use the canonical 9-section structure from seo-content.md.
+
+Project layout note: the App Router lives at `src/app/`, not `app/`. The
+`@/*` path alias resolves to `./src/*`. Components use PascalCase
+filenames (existing convention); the Day-5 additions follow the same
+convention. Use the imports below verbatim — do not invent kebab-case
+aliases.
 
 ```tsx
-// app/[slug]/page.tsx
-import { Metadata } from "next";
-import { PageHeader } from "@/components/page-header";
-import { TableOfContents } from "@/components/table-of-contents";
-import { ContentSection } from "@/components/content-section";
-import { FAQ } from "@/components/faq";
-import { TrustBlock } from "@/components/trust-block";
-import { CTASection } from "@/components/cta-section";
-import { RelatedArticles } from "@/components/related-articles";
-import { SchemaArticle } from "@/components/schema/article";
-import { SchemaBreadcrumb } from "@/components/schema/breadcrumb";
+// src/app/[slug]/page.tsx
+import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/metadata";
+import PageHero from "@/components/PageHero";
+import TableOfContents from "@/components/TableOfContents";
+import ContentSection from "@/components/ContentSection";
+import ComparisonTable from "@/components/ComparisonTable"; // when needed
+import FAQ from "@/components/FAQ";
+import TrustBlock from "@/components/TrustBlock";
+import ContactCTA from "@/components/ContactCTA";       // pre-footer CTA
+import InlineLeadForm from "@/components/InlineLeadForm"; // optional inline lead capture
+import RelatedArticles from "@/components/RelatedArticles";
+import SchemaArticle from "@/components/schema/article";
+import SchemaBreadcrumb from "@/components/schema/breadcrumb";
 
-export const metadata: Metadata = {
-  title: "{{ ≤60 chars, primary kw first }}",
-  description: "{{ 150–160 chars, direct answer }}",
-  alternates: { canonical: "https://hithadshut.co.il{{ slug }}" },
-  openGraph: { /* full */ },
-};
+const PATH = "/{{ slug }}/";
+const TITLE = "{{ ≤60 chars, primary kw first }}";
+const DESCRIPTION = "{{ 150–160 chars, direct answer }}";
+
+export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 
 export default function Page() {
   return (
     <>
-      <SchemaArticle {...} />
-      <SchemaBreadcrumb {...} />
-      <PageHeader h1="..." opening="..." />
-      <TableOfContents items={[...]} />
-      {/* ContentSection blocks */}
-      <FAQ items={[...]} />
-      <TrustBlock author="אופק מזור" published="..." updated="..." />
-      <CTASection />
-      <RelatedArticles items={[...]} />
+      <SchemaArticle
+        headline="{{ H1 }}"
+        description={DESCRIPTION}
+        canonical={PATH}
+        datePublished="{{ ISO 8601 }}"
+        dateModified="{{ ISO 8601 }}"
+      />
+      <SchemaBreadcrumb
+        items={[
+          { name: "{{ pillar name }}", url: "{{ pillar url }}" },
+          { name: "{{ this page }}", url: PATH },
+        ]}
+      />
+
+      <PageHero
+        eyebrow="{{ short label }}"
+        title="{{ H1 }}"
+        subtitle="{{ opening direct-answer paragraph (50–100 words) }}"
+        crumbs={[{ name: "{{ this page }}", href: PATH }]}
+      />
+
+      <TableOfContents items={[/* { id, label } */]} />
+
+      {/* ContentSection blocks — H2 + body, 100–250 words each */}
+      <ContentSection id="..." title="..."> ... </ContentSection>
+
+      <FAQ items={[/* { q, a } */]} includeSchema />
+
+      <TrustBlock publishedDate="{{ ISO 8601 }}" modifiedDate="{{ ISO 8601 }}" />
+
+      <ContactCTA />
+
+      <RelatedArticles currentSlug="{{ slug }}" />
     </>
   );
 }
 ```
+
+Notes on the components:
+- `PageHero` is the canonical page-header component (named `PageHeader` in
+  earlier spec drafts). Default export. Accepts `eyebrow`, `title`,
+  `subtitle`, `crumbs`.
+- `ContactCTA` is the pre-footer CTA section (named `CTASection` in earlier
+  drafts). Default export, no required props. Wraps the contact form.
+- `FAQ` accepts `items={[{ q, a }]}` and an `includeSchema` boolean. When
+  `includeSchema` is true the FAQ component injects FAQPage JSON-LD that
+  exactly mirrors the visible questions. Pages that already emit FAQ
+  schema separately via `faqJsonLd(faqs)` should pass `includeSchema={false}`.
+- `TrustBlock` defaults `author="ofek-mazor"`. Pass `disclaimer={false}` to
+  suppress the legal disclaimer; pass a `source={{ label, url }}` to surface
+  the page's primary regulatory citation in the trust strip.
+- `SchemaArticle` author is hard-coded to Ofek Mazor (anchored to the
+  Person node on /about/ofek-mazor); publisher is the legal entity from
+  `lib/site.ts`. Override only if you are intentionally publishing a
+  guest post.
+- `SchemaBreadcrumb` automatically prepends the homepage as position 1 —
+  pass only the trail items.
+- `internalLinks` graph: append entries to `src/data/internal-links.ts`
+  as part of step 6 (do not edit directly inside the page file).
 
 ### Step 4 — Write the body
 
