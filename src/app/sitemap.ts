@@ -1,133 +1,204 @@
 import type { MetadataRoute } from "next";
+import { execSync } from "node:child_process";
+import { statSync } from "node:fs";
+import { resolve } from "node:path";
 import { site, services, guides, compares } from "@/lib/site";
 import { areas } from "@/content/areas";
 import { serviceMatrix } from "@/content/services";
 import { isGeoPairIndexable } from "@/content/indexable-geo";
 import { projects } from "@/content/projects";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
+/**
+ * Per-URL lastmod fidelity.
+ *
+ * Default Next.js behavior emits a single `new Date()` for every entry,
+ * which signals "everything changed simultaneously" to crawlers and hurts
+ * crawl prioritization. We resolve each URL's lastmod from git history
+ * (the committer date of the most recent commit touching the URL's source
+ * file(s)), with a filesystem-mtime fallback when git is unavailable.
+ *
+ * Computed at build time. Vercel ships .git during the build, so git log
+ * is available; the result is baked into the static sitemap.
+ */
+const lastmodCache = new Map<string, number>();
 
+function gitLastModifiedMs(filePath: string): number | null {
+  if (lastmodCache.has(filePath)) return lastmodCache.get(filePath)!;
+  try {
+    const iso = execSync(`git log -1 --format=%cI -- "${filePath}"`, {
+      encoding: "utf8",
+      stdio: ["ignore", "pipe", "ignore"],
+    }).trim();
+    if (!iso) {
+      lastmodCache.set(filePath, -1);
+      return null;
+    }
+    const ms = new Date(iso).getTime();
+    lastmodCache.set(filePath, ms);
+    return ms;
+  } catch {
+    lastmodCache.set(filePath, -1);
+    return null;
+  }
+}
+
+function fileMtimeMs(filePath: string): number | null {
+  try {
+    return statSync(resolve(process.cwd(), filePath)).mtimeMs;
+  } catch {
+    return null;
+  }
+}
+
+/** Most recent modification across the page source + any content data files. */
+function lastModifiedFor(...sourcePaths: string[]): Date {
+  const candidates = sourcePaths
+    .map((p) => gitLastModifiedMs(p) ?? fileMtimeMs(p))
+    .filter((ms): ms is number => ms !== null && ms > 0);
+  if (candidates.length === 0) return new Date();
+  return new Date(Math.max(...candidates));
+}
+
+/**
+ * Priority distribution (per seo/SITEMAP_AUDIT 2026-05-03):
+ *   1.0  homepage
+ *   0.9  pillar/hub pages — /services/*, /guides/*, /compare/*, /about,
+ *        /contact, /areas
+ *   0.7  city standalone pages, indexable city × service pairs,
+ *        /projects index, /about/ofek-mazor
+ *   0.6  project detail pages
+ *   0.3  legal pages
+ */
+export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [
-    // Homepage: weekly, top priority
+    // Homepage
     {
       url: `${site.url}/`,
-      lastModified: now,
+      lastModified: lastModifiedFor("src/app/page.tsx"),
       changeFrequency: "weekly",
       priority: 1.0,
     },
-    // Contact: high intent, monthly
+    // Contact (high commercial intent — pillar tier)
     {
       url: `${site.url}/contact`,
-      lastModified: now,
+      lastModified: lastModifiedFor("src/app/contact/page.tsx"),
       changeFrequency: "monthly",
       priority: 0.9,
     },
-    // Services: primary commercial pages
+    // Services
     ...services.map((s) => ({
       url: `${site.url}/services/${s.slug}`,
-      lastModified: now,
+      lastModified: lastModifiedFor(`src/app/services/${s.slug}/page.tsx`),
       changeFrequency: "monthly" as const,
       priority: 0.9,
     })),
-    // Areas index: geo hub
+    // Areas hub
     {
       url: `${site.url}/areas`,
-      lastModified: now,
+      lastModified: lastModifiedFor("src/app/areas/page.tsx", "src/content/areas.ts"),
       changeFrequency: "monthly",
-      priority: 0.85,
+      priority: 0.9,
     },
-    // Guides: content pages
+    // Guides (authority / pillar tier)
     ...guides.map((g) => ({
       url: `${site.url}/guides/${g.slug}`,
-      lastModified: now,
+      lastModified: lastModifiedFor(`src/app/guides/${g.slug}/page.tsx`),
       changeFrequency: "monthly" as const,
-      priority: 0.75,
+      priority: 0.9,
     })),
-    // Compare: all comparison pages (unified priority per spec)
+    // Compare (authority tier)
     ...compares.map((c) => ({
       url: `${site.url}/compare/${c.slug}`,
-      lastModified: now,
+      lastModified: lastModifiedFor(`src/app/compare/${c.slug}/page.tsx`),
       changeFrequency: "monthly" as const,
-      priority: 0.7,
+      priority: 0.9,
     })),
-    // Areas city pages — skip cities flagged with noindexReason (failed
-    // the doorway-page audit; see seo/AREA_PAGES.md).
+    // City standalone pages — exclude noindexed cities.
     ...areas
       .filter((a) => !a.noindexReason)
       .map((a) => ({
         url: `${site.url}/areas/${a.slug}`,
-        lastModified: now,
+        lastModified: lastModifiedFor(
+          "src/app/areas/[city]/page.tsx",
+          "src/content/areas.ts"
+        ),
         changeFrequency: "monthly" as const,
         priority: 0.7,
       })),
-    // Areas city × service pages — only the allowlisted, content-
-    // differentiated pairs ship to the sitemap. The rest are noindex
-    // (see src/content/indexable-geo.ts) to prevent doorway-page risk.
+    // City × service indexable pairs — only allowlisted, content-
+    // differentiated pairs ship to the sitemap. The rest stay noindex
+    // (see src/content/indexable-geo.ts).
     ...areas.flatMap((a) =>
       serviceMatrix
         .filter((s) => isGeoPairIndexable(a.slug, s.slug))
         .map((s) => ({
           url: `${site.url}/areas/${a.slug}/${s.slug}`,
-          lastModified: now,
+          lastModified: lastModifiedFor(
+            "src/app/areas/[city]/[service]/page.tsx",
+            "src/content/areas.ts",
+            "src/content/services.ts",
+            "src/content/indexable-geo.ts"
+          ),
           changeFrequency: "monthly" as const,
-          priority: 0.6,
+          priority: 0.7,
         }))
     ),
-    // Projects: real-work portfolio
+    // Projects index
     {
       url: `${site.url}/projects`,
-      lastModified: now,
+      lastModified: lastModifiedFor(
+        "src/app/projects/page.tsx",
+        "src/content/projects.ts"
+      ),
       changeFrequency: "monthly",
       priority: 0.7,
     },
-    // Per-project pages — index list page + each project detail.
-    // Detail pages stay in the sitemap even when their JPG isn't on disk
-    // yet; the page renders a placeholder. Removing them later would
-    // create needless 404s in GSC if Google has already discovered them.
+    // Per-project pages
     ...projects.map((p) => ({
       url: `${site.url}/projects/${p.slug}`,
-      lastModified: now,
+      lastModified: lastModifiedFor(
+        "src/app/projects/[slug]/page.tsx",
+        "src/content/projects.ts"
+      ),
       changeFrequency: "monthly" as const,
       priority: 0.6,
     })),
-    // About: brand page
+    // About hub (pillar tier — primary brand page)
     {
       url: `${site.url}/about`,
-      lastModified: now,
+      lastModified: lastModifiedFor("src/app/about/page.tsx"),
       changeFrequency: "monthly",
-      priority: 0.6,
+      priority: 0.9,
     },
     // Author page (Ofek Mazor) — anchors Person schema for E-E-A-T
     {
       url: `${site.url}/about/ofek-mazor`,
-      lastModified: now,
+      lastModified: lastModifiedFor("src/app/about/ofek-mazor/page.tsx"),
       changeFrequency: "monthly",
-      priority: 0.55,
+      priority: 0.7,
     },
-    // Legal pages
+    // Legal
     {
       url: `${site.url}/privacy`,
-      lastModified: now,
+      lastModified: lastModifiedFor("src/app/privacy/page.tsx"),
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
       url: `${site.url}/terms`,
-      lastModified: now,
+      lastModified: lastModifiedFor("src/app/terms/page.tsx"),
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
       url: `${site.url}/accessibility`,
-      lastModified: now,
+      lastModified: lastModifiedFor("src/app/accessibility/page.tsx"),
       changeFrequency: "yearly",
       priority: 0.3,
     },
   ];
 
-  // TODO (stage G+): if the URL count grows past ~10K, split into sitemap index + sub-sitemaps.
-  // Currently well under the 50K Google limit.
-
+  // Sitemap-index threshold: split into multiple sub-sitemaps when the
+  // count approaches Google's 50K-URL ceiling. Currently far below.
   return entries;
 }
