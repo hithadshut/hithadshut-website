@@ -5,12 +5,22 @@ import { site } from "./site";
  *
  * IndexNow is a protocol that lets sites notify search engines (Bing, Yandex,
  * Seznam, Naver, Yep) when URLs are added, updated, or deleted. Google does
- * NOT participate directly, but the signal reaches Bingbot quickly.
+ * NOT participate directly, but the signal reaches Bingbot quickly — and
+ * Bingbot powers ChatGPT Search and Microsoft Copilot.
  *
  * Docs: https://www.indexnow.org/documentation
+ *
+ * Key resolution:
+ *   1. process.env.INDEXNOW_KEY (Vercel env var; .env.local in dev)
+ *   2. Hardcoded fallback below — present so the build never breaks and
+ *      so prod keeps working if Vercel env is ever cleared. The fallback
+ *      value matches the static file shipped at /public/<KEY>.txt for
+ *      belt-and-suspenders verification.
  */
+const FALLBACK_INDEXNOW_KEY = "008c516280c91d8ff1ac52080cc7ae3a";
 
-export const INDEXNOW_KEY = "a1b2c3d4e5f678901234567890abcdef";
+export const INDEXNOW_KEY: string =
+  process.env.INDEXNOW_KEY?.trim() || FALLBACK_INDEXNOW_KEY;
 
 export const INDEXNOW_KEY_LOCATION = `${site.url}/${INDEXNOW_KEY}.txt`;
 
