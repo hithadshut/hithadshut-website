@@ -18,7 +18,17 @@
  *   4. Log the promotion in seo/AREA_PAGES.md.
  */
 export const INDEXABLE_GEO_PAIRS = new Set<string>([
-  // Empty by default. Promote pairs after content differentiation.
+  // Promoted 2026-05-03 after content-lead pair-by-pair sign-off.
+  // Each pair has hand-authored geoIntros + city extendedNotes rendering
+  // via src/app/areas/[city]/[service]/page.tsx (commit 0c8d1c0).
+  "ramat-gan/building-mamad",
+  "ramat-gan/room-reinforcement",
+  "givatayim/building-mamad",
+  "givatayim/room-reinforcement",
+  "herzliya/building-mamad",
+  "herzliya/prefab-mamad",
+  "modiin/room-reinforcement",
+  "modiin/building-mamad",
 ]);
 
 export function isGeoPairIndexable(citySlug: string, serviceSlug: string): boolean {
