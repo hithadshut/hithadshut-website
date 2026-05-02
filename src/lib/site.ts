@@ -50,15 +50,6 @@ export const services = [
     category: "protection",
   },
   {
-    slug: "migunit",
-    title: "מיגונית",
-    shortTitle: "מיגונית",
-    summary:
-      "יחידת מיגון מוכנה מהמפעל. פתרון מהיר להתקנה בחצר או במרחב החיצוני.",
-    icon: "box",
-    category: "protection",
-  },
-  {
     slug: "prefab-mamad",
     title: "ממ״ד מוכן / יחידה ממוגנת",
     shortTitle: "ממ״ד מוכן",
@@ -152,10 +143,6 @@ export const compares = [
   {
     slug: "mamad-tzamud-vs-hitzoni",
     short: "ממ״ד צמוד vs חיצוני",
-  },
-  {
-    slug: "migunit-vs-mamad-muchan",
-    short: "מיגונית vs ממ״ד מוכן",
   },
   {
     slug: "katlan-rashum-vs-hafer",

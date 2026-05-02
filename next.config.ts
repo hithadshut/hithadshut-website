@@ -30,6 +30,25 @@ const nextConfig: NextConfig = {
         destination: "https://hithadshut.co.il/:path*",
         permanent: true,
       },
+      // Migunit cleanup (Day 3): מיגונית is not a private-home solution per
+      // CLAUDE.md hard rule #2. The /services/migunit page and all
+      // /areas/:city/migunit doorway permutations are removed; existing
+      // crawled URLs collapse to the closest legitimate service or guide.
+      {
+        source: "/services/migunit",
+        destination: "/services/room-reinforcement",
+        permanent: true,
+      },
+      {
+        source: "/areas/:city/migunit",
+        destination: "/areas/:city/room-reinforcement",
+        permanent: true,
+      },
+      {
+        source: "/compare/migunit-vs-mamad-muchan",
+        destination: "/guides/home-front-command-approval",
+        permanent: true,
+      },
     ];
   },
   async headers() {

@@ -20,14 +20,12 @@ const TOP_AREA_SLUGS = [
 const SERVICE_TARGETS = [
   "building-mamad",
   "room-reinforcement",
-  "migunit",
   "prefab-mamad",
 ] as const;
 
 const COMPARE_TARGETS = [
   "compare-main",
   "compare-tzamud",
-  "compare-migunit-muchan",
   "compare-rashum-hafer",
 ] as const;
 

@@ -269,8 +269,8 @@ export default function Page() {
         seed="guides/home-front-command-approval"
         targets={[
           "building-mamad",
-          "migunit",
-          "compare-migunit-muchan",
+          "prefab-mamad",
+          "compare-main",
           "mamad-process",
           "mamad-cost",
         ]}

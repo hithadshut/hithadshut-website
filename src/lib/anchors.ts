@@ -1,7 +1,6 @@
 export type LinkTarget =
   | "building-mamad"
   | "room-reinforcement"
-  | "migunit"
   | "prefab-mamad"
   | "mamad-cost"
   | "mamad-process"
@@ -10,7 +9,6 @@ export type LinkTarget =
   | "mamad-mistakes"
   | "compare-main"
   | "compare-tzamud"
-  | "compare-migunit-muchan"
   | "compare-rashum-hafer"
   | "contact"
   | "areas";
@@ -34,15 +32,6 @@ export const ANCHOR_VARIANTS: Record<LinkTarget, string[]> = {
     "מיגון לחדר קיים בבית",
     "פתרון מיגון חדר",
     "מיגון דירה קיימת",
-  ],
-  "migunit": [
-    "מיגונית",
-    "יחידת מיגון חיצונית",
-    "מיגונית מוכנה להצבה",
-    "שירות המיגונית שלנו",
-    "מידע על מיגוניות",
-    "מיגונית בחצר הבית",
-    "מיגונית תקנית",
   ],
   "prefab-mamad": [
     "ממ״ד מוכן",
@@ -117,15 +106,6 @@ export const ANCHOR_VARIANTS: Record<LinkTarget, string[]> = {
     "בין ממ״ד צמוד לממ״ד בחצר",
     "לבחור בין ממ״ד צמוד לחיצוני",
   ],
-  "compare-migunit-muchan": [
-    "מיגונית מול ממ״ד מוכן",
-    "השוואה: מיגונית vs ממ״ד מוכן",
-    "מה עדיף: מיגונית או ממ״ד טרומי",
-    "השוואה טכנית: מיגונית vs ממ״ד מוכן",
-    "בין מיגונית לממ״ד טרומי",
-    "לבחור בין מיגונית לממ״ד מוכן",
-    "ממ״ד מוכן או מיגונית: מה מתאים",
-  ],
   "compare-rashum-hafer": [
     "קבלן רשום מול חאפר",
     "השוואה: קבלן רשום vs חאפר",
@@ -180,7 +160,6 @@ export function pickAnchor(
 export const HREF_MAP: Record<LinkTarget, string> = {
   "building-mamad": "/services/building-mamad",
   "room-reinforcement": "/services/room-reinforcement",
-  "migunit": "/services/migunit",
   "prefab-mamad": "/services/prefab-mamad",
   "mamad-cost": "/guides/mamad-cost",
   "mamad-process": "/guides/mamad-process",
@@ -189,7 +168,6 @@ export const HREF_MAP: Record<LinkTarget, string> = {
   "mamad-mistakes": "/guides/mamad-mistakes",
   "compare-main": "/compare/mamad-vs-miggun-vs-migunit",
   "compare-tzamud": "/compare/mamad-tzamud-vs-hitzoni",
-  "compare-migunit-muchan": "/compare/migunit-vs-mamad-muchan",
   "compare-rashum-hafer": "/compare/katlan-rashum-vs-hafer",
   "contact": "/contact",
   "areas": "/areas",
@@ -201,8 +179,6 @@ export const TARGET_SUMMARY: Record<LinkTarget, string> = {
     "ממ״ד חדש צמוד לבית או בתוך המבנה. תכנון, אישורי פקע״ר וביצוע מלא.",
   "room-reinforcement":
     "חיזוק חדר קיים לרמת הגנה גבוהה. פתרון מהיר ומשתלם לבתים ודירות.",
-  "migunit":
-    "יחידת מיגון מוכנה מהמפעל להצבה מהירה בחצר או במרחב חיצוני.",
   "prefab-mamad":
     "ממ״ד טרומי מאושר פקע״ר, יחידה ממוגנת תקנית המגיעה מוכנה מהמפעל.",
   "mamad-cost":
@@ -219,8 +195,6 @@ export const TARGET_SUMMARY: Record<LinkTarget, string> = {
     "השוואה טכנית מלאה בין ממ״ד, מיגון חדר ומיגונית, כולל עלות וזמן.",
   "compare-tzamud":
     "מה ההבדל בין ממ״ד צמוד לבית לבין ממ״ד חיצוני בחצר.",
-  "compare-migunit-muchan":
-    "מיגונית מול ממ״ד טרומי: רמת הגנה, מחיר, אישורים.",
   "compare-rashum-hafer":
     "קבלן רשום מול חאפר: איך לזהות, מה לבדוק ולמה זה קריטי.",
   "contact":
@@ -232,7 +206,6 @@ export const TARGET_SUMMARY: Record<LinkTarget, string> = {
 export const TARGET_LABEL: Record<LinkTarget, string> = {
   "building-mamad": "בניית ממ״ד",
   "room-reinforcement": "מיגון חדר קיים",
-  "migunit": "מיגונית",
   "prefab-mamad": "ממ״ד מוכן",
   "mamad-cost": "מחיר ממ״ד",
   "mamad-process": "תהליך בניית ממ״ד",
@@ -241,7 +214,6 @@ export const TARGET_LABEL: Record<LinkTarget, string> = {
   "mamad-mistakes": "טעויות בבניית ממ״ד",
   "compare-main": "השוואת הפתרונות",
   "compare-tzamud": "ממ״ד צמוד vs חיצוני",
-  "compare-migunit-muchan": "מיגונית vs ממ״ד מוכן",
   "compare-rashum-hafer": "קבלן רשום vs חאפר",
   "contact": "צור קשר",
   "areas": "אזורי שירות",

@@ -19,7 +19,6 @@ import type { LinkTarget } from "@/lib/anchors";
 const SERVICE_SLUG_TO_TARGET: Record<string, LinkTarget> = {
   "building-mamad": "building-mamad",
   "room-reinforcement": "room-reinforcement",
-  "migunit": "migunit",
   "prefab-mamad": "prefab-mamad",
 };
 

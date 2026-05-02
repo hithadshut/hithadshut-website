@@ -24,14 +24,6 @@ export const serviceMatrix: ServiceMeta[] = [
       "חיזוק חדר קיים והפיכתו לחדר מוגן. פתרון מהיר יחסית ומשתלם לדירות ובתים ללא ממ״ד.",
   },
   {
-    slug: "migunit",
-    name: "מיגונית",
-    shortName: "מיגונית",
-    path: "/services/migunit",
-    blurb:
-      "יחידת מיגון מוכנה מהמפעל להתקנה בחצר. פתרון מהיר ללא בנייה מורכבת, לעיתים ללא היתר.",
-  },
-  {
     slug: "prefab-mamad",
     name: "ממ״ד מוכן",
     shortName: "ממ״ד מוכן",

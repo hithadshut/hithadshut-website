@@ -157,7 +157,7 @@ export default function Page() {
           "mamad-cost",
           "home-front-command-approval",
           "mamad-process",
-          "compare-migunit-muchan",
+          "compare-main",
           "areas",
         ]}
       />

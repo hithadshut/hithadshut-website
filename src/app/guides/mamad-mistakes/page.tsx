@@ -216,7 +216,7 @@ export default function Page() {
         seed="guides/mamad-mistakes"
         targets={[
           "building-mamad",
-          "migunit",
+          "room-reinforcement",
           "compare-rashum-hafer",
           "choosing-mamad-contractor",
           "mamad-process",
