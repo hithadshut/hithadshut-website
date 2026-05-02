@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import PageHero from "@/components/PageHero";
 import Section from "@/components/Section";
+import ContentSection from "@/components/ContentSection";
 import InlineLeadForm from "@/components/InlineLeadForm";
 import FAQ from "@/components/FAQ";
 import Reveal from "@/components/Reveal";
@@ -12,7 +13,7 @@ import { buildMetadata } from "@/lib/metadata";
 import { breadcrumbJsonLd, faqJsonLd, serviceJsonLd } from "@/lib/schema";
 import { site } from "@/lib/site";
 import { areas, getArea } from "@/content/areas";
-import { serviceMatrix, getServiceMeta } from "@/content/services";
+import { serviceMatrix, getServiceMeta, type GeoServiceSlug } from "@/content/services";
 import { isGeoPairIndexable } from "@/content/indexable-geo";
 import type { LinkTarget } from "@/lib/anchors";
 
@@ -98,7 +99,21 @@ export default async function GeoServicePage({ params }: { params: Params }) {
 
   const pagePath = `/areas/${area.slug}/${svc.slug}`;
   const idx = hashStr(area.name + svc.slug) % 5;
-  const [p1, p2] = introTemplate(idx, area.name, svc.name, svc.blurb);
+  const [rotatedP1, p2] = introTemplate(idx, area.name, svc.name, svc.blurb);
+
+  // Indexable pairs may override the rotated generic intro with a hand-
+  // authored geoIntros[service] string of 50–100 words. Falls through to
+  // the rotated template when not promoted, or when the per-service
+  // geoIntro is absent. extendedNotes are surfaced only on indexable
+  // pairs as a dedicated body section, to avoid leaking authored
+  // city-specific differentiation onto noindex doorway-risk pages.
+  const indexable = isGeoPairIndexable(area.slug, svc.slug);
+  const geoIntro = indexable
+    ? area.geoIntros?.[svc.slug as GeoServiceSlug]
+    : undefined;
+  const p1 = geoIntro ?? rotatedP1;
+  const showExtendedNotes =
+    indexable && Array.isArray(area.extendedNotes) && area.extendedNotes.length > 0;
 
   const faqs = [
     {
@@ -295,6 +310,18 @@ export default async function GeoServicePage({ params }: { params: Params }) {
           </div>
         </Reveal>
       </Section>
+
+      {showExtendedNotes && (
+        <Section tone="soft">
+          <Reveal>
+            <ContentSection title={`${svc.name} ב${area.name}: מה ייחודי לאזור`}>
+              {area.extendedNotes!.map((note, i) => (
+                <p key={i}>{note}</p>
+              ))}
+            </ContentSection>
+          </Reveal>
+        </Section>
+      )}
 
       <InlineLeadForm
         title={`${svc.name} ב${area.name}: בואו נדבר`}

@@ -1,3 +1,5 @@
+import type { GeoServiceSlug } from "./services";
+
 export type Area = {
   slug: string;
   name: string;
@@ -5,6 +7,14 @@ export type Area = {
   district: string;
   neighborhoods?: string[];
   localNote?: string;
+  /**
+   * Per-(city × service) opening paragraph, 50–100 words, used as the
+   * page's primary intro on indexable pairs (replaces the rotated
+   * generic introTemplate). Rendered only when the pair passes
+   * isGeoPairIndexable. Falls back to the rotated template otherwise.
+   * Authored manually per pair, not generated.
+   */
+  geoIntros?: Partial<Record<GeoServiceSlug, string>>;
   /**
    * True for cities where pcr (פיקוד העורף) enforces higher construction
    * requirements due to front-line threat classification: thicker walls,

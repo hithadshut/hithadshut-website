@@ -38,3 +38,11 @@ export function getServiceMeta(slug: string): ServiceMeta | undefined {
 }
 
 export const geoServiceSlugs = serviceMatrix.map((s) => s.slug);
+
+/**
+ * Slug union for the city × service dynamic route. Kept as an explicit
+ * string-literal union so `Partial<Record<GeoServiceSlug, ...>>` keeps
+ * structural type safety on per-area geoIntros maps. Update this union
+ * whenever serviceMatrix above changes.
+ */
+export type GeoServiceSlug = "building-mamad" | "room-reinforcement" | "prefab-mamad";
