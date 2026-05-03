@@ -16,6 +16,15 @@ const constructionLinks = constructionServices.map((s) => ({
 }));
 const guideLinks = guides.map((g) => ({ href: `/guides/${g.slug}`, label: g.short }));
 
+// Urban-renewal pillar nav. Add new sub-pages here as they ship
+// (chok-67, kshishim, yorshim, etc.). Same convention as the
+// PINUI_BINUI_HREFS namespace in src/lib/anchors.ts — the nav is the
+// other surface that needs explicit registration per page.
+const urbanRenewalLinks = [
+  { href: "/pinui-binui", label: "פינוי בינוי" },
+  { href: "/pinui-binui/temurot", label: "תמורות בפינוי בינוי" },
+];
+
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -56,6 +65,20 @@ export default function Header() {
                 ))}
                 <div className="px-3 pt-3 pb-2 text-[11px] font-extrabold uppercase tracking-[0.2em] text-[var(--color-accent-dark)] border-t border-[var(--color-border)] mt-2">בנייה ושיפוצים</div>
                 {constructionLinks.map((c) => (
+                  <Link key={c.href} href={c.href} className="block px-3 py-2 rounded-lg text-sm font-semibold text-[var(--color-ink)] hover:bg-[var(--color-soft)] hover:text-[var(--color-primary)]">
+                    {c.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative group">
+              <button type="button" aria-haspopup="true" aria-expanded="false" className="text-[15px] font-semibold text-[var(--color-ink)] hover:text-[var(--color-primary)] transition">
+                התחדשות עירונית
+                <span aria-hidden className="ms-1 text-xs">▾</span>
+              </button>
+              <div className="absolute end-0 mt-3 w-72 bg-white rounded-xl shadow-[var(--shadow-deep)] border border-[var(--color-border)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition p-2">
+                {urbanRenewalLinks.map((c) => (
                   <Link key={c.href} href={c.href} className="block px-3 py-2 rounded-lg text-sm font-semibold text-[var(--color-ink)] hover:bg-[var(--color-soft)] hover:text-[var(--color-primary)]">
                     {c.label}
                   </Link>
@@ -146,6 +169,19 @@ export default function Header() {
               </summary>
               <div className="ps-3 pb-2">
                 {constructionLinks.map((c) => (
+                  <Link key={c.href} href={c.href} onClick={() => setOpen(false)} className="block py-2 text-sm text-[var(--color-muted)] hover:text-[var(--color-primary)]">
+                    {c.label}
+                  </Link>
+                ))}
+              </div>
+            </details>
+            <details className="group">
+              <summary className="flex items-center justify-between py-3 font-bold cursor-pointer list-none">
+                התחדשות עירונית
+                <span className="text-xs faq-chevron">▾</span>
+              </summary>
+              <div className="ps-3 pb-2">
+                {urbanRenewalLinks.map((c) => (
                   <Link key={c.href} href={c.href} onClick={() => setOpen(false)} className="block py-2 text-sm text-[var(--color-muted)] hover:text-[var(--color-primary)]">
                     {c.label}
                   </Link>
