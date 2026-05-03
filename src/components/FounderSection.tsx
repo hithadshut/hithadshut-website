@@ -67,7 +67,7 @@ export default function FounderSection() {
                   </svg>
                 </span>
                 <div className="text-[var(--color-primary)] font-bold">
-                  רוצים לדבר ישירות עם אופק? חייגו{" "}
+                  רוצים לדבר עם המומחים שלנו? חייגו{" "}
                   <a
                     href="tel:054-671-2130"
                     className="text-[var(--color-accent-dark)] underline underline-offset-4 hover:text-[var(--color-accent)]"
