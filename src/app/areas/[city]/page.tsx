@@ -92,7 +92,7 @@ export default async function AreaPage({ params }: { params: Params }) {
     telephone: site.phoneE164,
     email: site.email,
     image: `${site.url}${site.ogImage}`,
-    description: `בניית ממ״ד, מיגון חדר ומיגוניות ב${area.name}: חברת בינוי ויזמות, ליווי מלא.`,
+    description: `בניית ממ״ד, מיגון חדר וממ״ד מוכן ב${area.name}: חברת בינוי ויזמות, ליווי מלא.`,
     priceRange: "₪₪₪",
     areaServed: { "@type": "City", name: area.name },
     address: {
@@ -115,7 +115,7 @@ export default async function AreaPage({ params }: { params: Params }) {
       <PageHero
         eyebrow={`אזור שירות · ${area.district}`}
         title={`בניית ממ״ד ב${area.name}: חברת התחדשות`}
-        subtitle={`חברת בינוי ויזמות ב${area.name}: בניית ממ״דים, מיגון חדרים, מיגוניות וממ״דים מוכנים. ליווי מלא, אישורי פקע״ר, עבודה מקצועית.`}
+        subtitle={`חברת בינוי ויזמות ב${area.name}: בניית ממ״דים, מיגון חדרים וממ״דים מוכנים. ליווי מלא, אישורי פקע״ר, עבודה מקצועית.`}
         crumbs={[
           { name: "אזורי שירות", href: "/areas" },
           { name: area.name, href: areaUrl },
@@ -138,7 +138,7 @@ export default async function AreaPage({ params }: { params: Params }) {
             </p>
             <p className="mt-4 text-[var(--color-muted)] leading-relaxed">
               ההתמחות המרכזית שלנו היא ממ״דים. זה הליבה של החברה. בנוסף אנחנו מבצעים מיגון חדרים
-              קיימים, התקנת מיגוניות ותכנון ממ״דים מוכנים. לכל פתרון פרופיל עלות, לוח זמנים ורמת
+              קיימים ותכנון ממ״דים מוכנים מאושרי פקע״ר. לכל פתרון פרופיל עלות, לוח זמנים ורמת
               הגנה שונה, ובעמוד הזה תמצאו את ההבדלים והפתרון שמתאים לכם ב{area.name}.
             </p>
           </div>

@@ -39,7 +39,7 @@ export default function Footer() {
         <div className="col-span-2 md:col-span-2">
           <Logo variant="light" size="md" />
           <p className="mt-5 text-sm text-white/70 leading-relaxed max-w-sm">
-            חברת התחדשות בינוי ויזמות. בניית ממ״ד, מיגון חדרים, מיגוניות, בנייה פרטית, שיפוצים והרחבות.
+            חברת התחדשות בינוי ויזמות. בניית ממ״ד, מיגון חדרים, ממ״ד מוכן, בנייה פרטית, שיפוצים, הרחבות, ופינוי בינוי.
             ליווי מלא מהתכנון ועד מסירת המפתח.
           </p>
           <div className="mt-6 space-y-2.5 text-sm">

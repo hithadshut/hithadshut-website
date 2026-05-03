@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "התחדשות בינוי ויזמות | בניית ממ\"ד, מיגון ומיגוניות";
+export const alt = "התחדשות בינוי ויזמות | בניית ממ\"ד, מיגון ופינוי בינוי";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -79,7 +79,7 @@ export default async function Image() {
               maxWidth: 900,
             }}
           >
-            ממ״דים · מיגון חדרים · מיגוניות · בנייה פרטית · שיפוצים
+            ממ״דים · מיגון חדרים · ממ״ד מוכן · פינוי בינוי · בנייה פרטית
           </div>
         </div>
 
