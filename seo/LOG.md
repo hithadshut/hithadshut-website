@@ -4,6 +4,65 @@
 
 ---
 
+## Patch [2026-05-03] — 3 משימות נקודתיות: broker removal · project images audit · desktop nav fix
+
+### חדשות הסשן
+- ✅ הוסר positioning של "מתווך מקרקעין" מכל הקוד והתבניות התפעוליות. Person schema עודכן.
+- ⚠ תמונות פרויקטים: audit מאשר שלא הועלו ל-repo ב-21 הימים האחרונים. B-020 פתוח כ-P1.
+- ✅ באג קריטי בנאוויגציה דסקטופ נמצא ותוקן: ה-trigger buttons היו ללא onClick, dropdown על hover-only.
+
+### בוצע
+
+**M1 — Broker references removal (commit `6a1bb18`):**
+- Source: 8 קבצים שונו, 25 הוספות / 51 מחיקות.
+  - `src/lib/schema.ts`: `hasCredential` block (license 3246290 + recognizedBy משרד המשפטים) הוסר. `jobTitle` עודכן ל-"מנכ״ל ומייסד, יזם ומנהל פרויקטים בהתחדשות עירונית ומיגון". `knowsAbout` עודכן: הוסרו "נדל״ן ושוק מקרקעין בישראל" + "מיגונית", הוספו "התחדשות עירונית" + "פינוי בינוי".
+  - `src/components/Byline.tsx`: role של ofek מ-"מתווך מקרקעין מורשה" → "יזם ומנהל פרויקטים בהתחדשות עירונית ומיגון".
+  - `src/app/about/ofek-mazor/page.tsx`: 5 surfaces (meta description, hero subtitle, sidebar credential card, H2 "הרישיון: מתווך מקרקעין מורשה" body section שלם הוסר). הסידבר card עכשיו "תחום פעילות / יזם ומנהל פרויקטים".
+  - `src/app/about/page.tsx`: paragraph שכתב הציטוט הברוקרי שוכתב.
+- Operational templates (seo/): GBP_SETUP, NAP_DIRECTORIES, CONTENT_GUARDRAILS, BACKLOG עודכנו כדי למנוע re-introduction של ה-credential כשאופק מבצע GBP / directory submissions.
+- Schema audit: 0 RealEstateAgent בכל ה-repo (לא היה אף פעם). 0 `additionalType: RealEstateAgent` על LocalBusiness.
+- Final grep (כפי הספק): 4 hits נותרו, כולם ב-`seo/LOG.md` בערכי W2 היסטוריים — record בלתי-משתנה, מותר.
+
+**M2 — Project images audit (commit `a1993dd`):**
+- בוצע audit מלא של ה-repo ושל branches משניים. **לא נמצאו תמונות פרויקט חדשות** מאז 2026-05-01.
+- בדיקות:
+  - `find public/ -type f -iname "*.jpg|*.jpeg|*.png|*.webp|*.heic"` → רק `public/ofek-mazor.jpg` (Apr 15) + 5 SVG illustrations (May 1).
+  - `git log --all --diff-filter=A --since="21 days ago"` (image extensions) → אפס תוספות בענפים פעילים.
+  - branch `claude/pensive-tesla-4762ba` (worktree) → תוכן זהה.
+- B-020 ב-`seo/BLOCKERS.md` עודכן מ-"חלקית פתור" ל-"P1 פתוח" עם audit trail מלא + 3 אפשרויות לאן התמונות נעלמו + Action על אופק.
+- אין placeholder images חדשים. אין שינוי לעמוד `/projects`.
+
+**M3 — Desktop navigation clickability (commit `e1a6962`):**
+- **שורש הבאג**: כל desktop dropdown trigger היה `<button>` ללא `onClick`. ה-panel נחשף רק דרך CSS `group-hover:opacity-100 group-hover:visible`. במחשב — לחיצה לא עשתה כלום (אין handler), ו-hover היה לא יציב (כל micro-gap בין הטריגר ל-panel הרס את ה-state). `aria-expanded="false"` קודם בקוד וקבוע — אף פעם לא עודכן. במובייל זה עבד כי שם משתמשים ב-`<details>` שמטפל ב-toggle נטיב.
+- **תיקון**: `src/components/Header.tsx` עכשיו state-driven:
+  - `useState<DropdownKey | null>(null)` עוקב אחרי איזה dropdown פתוח. כל trigger קיבל `onClick` שמפעיל toggle.
+  - Hover preserved כ-fallback למשתמשי mouse. אבל primary path הוא click.
+  - Click-outside (document mousedown) + Escape key → סוגרים את כל ה-dropdowns.
+  - a11y: `aria-expanded` משקף state אמיתי. `aria-haspopup="menu"`. `role="menu"` על panel. `role="menuitem"` על כל פריט. `focus-visible:ring-2`.
+- **Verification**: prod curl confirms 3 buttons עם `aria-haspopup="menu"`, 3 `role="menu"` containers, 18 `role="menuitem"` (3+3 services + 3 urban + 8 guides + 1 compare). Mobile UX לא נגעה. Build clean.
+- **Active browser test**: לא בוצע ב-CLI (Playwright לא זמין במצב הזה). manual desktop verification מומלץ אחרי deploy.
+
+### היגיון אסטרטגי
+- M1 הוא lock של ה-positioning. אופק נע מ-"קבלן עם רישיון מתווך" ל-"יזם ומנהל פרויקטים בהתחדשות עירונית". לוקחים את ה-clutter של roles ומעבירים את כל הסיגנל לתחום ההתמחות הנכון.
+- M2 — תמונות הן הפער הכי גדול מול lamamad/mymigun, אבל לא ניתן לפתור מ-CLI כשהקבצים לא ב-repo. מתעד נכון.
+- M3 — באג שכנראה ישב מאז יצירת ה-Header. אופק כנראה לא דיווח עליו עד עכשיו כי הוא בודק לרוב ממובייל. תיקון אקטיבי.
+
+### לבדוק ב-prod
+- M1: `curl https://hithadshut.co.il/about/ofek-mazor | grep -c "3246290"` → צריך להחזיר 0. ✅ verified live.
+- M2: ברגע שאופק מעלה 5 JPGs ל-`public/projects/` ועושה flip — `/projects` יציג תמונות אמת בלי שינוי קוד.
+- M3: בדיקה ידנית בדפדפן דסקטופ — לחץ על כל dropdown trigger, ודא שמופיע menu, לחץ על link, ודא שמנווט.
+
+### חסום על אופק
+- B-020 (P1, עדיין פתוח): תמונות פרויקטים — אופק לבצע upload ל-GitHub.com כפי `public/projects/UPLOAD_INSTRUCTIONS.md`, או לשלוח link/file דרך מערכת קבצים.
+- אין חסם חדש מהפעם הזאת.
+
+### Top-3 לפעם הבאה
+1. כשתמונות יגיעו — בצע flip של ה-5 ערכים ב-`src/content/projects.ts` + push.
+2. /pinui-binui/kshishim — הפילר הבא (Brief E ממתין).
+3. אם אופק מבקש: rename של master → main (B-011).
+
+---
+
 ## סשן 5 [2026-05-01] — 3 חסמי ביצוע נסגרים: Favicon, Projects, Brand Identity
 
 ### חדשות הסשן
