@@ -23,6 +23,7 @@ const guideLinks = guides.map((g) => ({ href: `/guides/${g.slug}`, label: g.shor
 const urbanRenewalLinks = [
   { href: "/pinui-binui", label: "פינוי בינוי" },
   { href: "/pinui-binui/temurot", label: "תמורות בפינוי בינוי" },
+  { href: "/pinui-binui/chok-67", label: "חוק 67%" },
 ];
 
 export default function Header() {

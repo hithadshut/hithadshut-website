@@ -13,7 +13,8 @@
 export const PINUI_BINUI_HREFS = {
   pillar: "/pinui-binui",
   temurot: "/pinui-binui/temurot",
-  // Future: chok67, kshishim, yorshim, eravut, sarvan, yazam,
+  chok67: "/pinui-binui/chok-67",
+  // Future: kshishim, yorshim, eravut, sarvan, yazam,
   // ownerAttorney, zechuyot, madrich, misui — add here as each ships.
 } as const;
 
@@ -41,6 +42,7 @@ export type LinkTarget =
   | "areas"
   | "pinui-binui"
   | "pinui-binui-temurot"
+  | "pinui-binui-chok-67"
   | "ofek-mazor";
 
 export const ANCHOR_VARIANTS: Record<LinkTarget, string[]> = {
@@ -181,6 +183,15 @@ export const ANCHOR_VARIANTS: Record<LinkTarget, string[]> = {
     "תמורות וחישובים בפינוי בינוי",
     "מדריך התמורות",
   ],
+  "pinui-binui-chok-67": [
+    "מדריך מפורט על חוק 67%",
+    "חוק 67% בפינוי בינוי",
+    "תיקון 80% ל-67% בפינוי בינוי",
+    "רוב נדרש בפינוי בינוי",
+    "דייר סרבן בפינוי בינוי",
+    "מה השתנה בחוק פינוי בינוי",
+    "ההבדל בין רף לתביעה לרף לביצוע",
+  ],
   "ofek-mazor": [
     "אופק מזור, מנכ״ל ומייסד",
     "אופק מזור: מנכ״ל ומייסד התחדשות",
@@ -230,6 +241,7 @@ export const HREF_MAP: Record<LinkTarget, string> = {
   "areas": "/areas",
   "pinui-binui": PINUI_BINUI_HREFS.pillar,
   "pinui-binui-temurot": PINUI_BINUI_HREFS.temurot,
+  "pinui-binui-chok-67": PINUI_BINUI_HREFS.chok67,
   "ofek-mazor": ABOUT_HREFS.ofekMazor,
 };
 
@@ -265,6 +277,8 @@ export const TARGET_SUMMARY: Record<LinkTarget, string> = {
     "מסלול, חוק 67%, תמורות, זכויות דיירים ולוח זמנים אמיתי לבעלי דירות.",
   "pinui-binui-temurot":
     "כמה מטר, חניה, מחסן, פיצוי כספי ושכר דירה לתקופת הביניים.",
+  "pinui-binui-chok-67":
+    "מה השתנה מ-80% ל-67%, ההבדל בין רף לתביעה לרף לביצוע, וההגנות שנותרו לדייר.",
   "ofek-mazor":
     "פרופיל מקצועי של אופק מזור, מנכ״ל ומייסד התחדשות בינוי ויזמות.",
 };
@@ -285,5 +299,6 @@ export const TARGET_LABEL: Record<LinkTarget, string> = {
   "areas": "אזורי שירות",
   "pinui-binui": "פינוי בינוי",
   "pinui-binui-temurot": "תמורות בפינוי בינוי",
+  "pinui-binui-chok-67": "חוק 67% בפינוי בינוי",
   "ofek-mazor": "אופק מזור, מנכ״ל ומייסד",
 };

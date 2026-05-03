@@ -80,6 +80,21 @@ export const internalLinks: InternalLink[] = [
     context: "inline",
     note: "Tax section CTA inline link.",
   },
+  // 2026-05-03: /pinui-binui/chok-67/ sub-page launch.
+  {
+    fromUrl: "/pinui-binui/chok-67",
+    toUrl: "/pinui-binui",
+    anchorText: "פינוי בינוי",
+    context: "inline",
+    note: "Mandatory back-link from sub-page to pillar (technical.md §6).",
+  },
+  {
+    fromUrl: "/pinui-binui/chok-67",
+    toUrl: "/pinui-binui/temurot",
+    anchorText: "תמורות בפינוי בינוי",
+    context: "inline",
+    note: "Forward link from haganot section to live sibling sub-page.",
+  },
 ];
 
 /** All internal links pointing FROM a given URL. */
