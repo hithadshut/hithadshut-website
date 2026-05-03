@@ -12,6 +12,13 @@ type SchemaArticleProps = {
   datePublished: string;
   /** ISO 8601 last-modified date. */
   dateModified: string;
+  /**
+   * ISO 8601 last-reviewed date — emerging 2026 signal weighted by
+   * ChatGPT and Perplexity for content recency. Defaults to dateModified
+   * if omitted; bumped independently during quarterly content refresh
+   * passes when the body itself didn't change.
+   */
+  lastReviewedDate?: string;
   /** Optional hero image URL (path or absolute). */
   imageUrl?: string;
 };
@@ -32,8 +39,10 @@ export default function SchemaArticle({
   canonical,
   datePublished,
   dateModified,
+  lastReviewedDate,
   imageUrl,
 }: SchemaArticleProps) {
+  const reviewed = lastReviewedDate ?? dateModified;
   const data = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -41,6 +50,7 @@ export default function SchemaArticle({
     description,
     datePublished,
     dateModified,
+    lastReviewedDate: reviewed,
     ...(imageUrl ? { image: absoluteUrl(imageUrl) } : {}),
     author: {
       "@type": "Person",

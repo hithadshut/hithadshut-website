@@ -79,6 +79,17 @@ export const llmsManifest: LlmsManifest = {
       ],
     },
     {
+      title: "התחדשות עירונית",
+      items: [
+        {
+          url: "/pinui-binui",
+          label: "פינוי בינוי 2026 — המדריך המלא",
+          description:
+            "המסלול, חוק 67%, תמורות, זכויות דיירים בני 70+, ולוח הזמנים האמיתי.",
+        },
+      ],
+    },
+    {
       title: "מדריכי סמכות",
       items: [
         {
