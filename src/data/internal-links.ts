@@ -130,6 +130,35 @@ export const internalLinks: InternalLink[] = [
     context: "inline",
     note: "PLANNED — currently plain text. Activates when /pinui-binui/eravut ships in Phase 3.",
   },
+  // 2026-05-03: /pinui-binui/yorshim/ sub-page launch (Gal 1, Phase 1.1).
+  {
+    fromUrl: "/pinui-binui/yorshim",
+    toUrl: "/pinui-binui",
+    anchorText: "פינוי בינוי",
+    context: "inline",
+    note: "Mandatory back-link from sub-page to pillar (technical.md §6).",
+  },
+  {
+    fromUrl: "/pinui-binui/yorshim",
+    toUrl: "/pinui-binui/temurot",
+    anchorText: "תמורות בפינוי בינוי",
+    context: "inline",
+    note: "Inline link in sa'ifei haskem section to live sibling sub-page.",
+  },
+  {
+    fromUrl: "/pinui-binui/yorshim",
+    toUrl: "/pinui-binui/chok-67",
+    anchorText: "חוק 67%",
+    context: "inline",
+    note: "Inline link in moresh-lo-chatam section to live sibling sub-page.",
+  },
+  {
+    fromUrl: "/pinui-binui/yorshim",
+    toUrl: "/pinui-binui/kshishim",
+    anchorText: "זכויות קשישים בפינוי בינוי",
+    context: "inline",
+    note: "Inline link in zechuyot-gil section to live sibling sub-page.",
+  },
 ];
 
 /** All internal links pointing FROM a given URL. */
