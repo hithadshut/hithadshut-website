@@ -15,7 +15,7 @@ type BylineProps = {
 const AUTHORS = {
   "ofek-mazor": {
     name: "אופק מזור",
-    role: "מנכ״ל ומייסד · מתווך מקרקעין מורשה",
+    role: "מנכ״ל ומייסד · יזם ומנהל פרויקטים בהתחדשות עירונית ומיגון",
     href: "/about/ofek-mazor",
   },
 } as const;

@@ -192,8 +192,9 @@ export function articleJsonLd(params: {
 
 /**
  * Person schema for Ofek Mazor — founder & CEO of Hithadshut.
- * Includes the verified Israeli real-estate broker license (#3246290).
- * `sameAs` left empty until Ofek supplies authoritative social URLs (B-030).
+ * Positions him as a developer / project manager in urban renewal +
+ * protected-room construction. `sameAs` left empty until Ofek supplies
+ * authoritative social URLs (B-030).
  */
 export function ofekPersonJsonLd() {
   return {
@@ -203,7 +204,7 @@ export function ofekPersonJsonLd() {
     name: "אופק מזור",
     givenName: "אופק",
     familyName: "מזור",
-    jobTitle: "מנכ״ל ומייסד",
+    jobTitle: "מנכ״ל ומייסד, יזם ומנהל פרויקטים בהתחדשות עירונית ומיגון",
     worksFor: { "@id": `${site.url}/#organization` },
     url: `${site.url}/about/ofek-mazor`,
     image: `${site.url}/ofek-mazor.jpg`,
@@ -213,22 +214,10 @@ export function ofekPersonJsonLd() {
     knowsAbout: [
       "בניית ממ״ד",
       "מיגון חדר קיים",
-      "מיגונית",
       "תקן פיקוד העורף",
       "ניהול פרויקטי בנייה",
-      "נדל״ן ושוק מקרקעין בישראל",
-    ],
-    hasCredential: [
-      {
-        "@type": "EducationalOccupationalCredential",
-        credentialCategory: "license",
-        name: "רישיון מתווך מקרקעין מורשה (ישראל)",
-        identifier: "3246290",
-        recognizedBy: {
-          "@type": "GovernmentOrganization",
-          name: "משרד המשפטים, רשם המתווכים",
-        },
-      },
+      "התחדשות עירונית",
+      "פינוי בינוי",
     ],
     sameAs: [],
   };

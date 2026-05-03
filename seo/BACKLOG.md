@@ -17,7 +17,7 @@
 - [P1] [BLOCKED-on-Ofek] Document GA4 + GSC + Bing Webmaster integration steps in BLOCKERS
 
 ## Week 2 — E-E-A-T Layer 1
-- [P1] [TODO] Create `/about/ofek-mazor` page with bio + license #3246290 + Person schema
+- [P1] [DONE 2026-04-30] Create `/about/ofek-mazor` page with bio + Person schema (broker license framing removed 2026-05-03 per strategic positioning shift)
 - [P1] [TODO] Add byline+dateModified to every `/guides/*` page (collective Byline already exists; switch to attributed when bio live)
 - [P1] [TODO] Article schema on every guide (author/datePublished/dateModified/image)
 - [P1] [TODO] Trust Strip below hero on home: 4 trust pillars (PCR / Engineer / Registered Contractor / Licensed Realtor)
