@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Logo from "./Logo";
 import CTAButton from "./CTAButton";
 import { protectionServices, constructionServices, guides, compare, site } from "@/lib/site";
@@ -17,7 +17,7 @@ const constructionLinks = constructionServices.map((s) => ({
 const guideLinks = guides.map((g) => ({ href: `/guides/${g.slug}`, label: g.short }));
 
 // Urban-renewal pillar nav. Add new sub-pages here as they ship
-// (chok-67, kshishim, yorshim, etc.). Same convention as the
+// (kshishim, yorshim, etc.). Same convention as the
 // PINUI_BINUI_HREFS namespace in src/lib/anchors.ts — the nav is the
 // other surface that needs explicit registration per page.
 const urbanRenewalLinks = [
@@ -26,9 +26,14 @@ const urbanRenewalLinks = [
   { href: "/pinui-binui/chok-67", label: "חוק 67%" },
 ];
 
+type DropdownKey = "services" | "urban" | "guides";
+
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  // Which desktop dropdown (if any) is currently open. null = all closed.
+  const [openDropdown, setOpenDropdown] = useState<DropdownKey | null>(null);
+  const navRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -36,6 +41,42 @@ export default function Header() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Close any open dropdown on outside click + on Escape.
+  useEffect(() => {
+    if (openDropdown === null) return;
+    const onDocClick = (e: MouseEvent) => {
+      if (!navRef.current) return;
+      if (!navRef.current.contains(e.target as Node)) setOpenDropdown(null);
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpenDropdown(null);
+    };
+    document.addEventListener("mousedown", onDocClick);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onDocClick);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [openDropdown]);
+
+  function toggleDropdown(key: DropdownKey) {
+    setOpenDropdown((cur) => (cur === key ? null : key));
+  }
+
+  // Shared classes for the desktop dropdown panel. Visibility is now
+  // state-driven (click) AND hover-driven (mouse). Both work; keyboard
+  // and touch users get reliable click; mouse users keep the snappy
+  // hover UX.
+  const panelClass = (isOpen: boolean) =>
+    `absolute end-0 mt-3 w-72 bg-white rounded-xl shadow-[var(--shadow-deep)] border border-[var(--color-border)] transition p-2 ${
+      isOpen
+        ? "opacity-100 visible"
+        : "opacity-0 invisible group-hover:opacity-100 group-hover:visible"
+    }`;
+
+  const triggerClass =
+    "inline-flex items-center text-[15px] font-semibold text-[var(--color-ink)] hover:text-[var(--color-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 rounded transition";
 
   return (
     <header
@@ -51,54 +92,108 @@ export default function Header() {
             <Logo size="md" />
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-8" aria-label="ניווט ראשי">
+          <nav
+            ref={navRef}
+            className="hidden lg:flex items-center gap-8"
+            aria-label="ניווט ראשי"
+          >
+            {/* שירותים */}
             <div className="relative group">
-              <button type="button" aria-haspopup="true" aria-expanded="false" className="text-[15px] font-semibold text-[var(--color-ink)] hover:text-[var(--color-primary)] transition">
+              <button
+                type="button"
+                aria-haspopup="menu"
+                aria-expanded={openDropdown === "services"}
+                onClick={() => toggleDropdown("services")}
+                className={triggerClass}
+              >
                 שירותים
                 <span aria-hidden className="ms-1 text-xs">▾</span>
               </button>
-              <div className="absolute end-0 mt-3 w-72 bg-white rounded-xl shadow-[var(--shadow-deep)] border border-[var(--color-border)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition p-2">
+              <div role="menu" className={panelClass(openDropdown === "services")}>
                 <div className="px-3 py-2 text-[11px] font-extrabold uppercase tracking-[0.2em] text-[var(--color-accent-dark)]">מיגון וממ״ד</div>
                 {protectionLinks.map((c) => (
-                  <Link key={c.href} href={c.href} className="block px-3 py-2 rounded-lg text-sm font-semibold text-[var(--color-ink)] hover:bg-[var(--color-soft)] hover:text-[var(--color-primary)]">
+                  <Link
+                    key={c.href}
+                    href={c.href}
+                    role="menuitem"
+                    onClick={() => setOpenDropdown(null)}
+                    className="block px-3 py-2 rounded-lg text-sm font-semibold text-[var(--color-ink)] hover:bg-[var(--color-soft)] hover:text-[var(--color-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
+                  >
                     {c.label}
                   </Link>
                 ))}
                 <div className="px-3 pt-3 pb-2 text-[11px] font-extrabold uppercase tracking-[0.2em] text-[var(--color-accent-dark)] border-t border-[var(--color-border)] mt-2">בנייה ושיפוצים</div>
                 {constructionLinks.map((c) => (
-                  <Link key={c.href} href={c.href} className="block px-3 py-2 rounded-lg text-sm font-semibold text-[var(--color-ink)] hover:bg-[var(--color-soft)] hover:text-[var(--color-primary)]">
+                  <Link
+                    key={c.href}
+                    href={c.href}
+                    role="menuitem"
+                    onClick={() => setOpenDropdown(null)}
+                    className="block px-3 py-2 rounded-lg text-sm font-semibold text-[var(--color-ink)] hover:bg-[var(--color-soft)] hover:text-[var(--color-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
+                  >
                     {c.label}
                   </Link>
                 ))}
               </div>
             </div>
 
+            {/* התחדשות עירונית */}
             <div className="relative group">
-              <button type="button" aria-haspopup="true" aria-expanded="false" className="text-[15px] font-semibold text-[var(--color-ink)] hover:text-[var(--color-primary)] transition">
+              <button
+                type="button"
+                aria-haspopup="menu"
+                aria-expanded={openDropdown === "urban"}
+                onClick={() => toggleDropdown("urban")}
+                className={triggerClass}
+              >
                 התחדשות עירונית
                 <span aria-hidden className="ms-1 text-xs">▾</span>
               </button>
-              <div className="absolute end-0 mt-3 w-72 bg-white rounded-xl shadow-[var(--shadow-deep)] border border-[var(--color-border)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition p-2">
+              <div role="menu" className={panelClass(openDropdown === "urban")}>
                 {urbanRenewalLinks.map((c) => (
-                  <Link key={c.href} href={c.href} className="block px-3 py-2 rounded-lg text-sm font-semibold text-[var(--color-ink)] hover:bg-[var(--color-soft)] hover:text-[var(--color-primary)]">
+                  <Link
+                    key={c.href}
+                    href={c.href}
+                    role="menuitem"
+                    onClick={() => setOpenDropdown(null)}
+                    className="block px-3 py-2 rounded-lg text-sm font-semibold text-[var(--color-ink)] hover:bg-[var(--color-soft)] hover:text-[var(--color-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
+                  >
                     {c.label}
                   </Link>
                 ))}
               </div>
             </div>
 
+            {/* מדריכים */}
             <div className="relative group">
-              <button type="button" aria-haspopup="true" aria-expanded="false" className="text-[15px] font-semibold text-[var(--color-ink)] hover:text-[var(--color-primary)] transition">
+              <button
+                type="button"
+                aria-haspopup="menu"
+                aria-expanded={openDropdown === "guides"}
+                onClick={() => toggleDropdown("guides")}
+                className={triggerClass}
+              >
                 מדריכים
                 <span aria-hidden className="ms-1 text-xs">▾</span>
               </button>
-              <div className="absolute end-0 mt-3 w-72 bg-white rounded-xl shadow-[var(--shadow-deep)] border border-[var(--color-border)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition p-2">
+              <div role="menu" className={panelClass(openDropdown === "guides")}>
                 {guideLinks.map((c) => (
-                  <Link key={c.href} href={c.href} className="block px-3 py-2 rounded-lg text-sm font-semibold text-[var(--color-ink)] hover:bg-[var(--color-soft)] hover:text-[var(--color-primary)]">
+                  <Link
+                    key={c.href}
+                    href={c.href}
+                    role="menuitem"
+                    onClick={() => setOpenDropdown(null)}
+                    className="block px-3 py-2 rounded-lg text-sm font-semibold text-[var(--color-ink)] hover:bg-[var(--color-soft)] hover:text-[var(--color-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
+                  >
                     {c.label}
                   </Link>
                 ))}
-                <Link href={`/compare/${compare.slug}`} className="block px-3 py-2 rounded-lg text-sm font-semibold text-[var(--color-accent-dark)] hover:bg-[var(--color-soft)] border-t border-[var(--color-border)] mt-1">
+                <Link
+                  href={`/compare/${compare.slug}`}
+                  role="menuitem"
+                  onClick={() => setOpenDropdown(null)}
+                  className="block px-3 py-2 rounded-lg text-sm font-semibold text-[var(--color-accent-dark)] hover:bg-[var(--color-soft)] border-t border-[var(--color-border)] mt-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
+                >
                   השוואה: ממ״ד / מיגון / מיגונית
                 </Link>
               </div>
