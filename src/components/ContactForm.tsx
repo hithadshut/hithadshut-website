@@ -5,7 +5,21 @@ import { services } from "@/lib/site";
 
 type Status = "idle" | "loading" | "success" | "error";
 
-export default function ContactForm({ defaultService }: { defaultService?: string }) {
+const URBAN_RENEWAL_OPTION_VALUE = "פינוי בינוי / התחדשות עירונית";
+
+export default function ContactForm({
+  defaultService,
+  prioritizeUrbanRenewal = false,
+}: {
+  defaultService?: string;
+  /**
+   * When true, render the "פינוי בינוי / התחדשות עירונית" service option
+   * before the standard services list. Default false (memad pages).
+   * Pages under /pinui-binui pass true so urban-renewal leads see the
+   * matching option immediately.
+   */
+  prioritizeUrbanRenewal?: boolean;
+}) {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState<string>("");
 
@@ -132,9 +146,15 @@ export default function ContactForm({ defaultService }: { defaultService?: strin
           className={`${inputCls} bg-white`}
         >
           <option value="">בחרו סוג שירות</option>
+          {prioritizeUrbanRenewal && (
+            <option value={URBAN_RENEWAL_OPTION_VALUE}>{URBAN_RENEWAL_OPTION_VALUE}</option>
+          )}
           {services.map((s) => (
             <option key={s.slug} value={s.title}>{s.title}</option>
           ))}
+          {!prioritizeUrbanRenewal && (
+            <option value={URBAN_RENEWAL_OPTION_VALUE}>{URBAN_RENEWAL_OPTION_VALUE}</option>
+          )}
           <option value="אחר">אחר / לא בטוח</option>
         </select>
       </div>

@@ -7,6 +7,11 @@ type Props = {
   subtitle?: string;
   defaultService?: string;
   tone?: "light" | "dark";
+  /**
+   * Forwarded to ContactForm. When true, the urban-renewal service
+   * option appears first in the dropdown (used on /pinui-binui pages).
+   */
+  prioritizeUrbanRenewal?: boolean;
 };
 
 export default function InlineLeadForm({
@@ -14,6 +19,7 @@ export default function InlineLeadForm({
   subtitle = "השאירו פרטים ונחזור אליכם תוך שעות עם הצעה מותאמת.",
   defaultService,
   tone = "light",
+  prioritizeUrbanRenewal = false,
 }: Props) {
   const dark = tone === "dark";
   return (
@@ -69,7 +75,10 @@ export default function InlineLeadForm({
             <p className="text-sm text-[var(--color-muted)] mb-5">
               נחזור אליכם תוך שעות ספורות. אין התחייבות.
             </p>
-            <ContactForm defaultService={defaultService} />
+            <ContactForm
+              defaultService={defaultService}
+              prioritizeUrbanRenewal={prioritizeUrbanRenewal}
+            />
           </div>
         </Reveal>
       </div>

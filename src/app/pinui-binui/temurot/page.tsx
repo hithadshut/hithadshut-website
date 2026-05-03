@@ -402,7 +402,8 @@ export default function Page() {
           <InlineLeadForm
             title="פינוי בינוי: בדקו אם ההצעה שלכם הוגנת"
             subtitle="השאירו שם וטלפון. נחזור אליכם תוך שעות עם ניתוח מקצועי של ההצעה."
-            defaultService="פינוי בינוי - בדיקת תמורות"
+            defaultService="פינוי בינוי / התחדשות עירונית"
+            prioritizeUrbanRenewal
           />
         </Reveal>
       </Section>
