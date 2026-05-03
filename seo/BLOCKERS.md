@@ -37,14 +37,22 @@
 
 ## P2 — חוסם שבוע 7-8
 
-### B-020 · תמונות פרויקטים אמיתיים — חלקית פתור (S5)
-- **סטטוס 2026-05-01**: 5 illustrations וקטוריים מותגיים חיים בייצור. /projects, ProjectsTeaser, /projects/[slug], ו-ServiceProjectShowcase ב-5 עמודי שירות מציגים תמונות אמיתיות (לא placeholder). התשתית השלמה פעילה.
-- **למה זו לא תמונה אמיתית מהשטח עדיין**: אופק שלח JPGs בצ׳אט אבל לא ניתן לשמור attachment-ים מהצ׳אט לדיסק. ההקפצה ל-illustrations היא בסיס מקצועי שאינו דורש camera-evidence.
-- **מה נשאר לאופק (5 דקות, אפס קוד)**: ראה `public/projects/UPLOAD_INSTRUCTIONS.md`.
-  1. שמור 5 JPGs במחשב עם השמות המדויקים.
-  2. גרור ל-GitHub.com → public/projects/ → Commit changes.
-  3. ב-`src/content/projects.ts` — `image: ".svg"` → `".jpg"` + `imageType: "illustration"` → `"photograph"`.
+### B-020 · תמונות פרויקטים אמיתיים — עדיין חוסם (P1, audit 2026-05-03)
+- **סטטוס 2026-05-03 (Patch session M2)**: בוצע audit מלא של ה-repo ושל branches משניים. **לא נמצאו תמונות פרויקט חדשות** מאז 2026-05-01. ה-5 illustrations וקטוריים עדיין הקבצים היחידים תחת `public/projects/`. אופק טען בעבר שהעלה — ה-audit מאשר שזה לא קרה ב-GitHub.
+- **בדיקה שנעשתה**:
+  - `find public/ -type f -iname "*.jpg|*.jpeg|*.png|*.webp|*.heic"` → רק `public/ofek-mazor.jpg` (founder portrait, Apr 15) + 5 SVG illustrations (May 1). אין JPG/PNG חדש.
+  - `git log --all --diff-filter=A --since="21 days ago" -- '*.jpg' '*.png' '*.webp' '*.heic'` → אפס תוספות בענפים פעילים.
+  - branch `claude/pensive-tesla-4762ba` (worktree) → תוכן זהה, ללא תמונות נוספות.
+- **אפשרויות פתוחות לגבי איפה התמונות**:
+  1. **לא נדחף ל-GitHub** — ייתכן ששמרו לוקאלית בלבד ולא הורצה `git add/commit/push`.
+  2. **הועלה ל-branch שלא נמשך** — לא נמצא ב-branches ש-`origin/master` רואה.
+  3. **הועלה למקום אחר** — Drive, Slack attachment, צ׳אט, וכו׳. לא ניתן לסקריפט מצ׳אט.
+- **Action פתוח על אופק** (5 דקות, אפס קוד):
+  1. אם התמונות אצלך לוקאלי — בצע את `public/projects/UPLOAD_INSTRUCTIONS.md` (5 צעדים, GitHub.com → upload → flip של `image:` + `imageType:`).
+  2. אם התמונות במקום אחר (Drive/Slack/צ׳אט) — שלח לינק או שייר את הקובץ דרך מערכת קבצים שלא צ׳אט.
+- **למה זה חוסם P1**: הפער הכי גדול מול `lamamad.com` ו-`mymigun.co.il`. בלי תמונות לפני/אחרי אמיתיות מהשטח, ה-trust signal נחלש משמעותית, גם עם `/about/ofek-mazor` ו-FounderSection.
 - **תוצאה אוטומטית אחרי flip**: כל מקום שרואה כעת illustration יציג תמונת אמת. אין שינוי קוד נוסף נדרש.
+- **No placeholder images created in this audit** — לפי הספק, עדיף שעמוד `/projects` יחכה ליום שיש תמונות אמיתיות מאשר להציג stock או generated content.
 
 ### B-021 · ביקורות אמיתיות (כתובות + הסכמה)
 - **מה צריך**: 5-10 ביקורות אמיתיות מלקוחות + אישור פרסום בכתב.
