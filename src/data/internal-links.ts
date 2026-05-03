@@ -159,6 +159,21 @@ export const internalLinks: InternalLink[] = [
     context: "inline",
     note: "Inline link in zechuyot-gil section to live sibling sub-page.",
   },
+  // 2026-05-03: /pinui-binui/eravut/ sub-page launch (Gal 1, Phase 1.2).
+  {
+    fromUrl: "/pinui-binui/eravut",
+    toUrl: "/pinui-binui",
+    anchorText: "פינוי בינוי",
+    context: "inline",
+    note: "Mandatory back-link from sub-page to pillar (technical.md §6).",
+  },
+  {
+    fromUrl: "/pinui-binui/eravut",
+    toUrl: "/pinui-binui/temurot",
+    anchorText: "תמורות בפינוי בינוי",
+    context: "inline",
+    note: "Inline link in chok-mehor section to live sibling sub-page.",
+  },
 ];
 
 /** All internal links pointing FROM a given URL. */

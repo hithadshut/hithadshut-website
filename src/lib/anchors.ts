@@ -16,7 +16,8 @@ export const PINUI_BINUI_HREFS = {
   chok67: "/pinui-binui/chok-67",
   kshishim: "/pinui-binui/kshishim",
   yorshim: "/pinui-binui/yorshim",
-  // Future: eravut, sarvan, yazam, ownerAttorney,
+  eravut: "/pinui-binui/eravut",
+  // Future: sarvan, yazam, ownerAttorney,
   // zechuyot, madrich, misui — add here as each ships.
 } as const;
 
@@ -47,6 +48,7 @@ export type LinkTarget =
   | "pinui-binui-chok-67"
   | "pinui-binui-kshishim"
   | "pinui-binui-yorshim"
+  | "pinui-binui-eravut"
   | "ofek-mazor";
 
 export const ANCHOR_VARIANTS: Record<LinkTarget, string[]> = {
@@ -214,6 +216,15 @@ export const ANCHOR_VARIANTS: Record<LinkTarget, string[]> = {
     "סעיף יורשים בהסכם פינוי בינוי",
     "מה לעשות עם דירה שירשתי בפינוי בינוי",
   ],
+  "pinui-binui-eravut": [
+    "ערבויות בפינוי בינוי",
+    "מדריך ערבויות בפינוי בינוי",
+    "ערבות חוק מכר",
+    "ערבויות בנקאיות בפרויקט פינוי בינוי",
+    "סוגי ערבויות שצריך לדרוש",
+    "מה לבדוק בערבויות פינוי בינוי",
+    "ערבויות לדיירים בפרויקט התחדשות",
+  ],
   "ofek-mazor": [
     "אופק מזור, מנכ״ל ומייסד",
     "אופק מזור: מנכ״ל ומייסד התחדשות",
@@ -266,6 +277,7 @@ export const HREF_MAP: Record<LinkTarget, string> = {
   "pinui-binui-chok-67": PINUI_BINUI_HREFS.chok67,
   "pinui-binui-kshishim": PINUI_BINUI_HREFS.kshishim,
   "pinui-binui-yorshim": PINUI_BINUI_HREFS.yorshim,
+  "pinui-binui-eravut": PINUI_BINUI_HREFS.eravut,
   "ofek-mazor": ABOUT_HREFS.ofekMazor,
 };
 
@@ -307,6 +319,8 @@ export const TARGET_SUMMARY: Record<LinkTarget, string> = {
     "זכויות גיל 70+/75+, חלופות חובה בהסכם, וטעויות נפוצות שעולות יקר למשפחות.",
   "pinui-binui-yorshim":
     "מלכוד היורשים, נייר העמדה של רשות המסים, וסעיפי הסכם שמגנים על זכויות יורשים.",
+  "pinui-binui-eravut":
+    "ערבות חוק מכר, ערבויות בנקאיות לשלבי בנייה, שכר דירה ומסירה, ומה אסור לקבל.",
   "ofek-mazor":
     "פרופיל מקצועי של אופק מזור, מנכ״ל ומייסד התחדשות בינוי ויזמות.",
 };
@@ -330,5 +344,6 @@ export const TARGET_LABEL: Record<LinkTarget, string> = {
   "pinui-binui-chok-67": "חוק 67% בפינוי בינוי",
   "pinui-binui-kshishim": "זכויות קשישים בפינוי בינוי",
   "pinui-binui-yorshim": "ירושה דירה בפינוי בינוי",
+  "pinui-binui-eravut": "ערבויות בפינוי בינוי",
   "ofek-mazor": "אופק מזור, מנכ״ל ומייסד",
 };
