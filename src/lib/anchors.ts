@@ -14,8 +14,9 @@ export const PINUI_BINUI_HREFS = {
   pillar: "/pinui-binui",
   temurot: "/pinui-binui/temurot",
   chok67: "/pinui-binui/chok-67",
-  // Future: kshishim, yorshim, eravut, sarvan, yazam,
-  // ownerAttorney, zechuyot, madrich, misui — add here as each ships.
+  kshishim: "/pinui-binui/kshishim",
+  // Future: yorshim, eravut, sarvan, yazam, ownerAttorney,
+  // zechuyot, madrich, misui — add here as each ships.
 } as const;
 
 export const ABOUT_HREFS = {
@@ -43,6 +44,7 @@ export type LinkTarget =
   | "pinui-binui"
   | "pinui-binui-temurot"
   | "pinui-binui-chok-67"
+  | "pinui-binui-kshishim"
   | "ofek-mazor";
 
 export const ANCHOR_VARIANTS: Record<LinkTarget, string[]> = {
@@ -192,6 +194,15 @@ export const ANCHOR_VARIANTS: Record<LinkTarget, string[]> = {
     "מה השתנה בחוק פינוי בינוי",
     "ההבדל בין רף לתביעה לרף לביצוע",
   ],
+  "pinui-binui-kshishim": [
+    "מדריך מפורט על זכויות קשישים",
+    "זכויות קשישים בפינוי בינוי",
+    "פינוי בינוי לקשישים",
+    "זכויות גיל 70+ בפינוי בינוי",
+    "זכויות גיל 75+ בפינוי בינוי",
+    "חלופות לקשיש בהסכם פינוי בינוי",
+    "הגנות קשישים בהסכם",
+  ],
   "ofek-mazor": [
     "אופק מזור, מנכ״ל ומייסד",
     "אופק מזור: מנכ״ל ומייסד התחדשות",
@@ -242,6 +253,7 @@ export const HREF_MAP: Record<LinkTarget, string> = {
   "pinui-binui": PINUI_BINUI_HREFS.pillar,
   "pinui-binui-temurot": PINUI_BINUI_HREFS.temurot,
   "pinui-binui-chok-67": PINUI_BINUI_HREFS.chok67,
+  "pinui-binui-kshishim": PINUI_BINUI_HREFS.kshishim,
   "ofek-mazor": ABOUT_HREFS.ofekMazor,
 };
 
@@ -279,6 +291,8 @@ export const TARGET_SUMMARY: Record<LinkTarget, string> = {
     "כמה מטר, חניה, מחסן, פיצוי כספי ושכר דירה לתקופת הביניים.",
   "pinui-binui-chok-67":
     "מה השתנה מ-80% ל-67%, ההבדל בין רף לתביעה לרף לביצוע, וההגנות שנותרו לדייר.",
+  "pinui-binui-kshishim":
+    "זכויות גיל 70+/75+, חלופות חובה בהסכם, וטעויות נפוצות שעולות יקר למשפחות.",
   "ofek-mazor":
     "פרופיל מקצועי של אופק מזור, מנכ״ל ומייסד התחדשות בינוי ויזמות.",
 };
@@ -300,5 +314,6 @@ export const TARGET_LABEL: Record<LinkTarget, string> = {
   "pinui-binui": "פינוי בינוי",
   "pinui-binui-temurot": "תמורות בפינוי בינוי",
   "pinui-binui-chok-67": "חוק 67% בפינוי בינוי",
+  "pinui-binui-kshishim": "זכויות קשישים בפינוי בינוי",
   "ofek-mazor": "אופק מזור, מנכ״ל ומייסד",
 };
