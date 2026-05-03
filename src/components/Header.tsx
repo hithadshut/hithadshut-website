@@ -43,6 +43,12 @@ export default function Header() {
   }, []);
 
   // Close any open dropdown on outside click + on Escape.
+  // Outside-click uses `click` (not `mousedown`) so a sub-item click
+  // inside the panel completes its own navigation BEFORE this handler
+  // fires. With mousedown, a cursor that briefly exits the panel
+  // bounding box during click resolution could cancel the sub-item
+  // navigation — that was the actual bug behind "nav opens but
+  // sub-items don't click".
   useEffect(() => {
     if (openDropdown === null) return;
     const onDocClick = (e: MouseEvent) => {
@@ -52,10 +58,10 @@ export default function Header() {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setOpenDropdown(null);
     };
-    document.addEventListener("mousedown", onDocClick);
+    document.addEventListener("click", onDocClick);
     document.addEventListener("keydown", onKey);
     return () => {
-      document.removeEventListener("mousedown", onDocClick);
+      document.removeEventListener("click", onDocClick);
       document.removeEventListener("keydown", onKey);
     };
   }, [openDropdown]);
@@ -64,16 +70,23 @@ export default function Header() {
     setOpenDropdown((cur) => (cur === key ? null : key));
   }
 
-  // Shared classes for the desktop dropdown panel. Visibility is now
-  // state-driven (click) AND hover-driven (mouse). Both work; keyboard
-  // and touch users get reliable click; mouse users keep the snappy
-  // hover UX.
+  // Shared classes for the desktop dropdown panel. The panel is
+  // structured as: outer absolute container with `pt-3` (padding-top)
+  // bridging the visual gap between the trigger button and the visible
+  // card. The inner div is the actual rounded card. The padding area
+  // is interactive (catches hover + clicks) so the cursor never crosses
+  // a "dead zone" between trigger and panel — that dead zone was the
+  // root cause of sub-items appearing unclickable in the prior fix.
+  // State-driven (click) on top of hover-driven (mouse) — both modes
+  // route to the same visible class.
   const panelClass = (isOpen: boolean) =>
-    `absolute end-0 mt-3 w-72 bg-white rounded-xl shadow-[var(--shadow-deep)] border border-[var(--color-border)] transition p-2 ${
+    `absolute end-0 top-full pt-3 w-72 transition z-50 ${
       isOpen
         ? "opacity-100 visible"
         : "opacity-0 invisible group-hover:opacity-100 group-hover:visible"
     }`;
+  const panelInnerClass =
+    "bg-white rounded-xl shadow-[var(--shadow-deep)] border border-[var(--color-border)] p-2";
 
   const triggerClass =
     "inline-flex items-center text-[15px] font-semibold text-[var(--color-ink)] hover:text-[var(--color-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 rounded transition";
@@ -109,31 +122,33 @@ export default function Header() {
                 שירותים
                 <span aria-hidden className="ms-1 text-xs">▾</span>
               </button>
-              <div role="menu" className={panelClass(openDropdown === "services")}>
-                <div className="px-3 py-2 text-[11px] font-extrabold uppercase tracking-[0.2em] text-[var(--color-accent-dark)]">מיגון וממ״ד</div>
-                {protectionLinks.map((c) => (
-                  <Link
-                    key={c.href}
-                    href={c.href}
-                    role="menuitem"
-                    onClick={() => setOpenDropdown(null)}
-                    className="block px-3 py-2 rounded-lg text-sm font-semibold text-[var(--color-ink)] hover:bg-[var(--color-soft)] hover:text-[var(--color-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
-                  >
-                    {c.label}
-                  </Link>
-                ))}
-                <div className="px-3 pt-3 pb-2 text-[11px] font-extrabold uppercase tracking-[0.2em] text-[var(--color-accent-dark)] border-t border-[var(--color-border)] mt-2">בנייה ושיפוצים</div>
-                {constructionLinks.map((c) => (
-                  <Link
-                    key={c.href}
-                    href={c.href}
-                    role="menuitem"
-                    onClick={() => setOpenDropdown(null)}
-                    className="block px-3 py-2 rounded-lg text-sm font-semibold text-[var(--color-ink)] hover:bg-[var(--color-soft)] hover:text-[var(--color-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
-                  >
-                    {c.label}
-                  </Link>
-                ))}
+              <div className={panelClass(openDropdown === "services")}>
+                <div role="menu" className={panelInnerClass}>
+                  <div className="px-3 py-2 text-[11px] font-extrabold uppercase tracking-[0.2em] text-[var(--color-accent-dark)]">מיגון וממ״ד</div>
+                  {protectionLinks.map((c) => (
+                    <Link
+                      key={c.href}
+                      href={c.href}
+                      role="menuitem"
+                      onClick={() => setOpenDropdown(null)}
+                      className="block px-3 py-2 rounded-lg text-sm font-semibold text-[var(--color-ink)] hover:bg-[var(--color-soft)] hover:text-[var(--color-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
+                    >
+                      {c.label}
+                    </Link>
+                  ))}
+                  <div className="px-3 pt-3 pb-2 text-[11px] font-extrabold uppercase tracking-[0.2em] text-[var(--color-accent-dark)] border-t border-[var(--color-border)] mt-2">בנייה ושיפוצים</div>
+                  {constructionLinks.map((c) => (
+                    <Link
+                      key={c.href}
+                      href={c.href}
+                      role="menuitem"
+                      onClick={() => setOpenDropdown(null)}
+                      className="block px-3 py-2 rounded-lg text-sm font-semibold text-[var(--color-ink)] hover:bg-[var(--color-soft)] hover:text-[var(--color-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
+                    >
+                      {c.label}
+                    </Link>
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -149,18 +164,20 @@ export default function Header() {
                 התחדשות עירונית
                 <span aria-hidden className="ms-1 text-xs">▾</span>
               </button>
-              <div role="menu" className={panelClass(openDropdown === "urban")}>
-                {urbanRenewalLinks.map((c) => (
-                  <Link
-                    key={c.href}
-                    href={c.href}
-                    role="menuitem"
-                    onClick={() => setOpenDropdown(null)}
-                    className="block px-3 py-2 rounded-lg text-sm font-semibold text-[var(--color-ink)] hover:bg-[var(--color-soft)] hover:text-[var(--color-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
-                  >
-                    {c.label}
-                  </Link>
-                ))}
+              <div className={panelClass(openDropdown === "urban")}>
+                <div role="menu" className={panelInnerClass}>
+                  {urbanRenewalLinks.map((c) => (
+                    <Link
+                      key={c.href}
+                      href={c.href}
+                      role="menuitem"
+                      onClick={() => setOpenDropdown(null)}
+                      className="block px-3 py-2 rounded-lg text-sm font-semibold text-[var(--color-ink)] hover:bg-[var(--color-soft)] hover:text-[var(--color-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
+                    >
+                      {c.label}
+                    </Link>
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -176,26 +193,28 @@ export default function Header() {
                 מדריכים
                 <span aria-hidden className="ms-1 text-xs">▾</span>
               </button>
-              <div role="menu" className={panelClass(openDropdown === "guides")}>
-                {guideLinks.map((c) => (
+              <div className={panelClass(openDropdown === "guides")}>
+                <div role="menu" className={panelInnerClass}>
+                  {guideLinks.map((c) => (
+                    <Link
+                      key={c.href}
+                      href={c.href}
+                      role="menuitem"
+                      onClick={() => setOpenDropdown(null)}
+                      className="block px-3 py-2 rounded-lg text-sm font-semibold text-[var(--color-ink)] hover:bg-[var(--color-soft)] hover:text-[var(--color-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
+                    >
+                      {c.label}
+                    </Link>
+                  ))}
                   <Link
-                    key={c.href}
-                    href={c.href}
+                    href={`/compare/${compare.slug}`}
                     role="menuitem"
                     onClick={() => setOpenDropdown(null)}
-                    className="block px-3 py-2 rounded-lg text-sm font-semibold text-[var(--color-ink)] hover:bg-[var(--color-soft)] hover:text-[var(--color-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
+                    className="block px-3 py-2 rounded-lg text-sm font-semibold text-[var(--color-accent-dark)] hover:bg-[var(--color-soft)] border-t border-[var(--color-border)] mt-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
                   >
-                    {c.label}
+                    השוואה: ממ״ד / מיגון / מיגונית
                   </Link>
-                ))}
-                <Link
-                  href={`/compare/${compare.slug}`}
-                  role="menuitem"
-                  onClick={() => setOpenDropdown(null)}
-                  className="block px-3 py-2 rounded-lg text-sm font-semibold text-[var(--color-accent-dark)] hover:bg-[var(--color-soft)] border-t border-[var(--color-border)] mt-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
-                >
-                  השוואה: ממ״ד / מיגון / מיגונית
-                </Link>
+                </div>
               </div>
             </div>
 
