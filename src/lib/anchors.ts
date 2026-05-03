@@ -1,3 +1,30 @@
+/**
+ * Internal-link target registry.
+ *
+ * Single source of truth for the anchor + href + label triplets that feed
+ * RelatedLinks, breadcrumbs, footers, and any contextual link rendering.
+ *
+ * URLs are organized by section in namespace objects below. As new pillar
+ * sub-trees ship (TAMA 38, Chalufat Shaked, etc.), add a namespace object
+ * for the section, then wire the entries into HREF_MAP. New LinkTarget
+ * keys must be reflected in all four exported records below.
+ */
+
+export const PINUI_BINUI_HREFS = {
+  pillar: "/pinui-binui",
+  temurot: "/pinui-binui/temurot",
+  // Future: chok67, kshishim, yorshim, eravut, sarvan, yazam,
+  // ownerAttorney, zechuyot, madrich, misui — add here as each ships.
+} as const;
+
+export const ABOUT_HREFS = {
+  ofekMazor: "/about/ofek-mazor",
+  // Future: company, founders, partners — add here as each ships.
+} as const;
+
+// Future: export const TAMA_38_HREFS = { ... };
+// Future: export const CHALUFAT_SHAKED_HREFS = { ... };
+
 export type LinkTarget =
   | "building-mamad"
   | "room-reinforcement"
@@ -11,7 +38,10 @@ export type LinkTarget =
   | "compare-tzamud"
   | "compare-rashum-hafer"
   | "contact"
-  | "areas";
+  | "areas"
+  | "pinui-binui"
+  | "pinui-binui-temurot"
+  | "ofek-mazor";
 
 export const ANCHOR_VARIANTS: Record<LinkTarget, string[]> = {
   "building-mamad": [
@@ -133,6 +163,33 @@ export const ANCHOR_VARIANTS: Record<LinkTarget, string[]> = {
     "אזורי פעילות",
     "מצא את העיר שלך",
   ],
+  "pinui-binui": [
+    "מדריך פינוי בינוי המלא",
+    "מדריך פינוי בינוי 2026",
+    "פינוי בינוי: המדריך לבעלי דירות",
+    "כל מה שצריך לדעת על פינוי בינוי",
+    "המדריך לבעלי דירות במתחם",
+    "מסלול ההתחדשות העירונית",
+    "פינוי בינוי בישראל",
+  ],
+  "pinui-binui-temurot": [
+    "מדריך מפורט על תמורות בפינוי בינוי",
+    "תמורות בפינוי בינוי: כמה מטר ומה כלול",
+    "מה מקבלים בפינוי בינוי",
+    "התמורה הסטנדרטית בפינוי בינוי",
+    "כמה דירות, כמה מטר ומה הסטנדרט",
+    "תמורות וחישובים בפינוי בינוי",
+    "מדריך התמורות",
+  ],
+  "ofek-mazor": [
+    "אופק מזור, מנכ״ל ומייסד",
+    "אופק מזור: מנכ״ל ומייסד התחדשות",
+    "פרופיל מקצועי של אופק מזור",
+    "על אופק מזור, מנכ״ל החברה",
+    "אופק מזור — המנכ״ל",
+    "אודות אופק מזור",
+    "מנכ״ל החברה: אופק מזור",
+  ],
 };
 
 // Deterministic rotation based on a seed (e.g. the source page slug) so anchors
@@ -171,6 +228,9 @@ export const HREF_MAP: Record<LinkTarget, string> = {
   "compare-rashum-hafer": "/compare/katlan-rashum-vs-hafer",
   "contact": "/contact",
   "areas": "/areas",
+  "pinui-binui": PINUI_BINUI_HREFS.pillar,
+  "pinui-binui-temurot": PINUI_BINUI_HREFS.temurot,
+  "ofek-mazor": ABOUT_HREFS.ofekMazor,
 };
 
 // Short one-line summaries shown on RelatedLinks cards.
@@ -201,6 +261,12 @@ export const TARGET_SUMMARY: Record<LinkTarget, string> = {
     "השאירו פרטים וחזרנו אליכם תוך שעות עם הצעה מותאמת.",
   "areas":
     "רשימת הערים והישובים שבהם אנחנו פועלים ברחבי הארץ.",
+  "pinui-binui":
+    "מסלול, חוק 67%, תמורות, זכויות דיירים ולוח זמנים אמיתי לבעלי דירות.",
+  "pinui-binui-temurot":
+    "כמה מטר, חניה, מחסן, פיצוי כספי ושכר דירה לתקופת הביניים.",
+  "ofek-mazor":
+    "פרופיל מקצועי של אופק מזור, מנכ״ל ומייסד התחדשות בינוי ויזמות.",
 };
 
 export const TARGET_LABEL: Record<LinkTarget, string> = {
@@ -217,4 +283,7 @@ export const TARGET_LABEL: Record<LinkTarget, string> = {
   "compare-rashum-hafer": "קבלן רשום vs חאפר",
   "contact": "צור קשר",
   "areas": "אזורי שירות",
+  "pinui-binui": "פינוי בינוי",
+  "pinui-binui-temurot": "תמורות בפינוי בינוי",
+  "ofek-mazor": "אופק מזור, מנכ״ל ומייסד",
 };

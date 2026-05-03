@@ -85,13 +85,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.9,
     },
-    // Pillar pages — urban-renewal pillar (each pillar registered
-    // explicitly when it ships).
+    // Pillar pages — urban-renewal pillar (each pillar + sub-page
+    // registered explicitly when it ships).
     {
       url: `${site.url}/pinui-binui`,
       lastModified: lastModifiedFor("src/app/pinui-binui/page.tsx"),
       changeFrequency: "monthly",
       priority: 0.9,
+    },
+    {
+      url: `${site.url}/pinui-binui/temurot`,
+      lastModified: lastModifiedFor("src/app/pinui-binui/temurot/page.tsx"),
+      changeFrequency: "monthly",
+      priority: 0.7,
     },
     // Services
     ...services.map((s) => ({

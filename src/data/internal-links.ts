@@ -65,6 +65,21 @@ export const internalLinks: InternalLink[] = [
     context: "inline",
     note: "Building-mamad service intro, renewal-alternative paragraph; added with /pinui-binui pillar launch.",
   },
+  // 2026-05-03: /pinui-binui/temurot/ sub-page launch.
+  {
+    fromUrl: "/pinui-binui/temurot",
+    toUrl: "/pinui-binui",
+    anchorText: "פינוי בינוי",
+    context: "inline",
+    note: "Mandatory back-link from sub-page to pillar (technical.md §6).",
+  },
+  {
+    fromUrl: "/pinui-binui/temurot",
+    toUrl: "/contact",
+    anchorText: "ייעוץ ראשוני ללא עלות",
+    context: "inline",
+    note: "Tax section CTA inline link.",
+  },
 ];
 
 /** All internal links pointing FROM a given URL. */
