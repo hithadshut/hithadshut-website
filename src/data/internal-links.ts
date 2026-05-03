@@ -41,7 +41,31 @@ export type InternalLink = {
  * The graph itself. Empty seed; entries are appended as pages ship.
  * Reading helpers below operate on this single array.
  */
-export const internalLinks: InternalLink[] = [];
+export const internalLinks: InternalLink[] = [
+  // 2026-05-03: inbound links to /pinui-binui pillar from the 3
+  // existing pages content-lead approved per brief B §11.
+  {
+    fromUrl: "/",
+    toUrl: "/pinui-binui",
+    anchorText: "פינוי בינוי",
+    context: "inline",
+    note: "Homepage main-services intro paragraph; added with /pinui-binui pillar launch.",
+  },
+  {
+    fromUrl: "/about",
+    toUrl: "/pinui-binui",
+    anchorText: "פינוי בינוי",
+    context: "inline",
+    note: "About page 'מי אנחנו' section; added with /pinui-binui pillar launch.",
+  },
+  {
+    fromUrl: "/services/building-mamad",
+    toUrl: "/pinui-binui",
+    anchorText: "פינוי בינוי",
+    context: "inline",
+    note: "Building-mamad service intro, renewal-alternative paragraph; added with /pinui-binui pillar launch.",
+  },
+];
 
 /** All internal links pointing FROM a given URL. */
 export function linksFrom(fromUrl: string): InternalLink[] {

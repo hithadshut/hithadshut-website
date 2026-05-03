@@ -137,7 +137,15 @@ export default function Home() {
               </h2>
               <p className="mt-4 text-lg text-[var(--color-muted)] max-w-2xl leading-relaxed">
                 התחדשות מתמחה בבניית ממ״דים, מיגון חדרים ומיגוניות. כל פרויקט מבוצע
-                לפי תקן פיקוד העורף, עם ליווי מלא עד אישור הגמר.
+                לפי תקן פיקוד העורף, עם ליווי מלא עד אישור הגמר. בנוסף לבניית ממ״ד
+                ושיפור מיגון, אנחנו מלווים בעלי דירות במתחמים גם בתהליכי{" "}
+                <Link
+                  href="/pinui-binui"
+                  className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]"
+                >
+                  פינוי בינוי
+                </Link>{" "}
+                במסלול ההתחדשות העירונית.
               </p>
             </div>
           </Reveal>
