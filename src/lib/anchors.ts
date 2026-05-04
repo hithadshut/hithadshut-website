@@ -67,6 +67,7 @@ export type LinkTarget =
   | "memad-binyan-meshutaf"
   | "memad-binyan-yashan"
   | "memad-koma-elyona"
+  | "memad-tat-karkai"
   | "ofek-mazor";
 
 export const ANCHOR_VARIANTS: Record<LinkTarget, string[]> = {
@@ -306,6 +307,15 @@ export const ANCHOR_VARIANTS: Record<LinkTarget, string[]> = {
     "אישור ממ״ד גג",
     "עלות ממ״ד עליון",
   ],
+  "memad-tat-karkai": [
+    "ממ״ד תת-קרקעי",
+    "ממ״ד במרתף",
+    "ממ״ד תחת הקרקע",
+    "הגנה תת-קרקעית",
+    "עלות ממ״ד תת-קרקעי",
+    "איטום ממ״ד תת-קרקעי",
+    "ממ״ד עם מסת קרקע מעל",
+  ],
   "ofek-mazor": [
     "אופק מזור, מנכ״ל ומייסד",
     "אופק מזור: מנכ״ל ומייסד התחדשות",
@@ -366,6 +376,7 @@ export const HREF_MAP: Record<LinkTarget, string> = {
   "memad-binyan-meshutaf": MEMAD_HREFS.binyanMeshutaf,
   "memad-binyan-yashan": MEMAD_HREFS.binyanYashan,
   "memad-koma-elyona": MEMAD_HREFS.komaElyona,
+  "memad-tat-karkai": MEMAD_HREFS.tatKarkai,
   "ofek-mazor": ABOUT_HREFS.ofekMazor,
 };
 
@@ -423,6 +434,8 @@ export const TARGET_SUMMARY: Record<LinkTarget, string> = {
     "ארבעה פתרונות לבניין מלפני 1992: ממ״ד תקני, שיפור מיגון, ממ״ד יביל, או התחדשות עירונית.",
   "memad-koma-elyona":
     "ממ״ד על הגג ובפנטהאוז: חיזוק מבנה, משאבת בטון, אישורים, ולוגיסטיקה בגובה.",
+  "memad-tat-karkai":
+    "ממ״ד במרתף או תת-קרקעי: רמת הגנה גבוהה, שיקולי מי תהום, איטום, ואוורור משופר.",
   "ofek-mazor":
     "פרופיל מקצועי של אופק מזור, מנכ״ל ומייסד התחדשות בינוי ויזמות.",
 };
@@ -454,5 +467,6 @@ export const TARGET_LABEL: Record<LinkTarget, string> = {
   "memad-binyan-meshutaf": "ממ״ד בבניין משותף",
   "memad-binyan-yashan": "ממ״ד לבניין ישן",
   "memad-koma-elyona": "ממ״ד בקומה עליונה",
+  "memad-tat-karkai": "ממ״ד תת-קרקעי",
   "ofek-mazor": "אופק מזור, מנכ״ל ומייסד",
 };

@@ -284,6 +284,28 @@ export const internalLinks: InternalLink[] = [
     context: "inline",
     note: "Inline link in im-yazam-msarev section; activates previously plain-text reference.",
   },
+  // 2026-05-04: /memad/tat-karkai/ sub-page launch (Gal 2, Phase 2.6).
+  {
+    fromUrl: "/memad/tat-karkai",
+    toUrl: "/services/building-mamad",
+    anchorText: "תת-קרקעי",
+    context: "inline",
+    note: "Mandatory back-link from sub-page to commercial hub.",
+  },
+  {
+    fromUrl: "/memad/tat-karkai",
+    toUrl: "/guides/mamad-cost",
+    anchorText: "מחיר ממ״ד 2026",
+    context: "inline",
+    note: "Inline link in aluyot section to cost guide.",
+  },
+  {
+    fromUrl: "/memad/tat-karkai",
+    toUrl: "/guides/home-front-command-approval",
+    anchorText: "אישורי פיקוד העורף",
+    context: "inline",
+    note: "Inline link in ishurim section to approval guide.",
+  },
   // 2026-05-04: /memad/koma-elyona/ sub-page launch (Gal 2, Phase 2.5).
   {
     fromUrl: "/memad/koma-elyona",
