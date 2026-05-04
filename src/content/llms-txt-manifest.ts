@@ -235,6 +235,12 @@ export const llmsManifest: LlmsManifest = {
           description:
             "ההבחנה המשפטית, השלכות בפרויקט פינוי בינוי, וסעיפים שחובה לעגן בהסכם.",
         },
+        {
+          url: "/madrichim/hashvaa-yazamim-mobililim-2026",
+          label: "השוואת יזמי פינוי בינוי 2026",
+          description:
+            "מסגרת מקצועית להערכת יזמים: 8 קריטריונים, שלושה סוגי יזמים, וצ'קליסט החלטה.",
+        },
       ],
     },
     {

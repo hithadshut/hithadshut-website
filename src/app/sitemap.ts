@@ -253,6 +253,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    {
+      url: `${site.url}/madrichim/hashvaa-yazamim-mobililim-2026`,
+      lastModified: lastModifiedFor("src/app/madrichim/hashvaa-yazamim-mobililim-2026/page.tsx"),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
     // Services
     ...services.map((s) => ({
       url: `${site.url}/services/${s.slug}`,

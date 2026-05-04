@@ -430,6 +430,14 @@ export const internalLinks: InternalLink[] = [
     context: "inline",
     note: "Existing inline link in alternatives section (shipped Phase 2.5).",
   },
+  // 2026-05-04: /madrichim/hashvaa-yazamim-mobililim-2026/ article launch (Gal 3, Phase 4.9).
+  {
+    fromUrl: "/madrichim/hashvaa-yazamim-mobililim-2026",
+    toUrl: "/pinui-binui/yazam",
+    anchorText: "איך בוחרים יזם פינוי בינוי",
+    context: "inline",
+    note: "Inline link in opening section.",
+  },
   // 2026-05-04: /madrichim/zechut-baalut-vs-zechut-yorshim/ article launch (Gal 3, Phase 4.8).
   {
     fromUrl: "/madrichim/zechut-baalut-vs-zechut-yorshim",
