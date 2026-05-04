@@ -130,6 +130,12 @@ export const llmsManifest: LlmsManifest = {
             "ההליך המשפטי, סירוב סביר מול בלתי סביר, הגנות לדייר, כונס נכסים, וזכויות גיל בתביעה.",
         },
         {
+          url: "/pinui-binui/machshvon-temurot",
+          label: "מחשבון פינוי בינוי 2026",
+          description:
+            "כלי הערכה אינטראקטיבי לבדיקת הצעת יזם — תוספת מ״ר, חניה, מחסן, פיצוי, וזכויות גיל.",
+        },
+        {
           url: "/tama-38",
           label: "תמ״א 38 ב-2026",
           description:

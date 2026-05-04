@@ -284,6 +284,56 @@ export const internalLinks: InternalLink[] = [
     context: "inline",
     note: "Inline link in im-yazam-msarev section; activates previously plain-text reference.",
   },
+  // 2026-05-04: /pinui-binui/machshvon-temurot/ launch (Gal 4, Phase J).
+  {
+    fromUrl: "/pinui-binui/machshvon-temurot",
+    toUrl: "/pinui-binui",
+    anchorText: "פינוי בינוי",
+    context: "inline",
+    note: "Mandatory back-link from sub-page to pillar.",
+  },
+  {
+    fromUrl: "/pinui-binui/machshvon-temurot",
+    toUrl: "/pinui-binui/temurot",
+    anchorText: "תמורות בפינוי בינוי",
+    context: "inline",
+    note: "Inline link in ma-bodek section (m² parameter explanation).",
+  },
+  {
+    fromUrl: "/pinui-binui/machshvon-temurot",
+    toUrl: "/pinui-binui/eravut",
+    anchorText: "ערבויות בפינוי בינוי",
+    context: "inline",
+    note: "Inline link in ma-lo-bodek limitations section.",
+  },
+  {
+    fromUrl: "/pinui-binui/machshvon-temurot",
+    toUrl: "/pinui-binui/yazam",
+    anchorText: "איך בוחרים יזם פינוי בינוי",
+    context: "inline",
+    note: "Inline link in ma-lo-bodek limitations section.",
+  },
+  {
+    fromUrl: "/pinui-binui/machshvon-temurot",
+    toUrl: "/pinui-binui/yorshim",
+    anchorText: "ירושה דירה בפינוי בינוי",
+    context: "inline",
+    note: "Inline link in ma-lo-bodek limitations section.",
+  },
+  {
+    fromUrl: "/pinui-binui/machshvon-temurot",
+    toUrl: "/pinui-binui/kshishim",
+    anchorText: "זכויות קשישים בפינוי בינוי",
+    context: "inline",
+    note: "Inline link in ma-bodek (senior age) and ma-lo-bodek sections.",
+  },
+  {
+    fromUrl: "/pinui-binui/machshvon-temurot",
+    toUrl: "/pinui-binui/sarvan",
+    anchorText: "דייר סרבן בפינוי בינוי",
+    context: "inline",
+    note: "Inline link in ma-lo-bodek limitations section.",
+  },
   // 2026-05-04: Gal 3 Block A — inbound links for 6 new memad sub-pages
   // from existing memad hub, guides, and a cross-cluster link from /pinui-binui.
   // /services/building-mamad → all 6 memad sub-pages (new "מדריכים מפורטים" section).

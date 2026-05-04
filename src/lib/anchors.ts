@@ -19,6 +19,7 @@ export const PINUI_BINUI_HREFS = {
   eravut: "/pinui-binui/eravut",
   yazam: "/pinui-binui/yazam",
   sarvan: "/pinui-binui/sarvan",
+  machshvonTemurot: "/pinui-binui/machshvon-temurot",
   // Future: ownerAttorney,
   // zechuyot, madrich, misui — add here as each ships.
 } as const;
@@ -85,6 +86,7 @@ export type LinkTarget =
   | "pinui-binui-eravut"
   | "pinui-binui-yazam"
   | "pinui-binui-sarvan"
+  | "pinui-binui-machshvon"
   | "memad-bayit-prati"
   | "memad-dira-bekoma"
   | "memad-binyan-meshutaf"
@@ -299,6 +301,15 @@ export const ANCHOR_VARIANTS: Record<LinkTarget, string[]> = {
     "מה קורה אם דייר לא חותם",
     "הגנות לדייר סרבן",
   ],
+  "pinui-binui-machshvon": [
+    "מחשבון פינוי בינוי",
+    "בדיקת הצעה פינוי בינוי",
+    "האם ההצעה הוגנת",
+    "השוואת הצעות פינוי בינוי",
+    "כלי הערכה לפינוי בינוי",
+    "כדאיות פינוי בינוי",
+    "הערכת תמורה פינוי בינוי",
+  ],
   "memad-bayit-prati": [
     "ממ״ד לבית פרטי",
     "מדריך ממ״ד לבית פרטי",
@@ -506,6 +517,7 @@ export const HREF_MAP: Record<LinkTarget, string> = {
   "pinui-binui-eravut": PINUI_BINUI_HREFS.eravut,
   "pinui-binui-yazam": PINUI_BINUI_HREFS.yazam,
   "pinui-binui-sarvan": PINUI_BINUI_HREFS.sarvan,
+  "pinui-binui-machshvon": PINUI_BINUI_HREFS.machshvonTemurot,
   "memad-bayit-prati": MEMAD_HREFS.bayitPrati,
   "memad-dira-bekoma": MEMAD_HREFS.diraBekoma,
   "memad-binyan-meshutaf": MEMAD_HREFS.binyanMeshutaf,
@@ -573,6 +585,8 @@ export const TARGET_SUMMARY: Record<LinkTarget, string> = {
     "12 שאלות לפני בחירה, 8 דגלים אדומים, השוואת הצעות, ובדיקת רקע על יזם.",
   "pinui-binui-sarvan":
     "ההליך המשפטי, סירוב סביר מול בלתי סביר, הגנות הדייר, וכונס נכסים.",
+  "pinui-binui-machshvon":
+    "כלי הערכה אינטראקטיבי לבדיקת הצעת יזם — תוספת מ״ר, חניה, מחסן, פיצוי, וזכויות גיל.",
   "memad-bayit-prati":
     "ארבעה סוגי ממ״ד לבית פרטי, מחירון מפורט, מסלול הפטור, ושלבי הביצוע מהתכנון ועד המסירה.",
   "memad-dira-bekoma":
@@ -639,6 +653,7 @@ export const TARGET_LABEL: Record<LinkTarget, string> = {
   "pinui-binui-eravut": "ערבויות בפינוי בינוי",
   "pinui-binui-yazam": "בחירת יזם פינוי בינוי",
   "pinui-binui-sarvan": "דייר סרבן בפינוי בינוי",
+  "pinui-binui-machshvon": "מחשבון פינוי בינוי",
   "memad-bayit-prati": "ממ״ד לבית פרטי",
   "memad-dira-bekoma": "ממ״ד בדירה בקומה",
   "memad-binyan-meshutaf": "ממ״ד בבניין משותף",

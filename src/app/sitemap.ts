@@ -118,6 +118,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
+      url: `${site.url}/pinui-binui/machshvon-temurot`,
+      lastModified: lastModifiedFor("src/app/pinui-binui/machshvon-temurot/page.tsx"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${site.url}/pinui-binui/eravut`,
       lastModified: lastModifiedFor("src/app/pinui-binui/eravut/page.tsx"),
       changeFrequency: "monthly",
