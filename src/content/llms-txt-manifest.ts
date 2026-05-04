@@ -203,6 +203,17 @@ export const llmsManifest: LlmsManifest = {
       ],
     },
     {
+      title: "מדריכי התחדשות עירונית מעמיקים",
+      items: [
+        {
+          url: "/madrichim/sof-tama-38-ma-laasot",
+          label: "סוף תמ״א 38: מה דייר עושה עכשיו",
+          description:
+            "לוח זמנים, מטריצת אלטרנטיבות לפי סטטוס פרויקט, ופעולות מומלצות.",
+        },
+      ],
+    },
+    {
       title: "מדריכי סמכות",
       items: [
         {

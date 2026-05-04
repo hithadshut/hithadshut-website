@@ -222,6 +222,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    // Madrichim cluster (urban-renewal deep articles)
+    {
+      url: `${site.url}/madrichim/sof-tama-38-ma-laasot`,
+      lastModified: lastModifiedFor("src/app/madrichim/sof-tama-38-ma-laasot/page.tsx"),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
     // Services
     ...services.map((s) => ({
       url: `${site.url}/services/${s.slug}`,

@@ -430,6 +430,28 @@ export const internalLinks: InternalLink[] = [
     context: "inline",
     note: "Existing inline link in alternatives section (shipped Phase 2.5).",
   },
+  // 2026-05-04: /madrichim/sof-tama-38-ma-laasot/ article launch (Gal 3, Phase 4.4).
+  {
+    fromUrl: "/madrichim/sof-tama-38-ma-laasot",
+    toUrl: "/tama-38/pkia-2026",
+    anchorText: "תמ״א 38 פוקעת",
+    context: "inline",
+    note: "Inline link in opening section.",
+  },
+  {
+    fromUrl: "/madrichim/sof-tama-38-ma-laasot",
+    toUrl: "/chalufat-shaked",
+    anchorText: "חלופת שקד",
+    context: "inline",
+    note: "Inline link in alternativot section.",
+  },
+  {
+    fromUrl: "/madrichim/sof-tama-38-ma-laasot",
+    toUrl: "/pinui-binui",
+    anchorText: "פינוי בינוי",
+    context: "inline",
+    note: "Inline link in alternativot section.",
+  },
   // 2026-05-04: /hashvaa/migun-vs-pinui/ comparison launch (Gal 3, Phase 4.3).
   {
     fromUrl: "/hashvaa/migun-vs-pinui",
