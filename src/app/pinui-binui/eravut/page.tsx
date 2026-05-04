@@ -9,7 +9,9 @@ import InlineLeadForm from "@/components/InlineLeadForm";
 import RelatedLinks from "@/components/RelatedLinks";
 import SchemaArticle from "@/components/schema/article";
 import SchemaBreadcrumb from "@/components/schema/breadcrumb";
+import JsonLd from "@/components/JsonLd";
 import TrustBlock from "@/components/TrustBlock";
+import Byline from "@/components/Byline";
 import Reveal from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
 
@@ -61,9 +63,26 @@ const faqs = [
   },
 ];
 
+const howToEravutJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "איך בודקים ערבויות בהסכם פינוי בינוי",
+  description: "תהליך אימות ערבויות בהסכם פינוי בינוי: זהות הבנק המנפיק, נוסח אוטונומי, סכום, תוקף, תנאי מימוש, וסעיף תחליף בנק.",
+  totalTime: "P7D",
+  step: [
+    { "@type": "HowToStep", position: 1, name: "זהות הבנק המנפיק", text: "לוודא שהמנפיק הוא בנק מפוקח, מוכר, ובעל דירוג אשראי גבוה. בנקים גדולים בישראל הם הסטנדרט." },
+    { "@type": "HowToStep", position: 2, name: "סכום הערבות", text: "שווה לערך הדירה החדשה לפי שמאות בלתי תלויה. שמאות מטעם היזם בלבד אינה מספיקה." },
+    { "@type": "HowToStep", position: 3, name: "תאריכי תוקף", text: "תאריך תחילה מפורש ותאריך סיום מקושר לאירוע ספציפי (מסירה, רישום בטאבו)." },
+    { "@type": "HowToStep", position: 4, name: "תנאי מימוש", text: "ערבות אוטונומית הניתנת למימוש על דרישה ראשונה היא הסטנדרט המבוקש." },
+    { "@type": "HowToStep", position: 5, name: "סעיף תחליף בנק", text: "אם הבנק המנפיק נכנס לקושי, ההסכם צריך להבטיח החלפת הערבות בערבות שווה ערך מבנק אחר." },
+    { "@type": "HowToStep", position: 6, name: "סעיף העברת ערבות", text: "במקרה של מכירת הדירה הישנה או ירושה, הערבות צריכה לעבור באופן אוטומטי לבעלים החדש." },
+  ],
+};
+
 export default function Page() {
   return (
     <>
+      <JsonLd data={howToEravutJsonLd} />
       <SchemaArticle
         headline="ערבויות בפינוי בינוי 2026: סוגי הערבויות, מה לבדוק, ומה אסור לוותר עליו"
         description={DESCRIPTION}
@@ -92,6 +111,9 @@ export default function Page() {
       <Section tone="white">
         <Reveal>
           <div className="max-w-3xl">
+            <div className="mb-5">
+              <Byline author="ofek-mazor" dateModified={MODIFIED_DATE} />
+            </div>
             <p className="text-[17px] text-[var(--color-ink)] leading-8">
               ערבויות ב
               <Link

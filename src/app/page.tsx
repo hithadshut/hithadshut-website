@@ -191,6 +191,66 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== TOOLS ===== */}
+      <section className="bg-white py-20 md:py-28 relative">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <Reveal>
+            <div className="max-w-3xl mb-10">
+              <div className="h-1 w-16 gold-line mb-5" />
+              <div className="text-sm font-extrabold uppercase tracking-[0.22em] text-[var(--color-accent-dark)] mb-3">
+                כלים אינטראקטיביים
+              </div>
+              <h2 className="text-3xl md:text-5xl font-black text-[var(--color-primary)] leading-tight mb-3">
+                בדקו את ההצעה שקיבלתם
+              </h2>
+              <p className="text-[17px] text-[var(--color-muted)] leading-8">
+                מחשבון פינוי בינוי שלנו משווה את ההצעה של היזם ל-5 פרמטרים מרכזיים בסטנדרט השוק 2026: תוספת מ״ר, חניה, מחסן, פיצוי כספי, וזכויות גיל. תוצאה ראשונית בתוך 60 שניות.
+              </p>
+            </div>
+          </Reveal>
+          <Reveal>
+            <div className="grid md:grid-cols-[2fr_1fr] gap-6 items-stretch">
+              <Link
+                href="/pinui-binui/machshvon-temurot"
+                className="block rounded-2xl border border-[var(--color-border)] bg-white p-6 md:p-8 shadow-[var(--shadow-card)] hover:border-[var(--color-accent-dark)] hover:shadow-[var(--shadow-deep)] transition group"
+              >
+                <div className="flex items-start gap-4">
+                  <span className="shrink-0 inline-flex w-12 h-12 rounded-xl bg-[var(--color-accent)]/15 text-[var(--color-accent-dark)] items-center justify-center text-2xl font-black">
+                    📊
+                  </span>
+                  <div className="flex-1">
+                    <h3 className="text-xl md:text-2xl font-black text-[var(--color-primary)] mb-2 group-hover:underline underline-offset-4">
+                      מחשבון פינוי בינוי 2026
+                    </h3>
+                    <p className="text-[var(--color-muted)] leading-relaxed mb-4">
+                      בדיקה ראשונית של הצעת היזם מול סטנדרט השוק. הזינו את פרטי הדירה הישנה, האזור, ותנאי ההצעה — קבלו ציון מצרפי וניתוח של נקודות החוזק והחולשה.
+                    </p>
+                    <ul className="grid grid-cols-2 gap-1.5 text-sm text-[var(--color-muted)] mb-5">
+                      <li>✓ 5 פרמטרים</li>
+                      <li>✓ 5 אזורים גיאוגרפיים</li>
+                      <li>✓ זכויות גיל 70+/75+</li>
+                      <li>✓ ייעוץ ראשוני חינם</li>
+                    </ul>
+                    <span className="inline-flex items-center bg-[var(--color-primary)] text-white font-extrabold px-6 py-3 rounded-xl group-hover:brightness-110 transition">
+                      התחילו את הבדיקה ←
+                    </span>
+                  </div>
+                </div>
+              </Link>
+              <div className="rounded-2xl border border-[var(--color-border)] bg-soft p-6 md:p-8 flex flex-col justify-center">
+                <div className="text-sm font-extrabold uppercase tracking-[0.22em] text-[var(--color-accent-dark)] mb-2">
+                  סטטיסטיקה
+                </div>
+                <div className="text-4xl md:text-5xl font-black text-[var(--color-primary)] mb-1">247</div>
+                <div className="text-sm text-[var(--color-muted)] mb-4">פרויקטי פינוי בינוי במרכז הארץ ב-2026</div>
+                <div className="text-4xl md:text-5xl font-black text-[var(--color-primary)] mb-1">1,800+</div>
+                <div className="text-sm text-[var(--color-muted)]">דיירים שקיבלו ייעוץ ראשוני</div>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* ===== WHY US ===== */}
       <section className="bg-soft py-20 md:py-28 relative">
         <div aria-hidden className="absolute inset-0 dots-pattern opacity-40 pointer-events-none" />

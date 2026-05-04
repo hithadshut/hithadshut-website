@@ -10,6 +10,7 @@ import {
   ofekPersonJsonLd,
   organizationJsonLd,
   breadcrumbJsonLd,
+  ofekImageJsonLd,
 } from "@/lib/schema";
 import { site } from "@/lib/site";
 
@@ -41,6 +42,7 @@ export default function Page() {
         data={[
           organizationJsonLd(),
           ofekPersonJsonLd(),
+          ofekImageJsonLd(),
           breadcrumbJsonLd([
             { name: "בית", url: "/" },
             { name: "אודות", url: "/about" },

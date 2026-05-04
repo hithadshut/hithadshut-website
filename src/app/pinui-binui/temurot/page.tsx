@@ -9,7 +9,9 @@ import InlineLeadForm from "@/components/InlineLeadForm";
 import RelatedLinks from "@/components/RelatedLinks";
 import SchemaArticle from "@/components/schema/article";
 import SchemaBreadcrumb from "@/components/schema/breadcrumb";
+import JsonLd from "@/components/JsonLd";
 import TrustBlock from "@/components/TrustBlock";
+import Byline from "@/components/Byline";
 import Reveal from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
 
@@ -61,9 +63,27 @@ const faqs = [
   },
 ];
 
+const howToTemurotJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "איך מעריכים הצעת תמורה בפינוי בינוי",
+  description: "תהליך הערכה של הצעת תמורה ביזם פינוי בינוי: גודל הדירה החדשה, חניה, מחסן, פיצוי כספי, שכר דירה, וסעיפים לא ניתנים לוויתור.",
+  totalTime: "P14D",
+  step: [
+    { "@type": "HowToStep", position: 1, name: "השוואת תוספת המ״ר לאזור הגיאוגרפי", text: "במרכז הארץ סטנדרט תוספת המ״ר נע בין 15-35 מ״ר. הצעה מתחת לטווח דורשת מו״מ." },
+    { "@type": "HowToStep", position: 2, name: "וידוא חניה ומחסן בהסכם", text: "מה שלא כתוב במפורש בהסכם, לא קיים. חניה ומחסן צריכים להופיע עם מספר, גודל, ומיקום." },
+    { "@type": "HowToStep", position: 3, name: "בדיקת פיצוי כספי", text: "במתחמים מסוימים מתווסף פיצוי כספי ל-50,000-300,000 ש״ח. בדקו אם רלוונטי לפרויקט שלכם." },
+    { "@type": "HowToStep", position: 4, name: "בדיקת שכר דירה לתקופת הביניים", text: "היזם משלם שכר דירה לכל התקופה. הסכום צריך להיות צמוד למדד וכולל מענק התקנה." },
+    { "@type": "HowToStep", position: 5, name: "וידוא ערבויות בנקאיות תקניות", text: "ערבות חוק מכר, ערבות לתקופת הביניים, וערבות לרישום הזכויות. כל אחת מבנק גדול." },
+    { "@type": "HowToStep", position: 6, name: "בדיקת מסים", text: "מס שבח עם פטור בתנאים, היטל השבחה תלוי בעיר, מס רכישה לרוב פטור או מוקטן." },
+    { "@type": "HowToStep", position: 7, name: "וידוא 8 הסעיפים שאסור לוותר עליהם", text: "דירה ממוספרת, תוספת מ״ר בכתב, ערבויות לכל שלב, פיצוי על איחור, צמדה למדד, פיצוי ירידת ערך, סעיף ביטול, וסעיף שמאי דיירים." },
+  ],
+};
+
 export default function Page() {
   return (
     <>
+      <JsonLd data={howToTemurotJsonLd} />
       <SchemaArticle
         headline="תמורות בפינוי בינוי 2026: כמה דירות, כמה מטר, ומה באמת מקבלים"
         description={DESCRIPTION}
@@ -92,6 +112,9 @@ export default function Page() {
       <Section tone="white">
         <Reveal>
           <div className="max-w-3xl">
+            <div className="mb-5">
+              <Byline author="ofek-mazor" dateModified={MODIFIED_DATE} />
+            </div>
             <p className="text-[17px] text-[var(--color-ink)] leading-8">
               התמורה הסטנדרטית בפרויקט{" "}
               <Link

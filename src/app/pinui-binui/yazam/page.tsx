@@ -9,7 +9,9 @@ import InlineLeadForm from "@/components/InlineLeadForm";
 import RelatedLinks from "@/components/RelatedLinks";
 import SchemaArticle from "@/components/schema/article";
 import SchemaBreadcrumb from "@/components/schema/breadcrumb";
+import JsonLd from "@/components/JsonLd";
 import TrustBlock from "@/components/TrustBlock";
+import Byline from "@/components/Byline";
 import Reveal from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
 
@@ -61,9 +63,32 @@ const faqs = [
   },
 ];
 
+const howToYazamJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "איך בוחרים יזם פינוי בינוי",
+  description: "12 שאלות שחובה לשאול כל יזם פינוי בינוי לפני חתימה על הסכם, עם הסבר מה התשובה הראויה ואילו דגלים אדומים לחפש.",
+  totalTime: "P14D",
+  step: [
+    { "@type": "HowToStep", position: 1, name: "כמה פרויקטי פינוי בינוי השלמתם בעבר?", text: "ניסיון מוכח הוא לפחות שני פרויקטים שהושלמו במלואם. ניסיון בבנייה כללית אינו זהה." },
+    { "@type": "HowToStep", position: 2, name: "מי המוסדות הפיננסיים שמלווים את הפרויקטים שלכם?", text: "בנקים גדולים מצביעים על יציבות. תשובה מעורפלת או היעדר רשימה הם דגל אדום." },
+    { "@type": "HowToStep", position: 3, name: "מה התשואה הצפויה לפרויקט שלי?", text: "תשואה בטווח 12% עד 25% היא תקנית. תשואה מחוץ לטווח דורשת בירור." },
+    { "@type": "HowToStep", position: 4, name: "אילו ערבויות תספקו, ואיזה בנק מנפיק אותן?", text: "ערבויות בנקאיות מבנקים גדולים הן הסטנדרט. ערבויות אישיות בלבד אינן מספיקות." },
+    { "@type": "HowToStep", position: 5, name: "מי יהיה מנהל הפרויקט הספציפי שלי?", text: "אדם בעל שם ופרופיל מקצועי, לא תשובה כללית של 'צוות הפרויקט'." },
+    { "@type": "HowToStep", position: 6, name: "מה לוח הזמנים המפורט עד מסירת הדירה?", text: "ציר זמן מפורט עם תאריכי יעד לשלבים מרכזיים." },
+    { "@type": "HowToStep", position: 7, name: "מה קורה אם יש איחור במסירה?", text: "פיצוי מוסכם לחודש איחור, מגובה בערבות נפרדת." },
+    { "@type": "HowToStep", position: 8, name: "מי בוחר את האדריכל ואת השמאי בפרויקט?", text: "שמאי דיירים בלתי תלוי הוא הכרחי. אדריכל מטעם היזם בלבד מצריך פיקוח." },
+    { "@type": "HowToStep", position: 9, name: "איזו דירת תמורה אקבל בדיוק?", text: "תשובה ספציפית עם מספר דירה, קומה, כיוון, וגודל. לא 'דירה במתחם'." },
+    { "@type": "HowToStep", position: 10, name: "מי משלם על מה?", text: "פירוט שקוף של אחריות תשלומים על מס שבח, היטל השבחה, רישוי, וייעוץ עורך דין." },
+    { "@type": "HowToStep", position: 11, name: "מה הסיכון אם הפרויקט נכשל?", text: "ערבויות, תהליכי שחזור, וזכות לחזור לדירה הישנה אם הבנייה לא מתחילה." },
+    { "@type": "HowToStep", position: 12, name: "האם החברה שלכם רשומה כדין ברשם החברות?", text: "ניתן לוודא ברשם החברות. רישום פעיל ובעלי תפקידים מזוהים הם תנאי הכרחי." },
+  ],
+};
+
 export default function Page() {
   return (
     <>
+      <JsonLd data={howToYazamJsonLd} />
       <SchemaArticle
         headline="איך בוחרים יזם פינוי בינוי 2026: 12 השאלות שחובה לשאול"
         description={DESCRIPTION}
@@ -92,6 +117,9 @@ export default function Page() {
       <Section tone="white">
         <Reveal>
           <div className="max-w-3xl">
+            <div className="mb-5">
+              <Byline author="ofek-mazor" dateModified={MODIFIED_DATE} />
+            </div>
             <p className="text-[17px] text-[var(--color-ink)] leading-8">
               בחירת יזם ב
               <Link

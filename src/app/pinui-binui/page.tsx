@@ -12,6 +12,7 @@ import JsonLd from "@/components/JsonLd";
 import SchemaArticle from "@/components/schema/article";
 import SchemaBreadcrumb from "@/components/schema/breadcrumb";
 import TrustBlock from "@/components/TrustBlock";
+import Byline from "@/components/Byline";
 import Reveal from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
 
@@ -149,6 +150,9 @@ export default function Page() {
       <Section tone="white">
         <Reveal>
           <div className="max-w-3xl">
+            <div className="mb-5">
+              <Byline author="ofek-mazor" dateModified={MODIFIED_DATE} />
+            </div>
             <p className="text-[17px] text-[var(--color-ink)] leading-8">
               פינוי בינוי הוא הריסת בניין מגורים ישן ובניית מתחם חדש במקומו, כאשר הדיירים הקיימים מקבלים דירה חדשה במתחם בתמורה לדירה הישנה. בישראל, מסלול פינוי בינוי חל על מתחמים של 24 יחידות דיור ומעלה, נדרשת הסכמה של 67% מבעלי הדירות כדי להגיש תביעה נגד דייר סרבן, ופרויקט טיפוסי לוקח 7 עד 12 שנים מההסכמה הראשונית עד מסירת הדירות החדשות. מדריך זה מסביר את כל מה שבעלי דירות בישראל צריכים לדעת בשנת 2026.
             </p>

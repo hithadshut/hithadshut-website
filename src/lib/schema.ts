@@ -218,8 +218,39 @@ export function ofekPersonJsonLd() {
       "ניהול פרויקטי בנייה",
       "התחדשות עירונית",
       "פינוי בינוי",
+      "תמ״א 38",
+      "חלופת שקד",
+      "בנייה פרטית",
+      "ירושה בפינוי בינוי",
+      "זכויות קשישים בפינוי בינוי",
     ],
     sameAs: [],
+  };
+}
+
+/**
+ * ImageObject schema for the Ofek Mazor portrait. Strengthens E-E-A-T
+ * by giving the author photo a structured, citable record. Linked from
+ * /about/ofek-mazor and (via @id) by Person/Organization schemas.
+ */
+export function ofekImageJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ImageObject",
+    "@id": `${site.url}/ofek-mazor.jpg#image`,
+    contentUrl: `${site.url}/ofek-mazor.jpg`,
+    url: `${site.url}/ofek-mazor.jpg`,
+    caption: "אופק מזור, מנכ״ל ומייסד התחדשות בינוי ויזמות",
+    description:
+      "תמונת פרופיל של אופק מזור, מנכ״ל ומייסד התחדשות בינוי ויזמות. מוביל פרויקטים בהתחדשות עירונית ובמיגון מאז 2014.",
+    creator: {
+      "@type": "Organization",
+      name: "התחדשות בינוי ויזמות",
+      url: site.url,
+    },
+    copyrightYear: "2026",
+    license: `${site.url}/about/ofek-mazor`,
+    representativeOfPage: true,
   };
 }
 
