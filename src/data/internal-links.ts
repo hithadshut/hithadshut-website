@@ -430,6 +430,28 @@ export const internalLinks: InternalLink[] = [
     context: "inline",
     note: "Existing inline link in alternatives section (shipped Phase 2.5).",
   },
+  // 2026-05-04: /madrichim/matey-shipur-migun-adif/ article launch (Gal 3, Phase 4.7).
+  {
+    fromUrl: "/madrichim/matey-shipur-migun-adif",
+    toUrl: "/services/room-reinforcement",
+    anchorText: "שיפור מיגון",
+    context: "inline",
+    note: "Inline link in opening section.",
+  },
+  {
+    fromUrl: "/madrichim/matey-shipur-migun-adif",
+    toUrl: "/memad/binyan-yashan",
+    anchorText: "ממ״ד לבניין ישן",
+    context: "inline",
+    note: "Inline link in metay-shipur-adif section.",
+  },
+  {
+    fromUrl: "/madrichim/matey-shipur-migun-adif",
+    toUrl: "/memad/bayit-prati",
+    anchorText: "ממ״ד לבית פרטי",
+    context: "inline",
+    note: "Inline link in metay-mamad-adif section.",
+  },
   // 2026-05-04: /madrichim/eravut-bankait-vs-chok-mehor/ article launch (Gal 3, Phase 4.6).
   {
     fromUrl: "/madrichim/eravut-bankait-vs-chok-mehor",

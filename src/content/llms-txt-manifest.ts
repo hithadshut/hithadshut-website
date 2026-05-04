@@ -223,6 +223,12 @@ export const llmsManifest: LlmsManifest = {
           description:
             "ההבחנה המהותית בין שתי הערבויות, מתי כל אחת חלה, ורשימת בדיקה לפני חתימה.",
         },
+        {
+          url: "/madrichim/matey-shipur-migun-adif",
+          label: "מתי שיפור מיגון עדיף על ממ״ד חדש",
+          description:
+            "מסגרת החלטה ב-4 שאלות, ארבעה מצבים שעדיף שיפור מיגון, וחמישה שעדיף ממ״ד תקני.",
+        },
       ],
     },
     {
