@@ -257,6 +257,12 @@ export const llmsManifest: LlmsManifest = {
           description:
             "ההבדלים בין מתחם לבניין יחיד, רוב, זמן, תמורה, וההכרעה ב-2026.",
         },
+        {
+          url: "/hashvaa/shaked-vs-tama",
+          label: "חלופת שקד מול תמ״א 38 2026",
+          description:
+            "מסגרת חוקית, זכויות בנייה, תהליך אישור, ומה דייר עושה במעבר.",
+        },
       ],
     },
     {

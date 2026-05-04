@@ -430,6 +430,28 @@ export const internalLinks: InternalLink[] = [
     context: "inline",
     note: "Existing inline link in alternatives section (shipped Phase 2.5).",
   },
+  // 2026-05-04: /hashvaa/shaked-vs-tama/ comparison launch (Gal 3, Phase 4.2).
+  {
+    fromUrl: "/hashvaa/shaked-vs-tama",
+    toUrl: "/chalufat-shaked",
+    anchorText: "חלופת שקד",
+    context: "inline",
+    note: "Inline link in zechuyot-bniya section.",
+  },
+  {
+    fromUrl: "/hashvaa/shaked-vs-tama",
+    toUrl: "/tama-38/pkia-2026",
+    anchorText: "תמ״א 38 פוקעת",
+    context: "inline",
+    note: "Inline link in maavar section.",
+  },
+  {
+    fromUrl: "/hashvaa/shaked-vs-tama",
+    toUrl: "/tama-38/sug-1",
+    anchorText: "תמ״א 38/1",
+    context: "inline",
+    note: "Inline link in hechlatat-2026 section.",
+  },
   // 2026-05-04: /hashvaa/pinui-vs-tama/ comparison launch (Gal 3, Phase 4.1).
   {
     fromUrl: "/hashvaa/pinui-vs-tama",

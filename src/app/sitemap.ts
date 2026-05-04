@@ -210,6 +210,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    {
+      url: `${site.url}/hashvaa/shaked-vs-tama`,
+      lastModified: lastModifiedFor("src/app/hashvaa/shaked-vs-tama/page.tsx"),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
     // Services
     ...services.map((s) => ({
       url: `${site.url}/services/${s.slug}`,
