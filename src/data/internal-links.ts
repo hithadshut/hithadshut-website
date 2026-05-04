@@ -430,6 +430,28 @@ export const internalLinks: InternalLink[] = [
     context: "inline",
     note: "Existing inline link in alternatives section (shipped Phase 2.5).",
   },
+  // 2026-05-04: /hashvaa/migun-vs-pinui/ comparison launch (Gal 3, Phase 4.3).
+  {
+    fromUrl: "/hashvaa/migun-vs-pinui",
+    toUrl: "/services/room-reinforcement",
+    anchorText: "שיפור מיגון",
+    context: "inline",
+    note: "Inline link in shtei-gishot section.",
+  },
+  {
+    fromUrl: "/hashvaa/migun-vs-pinui",
+    toUrl: "/pinui-binui",
+    anchorText: "פינוי בינוי",
+    context: "inline",
+    note: "Inline link in shtei-gishot section.",
+  },
+  {
+    fromUrl: "/hashvaa/migun-vs-pinui",
+    toUrl: "/pinui-binui/kshishim",
+    anchorText: "זכויות קשישים בפינוי בינוי",
+    context: "inline",
+    note: "Inline link in masgeret-haclata section.",
+  },
   // 2026-05-04: /hashvaa/shaked-vs-tama/ comparison launch (Gal 3, Phase 4.2).
   {
     fromUrl: "/hashvaa/shaked-vs-tama",

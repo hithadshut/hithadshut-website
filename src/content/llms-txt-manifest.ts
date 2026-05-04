@@ -263,6 +263,12 @@ export const llmsManifest: LlmsManifest = {
           description:
             "מסגרת חוקית, זכויות בנייה, תהליך אישור, ומה דייר עושה במעבר.",
         },
+        {
+          url: "/hashvaa/migun-vs-pinui",
+          label: "שיפור מיגון מול פינוי בינוי 2026",
+          description:
+            "שתי גישות שונות: מתי כל פתרון מתאים, מסגרת החלטה, ומה לבדוק.",
+        },
       ],
     },
     {
