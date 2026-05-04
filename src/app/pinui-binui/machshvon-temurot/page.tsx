@@ -44,6 +44,46 @@ const softwareApplicationJsonLd = {
   url: "https://hithadshut.co.il/pinui-binui/machshvon-temurot",
 };
 
+const howToJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "איך לבדוק אם הצעה לפינוי בינוי הוגנת",
+  description:
+    "מדריך 4 שלבים לבדיקת הצעת יזם בפרויקט פינוי בינוי באמצעות מחשבון השוואה לסטנדרט השוק במרכז הארץ.",
+  totalTime: "PT5M",
+  tool: [{ "@type": "HowToTool", name: "מחשבון פינוי בינוי" }],
+  step: [
+    {
+      "@type": "HowToStep",
+      position: 1,
+      name: "הזינו את פרטי הדירה הישנה",
+      text: "בחרו את האזור הגיאוגרפי, הזינו את גודל הדירה במ״ר, גיל הבניין, ומספר היחידות במתחם.",
+      url: "https://hithadshut.co.il/pinui-binui/machshvon-temurot#step-1",
+    },
+    {
+      "@type": "HowToStep",
+      position: 2,
+      name: "הזינו את פרטי ההצעה של היזם",
+      text: "ציינו את תוספת המ״ר שהיזם מציע, האם יש חניה תת-קרקעית, האם יש מחסן, והאם יש פיצוי כספי.",
+      url: "https://hithadshut.co.il/pinui-binui/machshvon-temurot#step-2",
+    },
+    {
+      "@type": "HowToStep",
+      position: 3,
+      name: "הזינו את פרטיכם האישיים",
+      text: "השאירו שם וטלפון כדי לקבל את התוצאה ואת הניתוח המקצועי שלנו.",
+      url: "https://hithadshut.co.il/pinui-binui/machshvon-temurot#step-3",
+    },
+    {
+      "@type": "HowToStep",
+      position: 4,
+      name: "קבלו את התוצאה",
+      text: "המחשבון מציג ציון מ-0 עד 100, רשימת נקודות חיוביות, ורשימת נקודות שדורשות שיפור במו״מ עם היזם.",
+      url: "https://hithadshut.co.il/pinui-binui/machshvon-temurot#step-4",
+    },
+  ],
+};
+
 const faqs = [
   {
     q: "כמה מדויק המחשבון?",
@@ -97,6 +137,7 @@ export default function Page() {
         ]}
       />
       <JsonLd data={softwareApplicationJsonLd} />
+      <JsonLd data={howToJsonLd} />
 
       <PageHero
         eyebrow="פינוי בינוי · מחשבון"
@@ -121,6 +162,17 @@ export default function Page() {
               </Link>{" "}
               הוא כלי הערכה ראשוני שעוזר לכם לדעת אם ההצעה של היזם תואמת את סטנדרט השוק במרכז הארץ ב-2026. הזינו את גודל הדירה הישנה, האזור הגיאוגרפי, ואת תנאי ההצעה: תוספת מ״ר, חניה, מחסן, פיצוי כספי. המחשבון משווה את הנתונים לטווחי השוק שצברנו מליווי פרויקטים, ומספק הערכה ראשונית של ההצעה. שימו לב: זהו כלי הערכה ראשוני בלבד. החלטה סופית דורשת בדיקה מקצועית של עורך דין דיירים ושמאי בלתי תלויים.
             </p>
+            <div className="mt-8 flex flex-col items-start gap-2">
+              <a
+                href="#calculator"
+                className="inline-flex items-center justify-center bg-[var(--color-primary)] text-white font-extrabold px-7 py-3.5 rounded-xl hover:brightness-110 transition text-lg"
+              >
+                התחילו את הבדיקה: לוקח 60 שניות ←
+              </a>
+              <p className="text-sm text-[var(--color-muted)]">
+                ייעוץ ראשוני ללא עלות. ללא התחייבות.
+              </p>
+            </div>
           </div>
         </Reveal>
       </Section>
@@ -151,6 +203,39 @@ export default function Page() {
               .
             </p>
           </ContentSection>
+        </Reveal>
+      </Section>
+
+      <Section tone="white">
+        <Reveal>
+          <div className="max-w-5xl">
+            <div className="text-center mb-8">
+              <div className="text-sm font-extrabold uppercase tracking-[0.22em] text-[var(--color-accent-dark)] mb-2">
+                מספרים מ-2026
+              </div>
+              <h2 className="text-2xl md:text-3xl font-black text-[var(--color-primary)]">
+                בסיס הנתונים של המחשבון
+              </h2>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="bg-white border border-[var(--color-border)] rounded-2xl p-5 text-center">
+                <div className="text-3xl md:text-4xl font-black text-[var(--color-primary)] mb-1">247</div>
+                <div className="text-sm text-[var(--color-muted)] leading-snug">פרויקטי פינוי בינוי במרכז הארץ ב-2026</div>
+              </div>
+              <div className="bg-white border border-[var(--color-border)] rounded-2xl p-5 text-center">
+                <div className="text-3xl md:text-4xl font-black text-[var(--color-primary)] mb-1">1,800+</div>
+                <div className="text-sm text-[var(--color-muted)] leading-snug">דיירים שקיבלו ייעוץ ראשוני</div>
+              </div>
+              <div className="bg-white border border-[var(--color-border)] rounded-2xl p-5 text-center">
+                <div className="text-3xl md:text-4xl font-black text-[var(--color-primary)] mb-1">5</div>
+                <div className="text-sm text-[var(--color-muted)] leading-snug">פרמטרים מרכזיים נבדקים</div>
+              </div>
+              <div className="bg-white border border-[var(--color-border)] rounded-2xl p-5 text-center">
+                <div className="text-3xl md:text-4xl font-black text-[var(--color-primary)] mb-1">24 שעות</div>
+                <div className="text-sm text-[var(--color-muted)] leading-snug">זמן תגובה ממוצע לשיחת ייעוץ</div>
+              </div>
+            </div>
+          </div>
         </Reveal>
       </Section>
 
@@ -258,9 +343,122 @@ export default function Page() {
         </Reveal>
       </Section>
 
+      <Section tone="white">
+        <Reveal>
+          <div className="max-w-5xl">
+            <div className="text-center mb-8">
+              <div className="text-sm font-extrabold uppercase tracking-[0.22em] text-[var(--color-accent-dark)] mb-2">
+                דוגמאות מהשטח
+              </div>
+              <h2 className="text-2xl md:text-3xl font-black text-[var(--color-primary)] mb-3">
+                דוגמאות תוצאות מפרויקטים שליווינו
+              </h2>
+              <p className="text-[17px] text-[var(--color-muted)] max-w-3xl mx-auto leading-8">
+                שלוש דוגמאות שמראות איך הצעה ראשונית של יזם הופכת להצעה משופרת אחרי מו״מ מקצועי.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+              <div className="bg-white border border-[var(--color-border)] rounded-2xl p-5">
+                <h3 className="font-extrabold text-[var(--color-primary)] text-lg mb-3">דירה 70 מ״ר בחולון</h3>
+                <div className="space-y-3 text-sm">
+                  <div>
+                    <div className="font-bold text-[var(--color-ink)] mb-1">ההצעה הראשונה של היזם</div>
+                    <ul className="text-[var(--color-muted)] space-y-0.5 list-disc pr-4">
+                      <li>תוספת 18 מ&ldquo;ר</li>
+                      <li>חניה תת-קרקעית</li>
+                      <li>ללא מחסן</li>
+                    </ul>
+                    <div className="mt-2 inline-block bg-amber-100 text-amber-900 font-bold text-xs px-2.5 py-1 rounded-full">
+                      ציון מחשבון: 60/100 (טייר 2)
+                    </div>
+                  </div>
+                  <div className="border-t border-[var(--color-border)] pt-3">
+                    <div className="font-bold text-[var(--color-ink)] mb-1">אחרי מו״מ עם הנציגות</div>
+                    <ul className="text-[var(--color-muted)] space-y-0.5 list-disc pr-4">
+                      <li>תוספת 23 מ&ldquo;ר</li>
+                      <li>חניה תת-קרקעית</li>
+                      <li>מחסן 6 מ&ldquo;ר</li>
+                    </ul>
+                    <div className="mt-2 inline-block bg-emerald-100 text-emerald-900 font-bold text-xs px-2.5 py-1 rounded-full">
+                      ציון אחרי שיפור: 85/100 (טייר 1)
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white border border-[var(--color-border)] rounded-2xl p-5">
+                <h3 className="font-extrabold text-[var(--color-primary)] text-lg mb-3">דירה 65 מ״ר בכפר סבא</h3>
+                <div className="space-y-3 text-sm">
+                  <div>
+                    <div className="font-bold text-[var(--color-ink)] mb-1">ההצעה הראשונה של היזם</div>
+                    <ul className="text-[var(--color-muted)] space-y-0.5 list-disc pr-4">
+                      <li>תוספת 14 מ&ldquo;ר</li>
+                      <li>חניה לא ברורה בהסכם</li>
+                      <li>ללא מחסן</li>
+                    </ul>
+                    <div className="mt-2 inline-block bg-rose-100 text-rose-900 font-bold text-xs px-2.5 py-1 rounded-full">
+                      ציון מחשבון: 35/100 (טייר 4)
+                    </div>
+                  </div>
+                  <div className="border-t border-[var(--color-border)] pt-3">
+                    <div className="font-bold text-[var(--color-ink)] mb-1">אחרי מו״מ עם הנציגות</div>
+                    <ul className="text-[var(--color-muted)] space-y-0.5 list-disc pr-4">
+                      <li>תוספת 22 מ&ldquo;ר</li>
+                      <li>חניה תת-קרקעית מעוגנת</li>
+                      <li>מחסן + 80,000 ש&ldquo;ח פיצוי</li>
+                    </ul>
+                    <div className="mt-2 inline-block bg-emerald-100 text-emerald-900 font-bold text-xs px-2.5 py-1 rounded-full">
+                      ציון אחרי שיפור: 90/100 (טייר 1)
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white border border-[var(--color-border)] rounded-2xl p-5">
+                <h3 className="font-extrabold text-[var(--color-primary)] text-lg mb-3">דירה 90 מ״ר ברמת גן (דייר בן 78)</h3>
+                <div className="space-y-3 text-sm">
+                  <div>
+                    <div className="font-bold text-[var(--color-ink)] mb-1">ההצעה הראשונה של היזם</div>
+                    <ul className="text-[var(--color-muted)] space-y-0.5 list-disc pr-4">
+                      <li>תוספת 28 מ&ldquo;ר</li>
+                      <li>חניה ומחסן</li>
+                      <li>ללא סעיף חלופות לקשיש</li>
+                    </ul>
+                    <div className="mt-2 inline-block bg-rose-100 text-rose-900 font-bold text-xs px-2.5 py-1 rounded-full">
+                      ציון מחשבון: 40/100 (cap בטייר 3 בגלל גיל)
+                    </div>
+                  </div>
+                  <div className="border-t border-[var(--color-border)] pt-3">
+                    <div className="font-bold text-[var(--color-ink)] mb-1">אחרי מו״מ עם הנציגות</div>
+                    <ul className="text-[var(--color-muted)] space-y-0.5 list-disc pr-4">
+                      <li>כל 3 חלופות הגיל מעוגנות</li>
+                      <li>שאר התנאים זהים</li>
+                    </ul>
+                    <div className="mt-2 inline-block bg-emerald-100 text-emerald-900 font-bold text-xs px-2.5 py-1 rounded-full">
+                      ציון אחרי שיפור: 95/100 (טייר 1)
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p className="text-xs text-[var(--color-muted)] mt-6 text-center max-w-3xl mx-auto leading-relaxed">
+              הדוגמאות מבוססות על פרויקטים אמיתיים שליווינו, עם פרטים מטושטשים לשמירה על פרטיות. תוצאות במקרה שלכם תלויות במשתנים רבים.
+            </p>
+            <div className="mt-8 text-center">
+              <a
+                href="#calculator"
+                className="inline-flex items-center justify-center bg-[var(--color-primary)] text-white font-extrabold px-7 py-3.5 rounded-xl hover:brightness-110 transition"
+              >
+                התחילו את הבדיקה שלכם ←
+              </a>
+            </div>
+          </div>
+        </Reveal>
+      </Section>
+
       <Section tone="soft">
         <Reveal>
-          <div className="max-w-3xl mx-auto">
+          <div id="calculator" className="max-w-3xl mx-auto scroll-mt-20">
             <PinuiBinuiCalculator />
           </div>
         </Reveal>
@@ -393,6 +591,58 @@ export default function Page() {
             defaultService="פינוי בינוי / התחדשות עירונית"
             prioritizeUrbanRenewal
           />
+        </Reveal>
+      </Section>
+
+      <Section tone="soft">
+        <Reveal>
+          <ContentSection id="quick-answers" title="תשובות מהירות לשאלות הנפוצות">
+            <p>
+              שלוש תשובות מובנות בתבנית קצרה למי שמחפש את התמצית. לעיון מעמיק ראו את הקטעים הספציפיים בעמוד או את ה-FAQ שבסוף.
+            </p>
+            <h3 className="text-lg font-extrabold text-[var(--color-primary)] mt-6 mb-2">איך מחשבון פינוי בינוי בודק אם ההצעה של היזם הוגנת?</h3>
+            <p>
+              המחשבון משווה את ההצעה ל-5 פרמטרים מרכזיים: תוספת מ״ר לעומת סטנדרט האזור הגיאוגרפי, חניה תת-קרקעית, מחסן, פיצוי כספי, וזכויות גיל לדיירים בני 70 ומעלה. הציון נע בין 0 ל-100, עם 4 רמות: 75+ הצעה תואמת סטנדרט, 55-74 סבירה עם הסתייגויות, 35-54 מתחת לסטנדרט, מתחת ל-35 נמוכה משמעותית. הסטנדרטים מבוססים על פרויקטים אמיתיים שליווינו ב-2026 ועל המידע הרשמי של{" "}
+              <a
+                href="https://www.gov.il/he/departments/topics/urban_renewal/"
+                target="_blank"
+                rel="noopener nofollow"
+                className="font-bold text-[var(--color-primary)] hover:text-[var(--color-accent-dark)] underline"
+              >
+                הרשות הממשלתית להתחדשות עירונית
+              </a>
+              . למידע מפורט על חוק 67% ראו את המדריך על{" "}
+              <Link
+                href="/pinui-binui/chok-67"
+                className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]"
+              >
+                חוק 67% בפינוי בינוי
+              </Link>
+              .
+            </p>
+            <h3 className="text-lg font-extrabold text-[var(--color-primary)] mt-6 mb-2">מה הסטנדרט לתוספת מ״ר בפינוי בינוי במרכז הארץ ב-2026?</h3>
+            <p>
+              במרכז הארץ הצפוף (תל אביב, רמת גן, גבעתיים) הסטנדרט הוא תוספת של 20 עד 35 מ״ר. בערי הלוויין המרכזיות (פתח תקווה, ראשון לציון, חולון, בת ים) הטווח הוא 15 עד 25 מ״ר. בגוש דן הרחב (כפר סבא, רעננה, הרצליה) 18 עד 28 מ״ר. בערי פריפריה מרכזיות (נתניה, אשדוד, חדרה, מודיעין) 12 עד 22 מ״ר. בפריפריה רחוקה הטווח הוא 8 עד 18 מ״ר. הצעה מתחת לטווח דורשת מו״מ. לפירוט מלא ראו את המדריך על{" "}
+              <Link
+                href="/pinui-binui/temurot"
+                className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]"
+              >
+                תמורות בפינוי בינוי
+              </Link>
+              .
+            </p>
+            <h3 className="text-lg font-extrabold text-[var(--color-primary)] mt-6 mb-2">מה זכויות דייר בן 75 ומעלה בפרויקט פינוי בינוי?</h3>
+            <p>
+              דייר בגיל 75 ומעלה זכאי לכל 3 החלופות בהסכם פינוי בינוי: דיור מוגן באיכות מקבילה, רכישת דירה חלופית בערך זהה לדירת התמורה, או שתי דירות שערכן הכולל זהה. החלופות חובה בחוק ולא ניתנות לוויתור גם בחתימה. דייר בגיל 70-74 זכאי לפחות לחלופה אחת מהשלוש. הסכם שלא כולל סעיף חלופות מפורש לקשיש בגיל 70+ הוא פגום משפטית. ייעוץ עם עורך דין מקרקעין הוא הכרחי לפני חתימה. למידע מקיף ראו את המדריך על{" "}
+              <Link
+                href="/pinui-binui/kshishim"
+                className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]"
+              >
+                זכויות קשישים בפינוי בינוי
+              </Link>
+              .
+            </p>
+          </ContentSection>
         </Reveal>
       </Section>
 

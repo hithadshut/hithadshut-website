@@ -186,6 +186,9 @@ export default function PinuiBinuiCalculator() {
   const [exitPhone, setExitPhone] = useState("");
   const [exitSubmitted, setExitSubmitted] = useState(false);
   const exitDismissedRef = useRef(false);
+  const [showDesktopSticky, setShowDesktopSticky] = useState(false);
+  const [desktopStickyDismissed, setDesktopStickyDismissed] = useState(false);
+  const widgetRef = useRef<HTMLDivElement | null>(null);
 
   // Restore from sessionStorage
   useEffect(() => {
@@ -201,6 +204,39 @@ export default function PinuiBinuiCalculator() {
       // ignore
     }
   }, []);
+
+  // Desktop sticky widget appears when user scrolls past 50% of calculator
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (window.matchMedia("(max-width: 768px)").matches) return;
+    try {
+      if (sessionStorage.getItem("pb-calc-sticky-dismissed") === "1") {
+        setDesktopStickyDismissed(true);
+        return;
+      }
+    } catch {
+      // ignore
+    }
+    const onScroll = () => {
+      const el = widgetRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const halfwayY = rect.top + rect.height / 2;
+      setShowDesktopSticky(halfwayY < 0);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  function dismissDesktopSticky() {
+    setDesktopStickyDismissed(true);
+    try {
+      sessionStorage.setItem("pb-calc-sticky-dismissed", "1");
+    } catch {
+      // ignore
+    }
+  }
 
   // Exit intent (desktop only, mouse leaves through top)
   useEffect(() => {
@@ -357,7 +393,7 @@ export default function PinuiBinuiCalculator() {
   }
 
   return (
-    <div className="bg-white border border-[var(--color-border)] rounded-2xl shadow-[var(--shadow-card)] p-5 md:p-8">
+    <div ref={widgetRef} className="bg-white border border-[var(--color-border)] rounded-2xl shadow-[var(--shadow-card)] p-5 md:p-8">
       {/* Progress indicator */}
       <ol className="flex items-center justify-between gap-1 md:gap-2 mb-6 md:mb-8 text-xs md:text-sm" aria-label="שלבי המחשבון">
         {STEPS.map((label, i) => {
@@ -383,7 +419,7 @@ export default function PinuiBinuiCalculator() {
 
       {/* Step 1: Old apartment details */}
       {step === 1 && (
-        <div className="space-y-5">
+        <div id="step-1" className="space-y-5">
           <h3 className="text-xl md:text-2xl font-extrabold text-[var(--color-primary)]">שלב 1: פרטי הדירה הישנה</h3>
 
           <Field label="עיר / אזור" required>
@@ -453,7 +489,7 @@ export default function PinuiBinuiCalculator() {
 
       {/* Step 2: Offer details */}
       {step === 2 && (
-        <div className="space-y-5">
+        <div id="step-2" className="space-y-5">
           <h3 className="text-xl md:text-2xl font-extrabold text-[var(--color-primary)]">שלב 2: פרטי ההצעה של היזם</h3>
 
           <Field label="תוספת מ״ר שמציע היזם" required>
@@ -573,7 +609,7 @@ export default function PinuiBinuiCalculator() {
 
       {/* Step 3: Lead capture */}
       {step === 3 && (
-        <form className="space-y-5" onSubmit={submitLead}>
+        <form id="step-3" className="space-y-5" onSubmit={submitLead}>
           <h3 className="text-xl md:text-2xl font-extrabold text-[var(--color-primary)]">שלב 3: פרטים אישיים לקבלת התוצאה</h3>
 
           <p className="text-sm text-[var(--color-muted)]">השבוע נבדקו 47 הצעות פינוי בינוי במחשבון.</p>
@@ -682,6 +718,7 @@ export default function PinuiBinuiCalculator() {
 
       {/* Step 4: Verdict (PARTIAL) */}
       {step === 4 && verdict && (
+        <div id="step-4">
         <Verdict
           verdict={verdict}
           onRequestFull={submitFullCta}
@@ -690,6 +727,7 @@ export default function PinuiBinuiCalculator() {
           onCloseModal={() => setShowFullCtaModal(false)}
           onReset={reset}
         />
+        </div>
       )}
 
       {/* Sticky mobile CTA bar */}
@@ -709,6 +747,40 @@ export default function PinuiBinuiCalculator() {
           התקשרו: {site.phone}
         </a>
       </div>
+
+      {/* Desktop sticky widget: appears after scrolling past calculator midpoint */}
+      {showDesktopSticky && !desktopStickyDismissed && (
+        <div
+          className="hidden md:block fixed bottom-6 left-6 z-30 w-[220px] bg-white rounded-2xl shadow-2xl border border-[var(--color-border)] p-4"
+          aria-label="צריכים עזרה"
+        >
+          <button
+            type="button"
+            onClick={dismissDesktopSticky}
+            aria-label="סגור"
+            className="absolute top-2 left-2 w-7 h-7 flex items-center justify-center text-[var(--color-muted)] hover:text-[var(--color-primary)] text-lg"
+          >
+            ×
+          </button>
+          <div className="font-extrabold text-[var(--color-primary)] mb-3">צריכים עזרה?</div>
+          <a
+            href={`tel:${site.phoneDial}`}
+            className="flex items-center gap-2 text-[var(--color-primary)] font-bold text-sm mb-2 hover:text-[var(--color-accent-dark)]"
+          >
+            <span>📞</span>
+            <span>{site.phone}</span>
+          </a>
+          <a
+            href={site.whatsappUrl}
+            target="_blank"
+            rel="noopener"
+            className="flex items-center gap-2 text-[var(--color-whatsapp)] font-bold text-sm hover:opacity-80"
+          >
+            <span>💬</span>
+            <span>וואטסאפ</span>
+          </a>
+        </div>
+      )}
 
       {/* Exit intent modal */}
       {showExitIntent && !exitSubmitted && (
