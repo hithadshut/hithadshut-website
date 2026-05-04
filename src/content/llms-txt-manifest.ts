@@ -249,6 +249,17 @@ export const llmsManifest: LlmsManifest = {
       ],
     },
     {
+      title: "השוואות התחדשות עירונית",
+      items: [
+        {
+          url: "/hashvaa/pinui-vs-tama",
+          label: "פינוי בינוי מול תמ״א 38 2026",
+          description:
+            "ההבדלים בין מתחם לבניין יחיד, רוב, זמן, תמורה, וההכרעה ב-2026.",
+        },
+      ],
+    },
+    {
       title: "עמודי השוואה",
       items: [
         {

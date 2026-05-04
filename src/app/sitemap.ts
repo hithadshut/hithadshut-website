@@ -203,6 +203,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.9,
     },
+    // Hashvaa cluster (urban-renewal comparison pages)
+    {
+      url: `${site.url}/hashvaa/pinui-vs-tama`,
+      lastModified: lastModifiedFor("src/app/hashvaa/pinui-vs-tama/page.tsx"),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
     // Services
     ...services.map((s) => ({
       url: `${site.url}/services/${s.slug}`,

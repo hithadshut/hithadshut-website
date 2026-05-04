@@ -430,6 +430,35 @@ export const internalLinks: InternalLink[] = [
     context: "inline",
     note: "Existing inline link in alternatives section (shipped Phase 2.5).",
   },
+  // 2026-05-04: /hashvaa/pinui-vs-tama/ comparison launch (Gal 3, Phase 4.1).
+  {
+    fromUrl: "/hashvaa/pinui-vs-tama",
+    toUrl: "/pinui-binui",
+    anchorText: "פינוי בינוי",
+    context: "inline",
+    note: "Inline link in metay-pinui section.",
+  },
+  {
+    fromUrl: "/hashvaa/pinui-vs-tama",
+    toUrl: "/tama-38",
+    anchorText: "תמ״א 38",
+    context: "inline",
+    note: "Inline link in metay-tama section.",
+  },
+  {
+    fromUrl: "/hashvaa/pinui-vs-tama",
+    toUrl: "/chalufat-shaked",
+    anchorText: "חלופת שקד",
+    context: "inline",
+    note: "Inline link in metay-tama section.",
+  },
+  {
+    fromUrl: "/hashvaa/pinui-vs-tama",
+    toUrl: "/pinui-binui/kshishim",
+    anchorText: "זכויות קשישים בפינוי בינוי",
+    context: "inline",
+    note: "Inline link in zechuyot-gil section.",
+  },
   // 2026-05-04: /chalufat-shaked/ pillar launch (Gal 3, Phase 3.5).
   {
     fromUrl: "/chalufat-shaked",
