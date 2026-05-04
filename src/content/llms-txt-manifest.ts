@@ -229,6 +229,12 @@ export const llmsManifest: LlmsManifest = {
           description:
             "מסגרת החלטה ב-4 שאלות, ארבעה מצבים שעדיף שיפור מיגון, וחמישה שעדיף ממ״ד תקני.",
         },
+        {
+          url: "/madrichim/zechut-baalut-vs-zechut-yorshim",
+          label: "זכות בעלות מול זכות יורשים",
+          description:
+            "ההבחנה המשפטית, השלכות בפרויקט פינוי בינוי, וסעיפים שחובה לעגן בהסכם.",
+        },
       ],
     },
     {

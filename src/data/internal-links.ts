@@ -430,6 +430,21 @@ export const internalLinks: InternalLink[] = [
     context: "inline",
     note: "Existing inline link in alternatives section (shipped Phase 2.5).",
   },
+  // 2026-05-04: /madrichim/zechut-baalut-vs-zechut-yorshim/ article launch (Gal 3, Phase 4.8).
+  {
+    fromUrl: "/madrichim/zechut-baalut-vs-zechut-yorshim",
+    toUrl: "/pinui-binui/yorshim",
+    anchorText: "ירושה דירה בפינוי בינוי",
+    context: "inline",
+    note: "Inline link in opening section.",
+  },
+  {
+    fromUrl: "/madrichim/zechut-baalut-vs-zechut-yorshim",
+    toUrl: "/pinui-binui/kshishim",
+    anchorText: "זכויות קשישים בפינוי בינוי",
+    context: "inline",
+    note: "Inline link in zechuyot-gil-yorshim section.",
+  },
   // 2026-05-04: /madrichim/matey-shipur-migun-adif/ article launch (Gal 3, Phase 4.7).
   {
     fromUrl: "/madrichim/matey-shipur-migun-adif",

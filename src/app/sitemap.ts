@@ -247,6 +247,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    {
+      url: `${site.url}/madrichim/zechut-baalut-vs-zechut-yorshim`,
+      lastModified: lastModifiedFor("src/app/madrichim/zechut-baalut-vs-zechut-yorshim/page.tsx"),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
     // Services
     ...services.map((s) => ({
       url: `${site.url}/services/${s.slug}`,
