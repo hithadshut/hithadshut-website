@@ -280,13 +280,13 @@ export default function Page() {
                 <strong className="text-[var(--color-primary)]">חוסר התחשבות באופק הזמן.</strong> בית שמועד לפינוי בינוי לא מצדיק ממ״ד תקני יקר.
               </li>
               <li>
-                <strong className="text-[var(--color-primary)]">אמון בקבלן שמציע 'שיפור מיגון תקני'.</strong> אין כזה דבר. שיפור מיגון אינו מקבל מעמד תקני של ממ״ד פקע״ר. קבלן שטוען זאת אינו מקצועי.
+                <strong className="text-[var(--color-primary)]">אמון בקבלן שמציע &ldquo;שיפור מיגון תקני&rdquo;.</strong> אין כזה דבר. שיפור מיגון אינו מקבל מעמד תקני של ממ״ד פקע״ר. קבלן שטוען זאת אינו מקצועי.
               </li>
               <li>
                 <strong className="text-[var(--color-primary)]">חיסכון על דלת הדף.</strong> דלת חיזוק רגילה אינה תחליף לדלת הדף תקנית. בשיפור מיגון מקצועי, דלת הדף הוא הרכיב המרכזי.
               </li>
               <li>
-                <strong className="text-[var(--color-primary)]">דחיית ההחלטה לאינסוף.</strong> &ldquo;נחכה לפינוי בינוי&rdquo; זמן 10+ שנים בלי הגנה הוא סיכון. החלטה כלשהי טובה מאי-החלטה.
+                <strong className="text-[var(--color-primary)]">דחיית ההחלטה לאינסוף.</strong> &ldquo;נחכה לפינוי בינוי&rdquo; במשך 10+ שנים בלי הגנה הוא סיכון. החלטה כלשהי טובה מאי-החלטה.
               </li>
             </ul>
           </ContentSection>
