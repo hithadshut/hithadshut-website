@@ -1006,6 +1006,42 @@ export const internalLinks: InternalLink[] = [
     context: "related",
     note: "Sub-page RelatedLinks card to comparison page (orphan-fix, 2nd inbound).",
   },
+  // 2026-05-04: /madrichim/luach-zmanim-pinui-binui-2026/ article launch (Phase 5.1, Article 1).
+  {
+    fromUrl: "/madrichim/luach-zmanim-pinui-binui-2026",
+    toUrl: "/pinui-binui",
+    anchorText: "פינוי בינוי",
+    context: "inline",
+    note: "Inline link in opening Quick Answer block.",
+  },
+  {
+    fromUrl: "/madrichim/luach-zmanim-pinui-binui-2026",
+    toUrl: "/pinui-binui/yazam",
+    anchorText: "איך בוחרים יזם פינוי בינוי",
+    context: "inline",
+    note: "Inline link in shlav-1-2 (developer selection) section.",
+  },
+  {
+    fromUrl: "/madrichim/luach-zmanim-pinui-binui-2026",
+    toUrl: "/pinui-binui/eravut",
+    anchorText: "ערבויות בפינוי בינוי",
+    context: "inline",
+    note: "Inline link in shlav-5-7 (demolition guarantees) section.",
+  },
+  {
+    fromUrl: "/madrichim/luach-zmanim-pinui-binui-2026",
+    toUrl: "/pinui-binui/sarvan",
+    anchorText: "דייר סרבן בפינוי בינוי",
+    context: "inline",
+    note: "Inline link in goramim-mearichim (delay factors) section.",
+  },
+  {
+    fromUrl: "/madrichim/luach-zmanim-pinui-binui-2026",
+    toUrl: "/pinui-binui/yorshim",
+    anchorText: "ירושה דירה בפינוי בינוי",
+    context: "inline",
+    note: "Inline link in goramim-mearichim (delay factors) section.",
+  },
 ];
 
 /** All internal links pointing FROM a given URL. */
