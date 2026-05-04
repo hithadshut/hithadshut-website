@@ -217,6 +217,12 @@ export const llmsManifest: LlmsManifest = {
           description:
             "10 שאלות מובנות לפני חתימה, ניתוח עומק, ודגלים אדומים בתשובות.",
         },
+        {
+          url: "/madrichim/eravut-bankait-vs-chok-mehor",
+          label: "ערבות בנקאית מול ערבות חוק מכר",
+          description:
+            "ההבחנה המהותית בין שתי הערבויות, מתי כל אחת חלה, ורשימת בדיקה לפני חתימה.",
+        },
       ],
     },
     {

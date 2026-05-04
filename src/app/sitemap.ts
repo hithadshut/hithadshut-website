@@ -235,6 +235,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    {
+      url: `${site.url}/madrichim/eravut-bankait-vs-chok-mehor`,
+      lastModified: lastModifiedFor("src/app/madrichim/eravut-bankait-vs-chok-mehor/page.tsx"),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
     // Services
     ...services.map((s) => ({
       url: `${site.url}/services/${s.slug}`,

@@ -430,6 +430,14 @@ export const internalLinks: InternalLink[] = [
     context: "inline",
     note: "Existing inline link in alternatives section (shipped Phase 2.5).",
   },
+  // 2026-05-04: /madrichim/eravut-bankait-vs-chok-mehor/ article launch (Gal 3, Phase 4.6).
+  {
+    fromUrl: "/madrichim/eravut-bankait-vs-chok-mehor",
+    toUrl: "/pinui-binui/eravut",
+    anchorText: "ערבויות בפינוי בינוי",
+    context: "inline",
+    note: "Inline link in opening section.",
+  },
   // 2026-05-04: /madrichim/10-shealot-le-yazam/ article launch (Gal 3, Phase 4.5).
   {
     fromUrl: "/madrichim/10-shealot-le-yazam",
