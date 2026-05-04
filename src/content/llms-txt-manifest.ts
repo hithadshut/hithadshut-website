@@ -211,6 +211,12 @@ export const llmsManifest: LlmsManifest = {
           description:
             "לוח זמנים, מטריצת אלטרנטיבות לפי סטטוס פרויקט, ופעולות מומלצות.",
         },
+        {
+          url: "/madrichim/10-shealot-le-yazam",
+          label: "10 שאלות שכל דייר חייב לשאול יזם",
+          description:
+            "10 שאלות מובנות לפני חתימה, ניתוח עומק, ודגלים אדומים בתשובות.",
+        },
       ],
     },
     {

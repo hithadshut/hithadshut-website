@@ -430,6 +430,28 @@ export const internalLinks: InternalLink[] = [
     context: "inline",
     note: "Existing inline link in alternatives section (shipped Phase 2.5).",
   },
+  // 2026-05-04: /madrichim/10-shealot-le-yazam/ article launch (Gal 3, Phase 4.5).
+  {
+    fromUrl: "/madrichim/10-shealot-le-yazam",
+    toUrl: "/pinui-binui/yazam",
+    anchorText: "איך בוחרים יזם פינוי בינוי",
+    context: "inline",
+    note: "Inline link in opening section.",
+  },
+  {
+    fromUrl: "/madrichim/10-shealot-le-yazam",
+    toUrl: "/pinui-binui/eravut",
+    anchorText: "ערבויות בפינוי בינוי",
+    context: "inline",
+    note: "Inline link in shealot-4-6 section.",
+  },
+  {
+    fromUrl: "/madrichim/10-shealot-le-yazam",
+    toUrl: "/pinui-binui/kshishim",
+    anchorText: "זכויות קשישים בפינוי בינוי",
+    context: "inline",
+    note: "Inline link in shealot-9-10 section.",
+  },
   // 2026-05-04: /madrichim/sof-tama-38-ma-laasot/ article launch (Gal 3, Phase 4.4).
   {
     fromUrl: "/madrichim/sof-tama-38-ma-laasot",
