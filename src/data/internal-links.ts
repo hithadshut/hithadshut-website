@@ -430,6 +430,21 @@ export const internalLinks: InternalLink[] = [
     context: "inline",
     note: "Existing inline link in alternatives section (shipped Phase 2.5).",
   },
+  // 2026-05-04: /chalufat-shaked/ pillar launch (Gal 3, Phase 3.5).
+  {
+    fromUrl: "/chalufat-shaked",
+    toUrl: "/tama-38/sug-2",
+    anchorText: "תמ״א 38/2",
+    context: "inline",
+    note: "Inline link in opening — predecessor.",
+  },
+  {
+    fromUrl: "/chalufat-shaked",
+    toUrl: "/pinui-binui",
+    anchorText: "פינוי בינוי",
+    context: "inline",
+    note: "Inline link in opening — alternative.",
+  },
   // 2026-05-04: /tama-38/sug-2/ sub-page launch (Gal 3, Phase 3.4).
   {
     fromUrl: "/tama-38/sug-2",

@@ -153,6 +153,12 @@ export const llmsManifest: LlmsManifest = {
           description:
             "מסלול הריסה ובנייה מחדש, רוב 80%, וההבדלים מחלופת שקד.",
         },
+        {
+          url: "/chalufat-shaked",
+          label: "חלופת שקד 2026",
+          description:
+            "תיקון 139 — המסלול שמחליף את תמ״א 38/2, רוב 80%, וזכויות בנייה עד 400%.",
+        },
       ],
     },
     {

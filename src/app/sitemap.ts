@@ -197,6 +197,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    {
+      url: `${site.url}/chalufat-shaked`,
+      lastModified: lastModifiedFor("src/app/chalufat-shaked/page.tsx"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
     // Services
     ...services.map((s) => ({
       url: `${site.url}/services/${s.slug}`,
