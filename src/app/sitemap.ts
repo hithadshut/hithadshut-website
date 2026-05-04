@@ -160,6 +160,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    {
+      url: `${site.url}/memad/koma-elyona`,
+      lastModified: lastModifiedFor("src/app/memad/koma-elyona/page.tsx"),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
     // Services
     ...services.map((s) => ({
       url: `${site.url}/services/${s.slug}`,
