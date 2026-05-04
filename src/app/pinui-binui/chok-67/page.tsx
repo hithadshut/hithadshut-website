@@ -204,6 +204,16 @@ export default function Page() {
             <p>
               דייר סרבן הוא בעל דירה שלא חתם על ההסכם שעליו הסכים רוב הדיירים. החוק לא מתייחס לכל סירוב באותו אופן: הוא מבדיל בין סירוב סביר לבין סירוב בלתי סביר. ההבחנה הזאת היא ליבת ההליך המשפטי.
             </p>
+            <p>
+              מדריך מקיף על{" "}
+              <Link
+                href="/pinui-binui/sarvan"
+                className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]"
+              >
+                דייר סרבן בפינוי בינוי
+              </Link>{" "}
+              מפרט את 12 שלבי ההליך המשפטי, ההגנות העומדות לדייר, הליך כונס הנכסים, ואת ההכרעות התקדימיות בפסיקה לסבירות הסירוב.
+            </p>
           </ContentSection>
 
           <div className="mt-6 max-w-5xl">

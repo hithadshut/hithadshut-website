@@ -211,6 +211,79 @@ export const internalLinks: InternalLink[] = [
     context: "inline",
     note: "Inline link in haganot section to live sibling sub-page.",
   },
+  // 2026-05-04: Block A — inbound links from existing pinui-binui pages
+  // to the 4 new Gal-1 sub-pages (yorshim, eravut, yazam, sarvan).
+  // Pillar /pinui-binui → 4 new sub-pages
+  {
+    fromUrl: "/pinui-binui",
+    toUrl: "/pinui-binui/yorshim",
+    anchorText: "ירושת דירה בפינוי בינוי",
+    context: "inline",
+    note: "Inline link in kshishim section of pillar; covers death-during-project scenario.",
+  },
+  {
+    fromUrl: "/pinui-binui",
+    toUrl: "/pinui-binui/eravut",
+    anchorText: "ערבויות בפינוי בינוי",
+    context: "inline",
+    note: "Inline link in temurot section of pillar; covers contract-guarantee structure.",
+  },
+  {
+    fromUrl: "/pinui-binui",
+    toUrl: "/pinui-binui/yazam",
+    anchorText: "איך בוחרים יזם פינוי בינוי",
+    context: "inline",
+    note: "Inline link in kdai section of pillar; covers developer selection.",
+  },
+  {
+    fromUrl: "/pinui-binui",
+    toUrl: "/pinui-binui/sarvan",
+    anchorText: "דייר סרבן בפינוי בינוי",
+    context: "inline",
+    note: "Inline link in chok-67 section of pillar; covers holdout-tenant process.",
+  },
+  // /pinui-binui/kshishim → /yorshim, /eravut
+  {
+    fromUrl: "/pinui-binui/kshishim",
+    toUrl: "/pinui-binui/yorshim",
+    anchorText: "ירושת דירה בפינוי בינוי",
+    context: "inline",
+    note: "Inline link in leagen section heir-clause bullet; replaces prior /temurot link.",
+  },
+  // Note: /kshishim → /eravut planned forward-link is now activated as a real <Link>
+  // (was plain text per Phase 1 Correction 3, now live with Block A).
+  // The planned-forward-link entry above (line ~127) is superseded by this commit.
+  // /pinui-binui/temurot → /eravut, /yorshim
+  {
+    fromUrl: "/pinui-binui/temurot",
+    toUrl: "/pinui-binui/eravut",
+    anchorText: "ערבות בנקאית או חוק מכר לכל שלב",
+    context: "inline",
+    note: "Inline link in chova section item 3 (non-waivable clauses).",
+  },
+  {
+    fromUrl: "/pinui-binui/temurot",
+    toUrl: "/pinui-binui/yorshim",
+    anchorText: "ירושת דירה בפינוי בינוי",
+    context: "inline",
+    note: "Inline link in masim section heir-position-paper bullet (semantic equivalent to FAQ #6 placement).",
+  },
+  // /pinui-binui/chok-67 → /sarvan
+  {
+    fromUrl: "/pinui-binui/chok-67",
+    toUrl: "/pinui-binui/sarvan",
+    anchorText: "דייר סרבן בפינוי בינוי",
+    context: "inline",
+    note: "Inline link in dayar-sarvan section; routes the most prominent holdout-tenant mention.",
+  },
+  // /pinui-binui/eravut → /yazam
+  {
+    fromUrl: "/pinui-binui/eravut",
+    toUrl: "/pinui-binui/yazam",
+    anchorText: "איך בוחרים יזם פינוי בינוי",
+    context: "inline",
+    note: "Inline link in im-yazam-msarev section; activates previously plain-text reference.",
+  },
 ];
 
 /** All internal links pointing FROM a given URL. */

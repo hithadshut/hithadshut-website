@@ -138,7 +138,14 @@ export default function Page() {
               </li>
             </ol>
             <p>
-              ההגנות מתעגנות בהסכם הפינוי הספציפי. בכל הסכם תקני שמכיל דייר בן 70 ומעלה, סעיף החלופות הוא חלק חובה. בנוסף לחלופות עצמן, יש לוודא שכל החלופות מגובות בערבויות בנקאיות תקניות בהסכם, סעיף שמרבים להחליק במצבים של דיירים מבוגרים. מומלץ להתייעץ עם עו&ldquo;ד מקרקעין שמכיר את{" "}
+              ההגנות מתעגנות בהסכם הפינוי הספציפי. בכל הסכם תקני שמכיל דייר בן 70 ומעלה, סעיף החלופות הוא חלק חובה. בנוסף לחלופות עצמן, יש לוודא שכל החלופות מגובות ב
+              <Link
+                href="/pinui-binui/eravut"
+                className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]"
+              >
+                ערבויות בנקאיות תקניות בהסכם
+              </Link>
+              , סעיף שמרבים להחליק במצבים של דיירים מבוגרים. מומלץ להתייעץ עם עו&ldquo;ד מקרקעין שמכיר את{" "}
               <Link
                 href="/pinui-binui/chok-67"
                 className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]"
@@ -203,12 +210,12 @@ export default function Page() {
                 <strong className="text-[var(--color-primary)]">שמאי דיירים בלתי תלוי.</strong> בודק שערך החלופות זהה לדירת התמורה. שמאי שמטעם היזם אינו מספיק.
               </li>
               <li>
-                <strong className="text-[var(--color-primary)]">סעיף יורשים ספציפי.</strong> אם הדייר נפטר במהלך הפרויקט, יורשיו זכאים לאותן זכויות. בלי סעיף זה, הזכויות פוקעות. סעיף זה אינו מובן מאליו וצריך לדרוש אותו בכתב. למידע על מס שבח ויורשים ראו את המדריך על{" "}
+                <strong className="text-[var(--color-primary)]">סעיף יורשים ספציפי.</strong> אם הדייר נפטר במהלך הפרויקט, יורשיו זכאים לאותן זכויות. בלי סעיף זה, הזכויות פוקעות. סעיף זה אינו מובן מאליו וצריך לדרוש אותו בכתב. למידע מקיף על מס שבח, נייר העמדה החדש של רשות המסים, וסעיפי הסכם שמגנים על יורשים ראו את המדריך על{" "}
                 <Link
-                  href="/pinui-binui/temurot"
+                  href="/pinui-binui/yorshim"
                   className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]"
                 >
-                  תמורות בפינוי בינוי
+                  ירושת דירה בפינוי בינוי
                 </Link>
                 .
               </li>

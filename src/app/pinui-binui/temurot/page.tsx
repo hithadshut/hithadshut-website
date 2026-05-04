@@ -312,7 +312,14 @@ export default function Page() {
                 <strong className="text-[var(--color-primary)]">מס רכישה על דירת התמורה:</strong> בדרך כלל פטור או מוקטן.
               </li>
               <li>
-                <strong className="text-[var(--color-primary)]">נייר עמדה ליורשים:</strong> רשות המסים פרסמה לאחרונה נייר עמדה שמרחיב את הפטור גם ליורשי דירות במתחמי התחדשות עירונית. גם אחרי שהבניין נהרס, היורשים יכולים לקבל פטור ממס שבח. נייר העמדה הזה פתר את &ldquo;מלכוד היורשים&rdquo; שהיה קיים עד 2025.
+                <strong className="text-[var(--color-primary)]">נייר עמדה ליורשים:</strong> רשות המסים פרסמה לאחרונה נייר עמדה שמרחיב את הפטור גם ליורשי דירות במתחמי התחדשות עירונית. גם אחרי שהבניין נהרס, היורשים יכולים לקבל פטור ממס שבח. נייר העמדה הזה פתר את &ldquo;מלכוד היורשים&rdquo; שהיה קיים עד 2025. למדריך מפורט על ירושה ראו את{" "}
+                <Link
+                  href="/pinui-binui/yorshim"
+                  className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]"
+                >
+                  ירושת דירה בפינוי בינוי
+                </Link>
+                .
               </li>
             </ul>
             <p className="font-bold text-[var(--color-primary)] mt-4">
@@ -355,7 +362,16 @@ export default function Page() {
                 <strong className="text-[var(--color-primary)]">תוספת מ״ר מינימלית בכתב</strong>, לא &ldquo;כפי שיוסכם&rdquo;. המספר המדויק של תוספת המטרים נכלל בחוזה כסעיף נפרד.
               </li>
               <li>
-                <strong className="text-[var(--color-primary)]">ערבות בנקאית או חוק מכר לכל שלב.</strong> שלוש ערבויות עיקריות: ערבות לתקופת הבנייה, ערבות לתקופת הביניים, ערבות לרישום הזכויות בטאבו.
+                <strong className="text-[var(--color-primary)]">
+                  <Link
+                    href="/pinui-binui/eravut"
+                    className="text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]"
+                  >
+                    ערבות בנקאית או חוק מכר לכל שלב
+                  </Link>
+                  .
+                </strong>{" "}
+                שלוש ערבויות עיקריות: ערבות לתקופת הבנייה, ערבות לתקופת הביניים, ערבות לרישום הזכויות בטאבו.
               </li>
               <li>
                 <strong className="text-[var(--color-primary)]">פיצוי כספי על איחור במסירה.</strong> סעיף שמחייב את היזם לשלם פיצוי לכל חודש איחור מעבר למועד המסירה המחייב.
