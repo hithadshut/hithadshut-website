@@ -284,6 +284,28 @@ export const internalLinks: InternalLink[] = [
     context: "inline",
     note: "Inline link in im-yazam-msarev section; activates previously plain-text reference.",
   },
+  // 2026-05-04: /memad/bayit-prati/ sub-page launch (Gal 2, Phase 2.1).
+  {
+    fromUrl: "/memad/bayit-prati",
+    toUrl: "/services/building-mamad",
+    anchorText: "בית פרטי",
+    context: "inline",
+    note: "Mandatory back-link from sub-page to commercial hub.",
+  },
+  {
+    fromUrl: "/memad/bayit-prati",
+    toUrl: "/guides/mamad-cost",
+    anchorText: "מחיר ממ״ד 2026",
+    context: "inline",
+    note: "Inline link in ma-kolel section to detailed cost guide.",
+  },
+  {
+    fromUrl: "/memad/bayit-prati",
+    toUrl: "/guides/home-front-command-approval",
+    anchorText: "אישורי פיקוד העורף",
+    context: "inline",
+    note: "Inline link in ishur-pakar section to approval guide.",
+  },
 ];
 
 /** All internal links pointing FROM a given URL. */

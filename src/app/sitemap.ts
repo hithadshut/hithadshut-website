@@ -135,6 +135,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    // Memad depth sub-pages — authority cluster under /memad/*
+    {
+      url: `${site.url}/memad/bayit-prati`,
+      lastModified: lastModifiedFor("src/app/memad/bayit-prati/page.tsx"),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
     // Services
     ...services.map((s) => ({
       url: `${site.url}/services/${s.slug}`,

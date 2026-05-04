@@ -28,6 +28,15 @@ export const ABOUT_HREFS = {
   // Future: company, founders, partners — add here as each ships.
 } as const;
 
+export const MEMAD_HREFS = {
+  bayitPrati: "/memad/bayit-prati",
+  diraBekoma: "/memad/dira-bekoma",
+  binyanMeshutaf: "/memad/binyan-meshutaf",
+  binyanYashan: "/memad/binyan-yashan",
+  komaElyona: "/memad/koma-elyona",
+  tatKarkai: "/memad/tat-karkai",
+} as const;
+
 // Future: export const TAMA_38_HREFS = { ... };
 // Future: export const CHALUFAT_SHAKED_HREFS = { ... };
 
@@ -53,6 +62,7 @@ export type LinkTarget =
   | "pinui-binui-eravut"
   | "pinui-binui-yazam"
   | "pinui-binui-sarvan"
+  | "memad-bayit-prati"
   | "ofek-mazor";
 
 export const ANCHOR_VARIANTS: Record<LinkTarget, string[]> = {
@@ -247,6 +257,15 @@ export const ANCHOR_VARIANTS: Record<LinkTarget, string[]> = {
     "מה קורה אם דייר לא חותם",
     "הגנות לדייר סרבן",
   ],
+  "memad-bayit-prati": [
+    "ממ״ד לבית פרטי",
+    "מדריך ממ״ד לבית פרטי",
+    "בניית ממ״ד בבית פרטי",
+    "כמה עולה ממ״ד בבית פרטי",
+    "ממ״ד צמוד או חיצוני בבית פרטי",
+    "מסלול פטור ממ״ד בית פרטי",
+    "אפשרויות ממ״ד לבית צמוד קרקע",
+  ],
   "ofek-mazor": [
     "אופק מזור, מנכ״ל ומייסד",
     "אופק מזור: מנכ״ל ומייסד התחדשות",
@@ -302,6 +321,7 @@ export const HREF_MAP: Record<LinkTarget, string> = {
   "pinui-binui-eravut": PINUI_BINUI_HREFS.eravut,
   "pinui-binui-yazam": PINUI_BINUI_HREFS.yazam,
   "pinui-binui-sarvan": PINUI_BINUI_HREFS.sarvan,
+  "memad-bayit-prati": MEMAD_HREFS.bayitPrati,
   "ofek-mazor": ABOUT_HREFS.ofekMazor,
 };
 
@@ -349,6 +369,8 @@ export const TARGET_SUMMARY: Record<LinkTarget, string> = {
     "12 שאלות לפני בחירה, 8 דגלים אדומים, השוואת הצעות, ובדיקת רקע על יזם.",
   "pinui-binui-sarvan":
     "ההליך המשפטי, סירוב סביר מול בלתי סביר, הגנות הדייר, וכונס נכסים.",
+  "memad-bayit-prati":
+    "ארבעה סוגי ממ״ד לבית פרטי, מחירון מפורט, מסלול הפטור, ושלבי הביצוע מהתכנון ועד המסירה.",
   "ofek-mazor":
     "פרופיל מקצועי של אופק מזור, מנכ״ל ומייסד התחדשות בינוי ויזמות.",
 };
@@ -375,5 +397,6 @@ export const TARGET_LABEL: Record<LinkTarget, string> = {
   "pinui-binui-eravut": "ערבויות בפינוי בינוי",
   "pinui-binui-yazam": "בחירת יזם פינוי בינוי",
   "pinui-binui-sarvan": "דייר סרבן בפינוי בינוי",
+  "memad-bayit-prati": "ממ״ד לבית פרטי",
   "ofek-mazor": "אופק מזור, מנכ״ל ומייסד",
 };

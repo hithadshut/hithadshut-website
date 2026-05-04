@@ -132,6 +132,17 @@ export const llmsManifest: LlmsManifest = {
       ],
     },
     {
+      title: "ממ״ד עומק — סוגים ותרחישים",
+      items: [
+        {
+          url: "/memad/bayit-prati",
+          label: "ממ״ד לבית פרטי 2026",
+          description:
+            "ארבעה סוגי ממ״ד (צמוד פנימי, חיצוני, גג, תת-קרקעי), מחירון 160-280 אלף ש״ח, ומסלול הפטור.",
+        },
+      ],
+    },
+    {
       title: "מדריכי סמכות",
       items: [
         {
