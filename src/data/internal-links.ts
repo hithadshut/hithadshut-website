@@ -1042,6 +1042,49 @@ export const internalLinks: InternalLink[] = [
     context: "inline",
     note: "Inline link in goramim-mearichim (delay factors) section.",
   },
+  // 2026-05-04: /madrichim/sheelot-shalemot-leyazam-pinui-binui/ article launch (Phase 5.1, Article 2).
+  {
+    fromUrl: "/madrichim/sheelot-shalemot-leyazam-pinui-binui",
+    toUrl: "/madrichim/10-shealot-le-yazam",
+    anchorText: "10 השאלות שכל דייר חייב לשאול יזם",
+    context: "inline",
+    note: "Inline link in opening Quick Answer block (sibling article).",
+  },
+  {
+    fromUrl: "/madrichim/sheelot-shalemot-leyazam-pinui-binui",
+    toUrl: "/pinui-binui/yazam",
+    anchorText: "איך בוחרים יזם פינוי בינוי",
+    context: "inline",
+    note: "Inline link in opening Quick Answer block.",
+  },
+  {
+    fromUrl: "/madrichim/sheelot-shalemot-leyazam-pinui-binui",
+    toUrl: "/pinui-binui/eravut",
+    anchorText: "ערבויות בפינוי בינוי",
+    context: "inline",
+    note: "Inline link in ktegoria-2 (financial soundness) section.",
+  },
+  {
+    fromUrl: "/madrichim/sheelot-shalemot-leyazam-pinui-binui",
+    toUrl: "/madrichim/luach-zmanim-pinui-binui-2026",
+    anchorText: "לוח זמנים פינוי בינוי",
+    context: "inline",
+    note: "Inline link in ktegoria-3 (execution experience) section.",
+  },
+  {
+    fromUrl: "/madrichim/sheelot-shalemot-leyazam-pinui-binui",
+    toUrl: "/pinui-binui/temurot",
+    anchorText: "תמורות בפינוי בינוי",
+    context: "inline",
+    note: "Inline link in ktegoria-4 (contract terms) section.",
+  },
+  {
+    fromUrl: "/madrichim/sheelot-shalemot-leyazam-pinui-binui",
+    toUrl: "/pinui-binui/kshishim",
+    anchorText: "זכויות קשישים בפינוי בינוי",
+    context: "inline",
+    note: "Inline link in ktegoria-4 (contract terms) section.",
+  },
 ];
 
 /** All internal links pointing FROM a given URL. */
