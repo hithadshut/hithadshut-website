@@ -430,6 +430,28 @@ export const internalLinks: InternalLink[] = [
     context: "inline",
     note: "Existing inline link in alternatives section (shipped Phase 2.5).",
   },
+  // 2026-05-04: /tama-38/ pillar launch (Gal 3, Phase 3.1).
+  {
+    fromUrl: "/tama-38",
+    toUrl: "/chalufat-shaked",
+    anchorText: "חלופת שקד",
+    context: "inline",
+    note: "Inline link in opening — alternatives.",
+  },
+  {
+    fromUrl: "/tama-38",
+    toUrl: "/pinui-binui",
+    anchorText: "פינוי בינוי",
+    context: "inline",
+    note: "Inline link in opening — cross-cluster alternative.",
+  },
+  {
+    fromUrl: "/tama-38",
+    toUrl: "/tama-38/pkia-2026",
+    anchorText: "תמ״א 38 פוקעת",
+    context: "inline",
+    note: "Inline link in projektim-peilim section to expiration sub-page.",
+  },
   // 2026-05-04: /memad/tat-karkai/ sub-page launch (Gal 2, Phase 2.6).
   {
     fromUrl: "/memad/tat-karkai",

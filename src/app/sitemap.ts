@@ -172,6 +172,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    // Tama 38 cluster
+    {
+      url: `${site.url}/tama-38`,
+      lastModified: lastModifiedFor("src/app/tama-38/page.tsx"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
     // Services
     ...services.map((s) => ({
       url: `${site.url}/services/${s.slug}`,

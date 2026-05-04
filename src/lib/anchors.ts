@@ -37,8 +37,31 @@ export const MEMAD_HREFS = {
   tatKarkai: "/memad/tat-karkai",
 } as const;
 
-// Future: export const TAMA_38_HREFS = { ... };
-// Future: export const CHALUFAT_SHAKED_HREFS = { ... };
+export const TAMA38_HREFS = {
+  pillar: "/tama-38",
+  pkia: "/tama-38/pkia-2026",
+  sug1: "/tama-38/sug-1",
+  sug2: "/tama-38/sug-2",
+} as const;
+
+export const SHAKED_HREFS = {
+  pillar: "/chalufat-shaked",
+} as const;
+
+export const HASHVAA_HREFS = {
+  pinuiVsTama: "/hashvaa/pinui-vs-tama",
+  shakedVsTama: "/hashvaa/shaked-vs-tama",
+  migunVsPinui: "/hashvaa/migun-vs-pinui",
+} as const;
+
+export const MADRICHIM_HREFS = {
+  sofTama: "/madrichim/sof-tama-38-ma-laasot",
+  shealotYazam: "/madrichim/10-shealot-le-yazam",
+  eravutHevdel: "/madrichim/eravut-bankait-vs-chok-mehor",
+  shipurMigun: "/madrichim/matey-shipur-migun-adif",
+  yorshim: "/madrichim/zechut-baalut-vs-zechut-yorshim",
+  yazamim: "/madrichim/hashvaa-yazamim-mobililim-2026",
+} as const;
 
 export type LinkTarget =
   | "building-mamad"
@@ -68,6 +91,20 @@ export type LinkTarget =
   | "memad-binyan-yashan"
   | "memad-koma-elyona"
   | "memad-tat-karkai"
+  | "tama-38"
+  | "tama-38-pkia"
+  | "tama-38-sug-1"
+  | "tama-38-sug-2"
+  | "chalufat-shaked"
+  | "hashvaa-pinui-vs-tama"
+  | "hashvaa-shaked-vs-tama"
+  | "hashvaa-migun-vs-pinui"
+  | "madrichim-sof-tama"
+  | "madrichim-shealot-yazam"
+  | "madrichim-eravut-hevdel"
+  | "madrichim-shipur-migun"
+  | "madrichim-yorshim"
+  | "madrichim-yazamim"
   | "ofek-mazor";
 
 export const ANCHOR_VARIANTS: Record<LinkTarget, string[]> = {
@@ -316,6 +353,104 @@ export const ANCHOR_VARIANTS: Record<LinkTarget, string[]> = {
     "איטום ממ״ד תת-קרקעי",
     "ממ״ד עם מסת קרקע מעל",
   ],
+  "tama-38": [
+    "תמ״א 38",
+    "מדריך תמ״א 38",
+    "תמ״א 38 ב-2026",
+    "מה זה תמ״א 38",
+    "סוף תמ״א 38",
+    "תמ״א 38 פוקעת",
+    "תוכנית מתאר תמ״א 38",
+  ],
+  "tama-38-pkia": [
+    "תמ״א 38 פוקעת",
+    "סוף תמ״א 38 2026",
+    "מה לעשות לפני פוקעת תמ״א 38",
+    "פוקעת תמ״א 38 מאי 2026",
+    "ביטול תמ״א 38",
+    "פרויקט תמ״א 38 פעיל",
+    "מצב פרויקטים אחרי פוקעה",
+  ],
+  "tama-38-sug-1": [
+    "תמ״א 38 1",
+    "תמ״א 38 חיזוק",
+    "תמ״א 38 ללא הריסה",
+    "רוב 66% תמ״א 38",
+    "תמ״א 38 1 שלבים",
+    "עלות תמ״א 38 1",
+    "מסלול חיזוק תמ״א 38",
+  ],
+  "tama-38-sug-2": [
+    "תמ״א 38 2",
+    "תמ״א 38 הריסה ובנייה",
+    "תמ״א 38 2 רוב 80%",
+    "ביצוע תמ״א 38 2",
+    "תמ״א 38 2 או חלופת שקד",
+    "תמ״א 38 2 או פינוי בינוי",
+    "מסלול הריסה ובנייה",
+  ],
+  "chalufat-shaked": [
+    "חלופת שקד",
+    "תיקון 139 חוק התכנון והבנייה",
+    "חלופת שקד 2026",
+    "חלופת שקד מול תמ״א 38",
+    "חלופת שקד עלות",
+    "חלופת שקד תהליך",
+    "חלופת שקד או פינוי בינוי",
+  ],
+  "hashvaa-pinui-vs-tama": [
+    "פינוי בינוי מול תמ״א 38",
+    "השוואה פינוי בינוי תמ״א 38",
+    "מה ההבדל בין פינוי בינוי לתמ״א 38",
+    "מה כדאי פינוי בינוי או תמ״א 38",
+    "מתחם או בניין יחיד",
+    "מסלולי התחדשות עירונית",
+  ],
+  "hashvaa-shaked-vs-tama": [
+    "חלופת שקד מול תמ״א 38",
+    "השוואה חלופת שקד תמ״א",
+    "מה ההבדל בין שקד לתמ״א",
+    "אלטרנטיבה לתמ״א 38",
+    "תיקון 139 או תמ״א 38",
+  ],
+  "hashvaa-migun-vs-pinui": [
+    "שיפור מיגון מול פינוי בינוי",
+    "מתי מיגון מספיק",
+    "מתי צריך פינוי בינוי",
+    "השוואה מיגון פינוי בינוי",
+  ],
+  "madrichim-sof-tama": [
+    "סוף תמ״א 38",
+    "מה דייר עושה אחרי תמ״א 38",
+    "פרויקט תמ״א 38 ב-2026",
+    "אלטרנטיבה לתמ״א 38",
+  ],
+  "madrichim-shealot-yazam": [
+    "10 שאלות ליזם פינוי בינוי",
+    "שאלות ליזם",
+    "מה לשאול יזם",
+    "מדריך שאלות לבחירת יזם",
+  ],
+  "madrichim-eravut-hevdel": [
+    "ערבות בנקאית מול חוק מכר",
+    "הבדל בין ערבויות",
+    "סוגי ערבויות בפרויקט",
+  ],
+  "madrichim-shipur-migun": [
+    "מתי שיפור מיגון עדיף",
+    "שיפור מיגון או ממ״ד",
+    "השוואת פתרונות מיגון",
+  ],
+  "madrichim-yorshim": [
+    "זכות בעלות זכות יורשים",
+    "ירושה בפינוי בינוי",
+    "זכויות יורשים בנדל״ן",
+  ],
+  "madrichim-yazamim": [
+    "השוואת יזמי פינוי בינוי",
+    "יזמים מובילים בישראל",
+    "מסגרת להערכת יזמים",
+  ],
   "ofek-mazor": [
     "אופק מזור, מנכ״ל ומייסד",
     "אופק מזור: מנכ״ל ומייסד התחדשות",
@@ -377,6 +512,20 @@ export const HREF_MAP: Record<LinkTarget, string> = {
   "memad-binyan-yashan": MEMAD_HREFS.binyanYashan,
   "memad-koma-elyona": MEMAD_HREFS.komaElyona,
   "memad-tat-karkai": MEMAD_HREFS.tatKarkai,
+  "tama-38": TAMA38_HREFS.pillar,
+  "tama-38-pkia": TAMA38_HREFS.pkia,
+  "tama-38-sug-1": TAMA38_HREFS.sug1,
+  "tama-38-sug-2": TAMA38_HREFS.sug2,
+  "chalufat-shaked": SHAKED_HREFS.pillar,
+  "hashvaa-pinui-vs-tama": HASHVAA_HREFS.pinuiVsTama,
+  "hashvaa-shaked-vs-tama": HASHVAA_HREFS.shakedVsTama,
+  "hashvaa-migun-vs-pinui": HASHVAA_HREFS.migunVsPinui,
+  "madrichim-sof-tama": MADRICHIM_HREFS.sofTama,
+  "madrichim-shealot-yazam": MADRICHIM_HREFS.shealotYazam,
+  "madrichim-eravut-hevdel": MADRICHIM_HREFS.eravutHevdel,
+  "madrichim-shipur-migun": MADRICHIM_HREFS.shipurMigun,
+  "madrichim-yorshim": MADRICHIM_HREFS.yorshim,
+  "madrichim-yazamim": MADRICHIM_HREFS.yazamim,
   "ofek-mazor": ABOUT_HREFS.ofekMazor,
 };
 
@@ -436,6 +585,34 @@ export const TARGET_SUMMARY: Record<LinkTarget, string> = {
     "ממ״ד על הגג ובפנטהאוז: חיזוק מבנה, משאבת בטון, אישורים, ולוגיסטיקה בגובה.",
   "memad-tat-karkai":
     "ממ״ד במרתף או תת-קרקעי: רמת הגנה גבוהה, שיקולי מי תהום, איטום, ואוורור משופר.",
+  "tama-38":
+    "תמ״א 38 ב-2026: היסטוריה, ההבדל בין 38/1 ל-38/2, מצב הפרויקטים, ולוח הזמנים של הפוקעה.",
+  "tama-38-pkia":
+    "תמ״א 38 פוקעת מאי 2026: מה הסטטוס של פרויקטים פעילים, ומה דייר צריך לעשות עכשיו.",
+  "tama-38-sug-1":
+    "תמ״א 38/1 (חיזוק): מסלול חיזוק בלי הריסה, רוב 66%, מצב המסלול ב-2026.",
+  "tama-38-sug-2":
+    "תמ״א 38/2 (הריסה ובנייה): מסלול הריסה ובנייה מחדש, רוב 80%, וההבדלים מחלופת שקד.",
+  "chalufat-shaked":
+    "חלופת שקד (תיקון 139): המסלול שמחליף את תמ״א 38/2, רוב 80%, וזכויות בנייה עד 400%.",
+  "hashvaa-pinui-vs-tama":
+    "השוואה: פינוי בינוי מול תמ״א 38 — מתחם מול בניין יחיד, רוב, זמן, וסיכונים.",
+  "hashvaa-shaked-vs-tama":
+    "השוואה: חלופת שקד מול תמ״א 38 — מה השתנה ומה דייר צריך לבחור ב-2026.",
+  "hashvaa-migun-vs-pinui":
+    "השוואה: שיפור מיגון מול פינוי בינוי — מתי כל פתרון מתאים, ואיך להחליט.",
+  "madrichim-sof-tama":
+    "סוף תמ״א 38: לוח זמנים של הפוקעה ופעולות נדרשות לדייר בפרויקט פעיל.",
+  "madrichim-shealot-yazam":
+    "10 השאלות שכל דייר חייב לשאול יזם פינוי בינוי לפני חתימה.",
+  "madrichim-eravut-hevdel":
+    "ערבות בנקאית מול ערבות חוק מכר: ההבדל המהותי וההשפעה על ההגנה הכלכלית.",
+  "madrichim-shipur-migun":
+    "מתי שיפור מיגון עדיף על בניית ממ״ד חדש: מסגרת החלטה לבעלי בניין ישן.",
+  "madrichim-yorshim":
+    "זכות בעלות מול זכות יורשים בפינוי בינוי: ההבחנה המשפטית ומה לעגן בהסכם.",
+  "madrichim-yazamim":
+    "מסגרת להערכת יזמי פינוי בינוי בישראל 2026: 8 קריטריונים לשקילה.",
   "ofek-mazor":
     "פרופיל מקצועי של אופק מזור, מנכ״ל ומייסד התחדשות בינוי ויזמות.",
 };
@@ -468,5 +645,19 @@ export const TARGET_LABEL: Record<LinkTarget, string> = {
   "memad-binyan-yashan": "ממ״ד לבניין ישן",
   "memad-koma-elyona": "ממ״ד בקומה עליונה",
   "memad-tat-karkai": "ממ״ד תת-קרקעי",
+  "tama-38": "תמ״א 38",
+  "tama-38-pkia": "תמ״א 38 פוקעת",
+  "tama-38-sug-1": "תמ״א 38/1 (חיזוק)",
+  "tama-38-sug-2": "תמ״א 38/2 (הריסה ובנייה)",
+  "chalufat-shaked": "חלופת שקד",
+  "hashvaa-pinui-vs-tama": "פינוי בינוי מול תמ״א 38",
+  "hashvaa-shaked-vs-tama": "חלופת שקד מול תמ״א 38",
+  "hashvaa-migun-vs-pinui": "שיפור מיגון מול פינוי בינוי",
+  "madrichim-sof-tama": "סוף תמ״א 38",
+  "madrichim-shealot-yazam": "10 שאלות ליזם פינוי בינוי",
+  "madrichim-eravut-hevdel": "ערבות בנקאית מול חוק מכר",
+  "madrichim-shipur-migun": "מתי שיפור מיגון עדיף",
+  "madrichim-yorshim": "זכות בעלות מול זכות יורשים",
+  "madrichim-yazamim": "השוואת יזמי פינוי בינוי",
   "ofek-mazor": "אופק מזור, מנכ״ל ומייסד",
 };
