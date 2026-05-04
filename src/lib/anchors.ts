@@ -18,7 +18,8 @@ export const PINUI_BINUI_HREFS = {
   yorshim: "/pinui-binui/yorshim",
   eravut: "/pinui-binui/eravut",
   yazam: "/pinui-binui/yazam",
-  // Future: sarvan, ownerAttorney,
+  sarvan: "/pinui-binui/sarvan",
+  // Future: ownerAttorney,
   // zechuyot, madrich, misui — add here as each ships.
 } as const;
 
@@ -51,6 +52,7 @@ export type LinkTarget =
   | "pinui-binui-yorshim"
   | "pinui-binui-eravut"
   | "pinui-binui-yazam"
+  | "pinui-binui-sarvan"
   | "ofek-mazor";
 
 export const ANCHOR_VARIANTS: Record<LinkTarget, string[]> = {
@@ -236,6 +238,15 @@ export const ANCHOR_VARIANTS: Record<LinkTarget, string[]> = {
     "בדיקת יזם פינוי בינוי",
     "איך מזהים יזם בעייתי",
   ],
+  "pinui-binui-sarvan": [
+    "דייר סרבן בפינוי בינוי",
+    "מדריך דייר סרבן",
+    "הליך תביעה דייר סרבן",
+    "כונס נכסים פינוי בינוי",
+    "סבירות הסירוב בפינוי בינוי",
+    "מה קורה אם דייר לא חותם",
+    "הגנות לדייר סרבן",
+  ],
   "ofek-mazor": [
     "אופק מזור, מנכ״ל ומייסד",
     "אופק מזור: מנכ״ל ומייסד התחדשות",
@@ -290,6 +301,7 @@ export const HREF_MAP: Record<LinkTarget, string> = {
   "pinui-binui-yorshim": PINUI_BINUI_HREFS.yorshim,
   "pinui-binui-eravut": PINUI_BINUI_HREFS.eravut,
   "pinui-binui-yazam": PINUI_BINUI_HREFS.yazam,
+  "pinui-binui-sarvan": PINUI_BINUI_HREFS.sarvan,
   "ofek-mazor": ABOUT_HREFS.ofekMazor,
 };
 
@@ -335,6 +347,8 @@ export const TARGET_SUMMARY: Record<LinkTarget, string> = {
     "ערבות חוק מכר, ערבויות בנקאיות לשלבי בנייה, שכר דירה ומסירה, ומה אסור לקבל.",
   "pinui-binui-yazam":
     "12 שאלות לפני בחירה, 8 דגלים אדומים, השוואת הצעות, ובדיקת רקע על יזם.",
+  "pinui-binui-sarvan":
+    "ההליך המשפטי, סירוב סביר מול בלתי סביר, הגנות הדייר, וכונס נכסים.",
   "ofek-mazor":
     "פרופיל מקצועי של אופק מזור, מנכ״ל ומייסד התחדשות בינוי ויזמות.",
 };
@@ -360,5 +374,6 @@ export const TARGET_LABEL: Record<LinkTarget, string> = {
   "pinui-binui-yorshim": "ירושה דירה בפינוי בינוי",
   "pinui-binui-eravut": "ערבויות בפינוי בינוי",
   "pinui-binui-yazam": "בחירת יזם פינוי בינוי",
+  "pinui-binui-sarvan": "דייר סרבן בפינוי בינוי",
   "ofek-mazor": "אופק מזור, מנכ״ל ומייסד",
 };

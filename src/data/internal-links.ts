@@ -189,6 +189,28 @@ export const internalLinks: InternalLink[] = [
     context: "inline",
     note: "Inline link in 12-shealot section to live sibling sub-page.",
   },
+  // 2026-05-03: /pinui-binui/sarvan/ sub-page launch (Gal 1, Phase 1.4).
+  {
+    fromUrl: "/pinui-binui/sarvan",
+    toUrl: "/pinui-binui",
+    anchorText: "פינוי בינוי",
+    context: "inline",
+    note: "Mandatory back-link from sub-page to pillar (technical.md §6).",
+  },
+  {
+    fromUrl: "/pinui-binui/sarvan",
+    toUrl: "/pinui-binui/chok-67",
+    anchorText: "חוק 67%",
+    context: "inline",
+    note: "Inline link in ma-ze-sarvan section to live sibling sub-page.",
+  },
+  {
+    fromUrl: "/pinui-binui/sarvan",
+    toUrl: "/pinui-binui/kshishim",
+    anchorText: "זכויות קשישים בפינוי בינוי",
+    context: "inline",
+    note: "Inline link in haganot section to live sibling sub-page.",
+  },
 ];
 
 /** All internal links pointing FROM a given URL. */
