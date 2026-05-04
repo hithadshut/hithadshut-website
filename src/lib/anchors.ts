@@ -65,6 +65,7 @@ export type LinkTarget =
   | "memad-bayit-prati"
   | "memad-dira-bekoma"
   | "memad-binyan-meshutaf"
+  | "memad-binyan-yashan"
   | "ofek-mazor";
 
 export const ANCHOR_VARIANTS: Record<LinkTarget, string[]> = {
@@ -286,6 +287,15 @@ export const ANCHOR_VARIANTS: Record<LinkTarget, string[]> = {
     "מימון ממ״ד בבניין",
     "חלוקת עלויות ממ״ד",
   ],
+  "memad-binyan-yashan": [
+    "ממ״ד לבניין ישן",
+    "הוספת ממ״ד לבניין ישן",
+    "ממ״ד בבניין מאוכלס",
+    "בעיות קונסטרוקציה ממ״ד",
+    "שיפור מיגון בבניין ישן",
+    "תמ״א 38 או ממ״ד",
+    "פינוי בינוי או ממ״ד",
+  ],
   "ofek-mazor": [
     "אופק מזור, מנכ״ל ומייסד",
     "אופק מזור: מנכ״ל ומייסד התחדשות",
@@ -344,6 +354,7 @@ export const HREF_MAP: Record<LinkTarget, string> = {
   "memad-bayit-prati": MEMAD_HREFS.bayitPrati,
   "memad-dira-bekoma": MEMAD_HREFS.diraBekoma,
   "memad-binyan-meshutaf": MEMAD_HREFS.binyanMeshutaf,
+  "memad-binyan-yashan": MEMAD_HREFS.binyanYashan,
   "ofek-mazor": ABOUT_HREFS.ofekMazor,
 };
 
@@ -397,6 +408,8 @@ export const TARGET_SUMMARY: Record<LinkTarget, string> = {
     "שלושה פתרונות מיגון בדירה בקומה, מתי כל אחד מתאים, עלויות, אישורים, והשפעה על המבנה הקיים.",
   "memad-binyan-meshutaf":
     "השוואת ממ״ד דירתי לעומת משותף, חלוקת עלויות, הסכמת דיירים, ומימון לבניין של 2-8 דיירים.",
+  "memad-binyan-yashan":
+    "ארבעה פתרונות לבניין מלפני 1992: ממ״ד תקני, שיפור מיגון, ממ״ד יביל, או התחדשות עירונית.",
   "ofek-mazor":
     "פרופיל מקצועי של אופק מזור, מנכ״ל ומייסד התחדשות בינוי ויזמות.",
 };
@@ -426,5 +439,6 @@ export const TARGET_LABEL: Record<LinkTarget, string> = {
   "memad-bayit-prati": "ממ״ד לבית פרטי",
   "memad-dira-bekoma": "ממ״ד בדירה בקומה",
   "memad-binyan-meshutaf": "ממ״ד בבניין משותף",
+  "memad-binyan-yashan": "ממ״ד לבניין ישן",
   "ofek-mazor": "אופק מזור, מנכ״ל ומייסד",
 };

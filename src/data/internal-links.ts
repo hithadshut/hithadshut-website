@@ -284,6 +284,28 @@ export const internalLinks: InternalLink[] = [
     context: "inline",
     note: "Inline link in im-yazam-msarev section; activates previously plain-text reference.",
   },
+  // 2026-05-04: /memad/binyan-yashan/ sub-page launch (Gal 2, Phase 2.4).
+  {
+    fromUrl: "/memad/binyan-yashan",
+    toUrl: "/services/building-mamad",
+    anchorText: "בניין ישן",
+    context: "inline",
+    note: "Mandatory back-link from sub-page to commercial hub.",
+  },
+  {
+    fromUrl: "/memad/binyan-yashan",
+    toUrl: "/guides/mamad-cost",
+    anchorText: "מחיר ממ״ד 2026",
+    context: "inline",
+    note: "Inline link in aluyot-yashan section to cost guide.",
+  },
+  {
+    fromUrl: "/memad/binyan-yashan",
+    toUrl: "/pinui-binui",
+    anchorText: "פינוי בינוי",
+    context: "inline",
+    note: "Inline link in metay-hitchadshut section to urban-renewal pillar.",
+  },
   // 2026-05-04: /memad/binyan-meshutaf/ sub-page launch (Gal 2, Phase 2.3).
   {
     fromUrl: "/memad/binyan-meshutaf",
