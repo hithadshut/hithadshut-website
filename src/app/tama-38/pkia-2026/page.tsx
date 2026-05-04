@@ -9,6 +9,7 @@ import RelatedLinks from "@/components/RelatedLinks";
 import SchemaArticle from "@/components/schema/article";
 import SchemaBreadcrumb from "@/components/schema/breadcrumb";
 import TrustBlock from "@/components/TrustBlock";
+import Byline from "@/components/Byline";
 import Reveal from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
 
@@ -91,6 +92,9 @@ export default function Page() {
       <Section tone="white">
         <Reveal>
           <div className="max-w-3xl">
+            <div className="mb-5">
+              <Byline author="ofek-mazor" dateModified={MODIFIED_DATE} />
+            </div>
             <p className="text-[17px] text-[var(--color-ink)] leading-8">
               <Link
                 href="/tama-38"

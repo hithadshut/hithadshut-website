@@ -10,6 +10,7 @@ import RelatedLinks from "@/components/RelatedLinks";
 import SchemaArticle from "@/components/schema/article";
 import SchemaBreadcrumb from "@/components/schema/breadcrumb";
 import TrustBlock from "@/components/TrustBlock";
+import Byline from "@/components/Byline";
 import Reveal from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
 
@@ -92,6 +93,9 @@ export default function Page() {
       <Section tone="white">
         <Reveal>
           <div className="max-w-3xl">
+            <div className="mb-5">
+              <Byline author="ofek-mazor" dateModified={MODIFIED_DATE} />
+            </div>
             <p className="text-[17px] text-[var(--color-ink)] leading-8">
               חלופת שקד היא הממשיכה הישירה של תמ״א 38/2 בהתחדשות עירונית של בניין יחיד. שתיהן מאפשרות הריסה ובנייה מחדש עם 80% הסכמה. ההבדלים: חלופת שקד מבוססת על תיקון 139 לחוק התכנון והבנייה (חקיקה ראשית קבועה), מציעה זכויות בנייה גמישות יותר עד 400% משטח קיים, ותהליך אישור עדכני. תמ״א 38/2 פוקעת במאי 2026 ברוב הארץ, ובקשות חדשות לא יתקבלו אחרי. מדריך זה משווה בין השתיים, מסביר את המעבר לבעלי הסכמים פעילים, ומסייע להחליט.
             </p>

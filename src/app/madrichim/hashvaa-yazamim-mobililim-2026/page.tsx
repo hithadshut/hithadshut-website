@@ -10,6 +10,7 @@ import RelatedLinks from "@/components/RelatedLinks";
 import SchemaArticle from "@/components/schema/article";
 import SchemaBreadcrumb from "@/components/schema/breadcrumb";
 import TrustBlock from "@/components/TrustBlock";
+import Byline from "@/components/Byline";
 import Reveal from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
 
@@ -92,6 +93,9 @@ export default function Page() {
       <Section tone="white">
         <Reveal>
           <div className="max-w-3xl">
+            <div className="mb-5">
+              <Byline author="ofek-mazor" dateModified={MODIFIED_DATE} />
+            </div>
             <p className="text-[17px] text-[var(--color-ink)] leading-8">
               מאמר זה לא מספק רשימה של יזמים ספציפיים. הוא מספק מסגרת מקצועית להערכת כל יזם פינוי בינוי בישראל ב-2026. הסיבה: המלצה על יזם ספציפי תלויה בנסיבות הפרויקט. יזם שמצוין במרכז הארץ עשוי להיות חלש בפריפריה. יזם שמתאים לבניין יחיד עשוי להיות לא מתאים למתחם גדול. במקום רשימה, מאמר זה מציע 8 קריטריונים מקצועיים, השוואה בין שלושה סוגי יזמים, ומסגרת החלטה. למידע על שאלות ספציפיות לשאול יזם ראו את המדריך על{" "}
               <Link

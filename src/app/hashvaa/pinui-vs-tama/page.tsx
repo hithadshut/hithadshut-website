@@ -10,6 +10,7 @@ import RelatedLinks from "@/components/RelatedLinks";
 import SchemaArticle from "@/components/schema/article";
 import SchemaBreadcrumb from "@/components/schema/breadcrumb";
 import TrustBlock from "@/components/TrustBlock";
+import Byline from "@/components/Byline";
 import Reveal from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
 
@@ -92,6 +93,9 @@ export default function Page() {
       <Section tone="white">
         <Reveal>
           <div className="max-w-3xl">
+            <div className="mb-5">
+              <Byline author="ofek-mazor" dateModified={MODIFIED_DATE} />
+            </div>
             <p className="text-[17px] text-[var(--color-ink)] leading-8">
               פינוי בינוי ותמ״א 38 הם שני מסלולי התחדשות עירונית מובילים בישראל, אך הם שונים מהותית. ההבדל המרכזי הוא היקף הפרויקט: פינוי בינוי הוא תהליך מתחמי של 24 יחידות דיור ומעלה, ואילו תמ״א 38 חלה על בניין יחיד. הבחירה בין השניים תלויה בגודל המתחם, ברוב הדיירים שמסכים, ובמצב הבניין. ב-2026 השאלה הופכת חשובה במיוחד: תמ״א 38 פוקעת במאי 2026, וחלופת שקד או פינוי בינוי הופכות לאלטרנטיבות העיקריות. מדריך זה משווה בין המסלולים ב-7 מימדים ועוזר להחליט.
             </p>
