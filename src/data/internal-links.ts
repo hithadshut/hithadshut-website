@@ -430,6 +430,35 @@ export const internalLinks: InternalLink[] = [
     context: "inline",
     note: "Existing inline link in alternatives section (shipped Phase 2.5).",
   },
+  // 2026-05-04: /tama-38/sug-2/ sub-page launch (Gal 3, Phase 3.4).
+  {
+    fromUrl: "/tama-38/sug-2",
+    toUrl: "/tama-38",
+    anchorText: "תמ״א 38/2",
+    context: "inline",
+    note: "Mandatory back-link from sub-page to pillar.",
+  },
+  {
+    fromUrl: "/tama-38/sug-2",
+    toUrl: "/chalufat-shaked",
+    anchorText: "חלופת שקד",
+    context: "inline",
+    note: "Inline link in 2026 section.",
+  },
+  {
+    fromUrl: "/tama-38/sug-2",
+    toUrl: "/pinui-binui",
+    anchorText: "פינוי בינוי",
+    context: "inline",
+    note: "Inline link in 2026 section.",
+  },
+  {
+    fromUrl: "/tama-38/sug-2",
+    toUrl: "/tama-38/pkia-2026",
+    anchorText: "תמ״א 38 פוקעת",
+    context: "inline",
+    note: "Inline link in 2026 section.",
+  },
   // 2026-05-04: /tama-38/sug-1/ sub-page launch (Gal 3, Phase 3.3).
   {
     fromUrl: "/tama-38/sug-1",
