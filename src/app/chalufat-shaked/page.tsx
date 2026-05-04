@@ -377,7 +377,12 @@ export default function Page() {
 
       <RelatedLinks
         seed="chalufat-shaked"
-        targets={["tama-38", "tama-38-sug-2", "pinui-binui"]}
+        targets={[
+          "tama-38",
+          "tama-38-sug-2",
+          "pinui-binui",
+          "hashvaa-shaked-vs-tama",
+        ]}
       />
 
       <FAQ

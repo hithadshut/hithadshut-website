@@ -410,7 +410,12 @@ export default function Page() {
 
       <RelatedLinks
         seed="pinui-binui/yazam"
-        targets={["pinui-binui", "pinui-binui-temurot", "pinui-binui-eravut"]}
+        targets={[
+          "pinui-binui",
+          "pinui-binui-eravut",
+          "madrichim-shealot-yazam",
+          "madrichim-yazamim",
+        ]}
       />
 
       <FAQ

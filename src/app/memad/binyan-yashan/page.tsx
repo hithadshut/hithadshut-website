@@ -398,7 +398,13 @@ export default function Page() {
 
       <RelatedLinks
         seed="memad/binyan-yashan"
-        targets={["building-mamad", "room-reinforcement", "pinui-binui"]}
+        targets={[
+          "building-mamad",
+          "room-reinforcement",
+          "pinui-binui",
+          "madrichim-shipur-migun",
+          "hashvaa-migun-vs-pinui",
+        ]}
       />
 
       <FAQ

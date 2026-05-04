@@ -303,7 +303,12 @@ export default function Page() {
 
       <RelatedLinks
         seed="tama-38/pkia"
-        targets={["tama-38", "chalufat-shaked", "pinui-binui"]}
+        targets={[
+          "tama-38",
+          "chalufat-shaked",
+          "pinui-binui",
+          "madrichim-sof-tama",
+        ]}
       />
 
       <FAQ

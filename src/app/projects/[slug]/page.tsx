@@ -11,6 +11,14 @@ import { breadcrumbJsonLd, OFEK_PERSON_ID } from "@/lib/schema";
 import { site } from "@/lib/site";
 import { projects, getProject } from "@/content/projects";
 
+const PROJECT_IMAGE_KEYWORDS: Record<string, string> = {
+  "private-villa-structure": "וילה דו-קומתית, שלד בטון מזוין, בנייה פרטית, ממ״ד דירתי, פיגום, יציקות קונסטרוקציה",
+  "migunit-backyard-finished": "ממ״ד יביל, ממ״ד טרומי, חצר אחורית, התקנה מהירה, אישור פיקוד העורף, דלת הדף",
+  "extension-roof-pour": "תוספת בנייה, יציקת תקרה, בטון מזוין, זיון פלדה, הרחבת בית פרטי",
+  "mamad-foundation-rebar": "ממ״ד צמוד, יסודות, זיון פלדה כפול, בית פרטי, יריעת איטום, תקן 4570",
+  "mamad-walls-cast": "ממ״ד צמוד, קירות בטון מזוין, יציקה, שכונה צפופה, מיגון תקני",
+};
+
 type Params = Promise<{ slug: string }>;
 
 export async function generateStaticParams() {
@@ -60,6 +68,31 @@ export default async function ProjectPage({ params }: { params: Params }) {
     }),
   };
 
+  const imageObject = p.hasRealImage
+    ? {
+        "@context": "https://schema.org",
+        "@type": "ImageObject",
+        "@id": `${site.url}${url}#primary-image`,
+        contentUrl: `${site.url}${p.image}`,
+        url: `${site.url}${p.image}`,
+        width: p.width,
+        height: p.height,
+        caption: p.alt,
+        description: p.description,
+        name: p.title,
+        inLanguage: "he-IL",
+        keywords: PROJECT_IMAGE_KEYWORDS[p.slug] ?? p.serviceType,
+        contentLocation: { "@type": "Place", name: p.location },
+        creditText: "התחדשות בינוי ויזמות",
+        creator: { "@id": `${site.url}/#organization` },
+        copyrightHolder: { "@id": `${site.url}/#organization` },
+        copyrightYear: 2026,
+        license: `${site.url}/odot`,
+        acquireLicensePage: `${site.url}/contact`,
+        representativeOfPage: true,
+      }
+    : null;
+
   return (
     <>
       <PageHero
@@ -80,6 +113,7 @@ export default async function ProjectPage({ params }: { params: Params }) {
             { name: p.title, url },
           ]),
           article,
+          ...(imageObject ? [imageObject] : []),
         ]}
       />
 

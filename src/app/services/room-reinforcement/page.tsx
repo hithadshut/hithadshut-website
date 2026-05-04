@@ -229,7 +229,8 @@ export default function Page() {
         targets={[
           "mamad-cost",
           "choosing-mamad-contractor",
-          "mamad-mistakes",
+          "madrichim-shipur-migun",
+          "hashvaa-migun-vs-pinui",
           "compare-main",
           "areas",
         ]}

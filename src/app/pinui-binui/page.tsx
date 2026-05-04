@@ -496,7 +496,14 @@ export default function Page() {
 
       <RelatedLinks
         seed="pinui-binui/pillar"
-        targets={["building-mamad", "contact", "areas"]}
+        targets={[
+          "pinui-binui-machshvon",
+          "madrichim-shealot-yazam",
+          "madrichim-yorshim",
+          "hashvaa-pinui-vs-tama",
+          "building-mamad",
+          "contact",
+        ]}
       />
 
       <FAQ

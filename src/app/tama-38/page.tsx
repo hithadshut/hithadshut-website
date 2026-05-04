@@ -381,7 +381,13 @@ export default function Page() {
 
       <RelatedLinks
         seed="tama-38/pillar"
-        targets={["pinui-binui", "pinui-binui-temurot", "pinui-binui-kshishim"]}
+        targets={[
+          "pinui-binui",
+          "pinui-binui-kshishim",
+          "madrichim-sof-tama",
+          "hashvaa-pinui-vs-tama",
+          "hashvaa-shaked-vs-tama",
+        ]}
       />
 
       <FAQ

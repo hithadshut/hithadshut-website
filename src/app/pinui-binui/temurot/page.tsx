@@ -449,7 +449,12 @@ export default function Page() {
 
       <RelatedLinks
         seed="pinui-binui/temurot"
-        targets={["pinui-binui", "ofek-mazor", "contact"]}
+        targets={[
+          "pinui-binui",
+          "pinui-binui-machshvon",
+          "ofek-mazor",
+          "contact",
+        ]}
       />
 
       <FAQ

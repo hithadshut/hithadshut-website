@@ -360,7 +360,12 @@ export default function Page() {
 
       <RelatedLinks
         seed="pinui-binui/yorshim"
-        targets={["pinui-binui", "pinui-binui-temurot", "pinui-binui-kshishim"]}
+        targets={[
+          "pinui-binui",
+          "pinui-binui-temurot",
+          "pinui-binui-kshishim",
+          "madrichim-yorshim",
+        ]}
       />
 
       <FAQ
