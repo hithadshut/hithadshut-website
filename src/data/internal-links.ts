@@ -1085,6 +1085,49 @@ export const internalLinks: InternalLink[] = [
     context: "inline",
     note: "Inline link in ktegoria-4 (contract terms) section.",
   },
+  // 2026-05-04: /madrichim/heskem-pinui-binui-shel-2-amudim/ article launch (Phase 5.1, Article 3).
+  {
+    fromUrl: "/madrichim/heskem-pinui-binui-shel-2-amudim",
+    toUrl: "/pinui-binui",
+    anchorText: "פינוי בינוי",
+    context: "inline",
+    note: "Inline link in opening section.",
+  },
+  {
+    fromUrl: "/madrichim/heskem-pinui-binui-shel-2-amudim",
+    toUrl: "/pinui-binui/temurot",
+    anchorText: "תמורות בפינוי בינוי",
+    context: "inline",
+    note: "Inline link in prek-4 (compensations) section.",
+  },
+  {
+    fromUrl: "/madrichim/heskem-pinui-binui-shel-2-amudim",
+    toUrl: "/madrichim/luach-zmanim-pinui-binui-2026",
+    anchorText: "לוח זמנים פינוי בינוי",
+    context: "inline",
+    note: "Inline link in prek-5 (timeline) section.",
+  },
+  {
+    fromUrl: "/madrichim/heskem-pinui-binui-shel-2-amudim",
+    toUrl: "/pinui-binui/eravut",
+    anchorText: "ערבויות בפינוי בינוי",
+    context: "inline",
+    note: "Inline link in prek-8 (guarantees) section.",
+  },
+  {
+    fromUrl: "/madrichim/heskem-pinui-binui-shel-2-amudim",
+    toUrl: "/pinui-binui/kshishim",
+    anchorText: "זכויות קשישים בפינוי בינוי",
+    context: "inline",
+    note: "Inline link in prek-9 (special provisions) section.",
+  },
+  {
+    fromUrl: "/madrichim/heskem-pinui-binui-shel-2-amudim",
+    toUrl: "/pinui-binui/yorshim",
+    anchorText: "ירושה דירה בפינוי בינוי",
+    context: "inline",
+    note: "Inline link in prek-9 (special provisions) section.",
+  },
 ];
 
 /** All internal links pointing FROM a given URL. */

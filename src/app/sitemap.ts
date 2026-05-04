@@ -277,6 +277,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    {
+      url: `${site.url}/madrichim/heskem-pinui-binui-shel-2-amudim`,
+      lastModified: lastModifiedFor("src/app/madrichim/heskem-pinui-binui-shel-2-amudim/page.tsx"),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
     // Services
     ...services.map((s) => ({
       url: `${site.url}/services/${s.slug}`,
