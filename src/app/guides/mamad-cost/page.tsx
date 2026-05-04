@@ -312,7 +312,21 @@ export default function Page() {
                   <strong>עובי הקירות לפי אזור.</strong> בקו קדמי התקן מחייב עובי קירות ותקרה גבוה יותר: יותר בטון, יותר ברזל זיון, יותר שעות עבודה. תוספת של 15-25%.
                 </li>
                 <li>
-                  <strong>מיקום הממ״ד בבית.</strong> ממ״ד בקומת קרקע עם גישה ישירה זול משמעותית מממ״ד בקומה שנייה עם מעלית שירות מוגבלת או ממ״ד במרתף עם חפירה עמוקה.
+                  <strong>מיקום הממ״ד בבית.</strong> ממ״ד בקומת קרקע עם גישה ישירה זול משמעותית מ
+                  <Link
+                    href="/memad/bayit-prati"
+                    className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]"
+                  >
+                    ממ״ד בבית פרטי
+                  </Link>
+                  {" "}עם תכנון פנימי, ממ״ד בקומה שנייה עם מעלית שירות מוגבלת, או{" "}
+                  <Link
+                    href="/memad/tat-karkai"
+                    className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]"
+                  >
+                    ממ״ד תת-קרקעי
+                  </Link>
+                  {" "}עם חפירה עמוקה (תוספת 25%-40%).
                 </li>
                 <li>
                   <strong>תנאי הגישה לאתר.</strong> האם משאית בטון יכולה להגיע עד ליציקה? האם צריך משאבת בטון? האם הדרך עוברת דרך סמטה צרה או שכונה עם חניה מוגבלת?

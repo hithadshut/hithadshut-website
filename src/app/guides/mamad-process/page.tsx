@@ -216,6 +216,12 @@ export default function Page() {
             <Link href="/guides/choosing-mamad-contractor">איך בוחרים קבלן ממ״ד</Link>{" "}
             ו-<Link href="/guides/home-front-command-approval">אישורי פיקוד העורף</Link>.
           </p>
+          <p>
+            לעיון בתהליך הספציפי לפי סוג הבית: 8 השלבים המפורטים זמינים במדריך על{" "}
+            <Link href="/memad/bayit-prati">ממ״ד לבית פרטי</Link>. להתקנות מורכבות יותר, ראו את המדריך על{" "}
+            <Link href="/memad/koma-elyona">ממ״ד בקומה עליונה</Link>{" "}
+            שמכסה את שיקולי החיזוק הקונסטרוקטיבי, משאבת הבטון, והלוגיסטיקה בגובה.
+          </p>
           </Prose>
 
           <aside>

@@ -187,6 +187,16 @@ export default function Page() {
               ]}
               footnote="טווחי המחירים הם הערכות שוק נכון ל-2026 לבתים פרטיים סטנדרטיים. כל פרויקט נבחן פרטנית."
             />
+            <p className="mt-6 text-[17px] text-[var(--color-ink)] leading-8">
+              לפירוט מקיף על תכנון ממ״ד מתחת לפני הקרקע, שיקולי מי תהום, איטום, וניקוז, ראו את המדריך הייעודי על{" "}
+              <Link
+                href="/memad/tat-karkai"
+                className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]"
+              >
+                ממ״ד תת-קרקעי
+              </Link>
+              .
+            </p>
           </div>
         </Reveal>
       </Section>

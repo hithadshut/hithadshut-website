@@ -182,6 +182,30 @@ export default function Page() {
                 </span>
               </li>
             </ul>
+            <p className="text-[var(--color-ink)] leading-relaxed mb-6">
+              לפי סוג הבית, בחנו את האפשרויות הספציפיות:{" "}
+              <Link
+                href="/memad/dira-bekoma"
+                className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]"
+              >
+                ממ״ד בדירה בקומה
+              </Link>
+              {" "}לשיקולים על דירות בקומה גבוהה,{" "}
+              <Link
+                href="/memad/binyan-yashan"
+                className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]"
+              >
+                ממ״ד לבניין ישן
+              </Link>
+              {" "}לבניינים מלפני 1992 שלעיתים ממ״ד תקני אינו אפשרי, ו
+              <Link
+                href="/memad/binyan-meshutaf"
+                className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]"
+              >
+                ממ״ד בבניין משותף
+              </Link>
+              {" "}להשוואת ממ״ד דירתי לעומת משותף בבניינים קטנים.
+            </p>
             <div className="flex flex-wrap gap-3">
               <Link
                 href="/services/building-mamad"

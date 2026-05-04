@@ -284,6 +284,152 @@ export const internalLinks: InternalLink[] = [
     context: "inline",
     note: "Inline link in im-yazam-msarev section; activates previously plain-text reference.",
   },
+  // 2026-05-04: Gal 3 Block A — inbound links for 6 new memad sub-pages
+  // from existing memad hub, guides, and a cross-cluster link from /pinui-binui.
+  // /services/building-mamad → all 6 memad sub-pages (new "מדריכים מפורטים" section).
+  {
+    fromUrl: "/services/building-mamad",
+    toUrl: "/memad/bayit-prati",
+    anchorText: "ממ״ד לבית פרטי",
+    context: "related",
+    note: "Hub guide-cards section.",
+  },
+  {
+    fromUrl: "/services/building-mamad",
+    toUrl: "/memad/dira-bekoma",
+    anchorText: "ממ״ד בדירה בקומה",
+    context: "related",
+    note: "Hub guide-cards section.",
+  },
+  {
+    fromUrl: "/services/building-mamad",
+    toUrl: "/memad/binyan-meshutaf",
+    anchorText: "ממ״ד בבניין משותף",
+    context: "related",
+    note: "Hub guide-cards section.",
+  },
+  {
+    fromUrl: "/services/building-mamad",
+    toUrl: "/memad/binyan-yashan",
+    anchorText: "ממ״ד לבניין ישן",
+    context: "related",
+    note: "Hub guide-cards section.",
+  },
+  {
+    fromUrl: "/services/building-mamad",
+    toUrl: "/memad/koma-elyona",
+    anchorText: "ממ״ד בקומה עליונה",
+    context: "related",
+    note: "Hub guide-cards section.",
+  },
+  {
+    fromUrl: "/services/building-mamad",
+    toUrl: "/memad/tat-karkai",
+    anchorText: "ממ״ד תת-קרקעי",
+    context: "related",
+    note: "Hub guide-cards section.",
+  },
+  // /services/room-reinforcement → 3 memad sub-pages (apartment-floor, old-building, shared-building).
+  {
+    fromUrl: "/services/room-reinforcement",
+    toUrl: "/memad/dira-bekoma",
+    anchorText: "ממ״ד בדירה בקומה",
+    context: "inline",
+    note: "Inline link in 'when-not-enough' section.",
+  },
+  {
+    fromUrl: "/services/room-reinforcement",
+    toUrl: "/memad/binyan-yashan",
+    anchorText: "ממ״ד לבניין ישן",
+    context: "inline",
+    note: "Inline link in 'when-not-enough' section.",
+  },
+  {
+    fromUrl: "/services/room-reinforcement",
+    toUrl: "/memad/binyan-meshutaf",
+    anchorText: "ממ״ד בבניין משותף",
+    context: "inline",
+    note: "Inline link in 'when-not-enough' section.",
+  },
+  // /guides/mamad-cost → bayit-prati, tat-karkai.
+  {
+    fromUrl: "/guides/mamad-cost",
+    toUrl: "/memad/bayit-prati",
+    anchorText: "ממ״ד בבית פרטי",
+    context: "inline",
+    note: "Inline in 'what-drives-price' section, location-impact bullet.",
+  },
+  {
+    fromUrl: "/guides/mamad-cost",
+    toUrl: "/memad/tat-karkai",
+    anchorText: "ממ״ד תת-קרקעי",
+    context: "inline",
+    note: "Inline in 'what-drives-price' section, location-impact bullet.",
+  },
+  // /guides/mamad-process → bayit-prati, koma-elyona.
+  {
+    fromUrl: "/guides/mamad-process",
+    toUrl: "/memad/bayit-prati",
+    anchorText: "ממ״ד לבית פרטי",
+    context: "inline",
+    note: "Inline in 'our-approach' section.",
+  },
+  {
+    fromUrl: "/guides/mamad-process",
+    toUrl: "/memad/koma-elyona",
+    anchorText: "ממ״ד בקומה עליונה",
+    context: "inline",
+    note: "Inline in 'our-approach' section, complex-installations follow-up.",
+  },
+  // /guides/home-front-command-approval → dira-bekoma, koma-elyona.
+  {
+    fromUrl: "/guides/home-front-command-approval",
+    toUrl: "/memad/dira-bekoma",
+    anchorText: "ממ״ד בדירה בקומה",
+    context: "inline",
+    note: "Inline in 'our-approach' section, apartment-floor approval specifics.",
+  },
+  {
+    fromUrl: "/guides/home-front-command-approval",
+    toUrl: "/memad/koma-elyona",
+    anchorText: "ממ״ד בקומה עליונה",
+    context: "inline",
+    note: "Inline in 'our-approach' section, upper-floor approval specifics.",
+  },
+  // /pinui-binui → /memad/binyan-yashan (CROSS-CLUSTER LINK).
+  {
+    fromUrl: "/pinui-binui",
+    toUrl: "/memad/binyan-yashan",
+    anchorText: "ממ״ד לבניין ישן",
+    context: "inline",
+    note: "Cross-cluster link from urban-renewal pillar to memad cluster, in 'kdai' section old-building bullet.",
+  },
+  // /memad/dira-bekoma → /memad/koma-elyona (sibling cross-link).
+  {
+    fromUrl: "/memad/dira-bekoma",
+    toUrl: "/memad/koma-elyona",
+    anchorText: "ממ״ד בקומה עליונה",
+    context: "inline",
+    note: "Inline link after 3-pitronot ComparisonTable, complements rooftop-prefab row.",
+  },
+  // /memad/bayit-prati → /memad/tat-karkai (sibling cross-link).
+  {
+    fromUrl: "/memad/bayit-prati",
+    toUrl: "/memad/tat-karkai",
+    anchorText: "ממ״ד תת-קרקעי",
+    context: "inline",
+    note: "Inline link after 4-types ComparisonTable, deeper coverage of underground option.",
+  },
+  // /memad/koma-elyona → /memad/dira-bekoma sibling-link is already present
+  // in the alternatives section of /memad/koma-elyona at launch (see Phase 2.5
+  // commit). Logged here for the inbound graph.
+  {
+    fromUrl: "/memad/koma-elyona",
+    toUrl: "/memad/dira-bekoma",
+    anchorText: "ממ״ד בדירה בקומה",
+    context: "inline",
+    note: "Existing inline link in alternatives section (shipped Phase 2.5).",
+  },
   // 2026-05-04: /memad/tat-karkai/ sub-page launch (Gal 2, Phase 2.6).
   {
     fromUrl: "/memad/tat-karkai",

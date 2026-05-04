@@ -412,6 +412,90 @@ export default function Page() {
         </div>
       </Section>
 
+      <Section tone="white">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-10">
+            <div className="text-sm font-extrabold uppercase tracking-[0.22em] text-[var(--color-accent-dark)] mb-3">
+              מדריכים מפורטים
+            </div>
+            <h2 className="text-2xl md:text-3xl font-black text-[var(--color-primary)] mb-3">
+              מדריכי ממ״ד מפורטים: לפי סוג הבית
+            </h2>
+            <p className="text-[17px] text-[var(--color-muted)] max-w-3xl mx-auto leading-8">
+              לכל סוג בית יש שיקולים ייחודיים: היתכנות, אישורים, ועלויות. בחרו את המסלול שמתאים לבית שלכם.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <Link
+              href="/memad/bayit-prati"
+              className="block p-5 bg-white border border-[var(--color-border)] rounded-2xl hover:border-[var(--color-accent-dark)] hover:shadow-[var(--shadow-card)] transition"
+            >
+              <h3 className="font-extrabold text-[var(--color-primary)] text-lg mb-2">
+                ממ״ד לבית פרטי
+              </h3>
+              <p className="text-[var(--color-muted)] text-sm leading-relaxed">
+                ארבעה סוגי ממ״ד לבית פרטי, מחירון 160-280 אלף ש&ldquo;ח, ומסלול הפטור.
+              </p>
+            </Link>
+            <Link
+              href="/memad/dira-bekoma"
+              className="block p-5 bg-white border border-[var(--color-border)] rounded-2xl hover:border-[var(--color-accent-dark)] hover:shadow-[var(--shadow-card)] transition"
+            >
+              <h3 className="font-extrabold text-[var(--color-primary)] text-lg mb-2">
+                ממ״ד בדירה בקומה
+              </h3>
+              <p className="text-[var(--color-muted)] text-sm leading-relaxed">
+                שלושה פתרונות בדירה, אישורים נדרשים, וההשפעה על המבנה הקיים.
+              </p>
+            </Link>
+            <Link
+              href="/memad/binyan-meshutaf"
+              className="block p-5 bg-white border border-[var(--color-border)] rounded-2xl hover:border-[var(--color-accent-dark)] hover:shadow-[var(--shadow-card)] transition"
+            >
+              <h3 className="font-extrabold text-[var(--color-primary)] text-lg mb-2">
+                ממ״ד בבניין משותף
+              </h3>
+              <p className="text-[var(--color-muted)] text-sm leading-relaxed">
+                ממ״ד דירתי לעומת משותף, חלוקת עלויות, הסכמת דיירים, ומימון.
+              </p>
+            </Link>
+            <Link
+              href="/memad/binyan-yashan"
+              className="block p-5 bg-white border border-[var(--color-border)] rounded-2xl hover:border-[var(--color-accent-dark)] hover:shadow-[var(--shadow-card)] transition"
+            >
+              <h3 className="font-extrabold text-[var(--color-primary)] text-lg mb-2">
+                ממ״ד לבניין ישן
+              </h3>
+              <p className="text-[var(--color-muted)] text-sm leading-relaxed">
+                ארבעה פתרונות לבניין מלפני 1992: ממ״ד תקני, שיפור מיגון, יביל, או התחדשות עירונית.
+              </p>
+            </Link>
+            <Link
+              href="/memad/koma-elyona"
+              className="block p-5 bg-white border border-[var(--color-border)] rounded-2xl hover:border-[var(--color-accent-dark)] hover:shadow-[var(--shadow-card)] transition"
+            >
+              <h3 className="font-extrabold text-[var(--color-primary)] text-lg mb-2">
+                ממ״ד בקומה עליונה
+              </h3>
+              <p className="text-[var(--color-muted)] text-sm leading-relaxed">
+                ממ״ד על הגג ובפנטהאוז: חיזוק מבנה, משאבת בטון, ולוגיסטיקה בגובה.
+              </p>
+            </Link>
+            <Link
+              href="/memad/tat-karkai"
+              className="block p-5 bg-white border border-[var(--color-border)] rounded-2xl hover:border-[var(--color-accent-dark)] hover:shadow-[var(--shadow-card)] transition"
+            >
+              <h3 className="font-extrabold text-[var(--color-primary)] text-lg mb-2">
+                ממ״ד תת-קרקעי
+              </h3>
+              <p className="text-[var(--color-muted)] text-sm leading-relaxed">
+                ממ״ד במרתף או תת-קרקעי: רמת הגנה גבוהה, שיקולי מי תהום, ואיטום.
+              </p>
+            </Link>
+          </div>
+        </div>
+      </Section>
+
       <RelatedLinks
         seed="services/building-mamad"
         targets={[

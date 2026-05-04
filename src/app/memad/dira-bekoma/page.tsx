@@ -194,6 +194,16 @@ export default function Page() {
               ]}
               footnote="הטווחים הם הערכות שוק נכון ל-2026 לפרויקטים סטנדרטיים. כל פרויקט נבחן פרטנית לפי תנאי המבנה."
             />
+            <p className="mt-6 text-[17px] text-[var(--color-ink)] leading-8">
+              לבעלי דירות גג ופנטהאוזים, האפשרות של ממ״ד יביל בגג היא רק אחת משתי דרכים. ראו את המדריך המלא על{" "}
+              <Link
+                href="/memad/koma-elyona"
+                className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]"
+              >
+                ממ״ד בקומה עליונה
+              </Link>
+              {" "}שמכסה גם בנייה תקנית על הגג, חיזוק קונסטרוקציה, ואישורים נדרשים.
+            </p>
           </div>
         </Reveal>
       </Section>
