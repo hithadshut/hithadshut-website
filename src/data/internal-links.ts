@@ -284,6 +284,14 @@ export const internalLinks: InternalLink[] = [
     context: "inline",
     note: "Inline link in im-yazam-msarev section; activates previously plain-text reference.",
   },
+  // 2026-05-04: /memad/binyan-meshutaf/ sub-page launch (Gal 2, Phase 2.3).
+  {
+    fromUrl: "/memad/binyan-meshutaf",
+    toUrl: "/services/building-mamad",
+    anchorText: "בניין משותף",
+    context: "inline",
+    note: "Mandatory back-link from sub-page to commercial hub.",
+  },
   // 2026-05-04: /memad/dira-bekoma/ sub-page launch (Gal 2, Phase 2.2).
   {
     fromUrl: "/memad/dira-bekoma",
