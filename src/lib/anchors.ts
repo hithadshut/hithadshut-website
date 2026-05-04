@@ -63,6 +63,7 @@ export type LinkTarget =
   | "pinui-binui-yazam"
   | "pinui-binui-sarvan"
   | "memad-bayit-prati"
+  | "memad-dira-bekoma"
   | "ofek-mazor";
 
 export const ANCHOR_VARIANTS: Record<LinkTarget, string[]> = {
@@ -266,6 +267,15 @@ export const ANCHOR_VARIANTS: Record<LinkTarget, string[]> = {
     "מסלול פטור ממ״ד בית פרטי",
     "אפשרויות ממ״ד לבית צמוד קרקע",
   ],
+  "memad-dira-bekoma": [
+    "ממ״ד בדירה בקומה",
+    "ממ״ד בדירה",
+    "ממ״ד בקומה גבוהה",
+    "ממ״ד בדירת קומה שנייה",
+    "עלות ממ״ד בדירה",
+    "פתרון מיגון לדירה בקומה",
+    "ממ״ד או שיפור מיגון בדירה",
+  ],
   "ofek-mazor": [
     "אופק מזור, מנכ״ל ומייסד",
     "אופק מזור: מנכ״ל ומייסד התחדשות",
@@ -322,6 +332,7 @@ export const HREF_MAP: Record<LinkTarget, string> = {
   "pinui-binui-yazam": PINUI_BINUI_HREFS.yazam,
   "pinui-binui-sarvan": PINUI_BINUI_HREFS.sarvan,
   "memad-bayit-prati": MEMAD_HREFS.bayitPrati,
+  "memad-dira-bekoma": MEMAD_HREFS.diraBekoma,
   "ofek-mazor": ABOUT_HREFS.ofekMazor,
 };
 
@@ -371,6 +382,8 @@ export const TARGET_SUMMARY: Record<LinkTarget, string> = {
     "ההליך המשפטי, סירוב סביר מול בלתי סביר, הגנות הדייר, וכונס נכסים.",
   "memad-bayit-prati":
     "ארבעה סוגי ממ״ד לבית פרטי, מחירון מפורט, מסלול הפטור, ושלבי הביצוע מהתכנון ועד המסירה.",
+  "memad-dira-bekoma":
+    "שלושה פתרונות מיגון בדירה בקומה, מתי כל אחד מתאים, עלויות, אישורים, והשפעה על המבנה הקיים.",
   "ofek-mazor":
     "פרופיל מקצועי של אופק מזור, מנכ״ל ומייסד התחדשות בינוי ויזמות.",
 };
@@ -398,5 +411,6 @@ export const TARGET_LABEL: Record<LinkTarget, string> = {
   "pinui-binui-yazam": "בחירת יזם פינוי בינוי",
   "pinui-binui-sarvan": "דייר סרבן בפינוי בינוי",
   "memad-bayit-prati": "ממ״ד לבית פרטי",
+  "memad-dira-bekoma": "ממ״ד בדירה בקומה",
   "ofek-mazor": "אופק מזור, מנכ״ל ומייסד",
 };

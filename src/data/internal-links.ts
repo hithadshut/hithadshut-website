@@ -284,6 +284,28 @@ export const internalLinks: InternalLink[] = [
     context: "inline",
     note: "Inline link in im-yazam-msarev section; activates previously plain-text reference.",
   },
+  // 2026-05-04: /memad/dira-bekoma/ sub-page launch (Gal 2, Phase 2.2).
+  {
+    fromUrl: "/memad/dira-bekoma",
+    toUrl: "/services/building-mamad",
+    anchorText: "דירה בקומה",
+    context: "inline",
+    note: "Mandatory back-link from sub-page to commercial hub.",
+  },
+  {
+    fromUrl: "/memad/dira-bekoma",
+    toUrl: "/guides/home-front-command-approval",
+    anchorText: "אישורי פיקוד העורף",
+    context: "inline",
+    note: "Inline link in ishurim section to approval guide.",
+  },
+  {
+    fromUrl: "/memad/dira-bekoma",
+    toUrl: "/services/room-reinforcement",
+    anchorText: "שיפור מיגון",
+    context: "inline",
+    note: "Inline link in shipur-migun section to alternative service.",
+  },
   // 2026-05-04: /memad/bayit-prati/ sub-page launch (Gal 2, Phase 2.1).
   {
     fromUrl: "/memad/bayit-prati",
