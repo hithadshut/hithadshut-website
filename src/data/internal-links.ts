@@ -1136,6 +1136,28 @@ export const internalLinks: InternalLink[] = [
     context: "inline",
     note: "Inline link in opening Quick Answer block.",
   },
+  // 2026-05-05: /madrichim/dirot-temura-vs-dirot-mukdamot/ article launch (Phase 5.1, Article 5 — final).
+  {
+    fromUrl: "/madrichim/dirot-temura-vs-dirot-mukdamot",
+    toUrl: "/pinui-binui/temurot",
+    anchorText: "תמורות בפינוי בינוי",
+    context: "inline",
+    note: "Inline link in opening Quick Answer block.",
+  },
+  {
+    fromUrl: "/madrichim/dirot-temura-vs-dirot-mukdamot",
+    toUrl: "/pinui-binui/kshishim",
+    anchorText: "זכויות קשישים בפינוי בינוי",
+    context: "inline",
+    note: "Inline link in kashishim section.",
+  },
+  {
+    fromUrl: "/madrichim/dirot-temura-vs-dirot-mukdamot",
+    toUrl: "/madrichim/tax-meturgam-pinui-binui-2026",
+    anchorText: "מסים בפינוי בינוי",
+    context: "inline",
+    note: "Inline link in malkodot (pitfalls) section, sibling article.",
+  },
 ];
 
 /** All internal links pointing FROM a given URL. */
