@@ -1128,6 +1128,14 @@ export const internalLinks: InternalLink[] = [
     context: "inline",
     note: "Inline link in prek-9 (special provisions) section.",
   },
+  // 2026-05-05: /madrichim/tax-meturgam-pinui-binui-2026/ article launch (Phase 5.1, Article 4).
+  {
+    fromUrl: "/madrichim/tax-meturgam-pinui-binui-2026",
+    toUrl: "/pinui-binui",
+    anchorText: "פינוי בינוי",
+    context: "inline",
+    note: "Inline link in opening Quick Answer block.",
+  },
 ];
 
 /** All internal links pointing FROM a given URL. */
