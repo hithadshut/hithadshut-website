@@ -20,7 +20,7 @@ export const site = {
   serviceArea: "כל הארץ",
   hours: "א׳-ה׳ 08:00-19:00, ו׳ 08:00-13:00",
   locale: "he_IL",
-  ogImage: "/opengraph-image",
+  ogImage: "/og-image.jpg",
   twitter: "",
   links: {
     privacy: "/privacy",

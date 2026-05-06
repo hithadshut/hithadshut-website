@@ -62,13 +62,26 @@ export const metadata: Metadata = {
     url: site.url,
     title: `${site.name} בינוי ויזמות | בניית ממ"ד ומיגון`,
     description: site.description,
-    images: [{ url: site.ogImage, width: 1200, height: 630, alt: site.name }],
+    images: [
+      {
+        url: site.ogImage,
+        width: 1200,
+        height: 630,
+        alt: 'התחדשות — חברת בנייה לממ"דים והתחדשות עירונית',
+        type: "image/jpeg",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: site.name,
     description: site.description,
-    images: [site.ogImage],
+    images: ["/twitter-image.jpg"],
+  },
+  // Belt-and-suspenders: legacy `image_src` link rel that some scrapers
+  // (older Bing, some niche aggregators) still read when og:image is missing.
+  other: {
+    image_src: `${site.url}${site.ogImage}`,
   },
   robots: { index: true, follow: true },
   manifest: "/manifest.webmanifest",
