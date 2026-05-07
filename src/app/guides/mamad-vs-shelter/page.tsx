@@ -253,6 +253,75 @@ export default function Page() {
         subtitle="השאירו פרטים. נגיע לסיור בבית ונעזור לבחור את הפתרון הנכון לכם."
       />
 
+      {/* Trust differentiators — three sharp angles for mamad vs shelter. */}
+      <Section tone="white">
+        <div className="max-w-5xl mx-auto">
+          <div className="mb-8 text-center">
+            <div className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-[var(--color-accent-dark)] mb-3">
+              שלושה דברים שמכריעים
+            </div>
+            <h2 className="text-2xl md:text-3xl font-black text-[var(--color-primary)]">
+              מתי המקלט המשותף לא מספיק והעדיפות עוברת לממ״ד דירתי
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-5">
+            <article
+              className="h-full p-6 rounded-2xl border-2 border-red-200 bg-red-50/40"
+              aria-labelledby="vs-shelter-warn-time"
+            >
+              <div className="text-2xl mb-2" aria-hidden>⚠️</div>
+              <h3 id="vs-shelter-warn-time" className="font-extrabold text-red-900 text-lg mb-2">
+                זמן הגעה למקלט בבניין מבוגר
+              </h3>
+              <p className="text-sm text-[var(--color-ink)] leading-relaxed">
+                בערים עם <strong>חלון התרעה של 60-90 שניות</strong>, ירידה למקלט
+                בבניין הכוללת מעלית או מדרגות עלולה לחרוג מזמן ההתרעה. במשפחות עם
+                ילדים קטנים, קשישים, או בעלי מוגבלות, הפער קריטי. ממ״ד דירתי תוך-דירתי
+                מבטל את משתנה הזמן לחלוטין.
+              </p>
+            </article>
+
+            <article
+              className="h-full p-6 rounded-2xl border-2 border-amber-200 bg-amber-50/40"
+              aria-labelledby="vs-shelter-hidden-condition"
+            >
+              <div className="text-2xl mb-2" aria-hidden>💰</div>
+              <h3 id="vs-shelter-hidden-condition" className="font-extrabold text-amber-900 text-lg mb-2">
+                מצב המקלט המשותף בפועל
+              </h3>
+              <p className="text-sm text-[var(--color-ink)] leading-relaxed">
+                במקלטים רבים בבניינים ישנים: <strong>אין מערכת סינון פעילה, פתחי
+                אוורור לא נסגרים תקנית, דלת ההדף שחוקה</strong>. גם אם המקלט קיים על
+                הנייר, רמת ההגנה בפועל יכולה להיות נמוכה משמעותית. בקשו מדו״ח בדיקה
+                של פיקוד העורף לפני שאתם נשענים עליו.
+              </p>
+            </article>
+
+            <article
+              className="h-full p-6 rounded-2xl border-2 border-emerald-200 bg-emerald-50/40"
+              aria-labelledby="vs-shelter-savings-value"
+            >
+              <div className="text-2xl mb-2" aria-hidden>💡</div>
+              <h3 id="vs-shelter-savings-value" className="font-extrabold text-emerald-900 text-lg mb-2">
+                ממ״ד דירתי מעלה את שווי הדירה
+              </h3>
+              <p className="text-sm text-[var(--color-ink)] leading-relaxed">
+                דירה עם ממ״ד דירתי נמכרת ב-<strong>8.2-21% יותר</strong> מדירה ללא ממ״ד
+                באותו אזור (פער שמשתנה לפי מיקום). מעבר לערך השוק, הממ״ד גם מנוצל ביום
+                יום כחדר רגיל. למידע מפורט על השפעת המחיר ראו את{" "}
+                <Link
+                  href="/guides/mamad-cost"
+                  className="font-bold text-emerald-900 underline underline-offset-4"
+                >
+                  מדריך מחיר ממ״ד
+                </Link>
+                .
+              </p>
+            </article>
+          </div>
+        </div>
+      </Section>
+
       <FAQ items={faqs} title="שאלות נפוצות: ממ״ד מול מקלט" />
 
       <RelatedLinks

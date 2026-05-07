@@ -232,6 +232,85 @@ export default function Page() {
         </div>
       </Section>
 
+      {/* Trust differentiators — three sharp angles for choosing a contractor. */}
+      <Section tone="white">
+        <div className="max-w-5xl mx-auto">
+          <div className="mb-8 text-center">
+            <div className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-[var(--color-accent-dark)] mb-3">
+              סימני אזהרה ועלויות נסתרות
+            </div>
+            <h2 className="text-2xl md:text-3xl font-black text-[var(--color-primary)]">
+              שלוש נקודות שמפרידות בין קבלן רשום לחאפר
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-5">
+            <article
+              className="h-full p-6 rounded-2xl border-2 border-red-200 bg-red-50/40"
+              aria-labelledby="contractor-warn-cash"
+            >
+              <div className="text-2xl mb-2" aria-hidden>⚠️</div>
+              <h3 id="contractor-warn-cash" className="font-extrabold text-red-900 text-lg mb-2">
+                דרישת מזומן או היעדר חשבונית
+              </h3>
+              <p className="text-sm text-[var(--color-ink)] leading-relaxed">
+                קבלן רשום חייב לפי חוק להוציא <strong>חשבונית מס עם מע״מ</strong>. דרישה
+                לתשלום במזומן או הימנעות מחשבונית = סימן מובהק לעבודה מחוץ למסלול החוק.
+                גם &ldquo;קבלה&rdquo; ללא מע״מ אינה חשבונית מס ואינה מגינה עליכם משפטית.
+                תמיד לדרוש את מספר רישום הקבלן ולאמת ב-{" "}
+                <a
+                  href="https://www.gov.il/he/departments/topics/registered_contractors"
+                  target="_blank"
+                  rel="noopener nofollow"
+                  className="font-bold text-red-900 underline underline-offset-4"
+                >
+                  רשם הקבלנים
+                </a>
+                .
+              </p>
+            </article>
+
+            <article
+              className="h-full p-6 rounded-2xl border-2 border-amber-200 bg-amber-50/40"
+              aria-labelledby="contractor-hidden-insurance"
+            >
+              <div className="text-2xl mb-2" aria-hidden>💰</div>
+              <h3 id="contractor-hidden-insurance" className="font-extrabold text-amber-900 text-lg mb-2">
+                ביטוח עבודות = הגנה שלכם
+              </h3>
+              <p className="text-sm text-[var(--color-ink)] leading-relaxed">
+                ביטוח עבודות קבלניות חייב לכלול: <strong>עבודות, צד ג׳ (≥2 מיליון ₪),
+                חבות מעבידים</strong>. אם עובד נפצע באתר ללא ביטוח, האחריות הכלכלית
+                והמשפטית עוברת אליכם. דרשו תעודת ביטוח בתוקף לפני התחלת עבודה.{" "}
+                &ldquo;הביטוח יסודר אחר-כך&rdquo; משמעו לא מתחילים פרויקט.
+              </p>
+            </article>
+
+            <article
+              className="h-full p-6 rounded-2xl border-2 border-emerald-200 bg-emerald-50/40"
+              aria-labelledby="contractor-savings-contract"
+            >
+              <div className="text-2xl mb-2" aria-hidden>✓</div>
+              <h3 id="contractor-savings-contract" className="font-extrabold text-emerald-900 text-lg mb-2">
+                חוזה של 20+ עמודים, לא של חצי
+              </h3>
+              <p className="text-sm text-[var(--color-ink)] leading-relaxed">
+                חוזה קבלנות תקין כולל: <strong>מפרט טכני מפורט, תכניות אדריכלות
+                וקונסטרוקציה, אבני דרך, ערבויות, לוחות זמנים, סנקציות על איחורים,
+                מנגנון יישוב מחלוקות</strong>. חוזה קצר מ-20 עמודים = דגל אדום. לעומק
+                ראו את ההשוואה{" "}
+                <Link
+                  href="/compare/katlan-rashum-vs-hafer"
+                  className="font-bold text-emerald-900 underline underline-offset-4"
+                >
+                  קבלן רשום מול חאפר
+                </Link>
+                .
+              </p>
+            </article>
+          </div>
+        </div>
+      </Section>
+
       <FAQ items={faqs} />
 
       <RelatedArticles currentSlug="choosing-mamad-contractor" />

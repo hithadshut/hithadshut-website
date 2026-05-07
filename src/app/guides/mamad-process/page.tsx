@@ -230,6 +230,76 @@ export default function Page() {
         </div>
       </Section>
 
+      {/* Trust differentiators — three sharp angles for process. */}
+      <Section tone="white">
+        <div className="max-w-5xl mx-auto">
+          <div className="mb-8 text-center">
+            <div className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-[var(--color-accent-dark)] mb-3">
+              מה שכל מי שעשה את זה היה רוצה לדעת מראש
+            </div>
+            <h2 className="text-2xl md:text-3xl font-black text-[var(--color-primary)]">
+              שלוש נקודות שתופסות יותר פרויקטים מכל דבר אחר
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-5">
+            <article
+              className="h-full p-6 rounded-2xl border-2 border-red-200 bg-red-50/40"
+              aria-labelledby="proc-warn-pre-approval"
+            >
+              <div className="text-2xl mb-2" aria-hidden>⚠️</div>
+              <h3 id="proc-warn-pre-approval" className="font-extrabold text-red-900 text-lg mb-2">
+                התחלת ביצוע לפני אישור פקע״ר
+              </h3>
+              <p className="text-sm text-[var(--color-ink)] leading-relaxed">
+                הטעות הכי יקרה בפרויקט ממ״ד: להתחיל לחפור או ליצוק לפני שהאישור של פיקוד
+                העורף בידיים. אם פקע״ר חוזר עם הערות תכנוניות אחרי תחילת הביצוע, ייתכן
+                שיידרש לפרק עבודה שכבר נעשתה. <strong>לעולם לא להתחיל ביצוע לפני אישור
+                בכתב</strong>. האישור מגיע בדרך כלל תוך 14 ימי עבודה במסלול פטור.
+              </p>
+            </article>
+
+            <article
+              className="h-full p-6 rounded-2xl border-2 border-amber-200 bg-amber-50/40"
+              aria-labelledby="proc-hidden-completion"
+            >
+              <div className="text-2xl mb-2" aria-hidden>💰</div>
+              <h3 id="proc-hidden-completion" className="font-extrabold text-amber-900 text-lg mb-2">
+                העלות שלא תמיד אומרים: הודעת סיום
+              </h3>
+              <p className="text-sm text-[var(--color-ink)] leading-relaxed">
+                במסלול פטור (סעיף 30ב׳), חובה להגיש <strong>הודעת סיום ביצוע</strong>{" "}
+                לרשות הרישוי ולפיקוד העורף תוך 45 ימים מתום העבודה. ההגשה דורשת מסמכים
+                שהקבלן והאדריכל מכינים. ממ״ד שלא הוגש בו דיווח סיום אינו &ldquo;סגור&rdquo;
+                פורמלית, ולא יוכר במכירה עתידית של הנכס. ודאו שזה נכלל בחוזה.
+              </p>
+            </article>
+
+            <article
+              className="h-full p-6 rounded-2xl border-2 border-emerald-200 bg-emerald-50/40"
+              aria-labelledby="proc-savings-30b"
+            >
+              <div className="text-2xl mb-2" aria-hidden>💡</div>
+              <h3 id="proc-savings-30b" className="font-extrabold text-emerald-900 text-lg mb-2">
+                החיסכון: סעיף 30ב׳ עד אוקטובר 2026
+              </h3>
+              <p className="text-sm text-[var(--color-ink)] leading-relaxed">
+                מסלול הפטור (תקנה 30ב׳, הוראת שעה) חוסך <strong>4-6 שבועות</strong> של
+                בירוקרטיה ועלויות תכנון/אגרות של 15,000-25,000 ₪. בתוקף עד{" "}
+                <strong>אוקטובר 2026</strong> לבתים צמודי קרקע ולבניינים עד 2 קומות.
+                לפרטים מלאים ראו את{" "}
+                <Link
+                  href="/guides/mamad-permit-exemption-2026"
+                  className="font-bold text-emerald-900 underline underline-offset-4"
+                >
+                  מדריך מסלול הפטור
+                </Link>
+                .
+              </p>
+            </article>
+          </div>
+        </div>
+      </Section>
+
       <FAQ items={faqs} />
 
       <RelatedArticles currentSlug="mamad-process" />

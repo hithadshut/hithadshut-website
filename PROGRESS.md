@@ -13,8 +13,8 @@
 | Phase 0 — Setup & Discovery | ✅ Complete |
 | Phase 1 — Foundation Fixes | ✅ Complete (commit `3087988`) |
 | Phase 2A — Immediate Fixes | ✅ Complete (commit `3087988`) |
-| Phase 2B — Mamad Pages Overhaul | 🟡 In progress (2 of 11 pages done) |
-| Phase 2C — New Mamad Pages | ⏸ Not started |
+| Phase 2B — Mamad Pages Overhaul | ✅ Complete (11 of 11 pages done) |
+| Phase 2C — New Mamad Pages | ⏸ Not started — only `/compare/mamad-vs-hamad` is genuinely missing |
 
 **Build status:** lint ✅, typecheck ✅, build ✅
 **Sitemap:** 60 static pages registered with git-based `lastModified`
@@ -78,19 +78,19 @@ Already had 2,700 words, 10 FAQs, 11-section TOC, KeyStats, detailed price table
 
 Word count after: ~2,800. FAQ + Article + Breadcrumb schema all wired.
 
-### Remaining (9 / 11)
+### Completed (9 / 9 remaining)
 
-Sequence dictated by SEO priority (volume × commercial intent):
+All 11 pages now have the trust-differentiator block (3 callouts: warning + hidden cost + savings) in addition to existing strong content. Specific additions:
 
-3. `/services/prefab-mamad` — ממ״ד יביל
-4. `/services/room-reinforcement` — שיפור מיגון
-5. `/guides/mamad-process` — תהליך בניית ממ״ד
-6. `/guides/home-front-command-approval` — אישורי פיקוד העורף
-7. `/guides/mamad-permit-exemption-2026` — מסלול פטור 2026
-8. `/guides/choosing-mamad-contractor` — בחירת קבלן
-9. `/guides/mamad-mistakes` — טעויות נפוצות
-10. `/guides/mamad-vs-shelter` — ממ״ד מול מקלט
-11. `/guides/mamad-air-filter-system` — מערכת סינון
+3. ✅ `/services/prefab-mamad` — strengthened opening (תקן 4422, base price 90-130K + הובלה עד 30K), new yibil-vs-conventional comparison table (6 rows), 3 callouts (warning: 80K hidden costs / hidden: foundation prep 8-20K / when yibil is right)
+4. ✅ `/services/room-reinforcement` — strengthened opening (50-120K + מע״מ, only when ממ״ד not possible, requires פקע״ר approval), new shipur-vs-mamad comparison table (6 rows), 3 callouts (warning: not a substitute / savings comparison / what we do)
+5. ✅ `/guides/mamad-process` — added 3 callouts (warning: starting before pikud haoref approval / hidden: 45-day completion notice / savings: סעיף 30ב')
+6. ✅ `/guides/home-front-command-approval` — added 3 callouts (warning: one uncertified item rejects whole bakasha / hidden: not every constructor knows mamad / savings: electronic submission cuts 2 weeks)
+7. ✅ `/guides/mamad-permit-exemption-2026` — added 3 callouts (warning: October 2026 deadline / hidden: not every house qualifies / savings: 4-6 weeks + 15-25K)
+8. ✅ `/guides/choosing-mamad-contractor` — added 3 callouts (warning: cash demand / hidden: insurance protection / savings: 20+ page contract)
+9. ✅ `/guides/mamad-mistakes` — added 3 callouts (warning: migunit-as-private-home / hidden: כולל הכל without breakdown / savings: constructor specialization)
+10. ✅ `/guides/mamad-vs-shelter` — added 3 callouts (warning: shelter time-to-arrival / hidden: shelter actual condition / savings: 8.2-21% price uplift)
+11. ✅ `/guides/mamad-air-filter-system` — added 3 callouts (warning: uncertified system / hidden: 8-15K real cost / savings: maintenance per manufacturer schedule)
 
 For each, the work pattern (proven on pages 1-2 above) is:
 1. Read existing content + word count
