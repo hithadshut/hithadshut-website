@@ -46,7 +46,7 @@ export function organizationJsonLd() {
       "@type": "Person",
       "@id": OFEK_PERSON_ID,
       name: "אופק מזור",
-      jobTitle: "מנכ״ל ומייסד",
+      jobTitle: "מנכ״ל ומייסד, מתווך מקרקעין מוסמך, רישיון 3246290",
       url: `${site.url}/about/ofek-mazor`,
     },
     serviceType: [
@@ -204,7 +204,13 @@ export function ofekPersonJsonLd() {
     name: "אופק מזור",
     givenName: "אופק",
     familyName: "מזור",
-    jobTitle: "מנכ״ל ומייסד, יזם ומנהל פרויקטים בהתחדשות עירונית ומיגון",
+    jobTitle: "מנכ״ל ומייסד, מתווך מקרקעין מוסמך",
+    hasCredential: {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "רישיון תיווך מקרקעין",
+      recognizedBy: { "@type": "GovernmentOrganization", name: "משרד המשפטים, רשם המתווכים" },
+      identifier: "3246290",
+    },
     worksFor: { "@id": `${site.url}/#organization` },
     url: `${site.url}/about/ofek-mazor`,
     image: `${site.url}/ofek-mazor.jpg`,
@@ -242,7 +248,7 @@ export function ofekImageJsonLd() {
     url: `${site.url}/ofek-mazor.jpg`,
     caption: "אופק מזור, מנכ״ל ומייסד התחדשות בינוי ויזמות",
     description:
-      "תמונת פרופיל של אופק מזור, מנכ״ל ומייסד התחדשות בינוי ויזמות. מוביל פרויקטים בהתחדשות עירונית ובמיגון מאז 2014.",
+      "תמונת פרופיל של אופק מזור, מנכ״ל ומייסד התחדשות בינוי ויזמות.",
     creator: {
       "@type": "Organization",
       name: "התחדשות בינוי ויזמות",

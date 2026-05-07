@@ -678,7 +678,7 @@ export default function PinuiBinuiCalculator() {
           </ul>
 
           <p className="text-sm text-[var(--color-muted)]">
-            אנחנו לא יזמים. אנחנו חברת בנייה שמלווה דיירים מקצועית.
+            אנחנו מלווים דיירים בהתחדשות עירונית, עובדים בשבילכם ולא בשביל היזם.
           </p>
 
           {submitError && (

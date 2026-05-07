@@ -283,13 +283,13 @@ export default function Page() {
               קיבלתם הצעה מיזם? שאלו את 10 השאלות לפני חתימה.
             </h2>
             <p className="text-[17px] text-[var(--color-ink)] leading-8 mb-6">
-              אנחנו לא יזמים. אנחנו חברת בנייה שמלווה דיירים בבחירת יזם מקצועי. ייעוץ ראשוני ללא עלות, ללא התחייבות.
+              אנחנו מלווים דיירים בבחירת יזם מקצועי. עובדים בשבילכם, לא בשביל היזם. ייעוץ ראשוני ללא עלות, ללא התחייבות.
             </p>
           </div>
           <InlineLeadForm
             title="בחירת יזם: בואו נדבר"
             subtitle="השאירו שם וטלפון. נעזור להעריך את ההצעה שקיבלתם."
-            defaultService="פינוי בינוי / התחדשות עירונית"
+            defaultService="urban-renewal"
             prioritizeUrbanRenewal
           />
         </Reveal>

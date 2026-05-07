@@ -42,9 +42,9 @@ const TOC_ITEMS = [
 ];
 
 const PATH = "/guides/mamad-cost";
-const TITLE = "כמה עולה לבנות ממ״ד? מחירים עדכניים 2026 | התחדשות";
+const TITLE = "מחיר ממ״ד 2026: כמה עולה לבנות ממ״ד | התחדשות";
 const DESCRIPTION =
-  "כמה עולה לבנות ממ״ד ב-2026? ממ״ד בבית פרטי 160,000-220,000 ₪ + מע״מ, מיגון חדר 40,000-150,000 ₪, מיגונית 30,000-80,000 ₪. פירוט עלויות, טבלאות השוואה ומה משפיע על המחיר.";
+  "כמה עולה ממ״ד ב-2026? בית פרטי 160,000-220,000 ₪, מיגון חדר 40,000-150,000 ₪. פירוט עלויות, טבלאות השוואה ומה משפיע על המחיר.";
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 
@@ -599,7 +599,7 @@ export default function Page() {
               <ul className="space-y-1.5 mb-5 text-sm">
                 <li><Link href="/services/building-mamad" className="text-[var(--color-primary)] hover:underline">בניית ממ״ד</Link></li>
                 <li><Link href="/services/room-reinforcement" className="text-[var(--color-primary)] hover:underline">מיגון חדר קיים</Link></li>
-                <li><Link href="/services/migunit" className="text-[var(--color-primary)] hover:underline">מיגונית</Link></li>
+                <li><Link href="/compare/mamad-vs-miggun-vs-migunit" className="text-[var(--color-primary)] hover:underline">ממ״ד, מיגון או מיגונית</Link></li>
                 <li><Link href="/services/prefab-mamad" className="text-[var(--color-primary)] hover:underline">ממ״ד מוכן</Link></li>
               </ul>
 
@@ -616,7 +616,7 @@ export default function Page() {
               <ul className="space-y-1.5 mb-5 text-sm">
                 <li><Link href="/compare/mamad-vs-miggun-vs-migunit" className="text-[var(--color-primary)] hover:underline">ממ״ד / מיגון / מיגונית</Link></li>
                 <li><Link href="/compare/mamad-tzamud-vs-hitzoni" className="text-[var(--color-primary)] hover:underline">ממ״ד צמוד vs חיצוני</Link></li>
-                <li><Link href="/compare/migunit-vs-mamad-muchan" className="text-[var(--color-primary)] hover:underline">מיגונית vs ממ״ד מוכן</Link></li>
+                <li><Link href="/services/prefab-mamad" className="text-[var(--color-primary)] hover:underline">ממ״ד מוכן (טרומי)</Link></li>
                 <li><Link href="/compare/katlan-rashum-vs-hafer" className="text-[var(--color-primary)] hover:underline">קבלן רשום vs חאפר</Link></li>
               </ul>
 
@@ -641,7 +641,7 @@ export default function Page() {
       <InlineLeadForm
         title="רוצים הצעת מחיר מדויקת לממ״ד שלכם?"
         subtitle="השאירו פרטים. נגיע לסיור, נבדוק אפשרויות ונחזור אליכם עם הצעה מפורטת פריט-פריט."
-        defaultService="בניית ממ״ד"
+        defaultService="mamad"
       />
 
       <FAQ items={faqs} title="שאלות נפוצות: מחיר ממ״ד" eyebrow="שאלות ותשובות" includeSchema={false} />

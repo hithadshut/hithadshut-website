@@ -124,7 +124,7 @@ export default function Page() {
       timeline="ייצור: 4-8 שבועות. יסוד באתר: 1-2 שבועות. הצבה וחיבור: ימים. סך הכל: 6-12 שבועות."
       pricing="ממ״ד טרומי תקני 9-12 מ״ר: 180,000-250,000 ₪ + מע״מ, כולל הובלה, יסוד, חיבורים ואישור. בדירה בקומה משתנה, לעיתים מעל 200,000 ₪ + מע״מ."
       faqs={faqs}
-      defaultService="ממ״ד טרומי תקני"
+      defaultService="mamad"
       quickAnswer={
         <>
           <strong>ממ״ד מוכן (טרומי)</strong> הוא יחידה ממוגנת המגיעה ערוכה מהמפעל. ההבחנה החשובה: <em>ממ״ד טרומי תקני</em> עם אישור פקע״ר ספציפי לדגם הוא ממ״ד אמיתי; <em>״יחידה ממוגנת״ גנרית</em> ללא אישור דגם איננה ממ״ד תקני. תמיד לבקש מספר אישור פקע״ר לדגם בכתב לפני הזמנה. מתאים לבתים פרטיים עם גישה לעגורן.
@@ -143,10 +143,10 @@ export default function Page() {
             השוואה טכנית מלאה: עלות, רמת הגנה, זמני ביצוע, אישור פקע״ר.
           </p>
           <Link
-            href="/compare/migunit-vs-mamad-muchan"
+            href="/compare/mamad-vs-miggun-vs-migunit"
             className="inline-flex items-center justify-center bg-[var(--color-primary)] text-white font-extrabold px-7 py-3.5 rounded-xl hover:brightness-110 transition"
           >
-            להשוואה המלאה: מיגונית מול ממ״ד מוכן ←
+            להשוואה המלאה: ממ״ד, מיגון ומיגונית ←
           </Link>
         </div>
       </Section>

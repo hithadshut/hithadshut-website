@@ -318,7 +318,7 @@ export default function Page() {
             <div className="font-bold text-[var(--color-primary)]">תהליך בניית ממ״ד ←</div>
           </Link>
           <Link
-            href="/compare/migunit-vs-mamad-muchan"
+            href="/compare/mamad-vs-miggun-vs-migunit"
             className="card-premium p-5 hover:bg-[var(--color-soft)] transition"
           >
             <div className="text-[10px] font-extrabold uppercase tracking-[0.18em] text-[var(--color-accent-dark)] mb-2">
@@ -390,7 +390,7 @@ export default function Page() {
       <InlineLeadForm
         title="לא בטוחים איזה ממ״ד מתאים לבית?"
         subtitle="מהנדס מטעמנו מגיע לבית, בוחן את האפשרויות ומציג את הפתרון הנכון, ללא עלות, ללא התחייבות."
-        defaultService="בניית ממ״ד"
+        defaultService="mamad"
       />
     </>
   );

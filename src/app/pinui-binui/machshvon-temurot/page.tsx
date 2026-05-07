@@ -195,7 +195,7 @@ export default function Page() {
         <Reveal>
           <ContentSection id="lama-anachnu" title="למה אנחנו?">
             <p>
-              אנחנו לא יזמים. אנחנו חברת בנייה שמלווה נציגויות דיירים מהארגון הראשוני ועד מסירת הדירות. הנתונים שמזין המחשבון מבוססים על פרויקטים אמיתיים שליווינו ועל סטנדרטים שמפורסמים על ידי{" "}
+              אנחנו מלווים נציגויות דיירים מהארגון הראשוני ועד מסירת הדירות. עובדים בשבילכם, לא בשביל היזם. הנתונים שמזין המחשבון מבוססים על פרויקטים אמיתיים שליווינו ועל סטנדרטים שמפורסמים על ידי{" "}
               <a
                 href="https://www.gov.il/he/departments/topics/urban_renewal/"
                 target="_blank"
@@ -223,12 +223,12 @@ export default function Page() {
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <div className="bg-white border border-[var(--color-border)] rounded-2xl p-5 text-center">
-                <div className="text-3xl md:text-4xl font-black text-[var(--color-primary)] mb-1">247</div>
-                <div className="text-sm text-[var(--color-muted)] leading-snug">פרויקטי פינוי בינוי במרכז הארץ ב-2026</div>
+                <div className="text-3xl md:text-4xl font-black text-[var(--color-primary)] mb-1">7-12</div>
+                <div className="text-sm text-[var(--color-muted)] leading-snug">שנים, משך תהליך פינוי בינוי טיפוסי</div>
               </div>
               <div className="bg-white border border-[var(--color-border)] rounded-2xl p-5 text-center">
-                <div className="text-3xl md:text-4xl font-black text-[var(--color-primary)] mb-1">1,800+</div>
-                <div className="text-sm text-[var(--color-muted)] leading-snug">דיירים שקיבלו ייעוץ ראשוני</div>
+                <div className="text-3xl md:text-4xl font-black text-[var(--color-primary)] mb-1">25 מ״ר</div>
+                <div className="text-sm text-[var(--color-muted)] leading-snug">תוספת ממוצעת לדירה במרכז הארץ</div>
               </div>
               <div className="bg-white border border-[var(--color-border)] rounded-2xl p-5 text-center">
                 <div className="text-3xl md:text-4xl font-black text-[var(--color-primary)] mb-1">5</div>
@@ -586,13 +586,13 @@ export default function Page() {
               רוצים בדיקה מקצועית מלאה של ההצעה?
             </h2>
             <p className="text-[17px] text-[var(--color-ink)] leading-8 mb-6">
-              המחשבון נותן לכם תמונה ראשונית. בדיקה מקצועית מלאה כוללת ניתוח ערבויות, סעיפי הסכם, מס שבח, וכל הסעיפים שלא ניתן לחשב במחשבון. אנחנו לא יזמים. אנחנו חברת בנייה שמלווה דיירים בבחינת הצעות, ובוחנת הצעות מבחינה מקצועית.
+              המחשבון נותן לכם תמונה ראשונית. בדיקה מקצועית מלאה כוללת ניתוח ערבויות, סעיפי הסכם, מס שבח, וכל הסעיפים שלא ניתן לחשב במחשבון. אנחנו מלווים דיירים בבחינת הצעות. עובדים בשבילכם, לא בשביל היזם, ובוחנים הצעות מבחינה מקצועית.
             </p>
           </div>
           <InlineLeadForm
             title="בדיקה מקצועית של ההצעה: בואו נדבר"
             subtitle="השאירו שם וטלפון. נחזור אליכם תוך שעות עם בדיקה ראשונית של ההצעה שקיבלתם."
-            defaultService="פינוי בינוי / התחדשות עירונית"
+            defaultService="urban-renewal"
             prioritizeUrbanRenewal
           />
         </Reveal>

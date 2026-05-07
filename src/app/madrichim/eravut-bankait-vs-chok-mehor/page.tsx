@@ -321,13 +321,13 @@ export default function Page() {
               ההצעה כוללת ערבויות? בדקו את הנוסח לפני חתימה.
             </h2>
             <p className="text-[17px] text-[var(--color-ink)] leading-8 mb-6">
-              אנחנו לא יזמים. אנחנו חברת בנייה שמלווה דיירים בבחינת ערבויות. ייעוץ ראשוני ללא עלות, ללא התחייבות.
+              אנחנו מלווים דיירים בבחינת ערבויות. עובדים בשבילכם, לא בשביל היזם. ייעוץ ראשוני ללא עלות, ללא התחייבות.
             </p>
           </div>
           <InlineLeadForm
             title="ערבויות בפינוי בינוי: בואו נדבר"
             subtitle="השאירו שם וטלפון. נעבור על נוסח הערבויות בהסכם שלכם."
-            defaultService="פינוי בינוי / התחדשות עירונית"
+            defaultService="urban-renewal"
             prioritizeUrbanRenewal
           />
         </Reveal>

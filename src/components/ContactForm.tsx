@@ -1,25 +1,46 @@
 "use client";
 
 import { useState } from "react";
-import { services } from "@/lib/site";
 
 type Status = "idle" | "loading" | "success" | "error";
 
-const URBAN_RENEWAL_OPTION_VALUE = "פינוי בינוי / התחדשות עירונית";
+const SERVICE_OPTIONS = [
+  { value: "mamad", label: "בניית ממ״ד" },
+  { value: "reinforcement", label: "שיפור מיגון" },
+  { value: "urban-renewal", label: "התחדשות עירונית" },
+  { value: "other", label: "אחר" },
+] as const;
+
+type ServiceValue = (typeof SERVICE_OPTIONS)[number]["value"];
+
+function isValidService(v: string | undefined): v is ServiceValue {
+  return !!v && SERVICE_OPTIONS.some((o) => o.value === v);
+}
 
 export default function ContactForm({
   defaultService,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   prioritizeUrbanRenewal = false,
 }: {
+  /**
+   * Pre-selects a service segment for the lead. Accepts the canonical
+   * keys "mamad" | "reinforcement" | "urban-renewal" | "other", or any
+   * legacy string (which will be sent as-is on submit but not pre-selected
+   * visually).
+   */
   defaultService?: string;
   /**
-   * When true, render the "פינוי בינוי / התחדשות עירונית" service option
-   * before the standard services list. Default false (memad pages).
-   * Pages under /pinui-binui pass true so urban-renewal leads see the
-   * matching option immediately.
+   * Legacy prop — kept for backward compatibility with existing pages.
+   * The simplified 3-field form no longer renders a service dropdown,
+   * so this prop is a no-op. Pages on the urban-renewal track should
+   * pass `defaultService="urban-renewal"` instead.
    */
   prioritizeUrbanRenewal?: boolean;
 }) {
+  const initialService: ServiceValue | "" = isValidService(defaultService)
+    ? defaultService
+    : "";
+  const [service, setService] = useState<ServiceValue | "">(initialService);
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState<string>("");
 
@@ -32,12 +53,16 @@ export default function ContactForm({
       setStatus("success");
       return;
     }
+    // The service segmented control writes its selection into a hidden
+    // input via React state below. Legacy values from `defaultService`
+    // that don't map to a button are still propagated through.
+    const serviceValue = service || defaultService || "";
     const payload = {
       name: String(fd.get("name") || "").trim(),
       phone: String(fd.get("phone") || "").trim(),
-      city: String(fd.get("city") || "").trim(),
-      service: String(fd.get("service") || "").trim(),
-      notes: String(fd.get("notes") || "").trim(),
+      city: "",
+      service: serviceValue,
+      notes: "",
     };
     if (!payload.name || !payload.phone) {
       setStatus("error");
@@ -63,12 +88,10 @@ export default function ContactForm({
       if (typeof window !== "undefined") {
         const w = window as unknown as { gtag?: (...args: unknown[]) => void };
         if (typeof w.gtag === "function") {
-          // Custom event matching the operator's analytics taxonomy.
           w.gtag("event", "lead_form_submit", {
             service: payload.service || "general",
-            city: payload.city || "unknown",
+            city: "unknown",
           });
-          // GA4-recommended event for lead conversion tracking.
           w.gtag("event", "generate_lead", {
             event_category: "contact_form",
             event_label: payload.service || "general",
@@ -132,37 +155,34 @@ export default function ContactForm({
         />
       </div>
 
-      <div>
-        <label htmlFor="cf-city" className="block text-sm font-bold mb-1.5">עיר</label>
-        <input id="cf-city" name="city" autoComplete="address-level2" className={inputCls} placeholder="למשל: פתח תקווה" />
-      </div>
-
-      <div>
-        <label htmlFor="cf-service" className="block text-sm font-bold mb-1.5">סוג שירות</label>
-        <select
-          id="cf-service"
-          name="service"
-          defaultValue={defaultService ?? ""}
-          className={`${inputCls} bg-white`}
-        >
-          <option value="">בחרו סוג שירות</option>
-          {prioritizeUrbanRenewal && (
-            <option value={URBAN_RENEWAL_OPTION_VALUE}>{URBAN_RENEWAL_OPTION_VALUE}</option>
-          )}
-          {services.map((s) => (
-            <option key={s.slug} value={s.title}>{s.title}</option>
-          ))}
-          {!prioritizeUrbanRenewal && (
-            <option value={URBAN_RENEWAL_OPTION_VALUE}>{URBAN_RENEWAL_OPTION_VALUE}</option>
-          )}
-          <option value="אחר">אחר / לא בטוח</option>
-        </select>
-      </div>
-
-      <div>
-        <label htmlFor="cf-notes" className="block text-sm font-bold mb-1.5">הערות</label>
-        <textarea id="cf-notes" name="notes" rows={3} className={inputCls} placeholder="כמה מילים על הפרויקט" />
-      </div>
+      {/* Segmented service selector. Visual buttons (not a dropdown)
+          keep cognitive load low for the 50-80+ audience and let the user
+          tap once on a touch screen to commit. Hidden input mirrors the
+          state so it lands in FormData on submit. */}
+      <fieldset className="mt-1">
+        <legend className="block text-sm font-bold mb-1.5">במה אנחנו יכולים לעזור?</legend>
+        <div className="grid grid-cols-2 gap-2">
+          {SERVICE_OPTIONS.map((opt) => {
+            const selected = service === opt.value;
+            return (
+              <button
+                key={opt.value}
+                type="button"
+                onClick={() => setService(opt.value)}
+                aria-pressed={selected}
+                className={`py-3 px-3 rounded-xl border-2 text-sm font-bold transition ${
+                  selected
+                    ? "border-[var(--color-primary)] bg-[var(--color-primary)]/5 text-[var(--color-primary)]"
+                    : "border-[var(--color-border)] bg-white text-[var(--color-muted)] hover:border-[var(--color-accent)]"
+                }`}
+              >
+                {opt.label}
+              </button>
+            );
+          })}
+        </div>
+      </fieldset>
+      <input type="hidden" name="service" value={service || defaultService || ""} />
 
       {errorMsg && (
         <div id="cf-error" role="alert" aria-live="polite" className="text-sm text-red-700 bg-red-50 border border-red-200 rounded-lg px-3 py-2">
@@ -175,7 +195,7 @@ export default function ContactForm({
         disabled={status === "loading"}
         className="mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--color-accent)] hover:bg-[var(--color-accent-dark)] text-[var(--color-primary)] font-extrabold px-6 py-4 shadow-[var(--shadow-cta)] disabled:opacity-60 transition"
       >
-        {status === "loading" ? "שולח..." : "שלחו וקבלו הצעת מחיר"}
+        {status === "loading" ? "שולח..." : "השאירו פרטים, נחזור אליכם"}
       </button>
 
       <p className="text-xs text-[var(--color-muted-2)] text-center">

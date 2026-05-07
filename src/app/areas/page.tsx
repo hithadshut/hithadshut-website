@@ -13,7 +13,7 @@ import { areas } from "@/content/areas";
 const PATH = "/areas";
 const TITLE = "אזורי שירות | בניית ממ״ד בכל הארץ | התחדשות";
 const DESCRIPTION =
-  "חברת התחדשות בינוי ויזמות בונה ממ״דים, מיגון חדרים וממ״ד מוכן בכל הארץ. מידע אזורי ייחודי לפי עיר: ועדה מקומית, אופי הבנייה, ודרישות פקע״ר משתנות. הצעת מחיר תוך 24 שעות.";
+  "התחדשות בינוי ויזמות בונה ממ״דים ומיגון בכל הארץ. מידע אזורי לפי עיר: ועדה מקומית, אופי בנייה ודרישות פקע״ר. הצעת מחיר תוך 24 שעות.";
 
 export const metadata: Metadata = buildMetadata({
   title: TITLE,
@@ -242,7 +242,7 @@ export default function AreasIndexPage() {
       <InlineLeadForm
         title="לא רואים את האזור שלכם?"
         subtitle="אנחנו פועלים בכל הארץ. השאירו פרטים ונחזור אליכם עם מענה מקצועי לאזור שלכם."
-        defaultService="בניית ממ״ד"
+        defaultService="mamad"
       />
 
       <FAQ items={faqs} eyebrow="שאלות ותשובות" title="שאלות נפוצות על אזורי שירות" tone="soft" />

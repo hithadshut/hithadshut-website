@@ -17,7 +17,7 @@ import Reveal from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
 
 const PATH = "/pinui-binui";
-const TITLE = "פינוי בינוי 2026: מה זה, כמה זמן, ומה התמורה האמיתית | התחדשות";
+const TITLE = "פינוי בינוי 2026: מה זה, כמה זמן, מה מקבלים | התחדשות";
 const DESCRIPTION =
   "פינוי בינוי הוא הריסת בניין ישן ובניית מתחם חדש במקומו. מדריך 2026: תהליך, חוק 67%, תמורות, זמנים, זכויות דיירים. ייעוץ ראשוני ללא עלות.";
 const PUBLISHED_DATE = "2026-05-03";
@@ -482,13 +482,13 @@ export default function Page() {
               מתלבטים אם פינוי בינוי כדאי לבניין שלכם?
             </h2>
             <p className="text-[17px] text-[var(--color-ink)] leading-8 mb-6">
-              אנחנו לא יזמים. אנחנו חברת בנייה שעובדת עם נציגויות דיירים על כל שלבי הפרויקט, מהבדיקה הראשונית ועד הביצוע. ייעוץ ראשוני ללא עלות, ללא התחייבות.
+              אנחנו מלווים דיירים בהתחדשות עירונית. עובדים בשבילכם, לא בשביל היזם. עובדים עם נציגויות דיירים על כל שלבי הפרויקט, מהבדיקה הראשונית ועד הביצוע. ייעוץ ראשוני ללא עלות, ללא התחייבות.
             </p>
           </div>
           <InlineLeadForm
             title="פינוי בינוי: בואו נדבר על הבניין שלכם"
             subtitle="השאירו שם וטלפון. נחזור אליכם תוך שעות עם ייעוץ ראשוני ממוקד למתחם שלכם."
-            defaultService="פינוי בינוי / התחדשות עירונית"
+            defaultService="urban-renewal"
             prioritizeUrbanRenewal
           />
         </Reveal>
@@ -517,7 +517,7 @@ export default function Page() {
       <ContactCTA
         title="רוצים לבדוק פינוי בינוי במתחם שלכם? בואו נדבר."
         subtitle="השאירו פרטים ונחזור אליכם תוך שעות עם ייעוץ ראשוני ממוקד למתחם שלכם."
-        defaultService="פינוי בינוי / התחדשות עירונית"
+        defaultService="urban-renewal"
         prioritizeUrbanRenewal
       />
     </>

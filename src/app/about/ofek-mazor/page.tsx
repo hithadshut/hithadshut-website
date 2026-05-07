@@ -17,7 +17,7 @@ import { site } from "@/lib/site";
 const PATH = "/about/ofek-mazor";
 const TITLE = "אופק מזור | מנכ״ל התחדשות בינוי ויזמות | אודות";
 const DESCRIPTION =
-  "אופק מזור, מנכ״ל ומייסד התחדשות בינוי ויזמות. יזם ומנהל פרויקטים בהתחדשות עירונית ומיגון. מוביל את החברה בבניית ממ״דים, פינוי בינוי, בנייה פרטית, שיפוצים והרחבות בכל הארץ.";
+  "אופק מזור, מנכ״ל ומייסד התחדשות בינוי ויזמות, מתווך מקרקעין מוסמך. מנהל פרויקטי בנייה, ממ״דים, פינוי בינוי ושיפוצים בכל הארץ.";
 
 export const metadata: Metadata = buildMetadata({
   title: TITLE,
@@ -186,7 +186,7 @@ export default function Page() {
                   לבתים שאי אפשר לבנות בהם ממ״ד חדש.
                 </li>
                 <li>
-                  <Link href="/services/migunit">מיגונית</Link> חיצונית
+                  <Link href="/services/prefab-mamad">ממ״ד מוכן (טרומי)</Link>{" "}
                   להתקנה מהירה.
                 </li>
                 <li>
