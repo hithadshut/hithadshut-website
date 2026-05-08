@@ -387,6 +387,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    // Press kit — public-facing journalist resource. Modest priority
+    // (0.5) because it's not a money page, but it's discoverable + the
+    // verified-stats section is a citation magnet.
+    {
+      url: `${site.url}/press`,
+      lastModified: lastModifiedFor("src/app/press/page.tsx"),
+      changeFrequency: "monthly",
+      priority: 0.5,
+    },
     // Legal
     {
       url: `${site.url}/privacy`,

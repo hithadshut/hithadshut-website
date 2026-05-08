@@ -148,6 +148,10 @@ export const compares = [
     slug: "katlan-rashum-vs-hafer",
     short: "קבלן רשום vs חאפר",
   },
+  {
+    slug: "mamad-vs-hamad",
+    short: "ממ״ד vs חמ״ד",
+  },
 ] as const;
 
 export const protectionServices = services.filter((s) => s.category === "protection");
