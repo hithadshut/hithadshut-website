@@ -24,8 +24,15 @@ export default function manifest(): MetadataRoute.Manifest {
     background_color: "#FFFFFF",
     theme_color: "#0A1628",
     icons: [
+      // Split into separate `any` and `maskable` entries because the
+      // Next 15 manifest TS types only accept one purpose per entry,
+      // even though the W3C spec permits space-separated lists. Same
+      // file URL serves both — Android adaptive-icon launchers will
+      // pick the maskable variant; everywhere else uses `any`.
       { src: "/icon-192.png", sizes: "192x192", type: "image/png", purpose: "any" },
+      { src: "/icon-192.png", sizes: "192x192", type: "image/png", purpose: "maskable" },
       { src: "/icon-512.png", sizes: "512x512", type: "image/png", purpose: "any" },
+      { src: "/icon-512.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
       { src: "/icon-180.png", sizes: "180x180", type: "image/png", purpose: "any" },
     ],
   };

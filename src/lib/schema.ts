@@ -31,13 +31,16 @@ export function organizationJsonLd() {
     url: site.url,
     logo: {
       "@type": "ImageObject",
-      // Full transparent-background logo. Google's Knowledge Panel and AI
-      // Overviews surface this exact URL as the brand mark, so we point
-      // at the highest-resolution flat asset in /public, not at the small
-      // favicon. 985×732 is the source dimensions of logo-transparent-full.
-      url: `${site.url}/logo-transparent-full.png`,
-      width: 985,
-      height: 732,
+      // The V2 vertical logo. Google's Knowledge Panel + AI Overviews
+      // prefer roughly square or slightly tall logos, never wide
+      // horizontal banners — Google's own structured-data docs say so.
+      // The vertical asset (876×918, near-1:1) renders cleanly in those
+      // surfaces; the horizontal Header logo would be cropped or
+      // letterboxed.
+      url: `${site.url}/logo-full-vertical.png`,
+      width: 876,
+      height: 918,
+      caption: "התחדשות בינוי ויזמות — לוגו",
     },
     image: `${site.url}${site.ogImage}`,
     description: site.description,
