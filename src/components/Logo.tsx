@@ -1,79 +1,79 @@
+import Image from "next/image";
+
 type Props = {
+  /**
+   * `dark` (default) renders the logo as-is on light backgrounds (Header).
+   * `light` wraps the logo in a small white card so it stays readable on
+   * the dark navy Footer. We don't ship a separate light-on-dark logo
+   * file yet, so this is the pragmatic compromise.
+   */
   variant?: "light" | "dark";
   size?: "sm" | "md" | "lg";
+  /**
+   * Legacy prop from the previous SVG-based logo. The new image is a
+   * single asset that already includes the wordmark + tagline, so this
+   * prop is a no-op. Kept to avoid touching every caller.
+   */
   showTagline?: boolean;
   className?: string;
+  /**
+   * Set to `true` for the very first Logo on the page (the Header copy).
+   * Eagerly loads the LCP image. Defaults to false to avoid duplicate
+   * `priority` warnings when the Logo also renders in the Footer.
+   */
+  priority?: boolean;
 };
 
 export default function Logo({
   variant = "dark",
   size = "md",
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   showTagline = true,
   className = "",
+  priority = false,
 }: Props) {
-  const isLight = variant === "light";
-  const textColor = isLight ? "#FFFFFF" : "#0A1628";
-  const subColor = isLight ? "rgba(255,255,255,0.75)" : "#4B5563";
-  const gold = "#C8A97E";
-  const goldDark = "#A8874F";
+  // Tailwind tokens — desktop bumps the height for legibility on the
+  // older audience this site targets. The PNG ships at 215×160 (the @2x
+  // header asset), so width-auto + a fixed height keeps the aspect ratio
+  // and lets us push width as far as needed without layout shift.
+  const heightClass =
+    size === "sm"
+      ? "h-9 md:h-10"
+      : size === "lg"
+        ? "h-14 md:h-20"
+        : "h-12 md:h-16";
 
-  const mark =
-    size === "sm" ? { w: 32, h: 32 } : size === "lg" ? { w: 48, h: 48 } : { w: 40, h: 40 };
-  const nameSize = size === "sm" ? "text-lg" : size === "lg" ? "text-2xl" : "text-xl";
-  const subSize = size === "sm" ? "text-[9px]" : size === "lg" ? "text-[11px]" : "text-[10px]";
+  const inner = (
+    <Image
+      src="/logo-header.png"
+      alt="התחדשות בינוי ויזמות"
+      width={215}
+      height={160}
+      priority={priority}
+      sizes="(min-width: 768px) 256px, 192px"
+      className={`${heightClass} w-auto`}
+    />
+  );
+
+  if (variant === "light") {
+    // White card on the dark Footer. `inline-flex` keeps the box hugging
+    // the image, padding is small to stay compact in the footer column.
+    return (
+      <span
+        className={`inline-flex items-center bg-white/95 rounded-xl px-3 py-2 ${className}`.trim()}
+        aria-label="התחדשות בינוי ויזמות"
+      >
+        {inner}
+      </span>
+    );
+  }
 
   return (
     <span
-      className={`inline-flex items-center gap-2.5 ${className}`}
+      className={`inline-flex items-center ${className}`.trim()}
       aria-label="התחדשות בינוי ויזמות"
     >
-      <svg
-        width={mark.w}
-        height={mark.h}
-        viewBox="0 0 48 48"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-      >
-        {/* Shield silhouette: architectural + protective */}
-        <defs>
-          <linearGradient id="logoGrad" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stopColor={gold} />
-            <stop offset="100%" stopColor={goldDark} />
-          </linearGradient>
-        </defs>
-        <path
-          d="M24 3L42 9v13.5C42 33.1 34.5 42 24 45C13.5 42 6 33.1 6 22.5V9L24 3z"
-          fill={textColor}
-        />
-        {/* Roof/building lines inside shield */}
-        <path
-          d="M12.5 26.5L24 16L35.5 26.5"
-          stroke="url(#logoGrad)"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          fill="none"
-        />
-        <rect x="17" y="26.5" width="14" height="10" fill="url(#logoGrad)" rx="0.5" />
-        <rect x="22" y="30" width="4" height="6.5" fill={textColor} />
-      </svg>
-      <span className="flex flex-col leading-none">
-        <span
-          className={`${nameSize} font-black tracking-tight`}
-          style={{ color: textColor, letterSpacing: "-0.02em" }}
-        >
-          התחדשות
-        </span>
-        {showTagline && (
-          <span
-            className={`${subSize} font-bold uppercase tracking-[0.2em] mt-0.5`}
-            style={{ color: subColor }}
-          >
-            בינוי ויזמות
-          </span>
-        )}
-      </span>
+      {inner}
     </span>
   );
 }

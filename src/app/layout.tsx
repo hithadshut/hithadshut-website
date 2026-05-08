@@ -70,11 +70,22 @@ export const metadata: Metadata = {
   },
   robots: { index: true, follow: true },
   manifest: "/manifest.webmanifest",
-  // Icons are auto-emitted by Next.js file conventions:
-  //   src/app/favicon.ico  → <link rel="icon" href="/favicon.ico">
-  //   src/app/icon.svg     → <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  //   src/app/apple-icon.tsx → <link rel="apple-touch-icon" ...>
-  // Do not also set metadata.icons or links will duplicate.
+  // Explicit icon set sourced from the operator-supplied PNG pack in
+  // /public. We deliberately do NOT keep `src/app/icon.{tsx,svg}` files
+  // in parallel — Next would auto-emit them too and the resulting page
+  // would carry duplicate <link rel="icon"> tags pointing at different
+  // images, which Google's favicon picker treats as a quality signal
+  // problem. Single canonical icon set, declared once, here.
+  icons: {
+    icon: [
+      { url: "/icon-16.png", sizes: "16x16", type: "image/png" },
+      { url: "/icon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [{ url: "/icon-180.png", sizes: "180x180", type: "image/png" }],
+    shortcut: "/icon-32.png",
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

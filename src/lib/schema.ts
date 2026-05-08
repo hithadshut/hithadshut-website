@@ -31,9 +31,13 @@ export function organizationJsonLd() {
     url: site.url,
     logo: {
       "@type": "ImageObject",
-      url: `${site.url}/icon.svg`,
-      width: 64,
-      height: 64,
+      // Full transparent-background logo. Google's Knowledge Panel and AI
+      // Overviews surface this exact URL as the brand mark, so we point
+      // at the highest-resolution flat asset in /public, not at the small
+      // favicon. 985×732 is the source dimensions of logo-transparent-full.
+      url: `${site.url}/logo-transparent-full.png`,
+      width: 985,
+      height: 732,
     },
     image: `${site.url}${site.ogImage}`,
     description: site.description,

@@ -103,7 +103,7 @@ export default function Header() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-18 py-3">
           <Link href="/" aria-label="דף הבית של התחדשות בינוי ויזמות">
-            <Logo size="md" />
+            <Logo size="md" priority />
           </Link>
 
           <nav
