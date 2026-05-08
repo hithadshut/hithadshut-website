@@ -291,13 +291,13 @@ export default function Page() {
               פרויקט תמ״א 38 פעיל? בדקו את המצב לפני הפוקעה.
             </h2>
             <p className="text-[17px] text-[var(--color-ink)] leading-8 mb-6">
-              אנחנו לא יזמים. אנחנו חברת בנייה שמלווה דיירים בתקופת מעבר. ייעוץ ראשוני ללא עלות, ללא התחייבות.
+              אנחנו מלווים דיירים בתקופת מעבר. עובדים בשבילכם, לא בשביל היזם. ייעוץ ראשוני ללא עלות, ללא התחייבות.
             </p>
           </div>
           <InlineLeadForm
             title="סוף תמ״א 38: בואו נדבר"
             subtitle="השאירו שם וטלפון. נבחן את המצב הספציפי של הפרויקט שלכם."
-            defaultService="פינוי בינוי / התחדשות עירונית"
+            defaultService="urban-renewal"
             prioritizeUrbanRenewal
           />
         </Reveal>

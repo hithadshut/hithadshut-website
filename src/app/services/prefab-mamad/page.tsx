@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import ServicePageLayout from "@/components/ServicePageLayout";
 import Section from "@/components/Section";
+import Reveal from "@/components/Reveal";
 import RelatedLinks from "@/components/RelatedLinks";
 import { buildMetadata } from "@/lib/metadata";
 
@@ -124,30 +125,168 @@ export default function Page() {
       timeline="ייצור: 4-8 שבועות. יסוד באתר: 1-2 שבועות. הצבה וחיבור: ימים. סך הכל: 6-12 שבועות."
       pricing="ממ״ד טרומי תקני 9-12 מ״ר: 180,000-250,000 ₪ + מע״מ, כולל הובלה, יסוד, חיבורים ואישור. בדירה בקומה משתנה, לעיתים מעל 200,000 ₪ + מע״מ."
       faqs={faqs}
-      defaultService="ממ״ד טרומי תקני"
+      defaultService="mamad"
       quickAnswer={
         <>
-          <strong>ממ״ד מוכן (טרומי)</strong> הוא יחידה ממוגנת המגיעה ערוכה מהמפעל. ההבחנה החשובה: <em>ממ״ד טרומי תקני</em> עם אישור פקע״ר ספציפי לדגם הוא ממ״ד אמיתי; <em>״יחידה ממוגנת״ גנרית</em> ללא אישור דגם איננה ממ״ד תקני. תמיד לבקש מספר אישור פקע״ר לדגם בכתב לפני הזמנה. מתאים לבתים פרטיים עם גישה לעגורן.
+          <strong>ממ״ד יביל (טרומי)</strong> הוא מבנה ממוגן המיוצר במפעל לפי{" "}
+          <strong>תקן 4422</strong> של פיקוד העורף ומותקן באתר ביום אחד. מחיר היחידה
+          הבסיסי: <strong>90,000-130,000 ₪ + מע״מ</strong>. הובלה והנפה: עד 30,000 ₪
+          נוספים. הכנת בסיס בטון, חשמל ואוורור: 8,000-20,000 ₪. ייצור במפעל אורך כ-8
+          שבועות, ההתקנה עצמה יום אחד. כל ממ״ד יביל דורש <strong>אישור פיקוד העורף
+          ייעודי לכתובת</strong> ולמבנה, ובדיקה של נגישות לעגורן ותנאי שטח.
         </>
       }
     >
+      {/* Comparison table — yibil vs conventional. AI extraction zone. */}
       <Section tone="soft">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="text-sm font-extrabold uppercase tracking-[0.22em] text-[var(--color-accent-dark)] mb-3">
-            השוואה
+        <div className="max-w-5xl mx-auto">
+          <Reveal>
+            <div className="mb-8">
+              <div className="h-1 w-16 gold-line mb-5" />
+              <h2 className="text-2xl md:text-3xl font-black text-[var(--color-primary)] mb-3">
+                ממ״ד יביל מול ממ״ד קונבנציונלי: השוואה ישירה
+              </h2>
+              <p className="text-[var(--color-muted)] leading-relaxed">
+                שני המסלולים תקניים לפי תקן 4422 ושניהם דורשים אישור פיקוד העורף
+                לכתובת. ההבדל הוא בעלויות, בלוחות הזמנים ובדרישות הנגישות לאתר.
+              </p>
+            </div>
+          </Reveal>
+
+          <Reveal>
+            <div className="overflow-x-auto rounded-2xl border border-[var(--color-border)] bg-white shadow-[var(--shadow-card)]">
+              <table className="w-full text-sm md:text-base">
+                <thead className="bg-[var(--color-soft)]">
+                  <tr>
+                    <th scope="col" className="text-start px-4 py-3 font-extrabold text-[var(--color-primary)]">מאפיין</th>
+                    <th scope="col" className="text-start px-4 py-3 font-extrabold text-[var(--color-primary)]">ממ״ד יביל</th>
+                    <th scope="col" className="text-start px-4 py-3 font-extrabold text-[var(--color-primary)]">ממ״ד קונבנציונלי</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-t border-[var(--color-border)]">
+                    <td className="px-4 py-3 font-bold text-[var(--color-ink)]">מחיר טיפוסי</td>
+                    <td className="px-4 py-3">90,000-130,000 ₪ + הובלה</td>
+                    <td className="px-4 py-3">160,000-220,000 ₪ + מע״מ</td>
+                  </tr>
+                  <tr className="border-t border-[var(--color-border)] bg-[var(--color-soft)]/40">
+                    <td className="px-4 py-3 font-bold text-[var(--color-ink)]">זמן ייצור</td>
+                    <td className="px-4 py-3">8 שבועות במפעל</td>
+                    <td className="px-4 py-3">תכנון: 4-8 שבועות</td>
+                  </tr>
+                  <tr className="border-t border-[var(--color-border)]">
+                    <td className="px-4 py-3 font-bold text-[var(--color-ink)]">זמן התקנה / בנייה</td>
+                    <td className="px-4 py-3">יום אחד</td>
+                    <td className="px-4 py-3">3-5 חודשים</td>
+                  </tr>
+                  <tr className="border-t border-[var(--color-border)] bg-[var(--color-soft)]/40">
+                    <td className="px-4 py-3 font-bold text-[var(--color-ink)]">נגישות נדרשת</td>
+                    <td className="px-4 py-3">עגורן + נתיב הובלה</td>
+                    <td className="px-4 py-3">גישה רגילה לרכב</td>
+                  </tr>
+                  <tr className="border-t border-[var(--color-border)]">
+                    <td className="px-4 py-3 font-bold text-[var(--color-ink)]">תקן</td>
+                    <td className="px-4 py-3">4422</td>
+                    <td className="px-4 py-3">4422</td>
+                  </tr>
+                  <tr className="border-t border-[var(--color-border)] bg-[var(--color-soft)]/40">
+                    <td className="px-4 py-3 font-bold text-[var(--color-ink)]">אישור פקע״ר</td>
+                    <td className="px-4 py-3">ייעודי לדגם + לכתובת</td>
+                    <td className="px-4 py-3">ייעודי לכתובת</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-4 text-xs text-[var(--color-muted-2)] leading-relaxed">
+              להשוואה מלאה בין ממ״ד, שיפור מיגון ומיגונית ראו{" "}
+              <Link
+                href="/compare/mamad-vs-miggun-vs-migunit"
+                className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]"
+              >
+                ממ״ד, שיפור מיגון או מיגונית
+              </Link>
+              .
+            </p>
+          </Reveal>
+        </div>
+      </Section>
+
+      {/* Trust differentiators — three sharp angles for ממ"ד יביל. */}
+      <Section tone="white">
+        <div className="max-w-5xl mx-auto">
+          <Reveal>
+            <div className="mb-8 text-center">
+              <div className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-[var(--color-accent-dark)] mb-3">
+                מה שלא תמיד אומרים מראש
+              </div>
+              <h2 className="text-2xl md:text-3xl font-black text-[var(--color-primary)]">
+                שלוש נקודות מקצועיות לפני שמזמינים ממ״ד יביל
+              </h2>
+            </div>
+          </Reveal>
+
+          <div className="grid md:grid-cols-3 gap-5">
+            <Reveal>
+              <article
+                className="h-full p-6 rounded-2xl border-2 border-red-200 bg-red-50/40"
+                aria-labelledby="prefab-warn-price"
+              >
+                <div className="text-2xl mb-2" aria-hidden>⚠️</div>
+                <h3 id="prefab-warn-price" className="font-extrabold text-red-900 text-lg mb-2">
+                  הצעת &ldquo;80,000 ₪ כולל הכל&rdquo; היא דגל אדום
+                </h3>
+                <p className="text-sm text-[var(--color-ink)] leading-relaxed">
+                  הצעות ל&ldquo;ממ״ד יביל ב-80,000 ₪ כולל הכל&rdquo; כמעט תמיד לא כוללות
+                  הובלה (10,000-30,000 ₪), הנפה (3,000-15,000 ₪), הכנת בסיס (8,000-20,000
+                  ₪), חיבורים, ולפעמים גם לא את <strong>אישור פיקוד העורף לכתובת</strong>.
+                  דרשו בכתב מפרט מלא שכולל את כל העלויות הנלוות לפני חתימה.
+                </p>
+              </article>
+            </Reveal>
+
+            <Reveal>
+              <article
+                className="h-full p-6 rounded-2xl border-2 border-amber-200 bg-amber-50/40"
+                aria-labelledby="prefab-hidden-foundation"
+              >
+                <div className="text-2xl mb-2" aria-hidden>💰</div>
+                <h3 id="prefab-hidden-foundation" className="font-extrabold text-amber-900 text-lg mb-2">
+                  עלות נסתרת: הכנת התשתית
+                </h3>
+                <p className="text-sm text-[var(--color-ink)] leading-relaxed">
+                  היחידה מגיעה מוכנה, אבל היא צריכה לעמוד על משהו. הכנת בסיס בטון או
+                  ריצוף מתאים, חיבור לחשמל מוגן, וחיבור למערכת אוורור הם תוספת של{" "}
+                  <strong>8,000-20,000 ₪</strong> שלא תמיד מצוינת מראש בהצעת המחיר.
+                  בקשו פירוט בכתב לכל אחד מהרכיבים הללו.
+                </p>
+              </article>
+            </Reveal>
+
+            <Reveal>
+              <article
+                className="h-full p-6 rounded-2xl border-2 border-emerald-200 bg-emerald-50/40"
+                aria-labelledby="prefab-when-yes"
+              >
+                <div className="text-2xl mb-2" aria-hidden>✓</div>
+                <h3 id="prefab-when-yes" className="font-extrabold text-emerald-900 text-lg mb-2">
+                  מתי ממ״ד יביל הוא הבחירה הנכונה
+                </h3>
+                <p className="text-sm text-[var(--color-ink)] leading-relaxed">
+                  כשיש <strong>נגישות לעגורן</strong>, השטח קטן וצפוף, וצריכים פתרון
+                  מהיר (תוך 2-3 חודשים מהזמנה). פחות מתאים לבתים בעלי גישה צרה או
+                  באזורים עם מגבלות עירוניות על פעילות עגורנים. לבדיקת התאמה לבית שלכם
+                  ראו את{" "}
+                  <Link
+                    href="/guides/mamad-cost"
+                    className="font-bold text-emerald-900 underline underline-offset-4"
+                  >
+                    מדריך מחיר ממ״ד
+                  </Link>
+                  .
+                </p>
+              </article>
+            </Reveal>
           </div>
-          <h2 className="text-2xl md:text-3xl font-black text-[var(--color-primary)] mb-4">
-            ממ״ד מוכן או מיגונית: מה ההבדל?
-          </h2>
-          <p className="text-[var(--color-muted)] mb-6">
-            השוואה טכנית מלאה: עלות, רמת הגנה, זמני ביצוע, אישור פקע״ר.
-          </p>
-          <Link
-            href="/compare/migunit-vs-mamad-muchan"
-            className="inline-flex items-center justify-center bg-[var(--color-primary)] text-white font-extrabold px-7 py-3.5 rounded-xl hover:brightness-110 transition"
-          >
-            להשוואה המלאה: מיגונית מול ממ״ד מוכן ←
-          </Link>
         </div>
       </Section>
 

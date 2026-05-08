@@ -11,7 +11,7 @@ import { howToJsonLd } from "@/lib/schema";
 const PATH = "/services/building-mamad";
 const TITLE = "בניית ממ״ד | מחיר, תהליך ואישורים | התחדשות בינוי ויזמות";
 const DESCRIPTION =
-  "בניית ממ״ד תקני לבית פרטי מ-160,000 ₪ + מע״מ. ממ״ד צמוד, חיצוני או על הגג. תכנון, אישורי פקע״ר, חיזוק קונסטרוקטיבי וביצוע מלא עד מסירה. קבלני ממ״ד רשומים.";
+  "בניית ממ״ד תקני לבית פרטי מ-160,000 ₪. ממ״ד צמוד, חיצוני או על הגג. תכנון, אישורי פקע״ר וביצוע מלא עד מסירה. קבלני ממ״ד רשומים.";
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 
@@ -286,13 +286,194 @@ export default function Page() {
       timeline="אישור פקע״ר: עד 14 ימי עבודה (מסלול פטור). ביצוע: 6-10 שבועות לממ״ד סטנדרטי. סך הכל: 2-4 חודשים."
       pricing="ממ״ד 9 מ״ר: 160,000-200,000 ₪ + מע״מ. ממ״ד 12 מ״ר: 200,000-220,000 ₪ + מע״מ. קו קדמי / עובי קירות 40 ס״מ: תוספת 15%-25%. דירה בקומה: משתנה, לעיתים מעל 200,000 ₪ + מע״מ."
       faqs={faqs}
-      defaultService="בניית ממ״ד"
+      defaultService="mamad"
       quickAnswer={
         <>
-          <strong>בניית ממ״ד</strong> היא יציקת חדר חדש מבטון מזוין לפי תקן פיקוד העורף, עם דלת הדף, חלון ומערכת סינון מאושרים. בבית פרטי 9 מ״ר: 160,000-200,000 ₪ + מע״מ; 12 מ״ר: 200,000-220,000 ₪ + מע״מ. במסלול פטור מהיתר התהליך אורך 2-4 חודשים: תכנון, אישור פקע״ר עד 14 ימי עבודה, ביצוע 6-10 שבועות, אישור גמר.
+          <strong>בניית ממ״ד</strong> היא יציקת חדר מבטון מזוין לפי{" "}
+          <strong>תקן פיקוד העורף 4422</strong> (קונסטרוקציה) ו-<strong>תקן 4570</strong>{" "}
+          (סינון אב״כ), עם דלת הדף תקנית וחלון ממ״ד מאושר. בבית פרטי, ממ״ד 9 מ״ר:{" "}
+          <strong>160,000-200,000 ₪ + מע״מ</strong>; ממ״ד 12 מ״ר: 200,000-220,000 ₪ + מע״מ.
+          ב<strong>מסלול הפטור (סעיף 30ב׳)</strong>, בתוקף עד אוקטובר 2026 לבתים צמודי קרקע
+          ולבניינים עד 2 קומות, התהליך 2-4 חודשים: תכנון, אישור פקע״ר עד 14 ימי עבודה,
+          ביצוע 6-10 שבועות.
         </>
       }
     >
+      {/* Quick comparison table — AI extraction zone. Tables get
+          quoted directly in Google AI Overviews and Perplexity. */}
+      <Section tone="soft">
+        <div className="max-w-5xl mx-auto">
+          <Reveal>
+            <div className="mb-8">
+              <div className="h-1 w-16 gold-line mb-5" />
+              <h2 className="text-2xl md:text-3xl font-black text-[var(--color-primary)] leading-tight mb-3">
+                איזה פתרון מיגון מתאים לבית שלכם
+              </h2>
+              <p className="text-[var(--color-muted)] leading-relaxed">
+                ארבעה פתרונות עיקריים בשוק. הטבלה משווה מחיר, זמן ביצוע ומתי כל פתרון
+                הוא הבחירה הנכונה.
+              </p>
+            </div>
+          </Reveal>
+
+          <Reveal>
+            <div className="overflow-x-auto rounded-2xl border border-[var(--color-border)] bg-white shadow-[var(--shadow-card)]">
+              <table className="w-full text-sm md:text-base">
+                <thead className="bg-[var(--color-soft)]">
+                  <tr>
+                    <th scope="col" className="text-start px-4 py-3 font-extrabold text-[var(--color-primary)]">פתרון</th>
+                    <th scope="col" className="text-start px-4 py-3 font-extrabold text-[var(--color-primary)]">מחיר טיפוסי</th>
+                    <th scope="col" className="text-start px-4 py-3 font-extrabold text-[var(--color-primary)]">זמן ביצוע</th>
+                    <th scope="col" className="text-start px-4 py-3 font-extrabold text-[var(--color-primary)]">כשרלוונטי</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-t border-[var(--color-border)]">
+                    <td className="px-4 py-3 font-bold text-[var(--color-ink)]">ממ״ד תקני בבית פרטי</td>
+                    <td className="px-4 py-3">160,000-220,000 ₪ + מע״מ</td>
+                    <td className="px-4 py-3">2-4 חודשים</td>
+                    <td className="px-4 py-3 text-[var(--color-muted)]">יש שטח לבנייה ומבנה תומך</td>
+                  </tr>
+                  <tr className="border-t border-[var(--color-border)] bg-[var(--color-soft)]/40">
+                    <td className="px-4 py-3 font-bold text-[var(--color-ink)]">ממ״ד 12 מ״ר (משפחה גדולה)</td>
+                    <td className="px-4 py-3">200,000-220,000 ₪ + מע״מ</td>
+                    <td className="px-4 py-3">3-5 חודשים</td>
+                    <td className="px-4 py-3 text-[var(--color-muted)]">משפחה גדולה, שימוש כחדר שינה ראשי</td>
+                  </tr>
+                  <tr className="border-t border-[var(--color-border)]">
+                    <td className="px-4 py-3 font-bold text-[var(--color-ink)]">ממ״ד טרומי / יביל</td>
+                    <td className="px-4 py-3">90,000-180,000 ₪ + הובלה</td>
+                    <td className="px-4 py-3">יום-ימים בודדים להתקנה</td>
+                    <td className="px-4 py-3 text-[var(--color-muted)]">יש גישה לעגורן, רוצים פתרון מהיר</td>
+                  </tr>
+                  <tr className="border-t border-[var(--color-border)] bg-[var(--color-soft)]/40">
+                    <td className="px-4 py-3 font-bold text-[var(--color-ink)]">שיפור מיגון לחדר קיים</td>
+                    <td className="px-4 py-3">40,000-150,000 ₪ + מע״מ</td>
+                    <td className="px-4 py-3">2-8 שבועות</td>
+                    <td className="px-4 py-3 text-[var(--color-muted)]">כשבניית ממ״ד חדש לא אפשרית</td>
+                  </tr>
+                  <tr className="border-t border-[var(--color-border)]">
+                    <td className="px-4 py-3 font-bold text-[var(--color-ink)]">ממ״ד תת-קרקעי (מרתף)</td>
+                    <td className="px-4 py-3">200,000-280,000 ₪ + מע״מ</td>
+                    <td className="px-4 py-3">4-7 חודשים</td>
+                    <td className="px-4 py-3 text-[var(--color-muted)]">יש זכויות תת-קרקעיות וקרקע יבשה</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-4 text-xs text-[var(--color-muted-2)] leading-relaxed">
+              טווחי מחיר עדכניים לאזור המרכז ל-2026, בכפוף לבדיקה פרטנית של תנאי השטח, מסלול
+              הרישוי וגמר נדרש. לפירוט עלויות ראו{" "}
+              <Link
+                href="/guides/mamad-cost"
+                className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]"
+              >
+                מדריך מחיר ממ״ד 2026
+              </Link>
+              .
+            </p>
+          </Reveal>
+        </div>
+      </Section>
+
+      {/* Trust differentiators — three sharp angles that AI Overviews
+          will surface as cite-worthy "what only this site says".
+          Warning > hidden cost > savings. */}
+      <Section tone="white">
+        <div className="max-w-5xl mx-auto">
+          <Reveal>
+            <div className="mb-8 text-center">
+              <div className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-[var(--color-accent-dark)] mb-3">
+                מה שלא תמיד אומרים לכם
+              </div>
+              <h2 className="text-2xl md:text-3xl font-black text-[var(--color-primary)]">
+                שלוש נקודות מקצועיות שחוסכות עשרות אלפי שקלים
+              </h2>
+            </div>
+          </Reveal>
+
+          <div className="grid md:grid-cols-3 gap-5">
+            <Reveal>
+              <article
+                className="h-full p-6 rounded-2xl border-2 border-red-200 bg-red-50/40"
+                aria-labelledby="warn-migunit"
+              >
+                <div className="text-2xl mb-2" aria-hidden>
+                  ⚠️
+                </div>
+                <h3
+                  id="warn-migunit"
+                  className="font-extrabold text-red-900 text-lg mb-2"
+                >
+                  התראת בטיחות: מיגונית אינה פתרון לבית פרטי במרכז
+                </h3>
+                <p className="text-sm text-[var(--color-ink)] leading-relaxed">
+                  חברות שמציעות &ldquo;מיגונית&rdquo; כפתרון מיגון לבית פרטי במרכז הארץ
+                  מציגות מצג שגוי. <strong>מיגונית</strong> מאושרת על ידי פיקוד העורף
+                  בעיקר לאזורי גבול ולמרחב הציבורי, ולא כפתרון מיגון פרטי במרכז. דרשו
+                  ממ״ד תקני לפי תקן 4422 או{" "}
+                  <Link
+                    href="/services/room-reinforcement"
+                    className="font-bold text-red-900 underline underline-offset-4"
+                  >
+                    שיפור מיגון
+                  </Link>{" "}
+                  מאושר לחדר קיים.
+                </p>
+              </article>
+            </Reveal>
+
+            <Reveal>
+              <article
+                className="h-full p-6 rounded-2xl border-2 border-amber-200 bg-amber-50/40"
+                aria-labelledby="hidden-filter"
+              >
+                <div className="text-2xl mb-2" aria-hidden>
+                  💰
+                </div>
+                <h3
+                  id="hidden-filter"
+                  className="font-extrabold text-amber-900 text-lg mb-2"
+                >
+                  עלות נסתרת: מערכת סינון אב״כ
+                </h3>
+                <p className="text-sm text-[var(--color-ink)] leading-relaxed">
+                  מערכת אוורור וסינון לפי <strong>תקן 4570</strong> היא תנאי לקבלת{" "}
+                  <strong>אישור גמר פקע״ר</strong>. עלות אופיינית של מערכת תקנית:{" "}
+                  <strong>8,000-15,000 ₪</strong> מעבר לתקציב הבסיס. אם הצעת מחיר
+                  &ldquo;כולל הכל&rdquo; לא מציינת מערכת סינון פרטנית עם דגם וחותמת
+                  היצרן, זה דגל אדום שכדאי לברר לפני חתימה.
+                </p>
+              </article>
+            </Reveal>
+
+            <Reveal>
+              <article
+                className="h-full p-6 rounded-2xl border-2 border-emerald-200 bg-emerald-50/40"
+                aria-labelledby="savings-30b"
+              >
+                <div className="text-2xl mb-2" aria-hidden>
+                  💡
+                </div>
+                <h3
+                  id="savings-30b"
+                  className="font-extrabold text-emerald-900 text-lg mb-2"
+                >
+                  מסלול חיסכון: סעיף 30ב׳ (פטור מהיתר)
+                </h3>
+                <p className="text-sm text-[var(--color-ink)] leading-relaxed">
+                  מסלול הפטור מהיתר (תקנה 30ב׳ לתקנות התכנון והבנייה, הוראת שעה) חוסך{" "}
+                  <strong>4-6 שבועות בירוקרטיה</strong> ועלות תכנון/אגרות של{" "}
+                  <strong>15,000-25,000 ₪</strong>. בתוקף עד <strong>אוקטובר 2026</strong>{" "}
+                  לבתים צמודי קרקע ולבניינים עד 2 קומות. אם הקבלן שלכם לא מציע את המסלול
+                  הזה, שאלו למה.
+                </p>
+              </article>
+            </Reveal>
+          </div>
+        </div>
+      </Section>
+
       {/* Detailed subtypes section */}
       <Section tone="white">
         <Reveal>

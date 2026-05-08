@@ -267,6 +267,69 @@ export default function Page() {
         subtitle="השאירו פרטים. נחזור אליכם עם תשובה ספציפית או נתאם בדיקה."
       />
 
+      {/* Trust differentiators — three sharp angles for filter system. */}
+      <Section tone="white">
+        <div className="max-w-5xl mx-auto">
+          <div className="mb-8 text-center">
+            <div className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-[var(--color-accent-dark)] mb-3">
+              מה שלא תמיד אומרים על המערכת
+            </div>
+            <h2 className="text-2xl md:text-3xl font-black text-[var(--color-primary)]">
+              שלוש נקודות שמשפיעות על תפקוד המערכת והעלות
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-5">
+            <article
+              className="h-full p-6 rounded-2xl border-2 border-red-200 bg-red-50/40"
+              aria-labelledby="filter-warn-uncertified"
+            >
+              <div className="text-2xl mb-2" aria-hidden>⚠️</div>
+              <h3 id="filter-warn-uncertified" className="font-extrabold text-red-900 text-lg mb-2">
+                מערכת ללא אישור פקע״ר אינה מערכת
+              </h3>
+              <p className="text-sm text-[var(--color-ink)] leading-relaxed">
+                מערכת אוורור וסינון אב״כ חייבת לעמוד ב<strong>תקן 4570</strong> ולהיות
+                ממותגת על ידי יצרן עם אישור פקע״ר. גוף סינון &ldquo;תעשייתי גנרי&rdquo;
+                ללא חותמת תקן <strong>לא יקבל אישור גמר</strong>, גם אם הוא נראה זהה
+                ויזואלית. דרשו את תעודת אישור הדגם בכתב לפני התקנה.
+              </p>
+            </article>
+
+            <article
+              className="h-full p-6 rounded-2xl border-2 border-amber-200 bg-amber-50/40"
+              aria-labelledby="filter-hidden-cost"
+            >
+              <div className="text-2xl mb-2" aria-hidden>💰</div>
+              <h3 id="filter-hidden-cost" className="font-extrabold text-amber-900 text-lg mb-2">
+                העלות האמיתית: 8,000-15,000 ₪
+              </h3>
+              <p className="text-sm text-[var(--color-ink)] leading-relaxed">
+                מערכת אוורור וסינון תקנית עולה <strong>8,000-15,000 ₪</strong> מעבר
+                לבסיס הממ״ד. הצעות &ldquo;ממ״ד כולל הכל&rdquo; שלא מציינות פרטנית את
+                הדגם, היצרן וסעיף המחיר של המערכת — הולכות לחזור עם תוספת בלתי
+                צפויה. בקשו את הפירוט בכתב לפני חתימה.
+              </p>
+            </article>
+
+            <article
+              className="h-full p-6 rounded-2xl border-2 border-emerald-200 bg-emerald-50/40"
+              aria-labelledby="filter-savings-maintenance"
+            >
+              <div className="text-2xl mb-2" aria-hidden>💡</div>
+              <h3 id="filter-savings-maintenance" className="font-extrabold text-emerald-900 text-lg mb-2">
+                החלפת פילטר: לפי לוח היצרן
+              </h3>
+              <p className="text-sm text-[var(--color-ink)] leading-relaxed">
+                כל יצרן מגדיר תדירות החלפה ייעודית לדגם שלו (לרוב <strong>5-7 שנים</strong>{" "}
+                לפילטר ראשי). לוח חלופי גנרי לא מתאים. שמרו את תעודת היצרן ואת תאריך
+                ההתקנה בתיק הפרויקט. בעת מכירת הנכס, רוכש יבדוק את לוח התחזוקה לפני
+                שהוא נסגר על המחיר.
+              </p>
+            </article>
+          </div>
+        </div>
+      </Section>
+
       <FAQ items={faqs} title="שאלות נפוצות: מערכת אוורור וסינון" />
 
       <RelatedLinks

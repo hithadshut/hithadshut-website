@@ -311,6 +311,69 @@ export default function Page() {
         subtitle="השאירו פרטים ונחזור אליכם תוך שעות עם בדיקת התאמה ראשונית והערכת מסלול."
       />
 
+      {/* Trust differentiators — three sharp angles for permit exemption. */}
+      <Section tone="white">
+        <div className="max-w-5xl mx-auto">
+          <div className="mb-8 text-center">
+            <div className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-[var(--color-accent-dark)] mb-3">
+              לפני שמשתמשים במסלול
+            </div>
+            <h2 className="text-2xl md:text-3xl font-black text-[var(--color-primary)]">
+              שלוש נקודות שמשפיעות על הזכאות והעלות
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-5">
+            <article
+              className="h-full p-6 rounded-2xl border-2 border-red-200 bg-red-50/40"
+              aria-labelledby="exempt-warn-deadline"
+            >
+              <div className="text-2xl mb-2" aria-hidden>⚠️</div>
+              <h3 id="exempt-warn-deadline" className="font-extrabold text-red-900 text-lg mb-2">
+                הוראת השעה פוקעת באוקטובר 2026
+              </h3>
+              <p className="text-sm text-[var(--color-ink)] leading-relaxed">
+                סעיף 30ב׳ הוא <strong>הוראת שעה</strong>, לא חוק קבוע. בתוקף עד אוקטובר
+                2026 לבתים צמודי קרקע ולבניינים עד 2 קומות. אחרי הפקיעה, ייתכן יחזור
+                מסלול היתר רגיל עם 4-6 שבועות בירוקרטיה ועלויות תכנון נוספות. מי שמתחיל
+                את התהליך עכשיו מעלה משמעותית את הסיכוי להיכנס למסלול הקצר.
+              </p>
+            </article>
+
+            <article
+              className="h-full p-6 rounded-2xl border-2 border-amber-200 bg-amber-50/40"
+              aria-labelledby="exempt-hidden-conditions"
+            >
+              <div className="text-2xl mb-2" aria-hidden>💰</div>
+              <h3 id="exempt-hidden-conditions" className="font-extrabold text-amber-900 text-lg mb-2">
+                לא כל בית זכאי, גם אם זה נראה שכן
+              </h3>
+              <p className="text-sm text-[var(--color-ink)] leading-relaxed">
+                הזכאות תלויה ב<strong>גובה הבניין, תב״ע מקומית, מרחק מגבולות חלקה</strong>{" "}
+                וזכויות בנייה זמינות. גם בית בקומה אחת לא תמיד זכאי אם הוא חורג מהזכויות
+                או נמצא באזור שבו הוועדה לא מאפשרת. בדיקת היתכנות מקדימה (1,500-3,000 ₪)
+                חוסכת הגשה שתחזור עם דחייה.
+              </p>
+            </article>
+
+            <article
+              className="h-full p-6 rounded-2xl border-2 border-emerald-200 bg-emerald-50/40"
+              aria-labelledby="exempt-savings-real"
+            >
+              <div className="text-2xl mb-2" aria-hidden>💡</div>
+              <h3 id="exempt-savings-real" className="font-extrabold text-emerald-900 text-lg mb-2">
+                החיסכון האמיתי במסלול הפטור
+              </h3>
+              <p className="text-sm text-[var(--color-ink)] leading-relaxed">
+                מסלול הפטור חוסך <strong>4-6 שבועות בירוקרטיה</strong>, עלויות תכנון
+                ואגרות של <strong>15,000-25,000 ₪</strong>, ומאפשר התחלת ביצוע מיד אחרי
+                אישור פקע״ר (14 ימי עבודה). מסלול היתר רגיל באותם תנאים: 3-4 חודשים
+                מהגשה ועד אישור. ההפרש מצדיק לבדוק זכאות לפני בחירת המסלול.
+              </p>
+            </article>
+          </div>
+        </div>
+      </Section>
+
       <FAQ items={faqs} title="שאלות נפוצות: מסלול פטור 2026" />
 
       <RelatedLinks

@@ -42,9 +42,9 @@ const TOC_ITEMS = [
 ];
 
 const PATH = "/guides/mamad-cost";
-const TITLE = "כמה עולה לבנות ממ״ד? מחירים עדכניים 2026 | התחדשות";
+const TITLE = "מחיר ממ״ד 2026: כמה עולה לבנות ממ״ד | התחדשות";
 const DESCRIPTION =
-  "כמה עולה לבנות ממ״ד ב-2026? ממ״ד בבית פרטי 160,000-220,000 ₪ + מע״מ, מיגון חדר 40,000-150,000 ₪, מיגונית 30,000-80,000 ₪. פירוט עלויות, טבלאות השוואה ומה משפיע על המחיר.";
+  "כמה עולה ממ״ד ב-2026? בית פרטי 160,000-220,000 ₪, מיגון חדר 40,000-150,000 ₪. פירוט עלויות, טבלאות השוואה ומה משפיע על המחיר.";
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 
@@ -164,6 +164,84 @@ export default function Page() {
               </Link>
               . נגיע לסיור ונוציא לכם פירוט מלא פריט-פריט.
             </p>
+          </div>
+        </div>
+      </Section>
+
+      {/* Trust differentiators — three sharp angles. AI Overviews
+          extract these as cite-worthy "what only this site says". */}
+      <Section tone="white">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-8">
+            <div className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-[var(--color-accent-dark)] mb-3">
+              מה שלא תמיד אומרים מראש
+            </div>
+            <h2 className="text-2xl md:text-3xl font-black text-[var(--color-primary)]">
+              שלוש נקודות מקצועיות שמשפיעות על המחיר
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-5">
+            <article
+              className="h-full p-6 rounded-2xl border-2 border-red-200 bg-red-50/40"
+              aria-labelledby="cost-warn-migunit"
+            >
+              <div className="text-2xl mb-2" aria-hidden>⚠️</div>
+              <h3 id="cost-warn-migunit" className="font-extrabold text-red-900 text-lg mb-2">
+                הצעות &ldquo;מיגונית&rdquo; לבית פרטי במרכז
+              </h3>
+              <p className="text-sm text-[var(--color-ink)] leading-relaxed">
+                הצעות מחיר זולות במיוחד (30,000-80,000 ₪) ל&ldquo;מיגונית&rdquo; כפתרון
+                לבית פרטי במרכז הארץ הן מצג שגוי מבחינה מקצועית. <strong>מיגונית</strong>{" "}
+                מאושרת על ידי פיקוד העורף בעיקר לאזורי גבול ולמרחב הציבורי, לא כפתרון
+                לבית פרטי. הפתרון הנכון: ממ״ד תקני (תקן 4422) או{" "}
+                <Link
+                  href="/services/room-reinforcement"
+                  className="font-bold text-red-900 underline underline-offset-4"
+                >
+                  שיפור מיגון
+                </Link>{" "}
+                מאושר.
+              </p>
+            </article>
+
+            <article
+              className="h-full p-6 rounded-2xl border-2 border-amber-200 bg-amber-50/40"
+              aria-labelledby="cost-hidden-filter"
+            >
+              <div className="text-2xl mb-2" aria-hidden>💰</div>
+              <h3 id="cost-hidden-filter" className="font-extrabold text-amber-900 text-lg mb-2">
+                העלות שלא תמיד מציינים: סינון אב״כ
+              </h3>
+              <p className="text-sm text-[var(--color-ink)] leading-relaxed">
+                מערכת אוורור וסינון לפי <strong>תקן 4570</strong> היא תנאי לקבלת אישור
+                גמר פקע״ר. עלות אופיינית: <strong>8,000-15,000 ₪</strong> מעבר לתקציב
+                הבסיס. אם הצעת מחיר &ldquo;כולל הכל&rdquo; לא מציינת מערכת סינון פרטנית,
+                עם דגם וחותמת היצרן, זה דגל אדום. בקשו פירוט בכתב לפני חתימה.
+              </p>
+            </article>
+
+            <article
+              className="h-full p-6 rounded-2xl border-2 border-emerald-200 bg-emerald-50/40"
+              aria-labelledby="cost-savings-30b"
+            >
+              <div className="text-2xl mb-2" aria-hidden>💡</div>
+              <h3 id="cost-savings-30b" className="font-extrabold text-emerald-900 text-lg mb-2">
+                החיסכון הלא ידוע: סעיף 30ב׳ (פטור מהיתר)
+              </h3>
+              <p className="text-sm text-[var(--color-ink)] leading-relaxed">
+                מסלול הפטור (תקנה 30ב׳, הוראת שעה) חוסך{" "}
+                <strong>4-6 שבועות בירוקרטיה</strong> ו-<strong>15,000-25,000 ₪</strong>{" "}
+                של עלויות תכנון ואגרות. בתוקף עד <strong>אוקטובר 2026</strong> לבתים
+                צמודי קרקע ולבניינים עד 2 קומות. ראו{" "}
+                <Link
+                  href="/guides/mamad-permit-exemption-2026"
+                  className="font-bold text-emerald-900 underline underline-offset-4"
+                >
+                  מדריך מסלול הפטור
+                </Link>
+                .
+              </p>
+            </article>
           </div>
         </div>
       </Section>
@@ -599,7 +677,7 @@ export default function Page() {
               <ul className="space-y-1.5 mb-5 text-sm">
                 <li><Link href="/services/building-mamad" className="text-[var(--color-primary)] hover:underline">בניית ממ״ד</Link></li>
                 <li><Link href="/services/room-reinforcement" className="text-[var(--color-primary)] hover:underline">מיגון חדר קיים</Link></li>
-                <li><Link href="/services/migunit" className="text-[var(--color-primary)] hover:underline">מיגונית</Link></li>
+                <li><Link href="/compare/mamad-vs-miggun-vs-migunit" className="text-[var(--color-primary)] hover:underline">ממ״ד, מיגון או מיגונית</Link></li>
                 <li><Link href="/services/prefab-mamad" className="text-[var(--color-primary)] hover:underline">ממ״ד מוכן</Link></li>
               </ul>
 
@@ -616,7 +694,7 @@ export default function Page() {
               <ul className="space-y-1.5 mb-5 text-sm">
                 <li><Link href="/compare/mamad-vs-miggun-vs-migunit" className="text-[var(--color-primary)] hover:underline">ממ״ד / מיגון / מיגונית</Link></li>
                 <li><Link href="/compare/mamad-tzamud-vs-hitzoni" className="text-[var(--color-primary)] hover:underline">ממ״ד צמוד vs חיצוני</Link></li>
-                <li><Link href="/compare/migunit-vs-mamad-muchan" className="text-[var(--color-primary)] hover:underline">מיגונית vs ממ״ד מוכן</Link></li>
+                <li><Link href="/services/prefab-mamad" className="text-[var(--color-primary)] hover:underline">ממ״ד מוכן (טרומי)</Link></li>
                 <li><Link href="/compare/katlan-rashum-vs-hafer" className="text-[var(--color-primary)] hover:underline">קבלן רשום vs חאפר</Link></li>
               </ul>
 
@@ -641,7 +719,7 @@ export default function Page() {
       <InlineLeadForm
         title="רוצים הצעת מחיר מדויקת לממ״ד שלכם?"
         subtitle="השאירו פרטים. נגיע לסיור, נבדוק אפשרויות ונחזור אליכם עם הצעה מפורטת פריט-פריט."
-        defaultService="בניית ממ״ד"
+        defaultService="mamad"
       />
 
       <FAQ items={faqs} title="שאלות נפוצות: מחיר ממ״ד" eyebrow="שאלות ותשובות" includeSchema={false} />

@@ -266,6 +266,77 @@ export default function Page() {
         </div>
       </Section>
 
+      {/* Trust differentiators — three sharp angles for pikud haoref approval. */}
+      <Section tone="white">
+        <div className="max-w-5xl mx-auto">
+          <div className="mb-8 text-center">
+            <div className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-[var(--color-accent-dark)] mb-3">
+              למה בקשות נדחות
+            </div>
+            <h2 className="text-2xl md:text-3xl font-black text-[var(--color-primary)]">
+              שלושה דברים שלא תמיד אומרים על אישור פיקוד העורף
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-5">
+            <article
+              className="h-full p-6 rounded-2xl border-2 border-red-200 bg-red-50/40"
+              aria-labelledby="hfc-warn-uncertified"
+            >
+              <div className="text-2xl mb-2" aria-hidden>⚠️</div>
+              <h3 id="hfc-warn-uncertified" className="font-extrabold text-red-900 text-lg mb-2">
+                פריט אחד לא מאושר מחזיר את כל הבקשה
+              </h3>
+              <p className="text-sm text-[var(--color-ink)] leading-relaxed">
+                דלת הדף, חלון, או מערכת סינון מיצרן <strong>לא מאושר פקע״ר</strong> אינם
+                בעיה &ldquo;קוסמטית&rdquo; — פריט אחד לא תקני יחזיר את כל הבקשה. דרשו
+                מהקבלן בכתב, לפני חתימה, רשימת דגמים מאושרים עם מספרי אישור פקע״ר ותעודות
+                בתוקף.
+              </p>
+            </article>
+
+            <article
+              className="h-full p-6 rounded-2xl border-2 border-amber-200 bg-amber-50/40"
+              aria-labelledby="hfc-hidden-static"
+            >
+              <div className="text-2xl mb-2" aria-hidden>💰</div>
+              <h3 id="hfc-hidden-static" className="font-extrabold text-amber-900 text-lg mb-2">
+                לא כל קונסטרוקטור יודע ממ״ד
+              </h3>
+              <p className="text-sm text-[var(--color-ink)] leading-relaxed">
+                ממ״ד הוא אלמנט קונסטרוקטיבי מיוחד עם דרישות תקן 4422. <strong>לא כל
+                קונסטרוקטור מתמחה בו</strong>. חישוב סטטי שלא נעשה לפי תקן הממ״ד יחזיר
+                את הבקשה עם הערות. עלות חישוב ייעודי: 4,000-8,000 ₪. עלות חישוב שצריך
+                להגיש מחדש: כפול, ועיכוב של 4-6 שבועות.
+              </p>
+            </article>
+
+            <article
+              className="h-full p-6 rounded-2xl border-2 border-emerald-200 bg-emerald-50/40"
+              aria-labelledby="hfc-savings-electronic"
+            >
+              <div className="text-2xl mb-2" aria-hidden>💡</div>
+              <h3 id="hfc-savings-electronic" className="font-extrabold text-emerald-900 text-lg mb-2">
+                הגשה אלקטרונית מקצרת בשבועיים
+              </h3>
+              <p className="text-sm text-[var(--color-ink)] leading-relaxed">
+                הגשה דרך מערכת{" "}
+                <a
+                  href="https://www.oref-rishuy.org.il"
+                  target="_blank"
+                  rel="noopener nofollow"
+                  className="font-bold text-emerald-900 underline underline-offset-4"
+                >
+                  rishuy.org.il
+                </a>{" "}
+                של פיקוד העורף מקצרת את לוח הזמנים ל-<strong>14 ימי עבודה</strong>{" "}
+                במקום 30+ של הגשה ידנית. לתיק שלם ומסודר, התשובה מגיעה לעיתים תוך 7-10 ימים.
+                בקשו מהקבלן וידוא שההגשה אלקטרונית.
+              </p>
+            </article>
+          </div>
+        </div>
+      </Section>
+
       <FAQ items={faqs} />
 
       <RelatedArticles currentSlug="home-front-command-approval" />

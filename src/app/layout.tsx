@@ -33,21 +33,6 @@ export const metadata: Metadata = {
   },
   description: site.description,
   applicationName: site.name,
-  keywords: [
-    "בניית ממ\"ד",
-    "מחיר ממ\"ד",
-    "מיגון חדר קיים",
-    "מיגונית",
-    "ממ\"ד מוכן",
-    "יחידה ממוגנת",
-    "אישורי פיקוד העורף",
-    "קבלן ממ\"ד",
-    "חברת בנייה",
-    "בנייה פרטית",
-    "שיפוצים",
-    "הרחבות בנייה",
-    "התחדשות בינוי ויזמות",
-  ],
   alternates: {
     canonical: "/",
     languages: {

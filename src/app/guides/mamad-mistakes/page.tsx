@@ -208,6 +208,76 @@ export default function Page() {
         </div>
       </Section>
 
+      {/* Trust differentiators — three sharp angles for common mistakes. */}
+      <Section tone="white">
+        <div className="max-w-5xl mx-auto">
+          <div className="mb-8 text-center">
+            <div className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-[var(--color-accent-dark)] mb-3">
+              שלוש הטעויות הכי יקרות
+            </div>
+            <h2 className="text-2xl md:text-3xl font-black text-[var(--color-primary)]">
+              אם הצליחתם להימנע משלוש האלה, הצלחתם בפרויקט
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-5">
+            <article
+              className="h-full p-6 rounded-2xl border-2 border-red-200 bg-red-50/40"
+              aria-labelledby="mistake-warn-migunit"
+            >
+              <div className="text-2xl mb-2" aria-hidden>⚠️</div>
+              <h3 id="mistake-warn-migunit" className="font-extrabold text-red-900 text-lg mb-2">
+                לקבל הצעה ל&ldquo;מיגונית&rdquo; כפתרון לבית פרטי במרכז
+              </h3>
+              <p className="text-sm text-[var(--color-ink)] leading-relaxed">
+                הצעת מחיר ל&ldquo;מיגונית&rdquo; (30-80 אלף ₪) כפתרון מיגון לבית פרטי
+                במרכז הארץ היא טעות מקצועית. <strong>מיגונית</strong> מאושרת בפועל בעיקר
+                לאזורי גבול ולמרחב הציבורי, לא כפתרון לבית פרטי במרכז. הפתרון התקני:
+                ממ״ד לפי תקן 4422 או{" "}
+                <Link
+                  href="/services/room-reinforcement"
+                  className="font-bold text-red-900 underline underline-offset-4"
+                >
+                  שיפור מיגון
+                </Link>{" "}
+                מאושר.
+              </p>
+            </article>
+
+            <article
+              className="h-full p-6 rounded-2xl border-2 border-amber-200 bg-amber-50/40"
+              aria-labelledby="mistake-hidden-filter"
+            >
+              <div className="text-2xl mb-2" aria-hidden>💰</div>
+              <h3 id="mistake-hidden-filter" className="font-extrabold text-amber-900 text-lg mb-2">
+                להסכים ל&ldquo;כולל הכל&rdquo; בלי לראות פירוט
+              </h3>
+              <p className="text-sm text-[var(--color-ink)] leading-relaxed">
+                &ldquo;כולל הכל&rdquo; ללא מפרט פרטני כמעט תמיד מסתיר עלויות שיוצאות
+                לאחר חתימה. הרכיבים שתמיד צריכים להופיע בכתב: <strong>מערכת סינון
+                אב״כ (תקן 4570) 8,000-15,000 ₪</strong>, אגרות והיטלים, חיבור חשמל,
+                גמר פנים. דרשו פירוט מודולרי עם מחיר נפרד לכל סעיף.
+              </p>
+            </article>
+
+            <article
+              className="h-full p-6 rounded-2xl border-2 border-emerald-200 bg-emerald-50/40"
+              aria-labelledby="mistake-savings-static"
+            >
+              <div className="text-2xl mb-2" aria-hidden>💡</div>
+              <h3 id="mistake-savings-static" className="font-extrabold text-emerald-900 text-lg mb-2">
+                לבחור קונסטרוקטור שלא מתמחה בממ״ד
+              </h3>
+              <p className="text-sm text-[var(--color-ink)] leading-relaxed">
+                ממ״ד הוא אלמנט קונסטרוקטיבי מיוחד לפי תקן 4422. קונסטרוקטור שלא מתמחה
+                בו יכין חישוב סטטי שיחזור עם הערות מפיקוד העורף. עיכוב טיפוסי:{" "}
+                <strong>4-6 שבועות</strong>, כולל חישוב חדש בעלות נוספת. דרשו לראות
+                ניסיון בממ״דים קודמים לפני בחירת המהנדס.
+              </p>
+            </article>
+          </div>
+        </div>
+      </Section>
+
       <FAQ items={faqs} />
 
       <RelatedArticles currentSlug="mamad-mistakes" />

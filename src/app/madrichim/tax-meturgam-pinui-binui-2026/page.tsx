@@ -313,7 +313,7 @@ export default function Page() {
           <InlineLeadForm
             title="שאלות על מסים בפינוי בינוי"
             subtitle="השאירו שם וטלפון. נחזור אליכם עם הפניה למומחה מתאים."
-            defaultService="פינוי בינוי / התחדשות עירונית"
+            defaultService="urban-renewal"
             prioritizeUrbanRenewal
           />
         </Reveal>

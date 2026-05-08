@@ -4,12 +4,12 @@ import Section, { Prose } from "@/components/Section";
 import { buildMetadata } from "@/lib/metadata";
 
 const PATH = "/accessibility";
-const TITLE = "הצהרת נגישות";
+const TITLE = "הצהרת נגישות | התחדשות בינוי ויזמות";
 const DESCRIPTION =
-  "הצהרת נגישות של אתר התחדשות בינוי ויזמות. האתר מונגש לפי תקן WCAG 2.1 ברמה AA, תקן ישראלי ת״י 5568 וחוק שוויון זכויות לאנשים עם מוגבלות. פרטי רכז נגישות ודיווח על תקלות.";
+  "הצהרת נגישות של אתר התחדשות בינוי ויזמות. האתר מונגש לפי תקן WCAG 2.1 ברמה AA ותקן ישראלי ת״י 5568. פרטי רכז נגישות ודיווח על תקלות.";
 
 export const metadata: Metadata = buildMetadata({
-  title: `${TITLE} | התחדשות בינוי ויזמות`,
+  title: TITLE,
   description: DESCRIPTION,
   path: PATH,
 });

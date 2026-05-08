@@ -239,12 +239,12 @@ export default function Home() {
               </Link>
               <div className="rounded-2xl border border-[var(--color-border)] bg-soft p-6 md:p-8 flex flex-col justify-center">
                 <div className="text-sm font-extrabold uppercase tracking-[0.22em] text-[var(--color-accent-dark)] mb-2">
-                  סטטיסטיקה
+                  נתוני שוק
                 </div>
-                <div className="text-4xl md:text-5xl font-black text-[var(--color-primary)] mb-1">247</div>
-                <div className="text-sm text-[var(--color-muted)] mb-4">פרויקטי פינוי בינוי במרכז הארץ ב-2026</div>
-                <div className="text-4xl md:text-5xl font-black text-[var(--color-primary)] mb-1">1,800+</div>
-                <div className="text-sm text-[var(--color-muted)]">דיירים שקיבלו ייעוץ ראשוני</div>
+                <div className="text-4xl md:text-5xl font-black text-[var(--color-primary)] mb-1">1.6M</div>
+                <div className="text-sm text-[var(--color-muted)] mb-4">דירות בישראל ללא ממ״ד (מקור: בנק ישראל)</div>
+                <div className="text-4xl md:text-5xl font-black text-[var(--color-primary)] mb-1">12-21%</div>
+                <div className="text-sm text-[var(--color-muted)]">פער מחירים בין דירה עם/בלי ממ״ד לפי אזור</div>
               </div>
             </div>
           </Reveal>

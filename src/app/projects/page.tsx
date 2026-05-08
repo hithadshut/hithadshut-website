@@ -158,7 +158,7 @@ export default function ProjectsPage() {
       <InlineLeadForm
         title="מתחילים פרויקט? בואו נדבר."
         subtitle="השאירו פרטים. נגיע לסיור, נבדוק אפשרויות הנדסיות, ונחזור עם הצעה מדויקת."
-        defaultService="בניית ממ״ד"
+        defaultService="mamad"
       />
     </>
   );

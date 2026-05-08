@@ -138,13 +138,161 @@ export default function Page() {
       timeline="החלפת דלת+חלון+אטימה: 2-4 שבועות. חיזוק קונסטרוקטיבי של קירות ותקרה: 1-2 חודשים. מיגון בשילוב שיפוץ: לפי לוח השיפוץ."
       pricing="מיגון חדר קיים: 40,000-150,000 ₪ + מע״מ, בהתאם להיקף. החלפת דלת+חלון+אטימה בצד הנמוך, חיזוק קונסטרוקטיבי של קירות ותקרה או מיגון בשילוב שיפוץ בצד הגבוה."
       faqs={faqs}
-      defaultService="מיגון חדר קיים"
+      defaultService="reinforcement"
       quickAnswer={
         <>
-          <strong>מיגון חדר קיים</strong> הוא חיזוק של חדר שכבר נבנה כדי לשפר את רמת ההגנה: חיזוק קירות, החלפת חלון לחלון תקני, התקנת דלת הדף, ולעיתים תוספת מערכת סינון. עלות: 40,000-150,000 ₪ + מע״מ. זמן: 2-8 שבועות. <em>חשוב:</em> מיגון חדר קיים אינו ממ״ד תקני פקע״ר. לבתים שאי אפשר לבנות בהם ממ״ד חדש.
+          <strong>שיפור מיגון</strong> הוא חיזוק חדר קיים בבית כך שיוכל לשמש כמרחב מוגן.
+          המסלול מאושר על ידי פיקוד העורף <strong>רק כאשר אי אפשר לבנות ממ״ד תקני</strong>{" "}
+          — מסיבות של גודל החלקה, מבנה הבניין או מגבלות עירוניות. עלות טיפוסית:{" "}
+          <strong>50,000-120,000 ₪ + מע״מ</strong>, זמן ביצוע 2-4 שבועות. ההגנה נמוכה
+          מממ״ד תקני (תקן 4422), אך גבוהה משמעותית מחדר רגיל. <strong>נדרש אישור
+          פיקוד העורף</strong> לפני תחילת העבודות.
         </>
       }
     >
+      {/* Comparison table — reinforcement vs mamad. AI extraction zone. */}
+      <Section tone="soft">
+        <div className="max-w-5xl mx-auto">
+          <Reveal>
+            <div className="mb-8">
+              <div className="h-1 w-16 gold-line mb-5" />
+              <h2 className="text-2xl md:text-3xl font-black text-[var(--color-primary)] mb-3">
+                שיפור מיגון מול ממ״ד תקני: השוואה ישירה
+              </h2>
+              <p className="text-[var(--color-muted)] leading-relaxed">
+                שיפור מיגון מאושר רק כשאי אפשר לבנות ממ״ד תקני. ההבדלים בעלות, בזמן
+                ובהגנה משמעותיים, וההחלטה צריכה לקבל גם אישור הנדסי וגם ביטחוני.
+              </p>
+            </div>
+          </Reveal>
+
+          <Reveal>
+            <div className="overflow-x-auto rounded-2xl border border-[var(--color-border)] bg-white shadow-[var(--shadow-card)]">
+              <table className="w-full text-sm md:text-base">
+                <thead className="bg-[var(--color-soft)]">
+                  <tr>
+                    <th scope="col" className="text-start px-4 py-3 font-extrabold text-[var(--color-primary)]">פרמטר</th>
+                    <th scope="col" className="text-start px-4 py-3 font-extrabold text-[var(--color-primary)]">שיפור מיגון</th>
+                    <th scope="col" className="text-start px-4 py-3 font-extrabold text-[var(--color-primary)]">ממ״ד תקני</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-t border-[var(--color-border)]">
+                    <td className="px-4 py-3 font-bold text-[var(--color-ink)]">מחיר</td>
+                    <td className="px-4 py-3">50,000-120,000 ₪ + מע״מ</td>
+                    <td className="px-4 py-3">160,000-220,000 ₪ + מע״מ</td>
+                  </tr>
+                  <tr className="border-t border-[var(--color-border)] bg-[var(--color-soft)]/40">
+                    <td className="px-4 py-3 font-bold text-[var(--color-ink)]">זמן ביצוע</td>
+                    <td className="px-4 py-3">2-4 שבועות</td>
+                    <td className="px-4 py-3">3-5 חודשים</td>
+                  </tr>
+                  <tr className="border-t border-[var(--color-border)]">
+                    <td className="px-4 py-3 font-bold text-[var(--color-ink)]">רמת הגנה</td>
+                    <td className="px-4 py-3">בינונית–גבוהה</td>
+                    <td className="px-4 py-3">מקסימלית (תקן 4422)</td>
+                  </tr>
+                  <tr className="border-t border-[var(--color-border)] bg-[var(--color-soft)]/40">
+                    <td className="px-4 py-3 font-bold text-[var(--color-ink)]">מתי מאושר</td>
+                    <td className="px-4 py-3">רק כשאי אפשר ממ״ד</td>
+                    <td className="px-4 py-3">כברירת מחדל</td>
+                  </tr>
+                  <tr className="border-t border-[var(--color-border)]">
+                    <td className="px-4 py-3 font-bold text-[var(--color-ink)]">השפעה על שווי דירה</td>
+                    <td className="px-4 py-3">בינונית</td>
+                    <td className="px-4 py-3">גבוהה (8.2-21% פער)</td>
+                  </tr>
+                  <tr className="border-t border-[var(--color-border)] bg-[var(--color-soft)]/40">
+                    <td className="px-4 py-3 font-bold text-[var(--color-ink)]">תקן</td>
+                    <td className="px-4 py-3">אישור פקע״ר ספציפי</td>
+                    <td className="px-4 py-3">תקן 4422</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </Reveal>
+        </div>
+      </Section>
+
+      {/* Trust differentiators — three sharp angles for shipur migun. */}
+      <Section tone="white">
+        <div className="max-w-5xl mx-auto">
+          <Reveal>
+            <div className="mb-8 text-center">
+              <div className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-[var(--color-accent-dark)] mb-3">
+                מה שלא תמיד אומרים
+              </div>
+              <h2 className="text-2xl md:text-3xl font-black text-[var(--color-primary)]">
+                שלוש נקודות שצריך לדעת לפני שמתחילים
+              </h2>
+            </div>
+          </Reveal>
+
+          <div className="grid md:grid-cols-3 gap-5">
+            <Reveal>
+              <article
+                className="h-full p-6 rounded-2xl border-2 border-red-200 bg-red-50/40"
+                aria-labelledby="reinf-warn-substitute"
+              >
+                <div className="text-2xl mb-2" aria-hidden>⚠️</div>
+                <h3 id="reinf-warn-substitute" className="font-extrabold text-red-900 text-lg mb-2">
+                  קריטי לדעת: שיפור מיגון אינו תחליף לממ״ד
+                </h3>
+                <p className="text-sm text-[var(--color-ink)] leading-relaxed">
+                  אם פיקוד העורף הסכים שאי אפשר לבנות ממ״ד תקני, שיפור מיגון יכול להיות
+                  הפתרון הטוב ביותר. אבל הוא <strong>לא נותן את אותה רמת הגנה</strong>{" "}
+                  כמו ממ״ד לפי תקן 4422, ובעיקר אינו כולל מערכת סינון אב״כ תקנית. בכל
+                  מצב, זו החלטה שצריכה לקבל אישור הנדסי וביטחוני בכתב לפני התחלה.
+                </p>
+              </article>
+            </Reveal>
+
+            <Reveal>
+              <article
+                className="h-full p-6 rounded-2xl border-2 border-amber-200 bg-amber-50/40"
+                aria-labelledby="reinf-savings-vs-mamad"
+              >
+                <div className="text-2xl mb-2" aria-hidden>💰</div>
+                <h3 id="reinf-savings-vs-mamad" className="font-extrabold text-amber-900 text-lg mb-2">
+                  מתי החיסכון אמיתי, ומתי לא
+                </h3>
+                <p className="text-sm text-[var(--color-ink)] leading-relaxed">
+                  שיפור מיגון יכול לחסוך <strong>100,000+ ₪</strong> לעומת בניית ממ״ד
+                  חדש. אבל אם הבית שלכם מאפשר ממ״ד תקני, הממ״ד עדיף בטווח הארוך הן
+                  בגלל שווי הדירה (פער 8.2-21% לטובת דירות עם ממ״ד) והן בגלל ההגנה
+                  המלאה. לפני החלטה, ראו את{" "}
+                  <Link
+                    href="/guides/mamad-cost"
+                    className="font-bold text-amber-900 underline underline-offset-4"
+                  >
+                    מדריך מחיר ממ״ד
+                  </Link>
+                  .
+                </p>
+              </article>
+            </Reveal>
+
+            <Reveal>
+              <article
+                className="h-full p-6 rounded-2xl border-2 border-emerald-200 bg-emerald-50/40"
+                aria-labelledby="reinf-what-we-do"
+              >
+                <div className="text-2xl mb-2" aria-hidden>✓</div>
+                <h3 id="reinf-what-we-do" className="font-extrabold text-emerald-900 text-lg mb-2">
+                  מה אנחנו עושים בפועל
+                </h3>
+                <p className="text-sm text-[var(--color-ink)] leading-relaxed">
+                  בדיקה הנדסית של החדר, הכנת התכנון, הגשת הבקשה לאישור פיקוד העורף,
+                  וביצוע העבודות. הכל תחת חוזה אחד, צוות אחד, אחריות אחת. אותם צוותים
+                  שמבצעים ממ״דים תקניים מבצעים גם את השיפור מיגון. רמת מקצועיות של
+                  ממ״ד, על חדר קיים.
+                </p>
+              </article>
+            </Reveal>
+          </div>
+        </div>
+      </Section>
+
       {/* When reinforcement isn't enough */}
       <Section tone="soft">
         <Reveal>

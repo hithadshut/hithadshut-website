@@ -336,13 +336,13 @@ export default function Page() {
               מתלבטים בין כמה יזמים? בדקו את הקריטריונים.
             </h2>
             <p className="text-[17px] text-[var(--color-ink)] leading-8 mb-6">
-              אנחנו לא יזמים. אנחנו חברת בנייה שמלווה דיירים בבחירת יזם מקצועי. ייעוץ ראשוני ללא עלות, ללא התחייבות.
+              אנחנו מלווים דיירים בבחירת יזם מקצועי. עובדים בשבילכם, לא בשביל היזם. ייעוץ ראשוני ללא עלות, ללא התחייבות.
             </p>
           </div>
           <InlineLeadForm
             title="השוואת יזמים: בואו נדבר"
             subtitle="השאירו שם וטלפון. נעזור להעריך את ההצעות שקיבלתם."
-            defaultService="פינוי בינוי / התחדשות עירונית"
+            defaultService="urban-renewal"
             prioritizeUrbanRenewal
           />
         </Reveal>

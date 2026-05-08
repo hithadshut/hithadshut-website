@@ -436,7 +436,7 @@ export default function Page() {
             <div className="font-bold text-[var(--color-primary)]">ממ״ד צמוד מול חיצוני ←</div>
           </Link>
           <Link
-            href="/compare/migunit-vs-mamad-muchan"
+            href="/compare/mamad-vs-miggun-vs-migunit"
             className="card-premium p-5 hover:bg-[var(--color-soft)] transition"
           >
             <div className="text-[10px] font-extrabold uppercase tracking-[0.18em] text-[var(--color-accent-dark)] mb-2">
@@ -490,7 +490,7 @@ export default function Page() {
       <InlineLeadForm
         title="רוצים לעבוד עם קבלן רשום?"
         subtitle="התחדשות בינוי ויזמות רשומים בפנקס הקבלנים, ביטוח מלא, חוזה מסודר, אחריות לפי חוק. השאירו פרטים, נחזור תוך שעות."
-        defaultService="בניית ממ״ד"
+        defaultService="mamad"
       />
     </>
   );

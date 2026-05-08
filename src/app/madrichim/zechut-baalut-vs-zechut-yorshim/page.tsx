@@ -315,13 +315,13 @@ export default function Page() {
               ירשתם דירה במתחם פינוי בינוי? בדקו את הזכויות.
             </h2>
             <p className="text-[17px] text-[var(--color-ink)] leading-8 mb-6">
-              אנחנו לא יזמים. אנחנו חברת בנייה שמלווה משפחות ויורשים. ייעוץ ראשוני ללא עלות, ללא התחייבות.
+              אנחנו מלווים משפחות ויורשים בהתחדשות עירונית. עובדים בשבילכם, לא בשביל היזם. ייעוץ ראשוני ללא עלות, ללא התחייבות.
             </p>
           </div>
           <InlineLeadForm
             title="זכויות יורשים: בואו נדבר"
             subtitle="השאירו שם וטלפון. נבחן את המצב המשפטי של הירושה."
-            defaultService="פינוי בינוי / התחדשות עירונית"
+            defaultService="urban-renewal"
             prioritizeUrbanRenewal
           />
         </Reveal>

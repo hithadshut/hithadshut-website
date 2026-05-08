@@ -348,7 +348,7 @@ export default async function AreaPage({ params }: { params: Params }) {
       <InlineLeadForm
         title={`מעוניינים בממ״ד ב${area.name}?`}
         subtitle="השאירו פרטים ונחזור אליכם תוך שעות עם הצעה מותאמת לבית ולאזור שלכם."
-        defaultService="בניית ממ״ד"
+        defaultService="mamad"
       />
 
       <RelatedLinks
