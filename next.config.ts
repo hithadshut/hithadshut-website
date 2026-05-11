@@ -22,14 +22,8 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      // Force www → apex (non-www). HTTPS upgrade is handled automatically by
-      // Vercel's edge so we do not need an http→https rule here.
-      {
-        source: "/:path*",
-        has: [{ type: "host", value: "www.hithadshut.co.il" }],
-        destination: "https://hithadshut.co.il/:path*",
-        permanent: true,
-      },
+      // www → apex redirect moved to src/middleware.ts (single-hop 301 for
+      // all non-canonical variants: http, www, http+www).
       // Migunit cleanup (Day 3): מיגונית is not a private-home solution per
       // CLAUDE.md hard rule #2. The /services/migunit page and all
       // /areas/:city/migunit doorway permutations are removed; existing
