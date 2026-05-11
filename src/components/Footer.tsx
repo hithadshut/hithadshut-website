@@ -105,6 +105,11 @@ export default function Footer() {
                 </Link>
               </li>
             ))}
+            <li className="pt-2 border-t border-white/10 mt-3">
+              <Link href="/madrichim" className="hover:text-[var(--color-accent)] font-semibold">
+                כל המדריכים ←
+              </Link>
+            </li>
           </ul>
         </nav>
 
@@ -151,6 +156,11 @@ export default function Footer() {
                 </li>
               );
             })}
+            <li className="pt-2 border-t border-white/10 mt-3">
+              <Link href="/hashvaa" className="hover:text-[var(--color-accent)] font-semibold">
+                כל ההשוואות ←
+              </Link>
+            </li>
           </ul>
 
           <h3 className="text-sm font-extrabold uppercase tracking-[0.2em] text-[var(--color-accent)] mt-6 mb-5">

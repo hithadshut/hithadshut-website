@@ -75,7 +75,7 @@ export default function Page() {
       />
       <SchemaBreadcrumb
         items={[
-          { name: "השוואות", url: "/compare/mamad-vs-miggun-vs-migunit" },
+          { name: "השוואות", url: "/hashvaa" },
           { name: "ממ״ד מול חמ״ד", url: PATH },
         ]}
       />
@@ -86,7 +86,7 @@ export default function Page() {
         title="ממ״ד מול חמ״ד 2026: מה ההבדל ומה תקני באמת"
         subtitle="״חמ״ד״ אינו סיווג של פיקוד העורף. מדריך 2026 שמתרגם את הכינוי לפתרונות התקניים שבאמת קיימים — ומסביר איך לזהות הצעת מחיר שמסתירה את ההבדל."
         crumbs={[
-          { name: "השוואות", href: "/compare/mamad-vs-miggun-vs-migunit" },
+          { name: "השוואות", href: "/hashvaa" },
           { name: "ממ״ד מול חמ״ד", href: PATH },
         ]}
       />

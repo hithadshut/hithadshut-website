@@ -118,7 +118,7 @@ export default function Page() {
         eyebrow="מדריך מחיר"
         title="כמה עולה ממ״ד? המדריך המלא למחיר ולעלויות"
         subtitle="טווחי מחירים מבוססי שוק, מה באמת מרכיב את המחיר, איפה אפשר לחסוך ואיפה לא כדאי, ושאלות שיחסכו לכם עשרות אלפי שקלים."
-        crumbs={[{ name: "מדריכים", href: "/#guides" }, { name: "מחיר ממ״ד", href: PATH }]}
+        crumbs={[{ name: "מדריכים", href: "/madrichim" }, { name: "מחיר ממ״ד", href: PATH }]}
       />
 
       <JsonLd
@@ -136,7 +136,7 @@ export default function Page() {
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "בית", url: "/" },
-          { name: "מדריכים", url: "/#guides" },
+          { name: "מדריכים", url: "/madrichim" },
           { name: "מחיר ממ״ד", url: PATH },
         ])}
       />

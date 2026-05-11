@@ -92,7 +92,7 @@ export default function Page() {
         eyebrow="מדריך תהליך"
         title="איך בונים ממ״ד: תהליך שלב אחר שלב"
         subtitle="מסלולי רישוי, אישורי פיקוד העורף, לוחות זמנים ריאליים, ומה לעשות בכל שלב כדי שהפרויקט לא ייתקע."
-        crumbs={[{ name: "מדריכים", href: "/#guides" }, { name: "תהליך בניית ממ״ד", href: PATH }]}
+        crumbs={[{ name: "מדריכים", href: "/madrichim" }, { name: "תהליך בניית ממ״ד", href: PATH }]}
       />
 
       <JsonLd

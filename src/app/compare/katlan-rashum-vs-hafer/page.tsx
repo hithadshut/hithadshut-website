@@ -220,7 +220,7 @@ export default function Page() {
         title="קבלן רשום מול חאפר: איך להיות בטוחים שאתם לא מתפתים"
         subtitle="מה באמת מבדיל בין קבלן רשום לחאפר, 8 דגלים אדומים, שלוש השאלות שחובה לשאול, ולמה זה קריטי דווקא בממ״ד."
         crumbs={[
-          { name: "השוואות", href: "/compare/mamad-vs-miggun-vs-migunit" },
+          { name: "השוואות", href: "/hashvaa" },
           { name: "קבלן רשום מול חאפר", href: PATH },
         ]}
       />
@@ -228,7 +228,7 @@ export default function Page() {
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "בית", url: "/" },
-          { name: "השוואות", url: "/compare/mamad-vs-miggun-vs-migunit" },
+          { name: "השוואות", url: "/hashvaa" },
           { name: "קבלן רשום מול חאפר", url: PATH },
         ])}
       />

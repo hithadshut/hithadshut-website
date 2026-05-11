@@ -82,7 +82,7 @@ export default function Page() {
         eyebrow="מדריך אישורים"
         title="אישורי פיקוד העורף לממ״ד"
         subtitle="איך מכינים בקשה שעוברת בפעם הראשונה, כמה זמן זה באמת לוקח, ומה לא לעשות."
-        crumbs={[{ name: "מדריכים", href: "/#guides" }, { name: "אישורי פיקוד העורף", href: PATH }]}
+        crumbs={[{ name: "מדריכים", href: "/madrichim" }, { name: "אישורי פיקוד העורף", href: PATH }]}
       />
 
       <JsonLd

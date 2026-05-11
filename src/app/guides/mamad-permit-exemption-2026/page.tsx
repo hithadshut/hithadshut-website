@@ -69,7 +69,7 @@ export default function Page() {
         eyebrow="מדריך 2026"
         title="מסלול פטור מהיתר לבניית ממ״ד 2026"
         subtitle="ההוראה הזמנית של חרבות ברזל מקצרת את הליך הרישוי דרמטית. מי זכאי, איך לפעול, ולמה כדאי להתחיל מוקדם."
-        crumbs={[{ name: "מדריכים", href: "/#guides" }, { name: "פטור מהיתר 2026", href: PATH }]}
+        crumbs={[{ name: "מדריכים", href: "/madrichim" }, { name: "פטור מהיתר 2026", href: PATH }]}
       />
 
       <JsonLd

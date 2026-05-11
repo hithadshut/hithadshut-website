@@ -411,6 +411,22 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
+          <Reveal>
+            <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/madrichim"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-[var(--color-primary)] text-white font-bold hover:bg-[var(--color-accent-dark)] transition"
+              >
+                לכל המדריכים ←
+              </Link>
+              <Link
+                href="/hashvaa"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-xl border-2 border-[var(--color-primary)] text-[var(--color-primary)] font-bold hover:bg-[var(--color-primary)] hover:text-white transition"
+              >
+                השוואות 2026: איזה מסלול מתאים לבניין שלי ←
+              </Link>
+            </div>
+          </Reveal>
         </div>
       </section>
     </>

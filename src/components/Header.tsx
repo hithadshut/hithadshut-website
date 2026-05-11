@@ -208,10 +208,26 @@ export default function Header() {
                     </Link>
                   ))}
                   <Link
+                    href="/madrichim"
+                    role="menuitem"
+                    onClick={() => setOpenDropdown(null)}
+                    className="block px-3 py-2 rounded-lg text-sm font-bold text-[var(--color-accent-dark)] hover:bg-[var(--color-soft)] border-t border-[var(--color-border)] mt-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
+                  >
+                    כל המדריכים ←
+                  </Link>
+                  <Link
+                    href="/hashvaa"
+                    role="menuitem"
+                    onClick={() => setOpenDropdown(null)}
+                    className="block px-3 py-2 rounded-lg text-sm font-bold text-[var(--color-accent-dark)] hover:bg-[var(--color-soft)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
+                  >
+                    כל ההשוואות ←
+                  </Link>
+                  <Link
                     href={`/compare/${compare.slug}`}
                     role="menuitem"
                     onClick={() => setOpenDropdown(null)}
-                    className="block px-3 py-2 rounded-lg text-sm font-semibold text-[var(--color-accent-dark)] hover:bg-[var(--color-soft)] border-t border-[var(--color-border)] mt-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
+                    className="block px-3 py-2 rounded-lg text-xs font-semibold text-[var(--color-muted)] hover:bg-[var(--color-soft)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
                   >
                     השוואה: ממ״ד / מיגון / מיגונית
                   </Link>
@@ -315,7 +331,13 @@ export default function Header() {
                     {c.label}
                   </Link>
                 ))}
-                <Link href={`/compare/${compare.slug}`} onClick={() => setOpen(false)} className="block py-2 text-sm font-bold text-[var(--color-accent-dark)]">
+                <Link href="/madrichim" onClick={() => setOpen(false)} className="block py-2 text-sm font-bold text-[var(--color-accent-dark)]">
+                  כל המדריכים ←
+                </Link>
+                <Link href="/hashvaa" onClick={() => setOpen(false)} className="block py-2 text-sm font-bold text-[var(--color-accent-dark)]">
+                  כל ההשוואות ←
+                </Link>
+                <Link href={`/compare/${compare.slug}`} onClick={() => setOpen(false)} className="block py-2 text-xs text-[var(--color-muted)]">
                   השוואה: ממ״ד / מיגון / מיגונית
                 </Link>
               </div>

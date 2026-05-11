@@ -69,7 +69,7 @@ export default function Page() {
         eyebrow="מדריך טכני"
         title="מערכת אוורור וסינון לממ״ד"
         subtitle="מה כולל, איך עובד, איך מתחזקים. הדבר היחיד שהופך את הממ״ד מ׳חדר חזק׳ למרחב מוגן אמיתי."
-        crumbs={[{ name: "מדריכים", href: "/#guides" }, { name: "מערכת אוורור וסינון", href: PATH }]}
+        crumbs={[{ name: "מדריכים", href: "/madrichim" }, { name: "מערכת אוורור וסינון", href: PATH }]}
       />
 
       <JsonLd

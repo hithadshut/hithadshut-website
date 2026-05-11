@@ -80,7 +80,7 @@ export default function Page() {
         eyebrow="מדריך בחירת קבלן"
         title="איך בוחרים קבלן ממ״ד: רשימת בדיקה מלאה"
         subtitle="השאלות הנכונות לשאול, המסמכים שחייבים לראות, והסימנים שאומרים 'רוץ לכיוון השני'."
-        crumbs={[{ name: "מדריכים", href: "/#guides" }, { name: "בחירת קבלן ממ״ד", href: PATH }]}
+        crumbs={[{ name: "מדריכים", href: "/madrichim" }, { name: "בחירת קבלן ממ״ד", href: PATH }]}
       />
 
       <JsonLd

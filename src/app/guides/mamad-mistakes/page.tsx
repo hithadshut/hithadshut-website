@@ -81,7 +81,7 @@ export default function Page() {
         eyebrow="טעויות נפוצות"
         title="10 טעויות נפוצות בבניית ממ״ד"
         subtitle="הדברים שחוזרים בפרויקטים ועולים ביוקר, ומה לעשות כדי לא ליפול לאותה מלכודת."
-        crumbs={[{ name: "מדריכים", href: "/#guides" }, { name: "טעויות נפוצות", href: PATH }]}
+        crumbs={[{ name: "מדריכים", href: "/madrichim" }, { name: "טעויות נפוצות", href: PATH }]}
       />
 
       <JsonLd

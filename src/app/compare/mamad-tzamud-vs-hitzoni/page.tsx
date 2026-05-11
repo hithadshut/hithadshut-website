@@ -183,7 +183,7 @@ export default function Page() {
         title="ממ״ד צמוד מול ממ״ד חיצוני: מה מתאים לבית שלכם?"
         subtitle="השוואה מלאה בין שני סוגי הממ״דים: עלות, רישוי, תכנון ומתי כדאי לבחור בכל פתרון."
         crumbs={[
-          { name: "השוואות", href: "/compare/mamad-vs-miggun-vs-migunit" },
+          { name: "השוואות", href: "/hashvaa" },
           { name: "ממ״ד צמוד מול חיצוני", href: PATH },
         ]}
       />
@@ -191,7 +191,7 @@ export default function Page() {
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "בית", url: "/" },
-          { name: "השוואות", url: "/compare/mamad-vs-miggun-vs-migunit" },
+          { name: "השוואות", url: "/hashvaa" },
           { name: "ממ״ד צמוד מול חיצוני", url: PATH },
         ])}
       />

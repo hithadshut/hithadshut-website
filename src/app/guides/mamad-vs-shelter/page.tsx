@@ -69,7 +69,7 @@ export default function Page() {
         eyebrow="מדריך השוואתי"
         title="ממ״ד מול מקלט בבניין: מה ההבדל ולמה זה משנה"
         subtitle="שני פתרונות מיגון תקניים. נגישות שונה, רמת הגנה דומה, החלטה שונה לפי אזור ומשפחה."
-        crumbs={[{ name: "מדריכים", href: "/#guides" }, { name: "ממ״ד מול מקלט", href: PATH }]}
+        crumbs={[{ name: "מדריכים", href: "/madrichim" }, { name: "ממ״ד מול מקלט", href: PATH }]}
       />
 
       <JsonLd
