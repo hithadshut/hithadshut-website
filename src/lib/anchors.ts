@@ -50,12 +50,14 @@ export const SHAKED_HREFS = {
 } as const;
 
 export const HASHVAA_HREFS = {
+  hub: "/hashvaa",
   pinuiVsTama: "/hashvaa/pinui-vs-tama",
   shakedVsTama: "/hashvaa/shaked-vs-tama",
   migunVsPinui: "/hashvaa/migun-vs-pinui",
 } as const;
 
 export const MADRICHIM_HREFS = {
+  hub: "/madrichim",
   sofTama: "/madrichim/sof-tama-38-ma-laasot",
   shealotYazam: "/madrichim/10-shealot-le-yazam",
   eravutHevdel: "/madrichim/eravut-bankait-vs-chok-mehor",
@@ -101,6 +103,8 @@ export type LinkTarget =
   | "hashvaa-pinui-vs-tama"
   | "hashvaa-shaked-vs-tama"
   | "hashvaa-migun-vs-pinui"
+  | "madrichim-hub"
+  | "hashvaa-hub"
   | "madrichim-sof-tama"
   | "madrichim-shealot-yazam"
   | "madrichim-eravut-hevdel"
@@ -430,6 +434,20 @@ export const ANCHOR_VARIANTS: Record<LinkTarget, string[]> = {
     "מתי צריך פינוי בינוי",
     "השוואה מיגון פינוי בינוי",
   ],
+  "madrichim-hub": [
+    "מדריכי התחדשות עירונית",
+    "מדריכים מקצועיים",
+    "כל המדריכים",
+    "מרכז המדריכים",
+    "מדריכים לבעלי דירות",
+  ],
+  "hashvaa-hub": [
+    "השוואות מסלולי התחדשות",
+    "השוואות 2026",
+    "כל ההשוואות",
+    "השוואת מסלולים",
+    "מרכז ההשוואות",
+  ],
   "madrichim-sof-tama": [
     "סוף תמ״א 38",
     "מה דייר עושה אחרי תמ״א 38",
@@ -532,6 +550,8 @@ export const HREF_MAP: Record<LinkTarget, string> = {
   "hashvaa-pinui-vs-tama": HASHVAA_HREFS.pinuiVsTama,
   "hashvaa-shaked-vs-tama": HASHVAA_HREFS.shakedVsTama,
   "hashvaa-migun-vs-pinui": HASHVAA_HREFS.migunVsPinui,
+  "madrichim-hub": MADRICHIM_HREFS.hub,
+  "hashvaa-hub": HASHVAA_HREFS.hub,
   "madrichim-sof-tama": MADRICHIM_HREFS.sofTama,
   "madrichim-shealot-yazam": MADRICHIM_HREFS.shealotYazam,
   "madrichim-eravut-hevdel": MADRICHIM_HREFS.eravutHevdel,
@@ -615,6 +635,10 @@ export const TARGET_SUMMARY: Record<LinkTarget, string> = {
     "השוואה: חלופת שקד מול תמ״א 38 — מה השתנה ומה דייר צריך לבחור ב-2026.",
   "hashvaa-migun-vs-pinui":
     "השוואה: שיפור מיגון מול פינוי בינוי — מתי כל פתרון מתאים, ואיך להחליט.",
+  "madrichim-hub":
+    "11 מדריכים מקצועיים לבעלי דירות: פינוי בינוי, תמ״א 38, ערבויות, מיסוי, בחירת יזם, ממ״ד ומיגון.",
+  "hashvaa-hub":
+    "השוואות מקצועיות בין מסלולי התחדשות עירונית: פינוי בינוי, תמ״א 38, חלופת שקד, שיפור מיגון.",
   "madrichim-sof-tama":
     "סוף תמ״א 38: לוח זמנים של הפוקעה ופעולות נדרשות לדייר בפרויקט פעיל.",
   "madrichim-shealot-yazam":
@@ -668,6 +692,8 @@ export const TARGET_LABEL: Record<LinkTarget, string> = {
   "hashvaa-pinui-vs-tama": "פינוי בינוי מול תמ״א 38",
   "hashvaa-shaked-vs-tama": "חלופת שקד מול תמ״א 38",
   "hashvaa-migun-vs-pinui": "שיפור מיגון מול פינוי בינוי",
+  "madrichim-hub": "מדריכי התחדשות עירונית",
+  "hashvaa-hub": "השוואות מסלולי התחדשות",
   "madrichim-sof-tama": "סוף תמ״א 38",
   "madrichim-shealot-yazam": "10 שאלות ליזם פינוי בינוי",
   "madrichim-eravut-hevdel": "ערבות בנקאית מול חוק מכר",

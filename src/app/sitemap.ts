@@ -228,6 +228,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    // Madrichim hub
+    {
+      url: `${site.url}/madrichim`,
+      lastModified: lastModifiedFor("src/app/madrichim/page.tsx"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    // Hashvaa hub
+    {
+      url: `${site.url}/hashvaa`,
+      lastModified: lastModifiedFor("src/app/hashvaa/page.tsx"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
     // Madrichim cluster (urban-renewal deep articles)
     {
       url: `${site.url}/madrichim/sof-tama-38-ma-laasot`,
