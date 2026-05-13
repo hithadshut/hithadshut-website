@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { track } from "@/lib/analytics";
 
 /**
- * ClickTracker — global delegated click tracking for outbound contact links.
+ * ClickTracker - global delegated click tracking for outbound contact links.
  *
  * Listens at the document level and fires GA4 events when the user activates:
  *   - any tel: link → phone_click

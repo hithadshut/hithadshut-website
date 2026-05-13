@@ -2,10 +2,10 @@ import { NextResponse } from "next/server";
 import { renderLlmsManifest } from "@/content/llms-txt-manifest";
 
 /**
- * /llms.txt — authority manifest for AI search engines.
+ * /llms.txt - authority manifest for AI search engines.
  *
  * Spec: https://llmstxt.org. Renders the typed manifest from
- * src/content/llms-txt-manifest.ts as plain text. Static — Next.js
+ * src/content/llms-txt-manifest.ts as plain text. Static - Next.js
  * caches the response across requests; the file regenerates on each
  * deploy (when the manifest source file is touched).
  *

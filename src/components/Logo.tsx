@@ -34,7 +34,7 @@ export default function Logo({
   priority = false,
 }: Props) {
   // The V2 horizontal logo ships at 276×80 (1× density). The @2x source
-  // is 553×160 — Next picks the @2x off the same path automatically when
+  // is 553×160 - Next picks the @2x off the same path automatically when
   // we set width/height to 1× and provide an appropriate `sizes` value.
   // We render the image with a fixed height (Tailwind h-*) and width:auto
   // to preserve the aspect ratio and avoid CLS.

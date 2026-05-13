@@ -1,13 +1,13 @@
 import Link from "next/link";
 
 /**
- * HomeQuickAnswer — direct-answer block surfaced below the hero on /.
+ * HomeQuickAnswer - direct-answer block surfaced below the hero on /.
  * 60–80 words covering: cost, time, permit-exemption window, and the
  * standards (4422 / 4577) that separate a real ממ״ד from a strong room.
  *
  * AI-citation optimized: opens with the figure, names the regulation,
  * and links to the canonical guides. Does not modify the hero or the
- * services grid — sits as its own band between them.
+ * services grid - sits as its own band between them.
  */
 export default function HomeQuickAnswer() {
   return (

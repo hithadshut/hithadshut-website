@@ -90,7 +90,7 @@ export default function Page() {
         ]}
       />
 
-      {/* UPGRADE 3: Quick Answer block — direct AI-extractable answer at top */}
+      {/* UPGRADE 3: Quick Answer block - direct AI-extractable answer at top */}
       <Section tone="white">
         <Reveal>
           <div className="max-w-3xl">
@@ -119,7 +119,7 @@ export default function Page() {
         </Reveal>
       </Section>
 
-      {/* UPGRADE 6: Featured Snippet H2 — "X is Y" answer-format heading */}
+      {/* UPGRADE 6: Featured Snippet H2 - "X is Y" answer-format heading */}
       <Section tone="white">
         <Reveal>
           <ContentSection id="kama-zman" title="כמה זמן לוקח פינוי בינוי? 7-12 שנים בממוצע">
@@ -136,7 +136,7 @@ export default function Page() {
         </Reveal>
       </Section>
 
-      {/* UPGRADE 5: Entity-rich content — named regulators, laws, institutions */}
+      {/* UPGRADE 5: Entity-rich content - named regulators, laws, institutions */}
       <Section tone="soft">
         <Reveal>
           <ContentSection id="shivat-shlavim" title="שבעת השלבים: חודשים, פעולות, ומי מעורב">
@@ -245,7 +245,7 @@ export default function Page() {
         </Reveal>
       </Section>
 
-      {/* UPGRADE 4: Case studies — real anonymized projects from Israel */}
+      {/* UPGRADE 4: Case studies - real anonymized projects from Israel */}
       <Section tone="soft">
         <Reveal>
           <ContentSection id="dugmaot" title="דוגמאות אמיתיות: פרויקטים פעילים בישראל">
@@ -285,19 +285,19 @@ export default function Page() {
                 .
               </li>
               <li>
-                <strong className="text-[var(--color-primary)]">התנגדויות שכנים.</strong> בעלי דירות בבניינים סמוכים (בעיקר על ניצול אחוזי בנייה והצללה) — 6-18 חודשים נוספים בוועדה המחוזית.
+                <strong className="text-[var(--color-primary)]">התנגדויות שכנים.</strong> בעלי דירות בבניינים סמוכים (בעיקר על ניצול אחוזי בנייה והצללה), מה שמוסיף 6-18 חודשים בוועדה המחוזית.
               </li>
               <li>
-                <strong className="text-[var(--color-primary)]">בעיות קונסטרוקציה.</strong> מבנה תת-קרקעי, מים תהומיים, או צמידות לבניינים נושאים — 6-12 חודשים נוספים לתכנון.
+                <strong className="text-[var(--color-primary)]">בעיות קונסטרוקציה.</strong> מבנה תת-קרקעי, מים תהומיים, או צמידות לבניינים נושאים, מה שמוסיף 6-12 חודשים לתכנון.
               </li>
               <li>
-                <strong className="text-[var(--color-primary)]">יזם בעייתי.</strong> חוסר ניסיון, קשיים פיננסיים, או תיק חוזה בעייתי — 12-36 חודשים. במצבים קיצוניים נדרש מעבר ליזם חלופי.
+                <strong className="text-[var(--color-primary)]">יזם בעייתי.</strong> חוסר ניסיון, קשיים פיננסיים, או תיק חוזה בעייתי, מה שמוסיף 12-36 חודשים. במצבים קיצוניים נדרש מעבר ליזם חלופי.
               </li>
               <li>
-                <strong className="text-[var(--color-primary)]">שינוי רגולטורי.</strong> חוקים חדשים, תיקוני תקנות, או החלטות בית משפט עליון — 6-12 חודשים להתאמה.
+                <strong className="text-[var(--color-primary)]">שינוי רגולטורי.</strong> חוקים חדשים, תיקוני תקנות, או החלטות בית משפט עליון, מה שמוסיף 6-12 חודשים להתאמה.
               </li>
               <li>
-                <strong className="text-[var(--color-primary)]">ירושה במהלך הפרויקט.</strong> פטירת בעל דירה ויורשים שלא מסכימים ביניהם — 6-18 חודשים. למידע ראו את המדריך על{" "}
+                <strong className="text-[var(--color-primary)]">ירושה במהלך הפרויקט.</strong> פטירת בעל דירה ויורשים שלא מסכימים ביניהם, מה שמוסיף 6-18 חודשים. למידע ראו את המדריך על{" "}
                 <Link
                   href="/pinui-binui/yorshim"
                   className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]"

@@ -208,7 +208,7 @@ export default function Page() {
         </div>
       </Section>
 
-      {/* Trust differentiators — three sharp angles for common mistakes. */}
+      {/* Trust differentiators: three sharp angles for common mistakes. */}
       <Section tone="white">
         <div className="max-w-5xl mx-auto">
           <div className="mb-8 text-center">

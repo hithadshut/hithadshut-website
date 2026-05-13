@@ -62,7 +62,7 @@ function lastModifiedFor(...sourcePaths: string[]): Date {
 /**
  * Priority distribution (per seo/SITEMAP_AUDIT 2026-05-03):
  *   1.0  homepage
- *   0.9  pillar/hub pages — /services/*, /guides/*, /compare/*, /about,
+ *   0.9  pillar/hub pages - /services/*, /guides/*, /compare/*, /about,
  *        /contact, /areas
  *   0.7  city standalone pages, indexable city × service pairs,
  *        /projects index, /about/ofek-mazor
@@ -78,14 +78,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 1.0,
     },
-    // Contact (high commercial intent — pillar tier)
+    // Contact (high commercial intent - pillar tier)
     {
       url: `${site.url}/contact`,
       lastModified: lastModifiedFor("src/app/contact/page.tsx"),
       changeFrequency: "monthly",
       priority: 0.9,
     },
-    // Pillar pages — urban-renewal pillar (each pillar + sub-page
+    // Pillar pages - urban-renewal pillar (each pillar + sub-page
     // registered explicitly when it ships).
     {
       url: `${site.url}/pinui-binui`,
@@ -141,7 +141,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     },
-    // Memad depth sub-pages — authority cluster under /memad/*
+    // Memad depth sub-pages - authority cluster under /memad/*
     {
       url: `${site.url}/memad/bayit-prati`,
       lastModified: lastModifiedFor("src/app/memad/bayit-prati/page.tsx"),
@@ -337,7 +337,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.9,
     })),
-    // City standalone pages — exclude noindexed cities.
+    // City standalone pages - exclude noindexed cities.
     ...areas
       .filter((a) => !a.noindexReason)
       .map((a) => ({
@@ -349,7 +349,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         changeFrequency: "monthly" as const,
         priority: 0.7,
       })),
-    // City × service indexable pairs — only allowlisted, content-
+    // City × service indexable pairs - only allowlisted, content-
     // differentiated pairs ship to the sitemap. The rest stay noindex
     // (see src/content/indexable-geo.ts).
     ...areas.flatMap((a) =>
@@ -387,21 +387,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.6,
     })),
-    // About hub (pillar tier — primary brand page)
+    // About hub (pillar tier - primary brand page)
     {
       url: `${site.url}/about`,
       lastModified: lastModifiedFor("src/app/about/page.tsx"),
       changeFrequency: "monthly",
       priority: 0.9,
     },
-    // Author page (Ofek Mazor) — anchors Person schema for E-E-A-T
+    // Author page (Ofek Mazor) - anchors Person schema for E-E-A-T
     {
       url: `${site.url}/about/ofek-mazor`,
       lastModified: lastModifiedFor("src/app/about/ofek-mazor/page.tsx"),
       changeFrequency: "monthly",
       priority: 0.7,
     },
-    // Press kit — public-facing journalist resource. Modest priority
+    // Press kit - public-facing journalist resource. Modest priority
     // (0.5) because it's not a money page, but it's discoverable + the
     // verified-stats section is a citation magnet.
     {

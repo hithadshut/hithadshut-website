@@ -3,6 +3,8 @@ import Section, { Prose } from "./Section";
 import FAQ from "./FAQ";
 import InlineLeadForm from "./InlineLeadForm";
 import JsonLd from "./JsonLd";
+import SchemaArticle from "./schema/article";
+import SchemaBreadcrumb from "./schema/breadcrumb";
 import Reveal from "./Reveal";
 import ServiceIcon from "./ServiceIcon";
 import ServiceProjectShowcase from "./ServiceProjectShowcase";
@@ -38,6 +40,8 @@ type Props = {
    * Optimized for AI-engine extraction and Google AI Overviews.
    */
   quickAnswer?: ReactNode;
+  datePublished?: string;
+  dateModified?: string;
   children?: ReactNode;
 };
 
@@ -60,6 +64,8 @@ export default function ServicePageLayout({
   faqs,
   defaultService,
   quickAnswer,
+  datePublished = "2026-04-15",
+  dateModified = "2026-05-13",
   children,
 }: Props) {
   return (
@@ -74,6 +80,14 @@ export default function ServicePageLayout({
           serviceType: serviceName,
         })}
       />
+      <SchemaArticle
+        headline={title}
+        description={serviceDescription}
+        canonical={path}
+        datePublished={datePublished}
+        dateModified={dateModified}
+      />
+      <SchemaBreadcrumb items={crumbs.map(c => ({ name: c.name, url: c.href }))} />
 
       {quickAnswer && (
         <Section tone="soft">
@@ -264,7 +278,7 @@ export default function ServicePageLayout({
         </Section>
       )}
 
-      {/* Real-project showcase — auto-renders for the service slug if a
+      {/* Real-project showcase - auto-renders for the service slug if a
           tagged project has hasRealImage:true. No-op until Ofek saves
           the JPGs and flips the flag in src/content/projects.ts. */}
       <ServiceProjectShowcase serviceSlug={path.replace("/services/", "")} />

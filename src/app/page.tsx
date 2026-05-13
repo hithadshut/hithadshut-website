@@ -71,7 +71,7 @@ const mainServices = protectionServices.slice(0, 3);
 export default function Home() {
   return (
     <>
-      {/* LocalBusiness on the home page only — Organization + WebSite are
+      {/* LocalBusiness on the home page only. Organization + WebSite are
           already in layout.tsx and apply site-wide. Per-area pages emit their
           own LocalBusiness with city-specific @id, so this top-level node is
           scoped to / to avoid graph collisions. */}
@@ -117,10 +117,10 @@ export default function Home() {
         <div aria-hidden className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-white to-transparent" />
       </section>
 
-      {/* ===== TRUST STRIP (W2 — entity-level trust signals below hero) ===== */}
+      {/* ===== TRUST STRIP (W2 - entity-level trust signals below hero) ===== */}
       <TrustStrip />
 
-      {/* ===== QUICK ANSWER (S2 — direct-answer block for AI citation) ===== */}
+      {/* ===== QUICK ANSWER (S2 - direct-answer block for AI citation) ===== */}
       <HomeQuickAnswer />
 
       {/* ===== MAIN SERVICES (3 big cards) ===== */}
@@ -223,7 +223,7 @@ export default function Home() {
                       מחשבון פינוי בינוי 2026
                     </h3>
                     <p className="text-[var(--color-muted)] leading-relaxed mb-4">
-                      בדיקה ראשונית של הצעת היזם מול סטנדרט השוק. הזינו את פרטי הדירה הישנה, האזור, ותנאי ההצעה — קבלו ציון מצרפי וניתוח של נקודות החוזק והחולשה.
+                      בדיקה ראשונית של הצעת היזם מול סטנדרט השוק. הזינו את פרטי הדירה הישנה, האזור, ותנאי ההצעה, וקבלו ציון מצרפי וניתוח של נקודות החוזק והחולשה.
                     </p>
                     <ul className="grid grid-cols-2 gap-1.5 text-sm text-[var(--color-muted)] mb-5">
                       <li>✓ 5 פרמטרים</li>
@@ -335,7 +335,7 @@ export default function Home() {
         tone="soft"
       />
 
-      {/* ===== PROJECTS TEASER (S2 — real-work signal, B-020) ===== */}
+      {/* ===== PROJECTS TEASER (S2 - real-work signal, B-020) ===== */}
       <ProjectsTeaser />
 
       {/* ===== "WE BUILD EVERYTHING" ===== */}

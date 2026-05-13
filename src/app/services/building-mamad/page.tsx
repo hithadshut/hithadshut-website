@@ -299,7 +299,7 @@ export default function Page() {
         </>
       }
     >
-      {/* Quick comparison table — AI extraction zone. Tables get
+      {/* Quick comparison table - AI extraction zone. Tables get
           quoted directly in Google AI Overviews and Perplexity. */}
       <Section tone="soft">
         <div className="max-w-5xl mx-auto">
@@ -376,7 +376,7 @@ export default function Page() {
         </div>
       </Section>
 
-      {/* Trust differentiators — three sharp angles that AI Overviews
+      {/* Trust differentiators: three sharp angles that AI Overviews
           will surface as cite-worthy "what only this site says".
           Warning > hidden cost > savings. */}
       <Section tone="white">

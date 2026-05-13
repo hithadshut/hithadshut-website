@@ -30,7 +30,7 @@ export default function ContactForm({
    */
   defaultService?: string;
   /**
-   * Legacy prop — kept for backward compatibility with existing pages.
+   * Legacy prop - kept for backward compatibility with existing pages.
    * The simplified 3-field form no longer renders a service dropdown,
    * so this prop is a no-op. Pages on the urban-renewal track should
    * pass `defaultService="urban-renewal"` instead.

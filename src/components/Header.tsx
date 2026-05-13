@@ -18,7 +18,7 @@ const guideLinks = guides.map((g) => ({ href: `/guides/${g.slug}`, label: g.shor
 
 // Urban-renewal pillar nav. Add new sub-pages here as they ship
 // (kshishim, yorshim, etc.). Same convention as the
-// PINUI_BINUI_HREFS namespace in src/lib/anchors.ts — the nav is the
+// PINUI_BINUI_HREFS namespace in src/lib/anchors.ts - the nav is the
 // other surface that needs explicit registration per page.
 const urbanRenewalLinks = [
   { href: "/pinui-binui", label: "פינוי בינוי" },
@@ -48,7 +48,7 @@ export default function Header() {
   // inside the panel completes its own navigation BEFORE this handler
   // fires. With mousedown, a cursor that briefly exits the panel
   // bounding box during click resolution could cancel the sub-item
-  // navigation — that was the actual bug behind "nav opens but
+  // navigation - that was the actual bug behind "nav opens but
   // sub-items don't click".
   useEffect(() => {
     if (openDropdown === null) return;
@@ -76,9 +76,9 @@ export default function Header() {
   // bridging the visual gap between the trigger button and the visible
   // card. The inner div is the actual rounded card. The padding area
   // is interactive (catches hover + clicks) so the cursor never crosses
-  // a "dead zone" between trigger and panel — that dead zone was the
+  // a "dead zone" between trigger and panel - that dead zone was the
   // root cause of sub-items appearing unclickable in the prior fix.
-  // State-driven (click) on top of hover-driven (mouse) — both modes
+  // State-driven (click) on top of hover-driven (mouse) - both modes
   // route to the same visible class.
   const panelClass = (isOpen: boolean) =>
     `absolute end-0 top-full pt-3 w-72 transition z-50 ${

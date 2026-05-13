@@ -3,14 +3,14 @@ import Image from "next/image";
 import { getProjectForService } from "@/content/projects";
 
 /**
- * ServiceProjectShowcase — embeds a real project on a service page.
+ * ServiceProjectShowcase - embeds a real project on a service page.
  *
  * Renders nothing if there's no project tagged for this service, OR if
  * the tagged project doesn't yet have a real photo (`hasRealImage:false`).
  * That keeps service pages clean until Ofek drops the JPGs into
  * `public/projects/` and flips the flag.
  *
- * Designed as an additive band — does not modify the existing
+ * Designed as an additive band - does not modify the existing
  * ServicePageLayout structure.
  */
 export default function ServiceProjectShowcase({ serviceSlug }: { serviceSlug: string }) {

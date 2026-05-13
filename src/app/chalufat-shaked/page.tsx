@@ -66,7 +66,7 @@ export default function Page() {
   return (
     <>
       <SchemaArticle
-        headline="חלופת שקד 2026: תיקון 139 לחוק התכנון והבנייה — מה זה ומה לבדוק"
+        headline="חלופת שקד 2026: תיקון 139 לחוק התכנון והבנייה, מה זה ומה לבדוק"
         description={DESCRIPTION}
         canonical={PATH}
         datePublished={`${PUBLISHED_DATE}T00:00:00+03:00`}

@@ -7,7 +7,7 @@
  *
  * Default policy: noindex. A pair is promoted to indexable only after a
  * human pass adds genuinely city-specific content (committee posture,
- * neighborhood building stock, anonymous case study) — not just a longer
+ * neighborhood building stock, anonymous case study) - not just a longer
  * city name in the prose.
  *
  * Adding a pair here:

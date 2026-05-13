@@ -23,10 +23,10 @@ export type Area = {
   isFrontLine?: boolean;
   /** Local planning committee name (used on the city page for E-E-A-T). */
   localCommittee?: string;
-  /** Active local urban-plan name(s) influencing construction (תב״ע) — short, factual. */
+  /** Active local urban-plan name(s) influencing construction (תב״ע) - short, factual. */
   localPlans?: string[];
   /**
-   * Extra paragraphs that go beyond `localNote` — rendered as a body section
+   * Extra paragraphs that go beyond `localNote` - rendered as a body section
    * with a header. Use to surface verifiable, city-specific construction
    * realities (e.g. typical building age, soil traits, committee posture).
    * Avoid marketing fluff; this content carries the city out of doorway-page
@@ -38,7 +38,7 @@ export type Area = {
    * whose content is currently too thin to defend against doorway-pages
    * scrutiny. The page still builds and is internally linked; it just
    * stays out of Google's index until upgraded. The string is the audit
-   * reason — keep it short.
+   * reason - keep it short.
    */
   noindexReason?: string;
 };
@@ -60,6 +60,7 @@ export const areas: Area[] = [
     ],
     localNote:
       "עיר צפופה עם מבנים ישנים וחדשים. בניית ממ״ד דורשת שיקולי גישה, רישוי עירוני וזמינות חנייה.",
+    noindexReason: "תוכן ייחודי מתחת ל-800 מילים. דורש extendedNotes + geoIntros לפני אינדוקס.",
   },
   {
     slug: "jerusalem",
@@ -69,6 +70,7 @@ export const areas: Area[] = [
     neighborhoods: ["רחביה", "בקעה", "טלביה", "גילה", "פסגת זאב", "רמות", "הר נוף"],
     localNote:
       "בנייה באבן ירושלמית לפי תקנות העירייה, מגרשים משופעים ברבים מהשכונות ותיק רישוי צמוד למחלקת שימור במרכז העיר. כל אלה משפיעים על תכנון הממ״ד, חישוב יסודות ולוחות זמנים מול הוועדה המקומית.",
+    noindexReason: "תוכן ייחודי מתחת ל-800 מילים. דורש extendedNotes + geoIntros לפני אינדוקס.",
   },
   {
     slug: "haifa",
@@ -78,6 +80,7 @@ export const areas: Area[] = [
     neighborhoods: ["כרמל", "הדר", "קרית אליעזר", "רמת אלון", "נווה שאנן"],
     localNote:
       "טופוגרפיה הררית ובתים על מדרונות. תכנון ממ״ד דורש התייחסות להעמסת יסודות ולגישה לאתר.",
+    noindexReason: "תוכן ייחודי מתחת ל-800 מילים. דורש extendedNotes + geoIntros לפני אינדוקס.",
   },
   {
     slug: "rishon-lezion",
@@ -96,6 +99,7 @@ export const areas: Area[] = [
     neighborhoods: ["הדר גנים", "עמישב", "קרית הרצוג", "רמת ורבר", "כפר אברהם", "מרכז העיר"],
     localNote:
       "עיר עם מלאי בניינים ותיקים רבים משנות ה-70 וה-80 שבהם אין ממ״ד, ולכן מיגון חדר קיים או ממ״ד חיצוני נפוצים מאוד. בשכונות חדשות יותר כמו כפר אברהם ורמת ורבר הדירות כבר כוללות מרחב מוגן דירתי.",
+    noindexReason: "תוכן ייחודי מתחת ל-800 מילים. דורש extendedNotes + geoIntros לפני אינדוקס.",
   },
   {
     slug: "netanya",
@@ -105,6 +109,7 @@ export const areas: Area[] = [
     neighborhoods: ["רמת פולג", "קרית השרון", "נאות שקד", "עיר ימים", "נווה איתמר", "מרכז העיר"],
     localNote:
       "עיר חוף עם בנייה חדשה בשכונות מערב (עיר ימים, נאות שקד) לצד מתחמים ותיקים במזרח. קרבת הים דורשת בחירת גלוון מתאים לדלת ולמסגרות החלון כדי למנוע קורוזיה מוקדמת, נושא שלא תמיד מטופל בהצעות מחיר זולות.",
+    noindexReason: "תוכן ייחודי מתחת ל-800 מילים. דורש extendedNotes + geoIntros לפני אינדוקס.",
   },
   {
     slug: "beer-sheva",
@@ -115,6 +120,7 @@ export const areas: Area[] = [
     localNote:
       "עיר במחוז הדרום עם זמני התרעה מצומצמים ודרישות פקע״ר מחמירות יותר. קרקע חלקית חרסיתית באזור מחייבת חישוב יסודות מוקפד כדי למנוע תזוזות בטון עתידיות.",
     isFrontLine: true,
+    noindexReason: "תוכן ייחודי מתחת ל-800 מילים. דורש extendedNotes + geoIntros לפני אינדוקס.",
   },
   {
     slug: "ashdod",
@@ -125,6 +131,7 @@ export const areas: Area[] = [
     localNote:
       "עיר חוף דרומית בקו קדמי: עובי קירות גדול מהסטנדרט, דלת והחלון לפי דרישות מוגברות, קרקעות חוליות שמחייבות ביסוס מעמיק יותר. העירייה מנהלת את הרישוי ברמה של רובעים (א׳ עד י״ז).",
     isFrontLine: true,
+    noindexReason: "תוכן ייחודי מתחת ל-800 מילים. דורש extendedNotes + geoIntros לפני אינדוקס.",
   },
   {
     slug: "ashkelon",
@@ -135,6 +142,7 @@ export const areas: Area[] = [
     localNote:
       "אחת הערים הקרובות ביותר לגבול הדרומי. דרישות פקע״ר מחמירות, תוספת עלות אופיינית לעובי קירות, ותזמון עבודות לרוב מחייב גמישות בתקופות של אזעקות חוזרות.",
     isFrontLine: true,
+    noindexReason: "תוכן ייחודי מתחת ל-800 מילים. דורש extendedNotes + geoIntros לפני אינדוקס.",
   },
   {
     slug: "rehovot",

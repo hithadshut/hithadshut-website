@@ -13,7 +13,7 @@ type SchemaArticleProps = {
   /** ISO 8601 last-modified date. */
   dateModified: string;
   /**
-   * ISO 8601 last-reviewed date — emerging 2026 signal weighted by
+   * ISO 8601 last-reviewed date - emerging 2026 signal weighted by
    * ChatGPT and Perplexity for content recency. Defaults to dateModified
    * if omitted; bumped independently during quarterly content refresh
    * passes when the body itself didn't change.

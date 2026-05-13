@@ -253,7 +253,7 @@ export default function Page() {
         subtitle="השאירו פרטים. נגיע לסיור בבית ונעזור לבחור את הפתרון הנכון לכם."
       />
 
-      {/* Trust differentiators — three sharp angles for mamad vs shelter. */}
+      {/* Trust differentiators: three sharp angles for mamad vs shelter. */}
       <Section tone="white">
         <div className="max-w-5xl mx-auto">
           <div className="mb-8 text-center">

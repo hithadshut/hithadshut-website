@@ -137,7 +137,7 @@ export default function Page() {
         </>
       }
     >
-      {/* Comparison table — yibil vs conventional. AI extraction zone. */}
+      {/* Comparison table: yibil vs conventional. AI extraction zone. */}
       <Section tone="soft">
         <div className="max-w-5xl mx-auto">
           <Reveal>
@@ -211,7 +211,7 @@ export default function Page() {
         </div>
       </Section>
 
-      {/* Trust differentiators — three sharp angles for ממ"ד יביל. */}
+      {/* Trust differentiators: three sharp angles for ממ"ד יביל. */}
       <Section tone="white">
         <div className="max-w-5xl mx-auto">
           <Reveal>

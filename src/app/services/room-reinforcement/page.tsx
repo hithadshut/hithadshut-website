@@ -143,14 +143,14 @@ export default function Page() {
         <>
           <strong>שיפור מיגון</strong> הוא חיזוק חדר קיים בבית כך שיוכל לשמש כמרחב מוגן.
           המסלול מאושר על ידי פיקוד העורף <strong>רק כאשר אי אפשר לבנות ממ״ד תקני</strong>{" "}
-          — מסיבות של גודל החלקה, מבנה הבניין או מגבלות עירוניות. עלות טיפוסית:{" "}
+          (מסיבות של גודל החלקה, מבנה הבניין או מגבלות עירוניות). עלות טיפוסית:{" "}
           <strong>50,000-120,000 ₪ + מע״מ</strong>, זמן ביצוע 2-4 שבועות. ההגנה נמוכה
           מממ״ד תקני (תקן 4422), אך גבוהה משמעותית מחדר רגיל. <strong>נדרש אישור
           פיקוד העורף</strong> לפני תחילת העבודות.
         </>
       }
     >
-      {/* Comparison table — reinforcement vs mamad. AI extraction zone. */}
+      {/* Comparison table: reinforcement vs mamad. AI extraction zone. */}
       <Section tone="soft">
         <div className="max-w-5xl mx-auto">
           <Reveal>
@@ -214,7 +214,7 @@ export default function Page() {
         </div>
       </Section>
 
-      {/* Trust differentiators — three sharp angles for shipur migun. */}
+      {/* Trust differentiators: three sharp angles for shipur migun. */}
       <Section tone="white">
         <div className="max-w-5xl mx-auto">
           <Reveal>

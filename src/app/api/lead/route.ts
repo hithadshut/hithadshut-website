@@ -88,12 +88,12 @@ function buildEmailHtml(args: {
       <tr style="${rowAlt}"><td style="${labelStyle}">טלפון</td><td style="${valueStyle}"><a href="tel:${escapeHtml(phoneClean)}" style="color:#0A1628;font-weight:700;text-decoration:none;">${escapeHtml(phone)}</a> &nbsp;·&nbsp; <a href="https://wa.me/972${phoneClean.replace(/^0/, "").replace(/^\+972/, "")}" style="color:#25D366;font-weight:700;text-decoration:none;">WhatsApp</a></td></tr>
       <tr><td style="${labelStyle}">עיר</td><td style="${valueStyle}">${escapeHtml(city || "לא צוין")}</td></tr>
       <tr style="${rowAlt}"><td style="${labelStyle}">סוג שירות</td><td style="${valueStyle}">${escapeHtml(service || "לא צוין")}</td></tr>
-      <tr><td style="${labelStyle}">הערות</td><td style="${valueStyle}">${notes ? escapeHtml(notes).replace(/\n/g, "<br>") : "—"}</td></tr>
+      <tr><td style="${labelStyle}">הערות</td><td style="${valueStyle}">${notes ? escapeHtml(notes).replace(/\n/g, "<br>") : "-"}</td></tr>
     </table>
     <div style="padding:14px 24px;background:#f8f9fa;border-top:1px solid #e5e7eb;color:#64748B;font-size:12px;line-height:1.6;">
       <div>זמן שליחה: ${escapeHtml(tsLocal)} (ישראל)</div>
-      <div>IP: ${escapeHtml(ip || "—")}</div>
-      <div style="word-break:break-all;">User-Agent: ${escapeHtml(userAgent || "—")}</div>
+      <div>IP: ${escapeHtml(ip || "-")}</div>
+      <div style="word-break:break-all;">User-Agent: ${escapeHtml(userAgent || "-")}</div>
     </div>
   </div>
 </body>
@@ -141,10 +141,10 @@ export async function POST(req: Request) {
   const phoneClean = phone.replace(/[\s-]/g, "");
   const record = { ts, name, phone, city, service, notes, userAgent, ip };
 
-  // 1) Log to stdout — visible in Vercel function logs
+  // 1) Log to stdout - visible in Vercel function logs
   console.log("[LEAD]", JSON.stringify(record));
 
-  // Delivery tracking — we want to know if at least one channel succeeded
+  // Delivery tracking - we want to know if at least one channel succeeded
   let emailDelivered = false;
   let webhookDelivered = false;
   const deliveryErrors: string[] = [];
@@ -193,7 +193,7 @@ export async function POST(req: Request) {
             `טלפון: ${phone}\n` +
             `עיר: ${city || "לא צוין"}\n` +
             `שירות: ${service || "לא צוין"}\n\n` +
-            `הערות:\n${notes || "—"}\n\n` +
+            `הערות:\n${notes || "-"}\n\n` +
             `זמן: ${ts}\nIP: ${ip}`,
         }),
       });
@@ -210,7 +210,7 @@ export async function POST(req: Request) {
     }
   } else {
     deliveryErrors.push("resend_no_api_key");
-    console.warn("[LEAD] RESEND_API_KEY not set — email not sent");
+    console.warn("[LEAD] RESEND_API_KEY not set - email not sent");
   }
 
   // Decide response
@@ -232,11 +232,11 @@ export async function POST(req: Request) {
     );
   }
 
-  // No channel configured at all — still return 200 (log captured the lead)
+  // No channel configured at all - still return 200 (log captured the lead)
   // so the operator can recover from Vercel logs. This is the pre-configured
   // state; operator MUST set RESEND_API_KEY in production.
   if (!anyConfigured) {
-    console.warn("[LEAD] no delivery channel configured — lead only in logs");
+    console.warn("[LEAD] no delivery channel configured - lead only in logs");
   }
 
   return NextResponse.json({
