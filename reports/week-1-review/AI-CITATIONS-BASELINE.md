@@ -87,7 +87,61 @@
 ---
 
 ## Theme 2 — Process
-_(populated next)_
+
+### Query 2.1: "איך מתחילים תהליך הוספת ממ"ד לבית קיים"
+**Top results:**
+1. kolzchut.org.il/he/מסלול_מהיר_לבניית_ממד
+2. pro.co.il/general-contractors/guide/how-to-build-mamad-in-a-private-home
+3. ofarim-ltd.co.il/ממדמוכן
+4. ynet.co.il/economy/article/ry003y7mmp
+5. midrag.co.il/Content/Tip/16604
+**hithadshut appears:** No
+
+### Query 2.2: "כמה זמן לוקח לבנות ממ"ד"
+**Top results:**
+1. midrag.co.il/Expanel/Question/1449
+2. kablansheled.com/services/bomb-shelter-build/
+3. container.org.il/כמה-עולה-לבנות-ממד
+4. midrag.co.il/Content/Tip/18912
+5. pro.co.il/general-contractors/guide/construction-of-residential-protected-space
+**hithadshut appears:** No
+
+### Query 2.3: "אילו מסמכים נדרשים לאישור ממ"ד מפיקוד העורף"
+**Top results:**
+1. gov.il/he/service/notice-of-establishment-protected-area
+2. kolzchut.org.il/he/מסלול_מהיר_לבניית_ממד
+3. architecture.org.il/תכנון-ממד-תקנות-פיקוד-העורף
+4. mazam.co.il/רוצים-לקבל-טופס-4
+5. oref-rishuy.org.il
+**hithadshut appears:** No
+
+### Query 2.4: "מסלול פטור מהיתר לבניית ממ"ד"
+**Top results:**
+1. kolzchut.org.il/he/מסלול_מהיר_לבניית_ממד
+2. gov.il/he/service/notice-of-establishment-protected-area
+3. givatayim.muni.il/203/
+4. ynet.co.il/economy/article/hym00kr9kye
+5. binyamin.org.il/8247/
+**hithadshut appears:** No
+
+### Query 2.5: "תקנה 30ב הוראת שעה ממ"ד"
+**Top results:**
+1. gov.il/he/service/notice-of-establishment-protected-area
+2. efrat.muni.il/he/הוראת-שעה-ממד
+3. nevo.co.il/law_html/law01/044_001.htm
+4. br7.complot.co.il/buildlicensing/ironswordapartmentprotection
+5. pnina-vider.com/migun-ganim
+**hithadshut appears:** No
+
+### Theme 2 summary: hithadshut citations 0/5
+
+**Top competitors in Theme 2 process SERP:**
+- kolzchut.org.il (3 appearances) — regulatory authority
+- gov.il (3 appearances) — official source
+- midrag.co.il (3 appearances)
+- ynet.co.il (3 appearances)
+- pro.co.il (2 appearances)
+- Various municipal sites (givatayim, efrat, binyamin) for permit guidance
 
 ## Theme 3 — Decision
 _(populated next)_
