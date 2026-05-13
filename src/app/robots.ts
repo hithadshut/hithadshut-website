@@ -27,6 +27,8 @@ export default function robots(): MetadataRoute.Robots {
     "CCBot", // Common Crawl (used by many model trainers)
     "Bingbot", // Bing index → ChatGPT Search + Copilot
     "Applebot-Extended", // Apple AI (Siri / Apple Intelligence)
+    "Bytespider", // ByteDance / Doubao (Chinese LLM with Hebrew support)
+    "cohere-ai", // Cohere Command R+ (enterprise LLM with citation behavior)
   ];
 
   return {
