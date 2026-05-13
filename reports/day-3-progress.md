@@ -6,7 +6,7 @@ Branch: `chore/week-1-baseline-day-3`
 ## Step Status
 - [x] Step 0: Pre-flight (merge verified, 6/6 URLs 200, Day 2 content live)
 - [ ] Step 1: FAQPage dedup
-- [ ] Step 2: Rich Results validation
+- [x] Step 2: Rich Results validation
 - [ ] Step 3: IndexNow + GSC ping
 - [ ] Step 4: GSC URL Inspection (worksheet for Ofek)
 - [ ] Step 5: AI Citations Baseline (75 prompts)
