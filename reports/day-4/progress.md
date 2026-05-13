@@ -6,9 +6,9 @@ Branch: `chore/day-4-v6-execution`
 
 ## Step Status
 - [x] Step 1: Branch setup
-- [ ] Step 2: Sitemap fix
-- [ ] Step 3: www/http redirects
-- [ ] Step 4: Non-indexed pages
+- [x] Step 2: Sitemap fix
+- [x] Step 3: www/http redirects
+- [x] Step 4: Non-indexed pages
 - [ ] Step 5: 9-page optimization
 - [ ] Step 6: PSI CWV baseline
 - [ ] Step 7: Closure report
