@@ -10,7 +10,7 @@ Branch: `chore/day-4-v6-execution`
 - [x] Step 3: www/http redirects
 - [x] Step 4: Non-indexed pages
 - [ ] Step 5: 9-page optimization
-- [ ] Step 6: PSI CWV baseline
+- [x] Step 6: PSI CWV baseline
 - [ ] Step 7: Closure report
 
 ## Master state on entry
