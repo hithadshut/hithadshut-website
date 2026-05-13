@@ -9,9 +9,9 @@ Branch: `chore/day-4-v6-execution`
 - [x] Step 2: Sitemap fix
 - [x] Step 3: www/http redirects
 - [x] Step 4: Non-indexed pages
-- [ ] Step 5: 9-page optimization
+- [~] Step 5: 9-page optimization (snapshots committed; deferred to dedicated session)
 - [x] Step 6: PSI CWV baseline
-- [ ] Step 7: Closure report
+- [x] Step 7: Closure report
 
 ## Master state on entry
 - Latest commit: `4a441b0` (Merge PR #3 — Day 3 baseline branch including FAQPage dedup)
