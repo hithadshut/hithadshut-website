@@ -202,7 +202,61 @@
 - he.wikipedia.org (2 appearances) — top conceptual authority
 
 ## Theme 4 — Contractor
-_(populated next)_
+
+### Query 4.1: "איך לבחור קבלן ממ"ד"
+**Top results:**
+1. migun-il.org/מדריך-מלא-לבחירת-קבלן-לבניית-ממד
+2. inn.co.il/news/692258
+3. kablansheled.com/a-guide-for-choosing-a-contractor-to-build-a-mmd
+4. trevespertz.com/קבלן-לבניית-ממד
+5. architecture.org.il/קבלן-מומחה-לבניית-ממד
+**hithadshut appears:** No
+
+### Query 4.2: "קבלן רשום מול חאפר ממ"ד"
+**Top results:**
+1. gam.org.il (contractors registry consultancy)
+2. nws.report/sponsored/145884
+3. gov.il/he/service/contractors-registration-application
+4. shiplus.co.il/שיפוצים
+5. pro.co.il/general-contractors/ask/licensed-contractor
+**hithadshut appears:** No
+
+### Query 4.3: "מה לבדוק בחוזה ממ"ד"
+**Top results:**
+1. mako.co.il/finances-law/property-law (about apartment purchase, peripheral to query)
+2. rotemshani.com/ממד-המדריך-המלא
+3. bedeclick.co.il/בדיקת-תקינות-ממד
+4. ynet.co.il/news/article/skebqqi7gx
+5. kfirhy-law.com/tip-lasoher (rental contract advice, peripheral)
+**hithadshut appears:** No
+**Note:** Weak intent match. SERP is partly rental/purchase contracts, not mamad construction contracts. Content gap opportunity.
+
+### Query 4.4: "אחריות על ממ"ד תקני"
+**Top results:**
+1. globes.co.il/news/article.aspx?did=1000085068
+2. magen-eitan.co.il/בניית-ממד-טרומי
+3. he.wikipedia.org/wiki/מרחב_מוגן
+4. lawforums.co.il/question/94713 (specific lawyer Q&A)
+5. ynet.co.il/economy/article/rJdNDfc3I
+**hithadshut appears:** No
+
+### Query 4.5: "טעויות נפוצות בבחירת קבלן ממ"ד"
+**Top results:**
+1. kablansheled.com/a-guide-for-choosing-a-contractor-to-build-a-mmd
+2. building.org.il/articles/ממד
+3. midrag.co.il/Content/Tip/16604
+4. migun-il.org/מדריך-מלא-לבחירת-קבלן
+5. ynet.co.il/articles/0,7340,L-4633949,00.html
+**hithadshut appears:** No
+
+### Theme 4 summary: hithadshut citations 0/5
+
+**Top competitors in Theme 4 contractor SERP:**
+- migun-il.org (2 appearances)
+- kablansheled.com (2 appearances) — direct competitor on contractor-selection content
+- ynet.co.il (2 appearances)
+- midrag.co.il, mako.co.il, globes.co.il
+- gam.org.il, gov.il for registry queries
 
 ## Theme 5 — Edge cases
 _(populated next)_
