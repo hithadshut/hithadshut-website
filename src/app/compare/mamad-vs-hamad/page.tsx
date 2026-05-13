@@ -5,13 +5,11 @@ import Section from "@/components/Section";
 import Reveal from "@/components/Reveal";
 import FAQ from "@/components/FAQ";
 import ContactCTA from "@/components/ContactCTA";
-import JsonLd from "@/components/JsonLd";
 import RelatedLinks from "@/components/RelatedLinks";
 import TrustBlock from "@/components/TrustBlock";
 import Byline from "@/components/Byline";
 import SchemaArticle from "@/components/schema/article";
 import SchemaBreadcrumb from "@/components/schema/breadcrumb";
-import { faqJsonLd } from "@/lib/schema";
 import { buildMetadata } from "@/lib/metadata";
 import { PRICING } from "@/lib/data/pricing";
 
@@ -80,7 +78,7 @@ export default function Page() {
           { name: "ממ״ד מול חמ״ד", url: PATH },
         ]}
       />
-      <JsonLd data={[faqJsonLd(faqs)]} />
+      {/* FAQPage schema emitted by the <FAQ /> component below (single source). */}
 
       <PageHero
         eyebrow="השוואה · מיגון פרטי"
