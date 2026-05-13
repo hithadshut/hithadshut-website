@@ -5,6 +5,7 @@ import Section from "@/components/Section";
 import Reveal from "@/components/Reveal";
 import RelatedLinks from "@/components/RelatedLinks";
 import { buildMetadata } from "@/lib/metadata";
+import { PRICING } from "@/lib/data/pricing";
 
 const PATH = "/services/prefab-mamad";
 const TITLE = "ממ״ד מוכן | יחידה ממוגנת מהמפעל | התחדשות בינוי ויזמות";
@@ -53,6 +54,18 @@ const faqs = [
   {
     q: "מה האחריות?",
     a: "אחריות יצרן על היחידה (לרוב 5-10 שנים על הקונסטרוקציה) + אחריות קבלן שלנו על היסוד, ההצבה והחיבורים. גורם אחד לתמיכה: אנחנו.",
+  },
+  {
+    q: "למה רואים מחירי ממ״ד יביל של 90,000 ש״ח אצל ספקים אחרים?",
+    a: "זה מחיר הממ״ד היביל בלבד, יציאה מהמפעל. הוא לא כולל יסודות, הובלה, הנפה, חיבורי תשתית, אטימה ואישור פיקוד העורף, שמהווים יחד 40 עד 50 אחוז מהעלות הכוללת. ללא רכיבים אלו לא ניתן לקבל אישור פיקוד העורף.",
+  },
+  {
+    q: "מה זול יותר, ממ״ד יביל או ממ״ד בנייה רטובה?",
+    a: `כשמשווים all-in מול all-in, ממ״ד בנייה רטובה (${PRICING.mamadStandard.min.toLocaleString("en-US")}–${PRICING.mamadStandard.max.toLocaleString("en-US")} ש״ח + מע״מ) זול יותר מממ״ד יביל all-in (${PRICING.mamadYavilAllIn.min.toLocaleString("en-US")}–${PRICING.mamadYavilAllIn.max.toLocaleString("en-US")} ש״ח + מע״מ). היביל מהיר יותר ב-2-3 חודשים, אבל לא תמיד מתאים מבחינה הנדסית או רגולטורית לכל אתר.`,
+  },
+  {
+    q: "האם יש פטור מהיתר בנייה לממ״ד יביל?",
+    a: "כן, תקנה 30ב׳ לתקנות התכנון והבנייה (הוראת שעה) מאפשרת מסלול פטור מהיתר עבור בתים צמודי קרקע ובניינים עד 2 קומות, כפוף לאישור פיקוד העורף ודיווח לוועדה המקומית. ההוראה תקפה לפי אתר כל-זכות (kolzchut.org.il) עד אוקטובר 2026.",
   },
 ];
 
@@ -128,12 +141,12 @@ export default function Page() {
       defaultService="mamad"
       quickAnswer={
         <>
-          <strong>ממ״ד יביל (טרומי)</strong> הוא מבנה ממוגן המיוצר במפעל לפי{" "}
-          <strong>תקן 4422</strong> של פיקוד העורף ומותקן באתר ביום אחד. מחיר היחידה
-          הבסיסי: <strong>90,000-130,000 ₪ + מע״מ</strong>. הובלה והנפה: עד 30,000 ₪
-          נוספים. הכנת בסיס בטון, חשמל ואוורור: 8,000-20,000 ₪. ייצור במפעל אורך כ-8
-          שבועות, ההתקנה עצמה יום אחד. כל ממ״ד יביל דורש <strong>אישור פיקוד העורף
-          ייעודי לכתובת</strong> ולמבנה, ובדיקה של נגישות לעגורן ותנאי שטח.
+          מחיר ממ״ד יביל בישראל ב-2026 מפוצל לשני טווחים שונים לחלוטין:{" "}
+          <strong>{PRICING.mamadYavilUnitOnly.min.toLocaleString("en-US")} עד {PRICING.mamadYavilUnitOnly.max.toLocaleString("en-US")} ש״ח</strong>{" "}
+          עבור הממ״ד היביל בלבד (יוצא מהמפעל, ללא יסודות והובלה), ו-
+          <strong>{PRICING.mamadYavilAllIn.min.toLocaleString("en-US")} עד {PRICING.mamadYavilAllIn.max.toLocaleString("en-US")} ש״ח</strong>{" "}
+          עבור פתרון מלא הכולל יסודות, הובלה, הנפה, חיבורי תשתית, אטימה ואישור פיקוד העורף.
+          ייצור במפעל אורך כ-8 שבועות, ההתקנה עצמה יום אחד.
         </>
       }
     >

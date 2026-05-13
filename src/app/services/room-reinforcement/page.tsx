@@ -5,11 +5,12 @@ import Section from "@/components/Section";
 import Reveal from "@/components/Reveal";
 import RelatedLinks from "@/components/RelatedLinks";
 import { buildMetadata } from "@/lib/metadata";
+import { PRICING } from "@/lib/data/pricing";
 
 const PATH = "/services/room-reinforcement";
 const TITLE = "מיגון חדר קיים | פתרון מהיר לביטחון הבית | התחדשות";
 const DESCRIPTION =
-  "מיגון חדר קיים: חיזוק קונסטרוקטיבי, דלת הדף, חלון ממ״ד ואטימה. 40,000-150,000 ₪ + מע״מ, ביצוע של 2-8 שבועות. פתרון מהיר ומשתלם כשבניית ממ״ד חדש לא אפשרית.";
+  `מיגון חדר קיים: חיזוק קונסטרוקטיבי, דלת הדף, חלון ממ״ד ואטימה. ${PRICING.migunImprovement.min.toLocaleString("en-US")}-${PRICING.migunImprovement.max.toLocaleString("en-US")} ₪ + מע״מ, ביצוע של 2-8 שבועות. פתרון מהיר ומשתלם כשבניית ממ״ד חדש לא אפשרית.`;
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 

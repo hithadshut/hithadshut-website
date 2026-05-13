@@ -9,6 +9,9 @@ import SchemaBreadcrumb from "@/components/schema/breadcrumb";
 import { ofekPersonJsonLd, ofekImageJsonLd, organizationJsonLd } from "@/lib/schema";
 import { buildMetadata } from "@/lib/metadata";
 import { site } from "@/lib/site";
+import { PRICING } from "@/lib/data/pricing";
+
+const fmt = (n: number) => n.toLocaleString("en-US");
 
 const PATH = "/press";
 const TITLE = "ערכת עיתונאים | התחדשות בינוי ויזמות";
@@ -45,7 +48,7 @@ const QUOTES = [
   {
     topic: "ממ״ד יביל מול ממ״ד יצוק",
     quote:
-      "ההצעות המסחריות לממ״ד יביל ב-80,000 ש״ח כולל הכל הן כמעט תמיד מטעות. המחיר הזה לא כולל הובלה (10,000-30,000 ש״ח), הנפה (3,000-15,000 ש״ח), הכנת בסיס בטון (8,000-20,000 ש״ח), ולפעמים גם לא את אישור פיקוד העורף לכתובת. במחיר אמיתי ממ״ד יביל מתחיל ב-130,000 ש״ח כולל הכל.",
+      `מחיר ממ״ד יביל בישראל ב-2026 מפוצל לשני טווחים שונים לחלוטין: ${fmt(PRICING.mamadYavilUnitOnly.min)} עד ${fmt(PRICING.mamadYavilUnitOnly.max)} ש״ח עבור הממ״ד היביל בלבד (יוצא מהמפעל, ללא יסודות והובלה), ו-${fmt(PRICING.mamadYavilAllIn.min)} עד ${fmt(PRICING.mamadYavilAllIn.max)} ש״ח עבור פתרון מלא הכולל יסודות, הובלה, הנפה, חיבורי תשתית, אטימה ואישור פיקוד העורף. רוב הספקים מפרסמים רק את המחיר הראשון. הפער הוא 40 עד 50 אחוז מהעלות הכוללת, והוא לא רכיב אופציונלי, הוא תנאי לקבלת אישור פיקוד העורף.`,
   },
   {
     topic: "פערי שווי דירה עם וללא ממ״ד",

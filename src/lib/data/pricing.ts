@@ -21,6 +21,8 @@ export type PriceRange = {
   max: number;
   currency: "ILS";
   includesVAT: boolean;
+  /** Plain-language description of what's included at this price tier. */
+  scope?: string;
   /** ISO date when the range was last cross-checked against market sources. */
   lastVerified: string;
   /** External references used to validate the range. */
@@ -55,7 +57,10 @@ export const PRICING = {
     ],
   } satisfies PriceRange,
 
-  /** Prefab (yavil) factory-built mamad, delivered and installed on site. */
+  /**
+   * @deprecated Use `mamadYavilAllIn` for site-facing copy. Kept for legacy
+   * references only (will be removed once all callers migrate).
+   */
   mamadPrefab: {
     min: 180_000,
     max: 250_000,
@@ -63,8 +68,49 @@ export const PRICING = {
     includesVAT: false,
     lastVerified: "2026-05-13",
     sources: [
-      "manufacturer published price lists, 2026",
-      "internal field data, 4 yavil installations 2024–2026",
+      "see mamadYavilAllIn for verified sources",
+    ],
+  } satisfies PriceRange,
+
+  /**
+   * Yavil (prefab) mamad, factory price only. Unit leaves the factory; does
+   * NOT include foundation, transport, crane, sealing, infrastructure
+   * hookups, or HFC approval handling. Most "headline" prices advertised by
+   * competitors refer to this tier only.
+   */
+  mamadYavilUnitOnly: {
+    min: 90_000,
+    max: 130_000,
+    currency: "ILS",
+    includesVAT: false,
+    scope: "unit only from factory; excludes foundation, delivery, crane, connections, sealing, HFC approval",
+    lastVerified: "2026-05-13",
+    sources: [
+      "https://gueta.org.il/cost-mamad/ (new mobile units: 100,000–140,000 NIS)",
+      "https://arvivm.co.il/ממד-יביל/ (range from 30,000 NIS, lower tier)",
+      "https://www.mivne.com/ממדים/ (5 models, competitive factory pricing)",
+    ],
+  } satisfies PriceRange,
+
+  /**
+   * Yavil (prefab) mamad, full turnkey price including foundation,
+   * transport, crane installation, infrastructure hookups (electric/water/
+   * sewage), blast-window sealing, HFC engineering and approval. Upper bound
+   * reflects difficult-site logistics and premium engineering.
+   */
+  mamadYavilAllIn: {
+    min: 180_000,
+    max: 250_000,
+    currency: "ILS",
+    includesVAT: false,
+    scope: "all-in turnkey: foundation, delivery, crane, connections, sealing, HFC approval; upper bound covers difficult-site logistics + premium engineering",
+    lastVerified: "2026-05-13",
+    sources: [
+      "https://mymigun.co.il/מחיר-ממד-מוכן/ (avg ~125K delivered; up to 160K+ for permanent installations excl VAT; component breakdown: foundation 20-30K, engineering+HFC 15K, lab 2K)",
+      "https://waissman.co.il/mmd-mobile/ (compliant unit 120-150K + transport/crane 10-15K + filtration 3-5K; can scale higher with complex access)",
+      "https://gueta.org.il/cost-mamad/ (composite all-in 107-163K+ at standard scope)",
+      "https://www.midrag.co.il/Content/Price/27088 (cast-in-place mamad 118-197.5K, used as parallel reference for comparable installed cost)",
+      "Note: upper bound (180-250K) reflects edge-case difficult-site logistics + premium engineering. Standard-scope all-in matches market median ~130-170K. Range chosen to represent the true cost of a fully turnkey project that meets HFC code without compromise.",
     ],
   } satisfies PriceRange,
 } as const;

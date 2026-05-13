@@ -13,6 +13,7 @@ import SchemaArticle from "@/components/schema/article";
 import SchemaBreadcrumb from "@/components/schema/breadcrumb";
 import { faqJsonLd } from "@/lib/schema";
 import { buildMetadata } from "@/lib/metadata";
+import { PRICING } from "@/lib/data/pricing";
 
 const PATH = "/compare/mamad-vs-hamad";
 const TITLE = "ממ״ד מול חמ״ד 2026: מה ההבדל ומה תקני באמת | התחדשות";
@@ -42,7 +43,7 @@ const faqs = [
   },
   {
     q: "כמה עולה חמ״ד?",
-    a: "המחיר תלוי במה שבאמת מציעים: ממ״ד תקני 160,000-220,000 ₪ + מע״מ; שיפור מיגון 50,000-120,000 ₪ + מע״מ; ממ״ד יביל 90,000-130,000 ₪ + עלויות הובלה והכנת תשתית. פערים בהצעת מחיר ל״חמ״ד״ ללא ציון התקן והסיווג הם דגל אדום, כי לרוב הם מסתירים את ההבדל בין שיפור מיגון לבין ממ״ד תקני.",
+    a: `המחיר תלוי במה שבאמת מציעים: ממ״ד תקני ${PRICING.mamadStandard.min.toLocaleString("en-US")}-${PRICING.mamadStandard.max.toLocaleString("en-US")} ₪ + מע״מ; שיפור מיגון ${PRICING.migunImprovement.min.toLocaleString("en-US")}-${PRICING.migunImprovement.max.toLocaleString("en-US")} ₪ + מע״מ; ממ״ד יביל ${PRICING.mamadYavilUnitOnly.min.toLocaleString("en-US")}-${PRICING.mamadYavilUnitOnly.max.toLocaleString("en-US")} ₪ unit-only (כלומר ${PRICING.mamadYavilAllIn.min.toLocaleString("en-US")}-${PRICING.mamadYavilAllIn.max.toLocaleString("en-US")} ₪ all-in כולל יסודות, הובלה, הנפה, חיבורים, אטימה ואישור פקע״ר). פערים בהצעת מחיר ל״חמ״ד״ ללא ציון התקן והסיווג הם דגל אדום, כי לרוב הם מסתירים את ההבדל בין שיפור מיגון לבין ממ״ד תקני.`,
   },
   {
     q: "מי מאשר חמ״ד?",
@@ -115,6 +116,86 @@ export default function Page() {
             </p>
           </div>
         </Reveal>
+      </Section>
+
+      {/* Yavil pricing split: pricing transparency USP, primary AI citation hook */}
+      <Section tone="white">
+        <div className="max-w-4xl mx-auto">
+          <Reveal>
+            <div className="mb-6">
+              <div className="h-1 w-16 gold-line mb-5" />
+              <h2 className="text-2xl md:text-3xl font-black text-[var(--color-primary)] mb-3">
+                כמה עולה ממ״ד יביל באמת
+              </h2>
+              <p className="text-[17px] text-[var(--color-ink)] leading-8">
+                מחיר ממ״ד יביל בישראל ב-2026 מפוצל לשני טווחים שונים לחלוטין: {PRICING.mamadYavilUnitOnly.min.toLocaleString("en-US")} עד {PRICING.mamadYavilUnitOnly.max.toLocaleString("en-US")} ש״ח עבור הממ״ד היביל בלבד (יוצא מהמפעל, ללא יסודות והובלה), ו-{PRICING.mamadYavilAllIn.min.toLocaleString("en-US")} עד {PRICING.mamadYavilAllIn.max.toLocaleString("en-US")} ש״ח עבור פתרון מלא הכולל יסודות, הובלה, הנפה, חיבורי תשתית, אטימה ואישור פיקוד העורף.
+              </p>
+            </div>
+          </Reveal>
+
+          <Reveal>
+            <div className="overflow-x-auto rounded-2xl border border-[var(--color-border)] bg-white shadow-[var(--shadow-card)]">
+              <table className="w-full text-sm md:text-base">
+                <caption className="sr-only">פירוט מה כלול בכל טווח מחיר של ממ״ד יביל</caption>
+                <thead className="bg-[var(--color-soft)]">
+                  <tr>
+                    <th scope="col" className="text-start px-4 py-3 font-extrabold text-[var(--color-primary)]">מרכיב</th>
+                    <th scope="col" className="text-start px-4 py-3 font-extrabold text-[var(--color-primary)]">Unit-Only</th>
+                    <th scope="col" className="text-start px-4 py-3 font-extrabold text-[var(--color-primary)]">All-In</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-t border-[var(--color-border)]">
+                    <td className="px-4 py-3 font-bold text-[var(--color-ink)]">הממ״ד עצמו (חוליות בטון)</td>
+                    <td className="px-4 py-3">✓</td>
+                    <td className="px-4 py-3">✓</td>
+                  </tr>
+                  <tr className="border-t border-[var(--color-border)] bg-[var(--color-soft)]/40">
+                    <td className="px-4 py-3 font-bold text-[var(--color-ink)]">הובלה מהמפעל לאתר</td>
+                    <td className="px-4 py-3">✗</td>
+                    <td className="px-4 py-3">✓</td>
+                  </tr>
+                  <tr className="border-t border-[var(--color-border)]">
+                    <td className="px-4 py-3 font-bold text-[var(--color-ink)]">הנפה ומיקום באתר</td>
+                    <td className="px-4 py-3">✗</td>
+                    <td className="px-4 py-3">✓</td>
+                  </tr>
+                  <tr className="border-t border-[var(--color-border)] bg-[var(--color-soft)]/40">
+                    <td className="px-4 py-3 font-bold text-[var(--color-ink)]">יסודות בטון</td>
+                    <td className="px-4 py-3">✗</td>
+                    <td className="px-4 py-3">✓</td>
+                  </tr>
+                  <tr className="border-t border-[var(--color-border)]">
+                    <td className="px-4 py-3 font-bold text-[var(--color-ink)]">חיבורי חשמל, מים, ביוב</td>
+                    <td className="px-4 py-3">✗</td>
+                    <td className="px-4 py-3">✓</td>
+                  </tr>
+                  <tr className="border-t border-[var(--color-border)] bg-[var(--color-soft)]/40">
+                    <td className="px-4 py-3 font-bold text-[var(--color-ink)]">אטימה ובדיקת אטימות</td>
+                    <td className="px-4 py-3">✗</td>
+                    <td className="px-4 py-3">✓</td>
+                  </tr>
+                  <tr className="border-t border-[var(--color-border)]">
+                    <td className="px-4 py-3 font-bold text-[var(--color-ink)]">הגשת אישור פיקוד העורף</td>
+                    <td className="px-4 py-3">✗</td>
+                    <td className="px-4 py-3">✓</td>
+                  </tr>
+                  <tr className="border-t-2 border-[var(--color-accent)] bg-[var(--color-accent)]/10">
+                    <td className="px-4 py-3 font-extrabold text-[var(--color-primary)]">טווח מחיר (₪, ללא מע״מ)</td>
+                    <td className="px-4 py-3 font-extrabold text-[var(--color-primary)]">{PRICING.mamadYavilUnitOnly.min.toLocaleString("en-US")}–{PRICING.mamadYavilUnitOnly.max.toLocaleString("en-US")}</td>
+                    <td className="px-4 py-3 font-extrabold text-[var(--color-primary)]">{PRICING.mamadYavilAllIn.min.toLocaleString("en-US")}–{PRICING.mamadYavilAllIn.max.toLocaleString("en-US")}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </Reveal>
+
+          <Reveal>
+            <p className="mt-6 text-[17px] text-[var(--color-ink)] leading-8">
+              רוב הספקים מפרסמים רק את המחיר הראשון. אנחנו מציגים את שניהם משום שהמחיר השני הוא מה שתשלם בפועל. הפער הוא 40 עד 50 אחוז מהעלות הכוללת, והוא לא רכיב אופציונלי, הוא תנאי לקבלת אישור פיקוד העורף לממ״ד.
+            </p>
+          </Reveal>
+        </div>
       </Section>
 
       {/* Comparison table - primary AI extraction zone */}
@@ -190,9 +271,9 @@ export default function Page() {
                   </tr>
                   <tr className="border-t border-[var(--color-border)] bg-[var(--color-soft)]/40">
                     <td className="px-4 py-3 font-bold text-[var(--color-ink)]">מחיר טיפוסי</td>
-                    <td className="px-4 py-3">160,000-220,000 ₪</td>
-                    <td className="px-4 py-3">50,000-120,000 ₪</td>
-                    <td className="px-4 py-3">90,000-130,000 ₪ + הובלה</td>
+                    <td className="px-4 py-3">{PRICING.mamadStandard.min.toLocaleString("en-US")}-{PRICING.mamadStandard.max.toLocaleString("en-US")} ₪</td>
+                    <td className="px-4 py-3">{PRICING.migunImprovement.min.toLocaleString("en-US")}-{PRICING.migunImprovement.max.toLocaleString("en-US")} ₪</td>
+                    <td className="px-4 py-3">{PRICING.mamadYavilUnitOnly.min.toLocaleString("en-US")}-{PRICING.mamadYavilUnitOnly.max.toLocaleString("en-US")} ₪ unit-only ({PRICING.mamadYavilAllIn.min.toLocaleString("en-US")}-{PRICING.mamadYavilAllIn.max.toLocaleString("en-US")} all-in)</td>
                   </tr>
                   <tr className="border-t border-[var(--color-border)]">
                     <td className="px-4 py-3 font-bold text-[var(--color-ink)]">זמן ביצוע</td>
@@ -280,8 +361,8 @@ export default function Page() {
                 </h3>
                 <p className="text-sm text-[var(--color-ink)] leading-relaxed">
                   הסיכון הגדול של המונח &ldquo;חמ״ד&rdquo;: לקוח משלם מחיר של ממ״ד
-                  תקני (160,000-220,000 ₪) ומקבל בפועל שיפור מיגון של חדר קיים
-                  (50,000-120,000 ₪). השוואת המחיר לסיווג שמופיע בחוזה היא הדרך
+                  תקני ({PRICING.mamadStandard.min.toLocaleString("en-US")}-{PRICING.mamadStandard.max.toLocaleString("en-US")} ₪) ומקבל בפועל שיפור מיגון של חדר קיים
+                  ({PRICING.migunImprovement.min.toLocaleString("en-US")}-{PRICING.migunImprovement.max.toLocaleString("en-US")} ₪). השוואת המחיר לסיווג שמופיע בחוזה היא הדרך
                   היחידה למנוע את הפער. בקשו פירוט של תקן 4422, מערכת סינון לפי
                   4570, ודלת הדף תקנית. אם חסר אחד מהשלושה, אין ממ״ד תקני.
                 </p>
@@ -346,14 +427,14 @@ export default function Page() {
                 <Link href="/services/building-mamad">ממ״ד תקני</Link>
               </strong>{" "}
               : חדר חדש מבטון מזוין לפי תקן 4422. דלת הדף, חלון תקני, מערכת אוורור
-              וסינון אב״כ. אישור פיקוד העורף לכתובת. 160,000-220,000 ₪ + מע״מ.
+              וסינון אב״כ. אישור פיקוד העורף לכתובת. {PRICING.mamadStandard.min.toLocaleString("en-US")}-{PRICING.mamadStandard.max.toLocaleString("en-US")} ₪ + מע״מ.
             </li>
             <li>
               <strong>
                 <Link href="/services/prefab-mamad">ממ״ד יביל</Link>
               </strong>{" "}
               : יחידה תקנית מיוצרת במפעל לפי תקן 4422, מותקנת באתר בעגורן. דורשת
-              אישור פיקוד העורף לדגם וכתובת. 90,000-130,000 ₪ + הובלה והכנת תשתית.
+              אישור פיקוד העורף לדגם וכתובת. {PRICING.mamadYavilUnitOnly.min.toLocaleString("en-US")}-{PRICING.mamadYavilUnitOnly.max.toLocaleString("en-US")} ₪ unit-only ({PRICING.mamadYavilAllIn.min.toLocaleString("en-US")}-{PRICING.mamadYavilAllIn.max.toLocaleString("en-US")} all-in כולל יסודות, הובלה, הנפה, חיבורים, אטימה ופקע״ר).
             </li>
             <li>
               <strong>
@@ -361,7 +442,7 @@ export default function Page() {
               </strong>{" "}
               : חיזוק חדר קיים. דלת הדף או דלת חיזוק, חלון מוגן, אטימה, חיזוק
               קונסטרוקטיבי. <em>אינו ממ״ד תקני.</em> מאושר על ידי פיקוד העורף רק כשבנייה
-              של ממ״ד אינה אפשרית. 50,000-120,000 ₪ + מע״מ.
+              של ממ״ד אינה אפשרית. {PRICING.migunImprovement.min.toLocaleString("en-US")}-{PRICING.migunImprovement.max.toLocaleString("en-US")} ₪ + מע״מ.
             </li>
             <li>
               <strong>מיגונית</strong>: מבנה ממוגן חיצוני קטן, מאושר בעיקר באזורי גבול
