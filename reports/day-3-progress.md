@@ -9,7 +9,7 @@ Branch: `chore/week-1-baseline-day-3`
 - [x] Step 2: Rich Results validation
 - [ ] Step 3: IndexNow + GSC ping
 - [ ] Step 4: GSC URL Inspection (worksheet for Ofek)
-- [ ] Step 5: AI Citations Baseline (75 prompts)
+- [x] Step 5: AI Citations Baseline (75 prompts)
 - [ ] Step 6: GSC Baseline Metrics (worksheet for Ofek)
 - [ ] Step 7: CWV Baseline (PSI API)
 - [ ] Step 8: Week 1 Closure
