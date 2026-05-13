@@ -311,7 +311,7 @@ export default function Page() {
         subtitle="השאירו פרטים ונחזור אליכם תוך שעות עם בדיקת התאמה ראשונית והערכת מסלול."
       />
 
-      {/* Trust differentiators — three sharp angles for permit exemption. */}
+      {/* Trust differentiators: three sharp angles for permit exemption. */}
       <Section tone="white">
         <div className="max-w-5xl mx-auto">
           <div className="mb-8 text-center">

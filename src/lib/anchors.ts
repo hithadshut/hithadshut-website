@@ -21,12 +21,12 @@ export const PINUI_BINUI_HREFS = {
   sarvan: "/pinui-binui/sarvan",
   machshvonTemurot: "/pinui-binui/machshvon-temurot",
   // Future: ownerAttorney,
-  // zechuyot, madrich, misui — add here as each ships.
+  // zechuyot, madrich, misui - add here as each ships.
 } as const;
 
 export const ABOUT_HREFS = {
   ofekMazor: "/about/ofek-mazor",
-  // Future: company, founders, partners — add here as each ships.
+  // Future: company, founders, partners - add here as each ships.
 } as const;
 
 export const MEMAD_HREFS = {
@@ -485,7 +485,7 @@ export const ANCHOR_VARIANTS: Record<LinkTarget, string[]> = {
     "אופק מזור: מנכ״ל ומייסד התחדשות",
     "פרופיל מקצועי של אופק מזור",
     "על אופק מזור, מנכ״ל החברה",
-    "אופק מזור — המנכ״ל",
+    "אופק מזור - המנכ״ל",
     "אודות אופק מזור",
     "מנכ״ל החברה: אופק מזור",
   ],
@@ -606,7 +606,7 @@ export const TARGET_SUMMARY: Record<LinkTarget, string> = {
   "pinui-binui-sarvan":
     "ההליך המשפטי, סירוב סביר מול בלתי סביר, הגנות הדייר, וכונס נכסים.",
   "pinui-binui-machshvon":
-    "כלי הערכה אינטראקטיבי לבדיקת הצעת יזם — תוספת מ״ר, חניה, מחסן, פיצוי, וזכויות גיל.",
+    "כלי הערכה אינטראקטיבי לבדיקת הצעת יזם - תוספת מ״ר, חניה, מחסן, פיצוי, וזכויות גיל.",
   "memad-bayit-prati":
     "ארבעה סוגי ממ״ד לבית פרטי, מחירון מפורט, מסלול הפטור, ושלבי הביצוע מהתכנון ועד המסירה.",
   "memad-dira-bekoma":
@@ -630,11 +630,11 @@ export const TARGET_SUMMARY: Record<LinkTarget, string> = {
   "chalufat-shaked":
     "חלופת שקד (תיקון 139): המסלול שמחליף את תמ״א 38/2, רוב 80%, וזכויות בנייה עד 400%.",
   "hashvaa-pinui-vs-tama":
-    "השוואה: פינוי בינוי מול תמ״א 38 — מתחם מול בניין יחיד, רוב, זמן, וסיכונים.",
+    "השוואה: פינוי בינוי מול תמ״א 38 - מתחם מול בניין יחיד, רוב, זמן, וסיכונים.",
   "hashvaa-shaked-vs-tama":
-    "השוואה: חלופת שקד מול תמ״א 38 — מה השתנה ומה דייר צריך לבחור ב-2026.",
+    "השוואה: חלופת שקד מול תמ״א 38 - מה השתנה ומה דייר צריך לבחור ב-2026.",
   "hashvaa-migun-vs-pinui":
-    "השוואה: שיפור מיגון מול פינוי בינוי — מתי כל פתרון מתאים, ואיך להחליט.",
+    "השוואה: שיפור מיגון מול פינוי בינוי - מתי כל פתרון מתאים, ואיך להחליט.",
   "madrichim-hub":
     "11 מדריכים מקצועיים לבעלי דירות: פינוי בינוי, תמ״א 38, ערבויות, מיסוי, בחירת יזם, ממ״ד ומיגון.",
   "hashvaa-hub":

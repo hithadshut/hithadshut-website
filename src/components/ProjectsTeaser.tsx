@@ -4,7 +4,7 @@ import Reveal from "@/components/Reveal";
 import { featuredProjects } from "@/content/projects";
 
 /**
- * ProjectsTeaser — 3-card teaser surfaced on the home page.
+ * ProjectsTeaser - 3-card teaser surfaced on the home page.
  * Real-image cards render the photo with next/image; cards still
  * waiting on a photo upload render a description-only placeholder
  * with the project's metadata (location, service type, stage).

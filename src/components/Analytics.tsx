@@ -3,7 +3,7 @@ import { GA_MEASUREMENT_ID } from "@/lib/analytics";
 import ClickTracker from "@/components/ClickTracker";
 
 /**
- * Google Analytics 4 — root injection.
+ * Google Analytics 4 - root injection.
  *
  * Uses next/script with strategy="afterInteractive" so it loads after the
  * page becomes interactive (zero impact on FCP / LCP). The inline init

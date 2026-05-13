@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 /**
- * Trust Strip — thin band of 4 entity-level trust pillars.
+ * Trust Strip - thin band of 4 entity-level trust pillars.
  * Sits below the hero and above the services grid on the homepage.
  *
  * Design constraint: do not modify the hero. This is an additive band that
@@ -10,7 +10,7 @@ import Link from "next/link";
  *
  * The "מהנדס קונסטרוקציה רשום" pillar makes a process claim (every project
  * goes through a registered structural engineer) rather than naming a
- * specific engineer — a specific name + license is parked under BLOCKERS
+ * specific engineer - a specific name + license is parked under BLOCKERS
  * (B-022) until Ofek supplies them.
  */
 type Pillar = {

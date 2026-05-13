@@ -52,7 +52,7 @@ export const metadata: Metadata = {
         url: site.ogImage,
         width: 1200,
         height: 630,
-        alt: 'התחדשות — חברת בנייה לממ"דים והתחדשות עירונית',
+        alt: 'התחדשות - חברת בנייה לממ"דים והתחדשות עירונית',
         type: "image/jpeg",
       },
     ],
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
   manifest: "/manifest.webmanifest",
   // Explicit icon set sourced from the operator-supplied PNG pack in
   // /public. We deliberately do NOT keep `src/app/icon.{tsx,svg}` files
-  // in parallel — Next would auto-emit them too and the resulting page
+  // in parallel - Next would auto-emit them too and the resulting page
   // would carry duplicate <link rel="icon"> tags pointing at different
   // images, which Google's favicon picker treats as a quality signal
   // problem. Single canonical icon set, declared once, here.

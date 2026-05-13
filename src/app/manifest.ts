@@ -5,7 +5,7 @@ import type { MetadataRoute } from "next";
  *
  * Replaces the previous static `public/manifest.webmanifest`. Generated
  * dynamically so the icon list always tracks the canonical PNG pack in
- * /public — adding or removing an icon size only requires editing this
+ * /public - adding or removing an icon size only requires editing this
  * file (and `metadata.icons` in layout.tsx).
  *
  * The manifest is referenced from layout.tsx via `metadata.manifest =
@@ -27,7 +27,7 @@ export default function manifest(): MetadataRoute.Manifest {
       // Split into separate `any` and `maskable` entries because the
       // Next 15 manifest TS types only accept one purpose per entry,
       // even though the W3C spec permits space-separated lists. Same
-      // file URL serves both — Android adaptive-icon launchers will
+      // file URL serves both - Android adaptive-icon launchers will
       // pick the maskable variant; everywhere else uses `any`.
       { src: "/icon-192.png", sizes: "192x192", type: "image/png", purpose: "any" },
       { src: "/icon-192.png", sizes: "192x192", type: "image/png", purpose: "maskable" },

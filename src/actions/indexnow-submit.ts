@@ -8,10 +8,10 @@ import { site } from "@/lib/site";
  *
  * Accepts either absolute URLs (https://hithadshut.co.il/...) or paths
  * (/path/...). Paths are absolutized against site.url. Cross-origin URLs
- * are rejected — IndexNow keys are scoped to a single host.
+ * are rejected - IndexNow keys are scoped to a single host.
  *
  * Returns the raw HTTP result for logging. On failure, the caller is
- * responsible for surfacing or retrying — this action does not throw.
+ * responsible for surfacing or retrying - this action does not throw.
  */
 export async function indexnowSubmitAction(
   inputs: string[]

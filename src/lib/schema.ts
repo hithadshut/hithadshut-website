@@ -1,6 +1,6 @@
 import { site } from "./site";
 
-/** Stable @id for Ofek's Person node — referenced by Article.author across guides. */
+/** Stable @id for Ofek's Person node - referenced by Article.author across guides. */
 export const OFEK_PERSON_ID = `${site.url}/about/ofek-mazor#person`;
 
 type BreadcrumbItem = { name: string; url: string };
@@ -33,14 +33,14 @@ export function organizationJsonLd() {
       "@type": "ImageObject",
       // The V2 vertical logo. Google's Knowledge Panel + AI Overviews
       // prefer roughly square or slightly tall logos, never wide
-      // horizontal banners — Google's own structured-data docs say so.
+      // horizontal banners - Google's own structured-data docs say so.
       // The vertical asset (876×918, near-1:1) renders cleanly in those
       // surfaces; the horizontal Header logo would be cropped or
       // letterboxed.
       url: `${site.url}/logo-full-vertical.png`,
       width: 876,
       height: 918,
-      caption: "התחדשות בינוי ויזמות — לוגו",
+      caption: "התחדשות בינוי ויזמות - לוגו",
     },
     image: `${site.url}${site.ogImage}`,
     description: site.description,
@@ -198,7 +198,7 @@ export function articleJsonLd(params: {
 }
 
 /**
- * Person schema for Ofek Mazor — founder & CEO of Hithadshut.
+ * Person schema for Ofek Mazor - founder & CEO of Hithadshut.
  * Positions him as a developer / project manager in urban renewal +
  * protected-room construction. `sameAs` left empty until Ofek supplies
  * authoritative social URLs (B-030).

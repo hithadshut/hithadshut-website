@@ -41,7 +41,7 @@ const PAGESPEED_BASE = "https://pagespeed.web.dev/analysis?url=";
 const ACTION_ITEMS = [
   {
     key: "indexation",
-    title: "Indexation sweep — Tier 1 pages",
+    title: "Indexation sweep - Tier 1 pages",
     cadence: "Weekly",
     detail: "Check each Tier 1 page in GSC. Update INDEXATION_TRACKING.md.",
   },
@@ -91,7 +91,7 @@ export default function Page() {
           <p className="text-gray-600 leading-relaxed">
             Quick links into Search Console, Rich Results Test, and PageSpeed
             for the Tier 1 money pages. Bookmark this page; do not share the
-            URL externally — it&apos;s noindexed but not authenticated.
+            URL externally. It&apos;s noindexed but not authenticated.
           </p>
         </header>
 
@@ -119,7 +119,7 @@ export default function Page() {
 
         <section className="mb-10">
           <h2 className="text-xl font-extrabold text-gray-900 mb-4">
-            Tier 1 pages — quick tools
+            Tier 1 pages - quick tools
           </h2>
           <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
             <table className="w-full text-sm">

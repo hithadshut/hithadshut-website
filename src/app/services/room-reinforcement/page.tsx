@@ -5,11 +5,12 @@ import Section from "@/components/Section";
 import Reveal from "@/components/Reveal";
 import RelatedLinks from "@/components/RelatedLinks";
 import { buildMetadata } from "@/lib/metadata";
+import { PRICING } from "@/lib/data/pricing";
 
 const PATH = "/services/room-reinforcement";
 const TITLE = "מיגון חדר קיים | פתרון מהיר לביטחון הבית | התחדשות";
 const DESCRIPTION =
-  "מיגון חדר קיים: חיזוק קונסטרוקטיבי, דלת הדף, חלון ממ״ד ואטימה. 40,000-150,000 ₪ + מע״מ, ביצוע של 2-8 שבועות. פתרון מהיר ומשתלם כשבניית ממ״ד חדש לא אפשרית.";
+  `מיגון חדר קיים: חיזוק קונסטרוקטיבי, דלת הדף, חלון ממ״ד ואטימה. ${PRICING.migunImprovement.min.toLocaleString("en-US")}-${PRICING.migunImprovement.max.toLocaleString("en-US")} ₪ + מע״מ, ביצוע של 2-8 שבועות. פתרון מהיר ומשתלם כשבניית ממ״ד חדש לא אפשרית.`;
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 
@@ -143,14 +144,14 @@ export default function Page() {
         <>
           <strong>שיפור מיגון</strong> הוא חיזוק חדר קיים בבית כך שיוכל לשמש כמרחב מוגן.
           המסלול מאושר על ידי פיקוד העורף <strong>רק כאשר אי אפשר לבנות ממ״ד תקני</strong>{" "}
-          — מסיבות של גודל החלקה, מבנה הבניין או מגבלות עירוניות. עלות טיפוסית:{" "}
+          (מסיבות של גודל החלקה, מבנה הבניין או מגבלות עירוניות). עלות טיפוסית:{" "}
           <strong>50,000-120,000 ₪ + מע״מ</strong>, זמן ביצוע 2-4 שבועות. ההגנה נמוכה
           מממ״ד תקני (תקן 4422), אך גבוהה משמעותית מחדר רגיל. <strong>נדרש אישור
           פיקוד העורף</strong> לפני תחילת העבודות.
         </>
       }
     >
-      {/* Comparison table — reinforcement vs mamad. AI extraction zone. */}
+      {/* Comparison table: reinforcement vs mamad. AI extraction zone. */}
       <Section tone="soft">
         <div className="max-w-5xl mx-auto">
           <Reveal>
@@ -214,7 +215,7 @@ export default function Page() {
         </div>
       </Section>
 
-      {/* Trust differentiators — three sharp angles for shipur migun. */}
+      {/* Trust differentiators: three sharp angles for shipur migun. */}
       <Section tone="white">
         <div className="max-w-5xl mx-auto">
           <Reveal>

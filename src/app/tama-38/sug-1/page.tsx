@@ -133,16 +133,16 @@ export default function Page() {
             </p>
             <ul className="mt-4 space-y-3 list-disc pr-6 marker:text-[var(--color-accent-dark)]">
               <li>
-                <strong className="text-[var(--color-primary)]">66% — רוב מספיק לתמ״א 38/1.</strong> שני שלישים מבעלי הדירות מאפשרים לאשר את הפרויקט ולבצעו.
+                <strong className="text-[var(--color-primary)]">66%: רוב מספיק לתמ״א 38/1.</strong> שני שלישים מבעלי הדירות מאפשרים לאשר את הפרויקט ולבצעו.
               </li>
               <li>
-                <strong className="text-[var(--color-primary)]">80% — נדרש לתמ״א 38/2 ולחלופת שקד.</strong> רוב גבוה יותר משום שמדובר בהריסה ובנייה מחדש.
+                <strong className="text-[var(--color-primary)]">80%: נדרש לתמ״א 38/2 ולחלופת שקד.</strong> רוב גבוה יותר משום שמדובר בהריסה ובנייה מחדש.
               </li>
               <li>
-                <strong className="text-[var(--color-primary)]">67% — רוב לתביעת דייר סרבן בפינוי בינוי.</strong> הרוב הנדרש להגשת תביעה.
+                <strong className="text-[var(--color-primary)]">67%: רוב לתביעת דייר סרבן בפינוי בינוי.</strong> הרוב הנדרש להגשת תביעה.
               </li>
               <li>
-                <strong className="text-[var(--color-primary)]">100% — נדרש לביצוע פינוי בינוי בפועל.</strong> כל הדיירים חייבים לחתום או שיש פסק דין.
+                <strong className="text-[var(--color-primary)]">100%: נדרש לביצוע פינוי בינוי בפועל.</strong> כל הדיירים חייבים לחתום או שיש פסק דין.
               </li>
             </ul>
             <p>

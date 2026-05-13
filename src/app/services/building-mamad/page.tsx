@@ -7,11 +7,12 @@ import Reveal from "@/components/Reveal";
 import RelatedLinks from "@/components/RelatedLinks";
 import { buildMetadata } from "@/lib/metadata";
 import { howToJsonLd } from "@/lib/schema";
+import { PRICING } from "@/lib/data/pricing";
 
 const PATH = "/services/building-mamad";
 const TITLE = "בניית ממ״ד | מחיר, תהליך ואישורים | התחדשות בינוי ויזמות";
 const DESCRIPTION =
-  "בניית ממ״ד תקני לבית פרטי מ-160,000 ₪. ממ״ד צמוד, חיצוני או על הגג. תכנון, אישורי פקע״ר וביצוע מלא עד מסירה. קבלני ממ״ד רשומים.";
+  `בניית ממ״ד תקני לבית פרטי מ-${PRICING.mamadStandard.min.toLocaleString("en-US")} ₪. ממ״ד צמוד, חיצוני או על הגג. תכנון, אישורי פקע״ר וביצוע מלא עד מסירה. קבלני ממ״ד רשומים.`;
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 
@@ -299,7 +300,7 @@ export default function Page() {
         </>
       }
     >
-      {/* Quick comparison table — AI extraction zone. Tables get
+      {/* Quick comparison table - AI extraction zone. Tables get
           quoted directly in Google AI Overviews and Perplexity. */}
       <Section tone="soft">
         <div className="max-w-5xl mx-auto">
@@ -376,7 +377,7 @@ export default function Page() {
         </div>
       </Section>
 
-      {/* Trust differentiators — three sharp angles that AI Overviews
+      {/* Trust differentiators: three sharp angles that AI Overviews
           will surface as cite-worthy "what only this site says".
           Warning > hidden cost > savings. */}
       <Section tone="white">

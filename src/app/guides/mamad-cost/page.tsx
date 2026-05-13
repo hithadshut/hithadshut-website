@@ -168,7 +168,7 @@ export default function Page() {
         </div>
       </Section>
 
-      {/* Trust differentiators — three sharp angles. AI Overviews
+      {/* Trust differentiators: three sharp angles. AI Overviews
           extract these as cite-worthy "what only this site says". */}
       <Section tone="white">
         <div className="max-w-5xl mx-auto">

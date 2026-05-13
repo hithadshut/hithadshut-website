@@ -20,7 +20,7 @@ type Props = {
 };
 
 /**
- * Key Stats — a compact grid of verified, cite-friendly figures.
+ * Key Stats - a compact grid of verified, cite-friendly figures.
  * Designed for AI engines: each stat is a clean (number, label, source)
  * triple that an LLM can lift verbatim. External-source links carry
  * rel="nofollow noopener" to keep authority outbound flow clean.

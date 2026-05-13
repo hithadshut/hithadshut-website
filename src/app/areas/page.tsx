@@ -145,7 +145,7 @@ export default function AreasIndexPage() {
 
       <JsonLd data={localBusinessJsonLd()} />
 
-      {/* Quick Answer band — regulatory differences across regions */}
+      {/* Quick Answer band: regulatory differences across regions */}
       <Section tone="soft">
         <div className="max-w-4xl mx-auto">
           <div

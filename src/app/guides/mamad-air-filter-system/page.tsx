@@ -267,7 +267,7 @@ export default function Page() {
         subtitle="השאירו פרטים. נחזור אליכם עם תשובה ספציפית או נתאם בדיקה."
       />
 
-      {/* Trust differentiators — three sharp angles for filter system. */}
+      {/* Trust differentiators: three sharp angles for filter system. */}
       <Section tone="white">
         <div className="max-w-5xl mx-auto">
           <div className="mb-8 text-center">
@@ -306,7 +306,7 @@ export default function Page() {
               <p className="text-sm text-[var(--color-ink)] leading-relaxed">
                 מערכת אוורור וסינון תקנית עולה <strong>8,000-15,000 ₪</strong> מעבר
                 לבסיס הממ״ד. הצעות &ldquo;ממ״ד כולל הכל&rdquo; שלא מציינות פרטנית את
-                הדגם, היצרן וסעיף המחיר של המערכת — הולכות לחזור עם תוספת בלתי
+                הדגם, היצרן וסעיף המחיר של המערכת, הולכות לחזור עם תוספת בלתי
                 צפויה. בקשו את הפירוט בכתב לפני חתימה.
               </p>
             </article>

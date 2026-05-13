@@ -8,6 +8,7 @@ import JsonLd from "@/components/JsonLd";
 import RelatedLinks from "@/components/RelatedLinks";
 import { faqJsonLd } from "@/lib/schema";
 import { buildMetadata } from "@/lib/metadata";
+import { PRICING, formatPriceRange } from "@/lib/data/pricing";
 
 const PATH = "/compare/mamad-vs-miggun-vs-migunit";
 const TITLE = "ממ״ד, שיפור מיגון או מיגונית: מה מותר באמת לבית פרטי";
@@ -35,7 +36,7 @@ const privateHomeOptions: Option[] = [
     rows: [
       { label: "סטטוס תקנו", value: "מרחב מוגן דירתי תקני, מוכר על ידי פיקוד העורף" },
       { label: "אישור פקע״ר", value: "חובה ומתקבל בכל בית פרטי בארץ" },
-      { label: "טווח מחיר", value: "160,000-220,000 ₪ + מע״מ" },
+      { label: "טווח מחיר", value: formatPriceRange(PRICING.mamadStandard) },
       { label: "זמן ביצוע", value: "2-4 חודשים במסלול פטור מהיתר" },
       { label: "למי מתאים", value: "כל בית פרטי שאפשר בו לבנות חדר חדש מבטון" },
       { label: "יתרון עיקרי", value: "הגנה תקנית מלאה וחדר פונקציונלי בשגרה" },
@@ -48,7 +49,7 @@ const privateHomeOptions: Option[] = [
     rows: [
       { label: "סטטוס תקנו", value: "חיזוק חדר קיים, רמת הגנה משופרת אך נמוכה מתקן ממ״ד" },
       { label: "אישור פקע״ר", value: "אישור פרטני, לרוב לא כממ״ד תקני אלא כחדר משופר" },
-      { label: "טווח מחיר", value: "40,000-150,000 ₪ + מע״מ" },
+      { label: "טווח מחיר", value: formatPriceRange(PRICING.migunImprovement) },
       { label: "זמן ביצוע", value: "2 שבועות עד 2 חודשים" },
       { label: "למי מתאים", value: "בתים שבהם בנייה של ממ״ד חדש לא אפשרית מבחינה מבנית" },
       { label: "יתרון עיקרי", value: "מהיר, פולשני פחות, פתרון כשממ״ד תקני לא אפשרי" },
@@ -61,7 +62,7 @@ const privateHomeOptions: Option[] = [
     rows: [
       { label: "סטטוס תקנו", value: "ממ״ד תקני בתנאי שהדגם והיצרן מאושרים פקע״ר ספציפית לכתובת" },
       { label: "אישור פקע״ר", value: "חובה, פר-כתובת. אישור גנרי של היצרן לא מספיק" },
-      { label: "טווח מחיר", value: "180,000-250,000 ₪ + מע״מ" },
+      { label: "טווח מחיר", value: `${formatPriceRange(PRICING.mamadYavilAllIn)} (all-in); unit-only ${formatPriceRange(PRICING.mamadYavilUnitOnly, { withCurrency: false })} ₪` },
       { label: "זמן ביצוע", value: "6-12 שבועות, הצבה בימים בודדים" },
       { label: "למי מתאים", value: "בית פרטי עם גישה לכלי הרמה ומקום למיקום היחידה" },
       { label: "יתרון עיקרי", value: "ייצור במפעל, התקנה מהירה, פחות בלגן באתר" },

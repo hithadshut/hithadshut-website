@@ -266,7 +266,7 @@ export default function Page() {
         </div>
       </Section>
 
-      {/* Trust differentiators — three sharp angles for pikud haoref approval. */}
+      {/* Trust differentiators: three sharp angles for pikud haoref approval. */}
       <Section tone="white">
         <div className="max-w-5xl mx-auto">
           <div className="mb-8 text-center">
@@ -288,7 +288,7 @@ export default function Page() {
               </h3>
               <p className="text-sm text-[var(--color-ink)] leading-relaxed">
                 דלת הדף, חלון, או מערכת סינון מיצרן <strong>לא מאושר פקע״ר</strong> אינם
-                בעיה &ldquo;קוסמטית&rdquo; — פריט אחד לא תקני יחזיר את כל הבקשה. דרשו
+                בעיה &ldquo;קוסמטית&rdquo;. פריט אחד לא תקני יחזיר את כל הבקשה. דרשו
                 מהקבלן בכתב, לפני חתימה, רשימת דגמים מאושרים עם מספרי אישור פקע״ר ותעודות
                 בתוקף.
               </p>

@@ -1,5 +1,5 @@
 /**
- * Real projects gallery — anchor for E-E-A-T (B-020).
+ * Real projects gallery - anchor for E-E-A-T (B-020).
  *
  * Each entry corresponds to a real project executed by Hithadshut.
  * The image filenames below are the agreed canonical names; the actual
@@ -23,7 +23,7 @@ export type Project = {
   slug: string;
   /** Short title shown on cards. */
   title: string;
-  /** What was actually built — service category. */
+  /** What was actually built - service category. */
   serviceType:
     | "ממ״ד"
     | "מיגון חדר"
@@ -56,13 +56,13 @@ export type Project = {
   /**
    * Distinguishes a brand-built SVG illustration from a real
    * on-site photograph. AI engines and screen readers benefit from
-   * knowing which one is shown — illustrations are not photographic
+   * knowing which one is shown - illustrations are not photographic
    * evidence. Default treatment: same UI, but caption + alt note that
    * a photograph is the next step. Replace `.svg` with `.jpg` and
    * flip this to "photograph" once Ofek uploads the real images.
    */
   imageType?: "illustration" | "photograph";
-  /** Optional which service slug this project showcases — used to embed it on the service page. */
+  /** Optional which service slug this project showcases - used to embed it on the service page. */
   showcaseOnService?:
     | "building-mamad"
     | "room-reinforcement"

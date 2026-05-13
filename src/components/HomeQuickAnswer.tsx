@@ -1,13 +1,14 @@
 import Link from "next/link";
+import { PRICING } from "@/lib/data/pricing";
 
 /**
- * HomeQuickAnswer — direct-answer block surfaced below the hero on /.
+ * HomeQuickAnswer - direct-answer block surfaced below the hero on /.
  * 60–80 words covering: cost, time, permit-exemption window, and the
  * standards (4422 / 4577) that separate a real ממ״ד from a strong room.
  *
  * AI-citation optimized: opens with the figure, names the regulation,
  * and links to the canonical guides. Does not modify the hero or the
- * services grid — sits as its own band between them.
+ * services grid - sits as its own band between them.
  */
 export default function HomeQuickAnswer() {
   return (
@@ -30,7 +31,7 @@ export default function HomeQuickAnswer() {
             בניית ממ״ד בישראל 2026: תמונה מהירה
           </h2>
           <p className="text-base md:text-[17px] text-[var(--color-ink)] leading-relaxed mb-3">
-            <strong>בנייה של ממ״ד תקני לבית פרטי בישראל ב-2026 עולה 160,000–220,000 ₪ + מע״מ ולוקחת 2–4 חודשים</strong>{" "}
+            <strong>בנייה של ממ״ד תקני לבית פרטי בישראל ב-2026 עולה {PRICING.mamadStandard.min.toLocaleString("en-US")}–{PRICING.mamadStandard.max.toLocaleString("en-US")} ₪ + מע״מ ולוקחת 2–4 חודשים</strong>{" "}
             מתכנון ועד מסירה. במסגרת{" "}
             <Link href="/guides/mamad-permit-exemption-2026" className="font-bold text-[var(--color-primary)] underline">
               הוראת חרבות ברזל

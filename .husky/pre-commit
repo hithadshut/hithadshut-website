@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Pre-commit hook for hithadshut.co.il
+# Enforces CI gates locally before every commit to prevent regressions.
+# See OPERATIONAL_MANDATE_V2.md חלק ו'.
+
+set -e
+
+echo "→ Running content-lint..."
+bash scripts/content-lint.sh
+
+echo "→ Running typecheck..."
+npm run typecheck
+
+echo "→ Running eslint..."
+npm run lint
+
+echo "✓ Pre-commit gates passed."

@@ -128,7 +128,7 @@ export const internalLinks: InternalLink[] = [
     toUrl: "/pinui-binui/eravut",
     anchorText: "ערבויות בנקאיות תקניות בהסכם",
     context: "inline",
-    note: "PLANNED — currently plain text. Activates when /pinui-binui/eravut ships in Phase 3.",
+    note: "PLANNED - currently plain text. Activates when /pinui-binui/eravut ships in Phase 3.",
   },
   // 2026-05-03: /pinui-binui/yorshim/ sub-page launch (Gal 1, Phase 1.1).
   {
@@ -211,7 +211,7 @@ export const internalLinks: InternalLink[] = [
     context: "inline",
     note: "Inline link in haganot section to live sibling sub-page.",
   },
-  // 2026-05-04: Block A — inbound links from existing pinui-binui pages
+  // 2026-05-04: Block A - inbound links from existing pinui-binui pages
   // to the 4 new Gal-1 sub-pages (yorshim, eravut, yazam, sarvan).
   // Pillar /pinui-binui → 4 new sub-pages
   {
@@ -334,7 +334,7 @@ export const internalLinks: InternalLink[] = [
     context: "inline",
     note: "Inline link in ma-lo-bodek limitations section.",
   },
-  // 2026-05-04: Gal 3 Block A — inbound links for 6 new memad sub-pages
+  // 2026-05-04: Gal 3 Block A - inbound links for 6 new memad sub-pages
   // from existing memad hub, guides, and a cross-cluster link from /pinui-binui.
   // /services/building-mamad → all 6 memad sub-pages (new "מדריכים מפורטים" section).
   {
@@ -656,14 +656,14 @@ export const internalLinks: InternalLink[] = [
     toUrl: "/tama-38/sug-2",
     anchorText: "תמ״א 38/2",
     context: "inline",
-    note: "Inline link in opening — predecessor.",
+    note: "Inline link in opening - predecessor.",
   },
   {
     fromUrl: "/chalufat-shaked",
     toUrl: "/pinui-binui",
     anchorText: "פינוי בינוי",
     context: "inline",
-    note: "Inline link in opening — alternative.",
+    note: "Inline link in opening - alternative.",
   },
   // 2026-05-04: /tama-38/sug-2/ sub-page launch (Gal 3, Phase 3.4).
   {
@@ -744,14 +744,14 @@ export const internalLinks: InternalLink[] = [
     toUrl: "/chalufat-shaked",
     anchorText: "חלופת שקד",
     context: "inline",
-    note: "Inline link in opening — alternatives.",
+    note: "Inline link in opening - alternatives.",
   },
   {
     fromUrl: "/tama-38",
     toUrl: "/pinui-binui",
     anchorText: "פינוי בינוי",
     context: "inline",
-    note: "Inline link in opening — cross-cluster alternative.",
+    note: "Inline link in opening - cross-cluster alternative.",
   },
   {
     fromUrl: "/tama-38",
@@ -878,7 +878,7 @@ export const internalLinks: InternalLink[] = [
     context: "inline",
     note: "Inline link in ishur-pakar section to approval guide.",
   },
-  // 2026-05-04: Phase 5.1 Commit A — orphan-fix inbound links via RelatedLinks expansions.
+  // 2026-05-04: Phase 5.1 Commit A - orphan-fix inbound links via RelatedLinks expansions.
   // Targets: /pinui-binui/machshvon-temurot, 6× /madrichim/*, 3× /hashvaa/*.
   {
     fromUrl: "/pinui-binui",
@@ -1136,7 +1136,7 @@ export const internalLinks: InternalLink[] = [
     context: "inline",
     note: "Inline link in opening Quick Answer block.",
   },
-  // 2026-05-05: /madrichim/dirot-temura-vs-dirot-mukdamot/ article launch (Phase 5.1, Article 5 — final).
+  // 2026-05-05: /madrichim/dirot-temura-vs-dirot-mukdamot/ article launch (Phase 5.1, Article 5 - final).
   {
     fromUrl: "/madrichim/dirot-temura-vs-dirot-mukdamot",
     toUrl: "/pinui-binui/temurot",
@@ -1158,7 +1158,7 @@ export const internalLinks: InternalLink[] = [
     context: "inline",
     note: "Inline link in malkodot (pitfalls) section, sibling article.",
   },
-  // 2026-05-11: /madrichim hub page launch — hub links to all 11 child articles.
+  // 2026-05-11: /madrichim hub page launch - hub links to all 11 child articles.
   {
     fromUrl: "/madrichim",
     toUrl: "/madrichim/luach-zmanim-pinui-binui-2026",
@@ -1236,7 +1236,7 @@ export const internalLinks: InternalLink[] = [
     context: "related",
     note: "Hub card link to child article.",
   },
-  // 2026-05-11: /hashvaa hub page launch — hub links to all 3 child comparisons.
+  // 2026-05-11: /hashvaa hub page launch - hub links to all 3 child comparisons.
   {
     fromUrl: "/hashvaa",
     toUrl: "/hashvaa/pinui-vs-tama",
@@ -1345,7 +1345,7 @@ export function linksTo(toUrl: string): InternalLink[] {
 }
 
 /**
- * Pages that have fewer than 2 inbound internal links — i.e. orphans
+ * Pages that have fewer than 2 inbound internal links - i.e. orphans
  * per technical.md §6 ("A page that is not linked from at least 2 other
  * pages is invisible to Google"). Returned as a list of toUrls with
  * their inbound count, sorted ascending.
