@@ -144,7 +144,62 @@
 - Various municipal sites (givatayim, efrat, binyamin) for permit guidance
 
 ## Theme 3 — Decision
-_(populated next)_
+
+### Query 3.1: "ממ"ד יביל או ממ"ד בנייה רטובה"
+**Top results:**
+1. kolzchut.org.il/he/מסלול_מהיר_לבניית_ממד
+2. waissman.co.il/mmd-mobile/
+3. miguntov.co.il/ממד-יביל-או-קבוע
+4. mozeslice.com/מאמרים/בניית-ממד-בחצר
+5. arvivm.co.il/ממד-יביל
+**hithadshut appears:** No
+
+### Query 3.2: "ההבדל בין ממ"ד למיגונית"
+**Top results:**
+1. i-cepa.com/2021/07/14/ממד-או-מיגונית
+2. midrag.co.il/Midragonim/Answer/22819
+3. arvivm.co.il/הכי-בטוח-שיש
+4. bitanit.co.il/המרחב-המוגן
+5. gueta-mivnim.co.il/mamad-or-migonit
+**hithadshut appears:** No
+
+### Query 3.3: "האם שיפור מיגון מספיק לחדר"
+**Top results:**
+1. ynet.co.il/economy/article/hkeiv7uia
+2. ortechisrael.co.il/מיגון-חדר-קיים
+3. ynet.co.il/architecture/article/ryuhdnbfr
+4. midrag.co.il/Content/Tip/18962
+5. thecityrenovators.com/מיגון-חדר-קיים
+**hithadshut appears:** No
+
+### Query 3.4: "ממ"ד צמוד או חיצוני"
+**Top results:**
+1. ofarim-ltd.co.il/דגשיםותקנותלבנייתממד
+2. kolzchut.org.il/he/מסלול_מהיר
+3. rvsh.co.il/service/בניית-ממד-על-עמודים
+4. bitanit.co.il/mamad/
+5. he.wikipedia.org/wiki/מרחב_מוגן
+**hithadshut appears:** No
+**Note:** Wikipedia appears for this conceptual query — strong authority signal.
+
+### Query 3.5: "מתי לבחור ממ"ד בלי הריסה"
+**Top results:**
+1. ynet.co.il/news/article/skebqqi7gx
+2. he.wikipedia.org/wiki/מרחב_מוגן
+3. mako.co.il/news-military
+4. ynet.co.il/articles/0,7340,L-5399651,00.html
+5. i-cepa.com/2021/07/14/ממד-או-מיגונית
+**hithadshut appears:** No
+**Note:** This query has weak commercial intent (mixed news/wiki results). Less relevant to our target SERP.
+
+### Theme 3 summary: hithadshut citations 0/5
+
+**Top competitors in Theme 3 decision SERP:**
+- ynet.co.il (3 appearances) — news authority
+- kolzchut.org.il (2 appearances) — regulatory
+- i-cepa.com (2 appearances) — niche expert
+- bitanit.co.il (2 appearances), arvivm.co.il (2), midrag.co.il (2)
+- he.wikipedia.org (2 appearances) — top conceptual authority
 
 ## Theme 4 — Contractor
 _(populated next)_
