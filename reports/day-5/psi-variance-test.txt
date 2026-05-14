@@ -1,0 +1,18 @@
+# PSI Variance Test — /pinui-binui mobile
+Run start: 2026-05-14T14:43:25+03:00
+
+=== Run 1 ===
+Score: 94 | LCP: 2.4 s | TBT: 190 ms | CLS: 0 | FCP: 1.2 s
+Time: 2026-05-14T14:43:46+03:00
+Sleeping 300s...
+
+=== Run 2 ===
+Score: 76 | LCP: 4.7 s | TBT: 140 ms | CLS: 0 | FCP: 3.0 s
+Time: 2026-05-14T14:49:03+03:00
+Sleeping 300s...
+
+=== Run 3 ===
+Score: 74 | LCP: 2.6 s | TBT: 910 ms | CLS: 0 | FCP: 1.5 s
+Time: 2026-05-14T14:54:43+03:00
+
+Run end: 2026-05-14T14:54:43+03:00
