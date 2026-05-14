@@ -323,12 +323,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.9,
     },
-    // Guides (authority / pillar tier)
+    // Guides (authority / pillar tier). /guides/mamad-cost is the flagship
+    // money page (V6 plan, 2026-05-14) and gets the highest non-homepage
+    // priority on the site.
     ...guides.map((g) => ({
       url: `${site.url}/guides/${g.slug}`,
       lastModified: lastModifiedFor(`src/app/guides/${g.slug}/page.tsx`),
       changeFrequency: "monthly" as const,
-      priority: 0.9,
+      priority: g.slug === "mamad-cost" ? 0.95 : 0.9,
     })),
     // Compare (authority tier)
     ...compares.map((c) => ({
@@ -394,12 +396,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.9,
     },
-    // Author page (Ofek Mazor) - anchors Person schema for E-E-A-T
+    // Author page (Ofek Mazor) - anchors Person schema for E-E-A-T.
+    // Bumped to 0.9 per V6 plan (2026-05-14): real GSC data shows this is
+    // the highest-CTR page on the site (43.3% at pos 4.4).
     {
       url: `${site.url}/about/ofek-mazor`,
       lastModified: lastModifiedFor("src/app/about/ofek-mazor/page.tsx"),
       changeFrequency: "monthly",
-      priority: 0.7,
+      priority: 0.9,
     },
     // Press kit - public-facing journalist resource. Modest priority
     // (0.5) because it's not a money page, but it's discoverable + the
@@ -410,25 +414,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.5,
     },
-    // Legal
-    {
-      url: `${site.url}/privacy`,
-      lastModified: lastModifiedFor("src/app/privacy/page.tsx"),
-      changeFrequency: "yearly",
-      priority: 0.3,
-    },
-    {
-      url: `${site.url}/terms`,
-      lastModified: lastModifiedFor("src/app/terms/page.tsx"),
-      changeFrequency: "yearly",
-      priority: 0.3,
-    },
-    {
-      url: `${site.url}/accessibility`,
-      lastModified: lastModifiedFor("src/app/accessibility/page.tsx"),
-      changeFrequency: "yearly",
-      priority: 0.3,
-    },
+    // Legal pages omitted from the sitemap (privacy, terms, accessibility):
+    // crawlers find them via the footer; including them inflates the URL
+    // count and dilutes the crawl signal on money pages. 2026-05-14.
   ];
 
   // Sitemap-index threshold: split into multiple sub-sitemaps when the
