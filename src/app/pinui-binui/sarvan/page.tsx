@@ -15,11 +15,11 @@ import Reveal from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
 
 const PATH = "/pinui-binui/sarvan";
-const TITLE = "דייר סרבן בפינוי בינוי 2026: תביעה והגנות | התחדשות";
+const TITLE = "דייר סרבן בפינוי בינוי: מי נחשב, מה הזכויות, מה הסיכון | 2026";
 const DESCRIPTION =
-  "דייר סרבן בפינוי בינוי חשוף לתביעה מצד היזם או הנציגות. מדריך 2026: ההליך, מתי סירוב סביר, ההגנות שלכם ומה קורה כשבית המשפט מורה על חתימה.";
+  "דייר סרבן הוא בעל דירה שמתנגד לפרויקט פינוי בינוי. רוב 67% מהדיירים יכולים להגיש תביעה (ירידה מ-80%). מתי הסירוב צודק, ההגנות החוקיות שלכם ומה צפוי בהליך משפטי.";
 const PUBLISHED_DATE = "2026-05-03";
-const MODIFIED_DATE = "2026-05-03";
+const MODIFIED_DATE = "2026-05-14";
 
 export const metadata: Metadata = buildMetadata({
   title: TITLE,
