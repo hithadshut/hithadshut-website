@@ -16,11 +16,11 @@ import Reveal from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
 
 const PATH = "/pinui-binui/eravut";
-const TITLE = "ערבויות בפינוי בינוי 2026: בנקאית וחוק מכר | התחדשות";
+const TITLE = "ערבות חוק מכר בפינוי בינוי: ההגנה החובה לדיירים | 2026";
 const DESCRIPTION =
-  "ערבויות בפינוי בינוי הן הביטחון של הדיירים מול היזם. מדריך 2026 על ערבות חוק מכר, ערבות בנקאית, ערבויות שכר דירה ומסירה, ומה לבדוק לפני חתימה.";
+  "ערבות חוק מכר היא ערבות בנקאית חובה שהיזם מספק לדיירים בפינוי בינוי. ההבדל בין ערבות בנקאית, ערבות חוק מכר וערבות ביצוע + מתי כל אחת מופעלת + מה לבדוק בחוזה.";
 const PUBLISHED_DATE = "2026-05-03";
-const MODIFIED_DATE = "2026-05-03";
+const MODIFIED_DATE = "2026-05-14";
 
 export const metadata: Metadata = buildMetadata({
   title: TITLE,
