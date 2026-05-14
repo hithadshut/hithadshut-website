@@ -56,8 +56,20 @@ export default function SchemaArticle({
       "@type": "Person",
       "@id": `${site.url}/about/ofek-mazor#person`,
       name: "אופק מזור",
-      jobTitle: 'מנכ"ל ומייסד, התחדשות בינוי ויזמות',
+      jobTitle: 'מנכ"ל ומייסד, מתווך מקרקעין מוסמך',
       url: `${site.url}/about/ofek-mazor`,
+      // E-E-A-T credential: real estate broker license. Same @id as
+      // ofekPersonJsonLd() so Schema.org graph-merges the two nodes
+      // when both appear on a page.
+      hasCredential: {
+        "@type": "EducationalOccupationalCredential",
+        credentialCategory: "רישיון תיווך מקרקעין",
+        recognizedBy: {
+          "@type": "GovernmentOrganization",
+          name: "משרד המשפטים, רשם המתווכים",
+        },
+        identifier: "3246290",
+      },
     },
     publisher: {
       "@type": "Organization",

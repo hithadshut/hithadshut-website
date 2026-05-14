@@ -1,0 +1,19 @@
+# Schema Validation (final) — 2026-05-14
+Build commit: 83374fb + uncommitted SchemaArticle license fix
+Method: curl with Host+X-Forwarded-Proto headers.
+
+| Page | Article | FAQPage | Breadcrumb | Person | License 3246290 |
+|---|---|---|---|---|---|
+| /pinui-binui/chok-67 | 1 | 1 | 2 | 2 | ✓ (1) |
+| /pinui-binui/temurot | 1 | 1 | 2 | 2 | ✓ (1) |
+| /pinui-binui/eravut | 1 | 1 | 2 | 2 | ✓ (1) |
+| /guides/mamad-permit-exemption-2026 | 1 | 1 | 1 | 2 | ✓ (1) |
+| /guides/mamad-cost | 1 | 1 | 2 | 2 | ✓ (1) |
+| /pinui-binui/sarvan | 1 | 1 | 2 | 2 | ✓ (1) |
+| /pinui-binui/kshishim | 1 | 1 | 2 | 2 | ✓ (1) |
+| /pinui-binui | 1 | 1 | 2 | 2 | ✓ (1) |
+| /guides/home-front-command-approval | 1 | 1 | 1 | 2 | ✓ (1) |
+
+## Gates verdict
+All 9 pages: Article=1, FAQPage=1, Breadcrumb>=1, Person>=1, License=present.
+PR #6 ready to merge after this fix lands.
