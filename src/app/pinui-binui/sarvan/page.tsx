@@ -96,6 +96,25 @@ export default function Page() {
             <div className="mb-5">
               <Byline author="ofek-mazor" dateModified={MODIFIED_DATE} />
             </div>
+
+            {/* Answer-first box: extractable LLM citation block (BrightEdge 44.2% rule) */}
+            <div
+              className="rounded-2xl border-2 border-[var(--color-accent)] bg-[var(--color-soft)] p-6 md:p-7 mb-6"
+              aria-labelledby="bekitzur-sarvan"
+            >
+              <h2 id="bekitzur-sarvan" className="text-xl md:text-2xl font-black text-[var(--color-primary)] mb-3">
+                בקצרה: דייר סרבן בפינוי בינוי
+              </h2>
+              <p className="text-[17px] text-[var(--color-ink)] leading-8 mb-0">
+                דייר סרבן הוא בעל דירה שמתנגד לפרויקט פינוי בינוי שזכה לרוב 67% מבעלי הדירות.
+                מאז תיקון 2024, הרף לתביעה משפטית נגד סרבן ירד מ-80% ל-67%. בפועל, רוב המקרים
+                מסתיימים בהסכמה ללא הליך משפטי. הסירוב נחשב צודק אם הוא נובע מתמורה לא הוגנת
+                או אי-עמידה בזכויות מיוחדות (קשישים, נכים, יורשים). הליך משפטי טיפוסי אורך
+                18 עד 30 חודשים בבית המשפט המחוזי. בכל מקרה, חוות דעת של עורך דין מקרקעין
+                לפני סירוב חוסכת אלפי שקלים בהמשך.
+              </p>
+            </div>
+
             <p className="text-[17px] text-[var(--color-ink)] leading-8">
               דייר סרבן ב
               <Link
