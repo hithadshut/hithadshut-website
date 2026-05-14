@@ -17,11 +17,11 @@ import Reveal from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
 
 const PATH = "/pinui-binui";
-const TITLE = "פינוי בינוי 2026: מה זה, כמה זמן, מה מקבלים | התחדשות";
+const TITLE = "פינוי בינוי 2026: מדריך שלם לדיירים + זכויותיכם המלאות";
 const DESCRIPTION =
-  "פינוי בינוי הוא הריסת בניין ישן ובניית מתחם חדש במקומו. מדריך 2026: תהליך, חוק 67%, תמורות, זמנים, זכויות דיירים. ייעוץ ראשוני ללא עלות.";
+  "פינוי בינוי הוא הריסת מתחם ובנייתו מחדש. דיירים מקבלים דירה חדשה +25 מ״ר. נדרש רוב 67%. מדריך תהליך מלא, זכויות קשישים, חוזה, בחירת יזם נכון.";
 const PUBLISHED_DATE = "2026-05-03";
-const MODIFIED_DATE = "2026-05-03";
+const MODIFIED_DATE = "2026-05-14";
 
 export const metadata: Metadata = buildMetadata({
   title: TITLE,
