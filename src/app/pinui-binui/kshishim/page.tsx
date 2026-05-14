@@ -14,11 +14,11 @@ import Reveal from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
 
 const PATH = "/pinui-binui/kshishim";
-const TITLE = "זכויות קשישים בפינוי בינוי 2026: גיל 70+ ו-75+ | התחדשות";
+const TITLE = "פינוי בינוי לקשישים 2026: זכויות גיל 70+ ו-75+ + חלופות דיור";
 const DESCRIPTION =
-  "דיירים בני 70+ זכאים לחלופות בפינוי בינוי: דיור מוגן, דירה חלופית, או שתי דירות. מדריך 2026 להגנות, סעיפי ביטחון בהסכם וטעויות נפוצות.";
+  "קשישים בני 70+ זכאים לדירת תמורה + לפחות חלופה אחת מ-3 (דיור מוגן / דירה חלופית / 2 דירות בשווי שווה). בני 75+ זכאים לכל החלופות. מדריך זכויות מלא לכל המבחנים החוקיים.";
 const PUBLISHED_DATE = "2026-05-03";
-const MODIFIED_DATE = "2026-05-03";
+const MODIFIED_DATE = "2026-05-14";
 
 export const metadata: Metadata = buildMetadata({
   title: TITLE,
