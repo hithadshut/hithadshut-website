@@ -153,9 +153,78 @@ export default function Page() {
             <div className="mb-5">
               <Byline author="ofek-mazor" dateModified={MODIFIED_DATE} />
             </div>
+
+            {/* Answer-first box: extractable LLM citation block (BrightEdge 44.2% rule) */}
+            <div
+              className="rounded-2xl border-2 border-[var(--color-accent)] bg-[var(--color-soft)] p-6 md:p-7 mb-6"
+              aria-labelledby="bekitzur-hub"
+            >
+              <h2 id="bekitzur-hub" className="text-xl md:text-2xl font-black text-[var(--color-primary)] mb-3">
+                בקצרה: פינוי בינוי 2026
+              </h2>
+              <p className="text-[17px] text-[var(--color-ink)] leading-8 mb-0">
+                פינוי בינוי הוא הריסת מתחם דירות ישן ובניית מתחם חדש במקומו. הדיירים מקבלים
+                דירה חדשה גדולה יותר (תוספת ממוצעת 25 מ״ר במרכז הארץ) ללא תשלום. נדרש רוב
+                67% מבעלי הדירות (ירידה מ-80% ב-2024) להגשת תביעה נגד דייר סרבן. תהליך טיפוסי
+                7 עד 12 שנים. ב-2026 הנושא במוקד: תמ״א 38 פוקעת במאי, ורוב הרשויות מעבירות
+                פרויקטים למסלול פינוי בינוי. מתחם פינוי בינוי דורש לפחות 24 יחידות דיור.
+              </p>
+            </div>
+
             <p className="text-[17px] text-[var(--color-ink)] leading-8">
               פינוי בינוי הוא הריסת בניין מגורים ישן ובניית מתחם חדש במקומו, כאשר הדיירים הקיימים מקבלים דירה חדשה במתחם בתמורה לדירה הישנה. בישראל, מסלול פינוי בינוי חל על מתחמים של 24 יחידות דיור ומעלה, נדרשת הסכמה של 67% מבעלי הדירות כדי להגיש תביעה נגד דייר סרבן, ופרויקט טיפוסי לוקח 7 עד 12 שנים מההסכמה הראשונית עד מסירת הדירות החדשות. מדריך זה מסביר את כל מה שבעלי דירות בישראל צריכים לדעת בשנת 2026.
             </p>
+
+            {/* Contextual sub-page links with keyword-rich anchors */}
+            <div className="mt-8 rounded-2xl border border-[var(--color-border)] bg-white p-6 md:p-7">
+              <h3 className="text-lg md:text-xl font-black text-[var(--color-primary)] mb-4">
+                מדריכי המשך לפי נושא
+              </h3>
+              <ul className="space-y-3 text-[17px] text-[var(--color-ink)] leading-relaxed list-none">
+                <li>
+                  <Link href="/pinui-binui/chok-67" className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]">
+                    חוק 67% פינוי בינוי
+                  </Link>
+                  {" · "}הסבר על הרוב הנדרש לתביעה נגד דייר סרבן (ירידה מ-80%).
+                </li>
+                <li>
+                  <Link href="/pinui-binui/temurot" className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]">
+                    תמורות פינוי בינוי
+                  </Link>
+                  {" · "}כמה דירות וכמה מ״ר באמת תקבלו, חניה, מחסן ופיצוי כספי.
+                </li>
+                <li>
+                  <Link href="/pinui-binui/eravut" className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]">
+                    ערבות חוק מכר
+                  </Link>
+                  {" · "}ההגנה הבנקאית החובה לדיירים, ההבדל מערבות בנקאית.
+                </li>
+                <li>
+                  <Link href="/pinui-binui/kshishim" className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]">
+                    פינוי בינוי לקשישים
+                  </Link>
+                  {" · "}זכויות גיל 70+ ו-75+ וחלופות הדיור המוצעות.
+                </li>
+                <li>
+                  <Link href="/pinui-binui/sarvan" className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]">
+                    דייר סרבן
+                  </Link>
+                  {" · "}מי נחשב סרבן, מתי הסירוב צודק ומה צפוי בהליך משפטי.
+                </li>
+                <li>
+                  <Link href="/pinui-binui/yazam" className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]">
+                    איך בוחרים יזם פינוי בינוי
+                  </Link>
+                  {" · "}שיקולי בחירה, בדיקות נאותות ודגלים אדומים.
+                </li>
+                <li>
+                  <Link href="/pinui-binui/yorshim" className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]">
+                    יורשים ופינוי בינוי
+                  </Link>
+                  {" · "}מס שבח, חלוקת ירושה, וזכויות יורש בפרויקט פעיל.
+                </li>
+              </ul>
+            </div>
           </div>
         </Reveal>
       </Section>
