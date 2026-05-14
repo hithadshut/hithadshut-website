@@ -124,41 +124,13 @@ img, svg, video, canvas, iframe {
 }
 
 /* ===========================================
-   ANIMATIONS - Reveal on scroll
+   ANIMATIONS - Reveal-on-scroll removed (2026-05-14)
+   The Reveal component is now a server-rendered passthrough.
+   Hide-state CSS would re-introduce the LCP regression that scored
+   /pinui-binui hub at Perf 28 mobile. Keep this section deleted.
    =========================================== */
 
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
-}
-.reveal-left {
-  opacity: 0;
-  transform: translateX(24px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.reveal-right {
-  opacity: 0;
-  transform: translateX(-24px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.reveal-scale {
-  opacity: 0;
-  transform: scale(0.96);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.is-visible {
-  opacity: 1 !important;
-  transform: none !important;
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .reveal, .reveal-left, .reveal-right, .reveal-scale {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
   .bg-hero-animated {
     animation: none;
   }
