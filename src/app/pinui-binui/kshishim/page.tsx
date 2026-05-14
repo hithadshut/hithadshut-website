@@ -95,6 +95,26 @@ export default function Page() {
             <div className="mb-5">
               <Byline author="ofek-mazor" dateModified={MODIFIED_DATE} />
             </div>
+
+            {/* Answer-first box: extractable LLM citation block (BrightEdge 44.2% rule) */}
+            <div
+              className="rounded-2xl border-2 border-[var(--color-accent)] bg-[var(--color-soft)] p-6 md:p-7 mb-6"
+              aria-labelledby="bekitzur-kshishim"
+            >
+              <h2 id="bekitzur-kshishim" className="text-xl md:text-2xl font-black text-[var(--color-primary)] mb-3">
+                בקצרה: זכויות קשישים בפינוי בינוי
+              </h2>
+              <p className="text-[17px] text-[var(--color-ink)] leading-8 mb-0">
+                קשישים בני 70+ זכאים בפינוי בינוי לדירת תמורה ולפחות אחת מ-3 חלופות:
+                דיור מוגן בעלות זהה, רכישת דירה חלופית במיקום אחר, או שתי דירות בשווי
+                כולל שווה לדירת התמורה. קשישים בני 75+ זכאים לכל החלופות יחד. חולים
+                סופניים ובעלי גמלת סיעוד ברמה גבוהה זכאים למסלול דומה לגיל 75+.
+                היזם חייב להציע את כל החלופות הרלוונטיות בכתב לפני חתימת חוזה;
+                סירוב להציע נחשב הפרת חוק ועילה לתביעה. ייעוץ עם עורך דין דיירים
+                לפני חתימה הוא תנאי בסיסי לקשיש.
+              </p>
+            </div>
+
             <p className="text-[17px] text-[var(--color-ink)] leading-8">
               דיירים בני 70 ומעלה בפרויקט{" "}
               <Link
