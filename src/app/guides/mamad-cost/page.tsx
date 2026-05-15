@@ -11,6 +11,7 @@ import Byline from "@/components/Byline";
 import TableOfContents from "@/components/TableOfContents";
 import RelatedArticles from "@/components/RelatedArticles";
 import KeyStats from "@/components/KeyStats";
+import MamadCostCalculator from "@/components/MamadCostCalculator";
 import { buildMetadata } from "@/lib/metadata";
 import {
   articleJsonLd,
@@ -20,7 +21,7 @@ import {
   OFEK_PERSON_ID,
 } from "@/lib/schema";
 
-const DATE_MODIFIED = "2026-05-14";
+const DATE_MODIFIED = "2026-05-15";
 const DATE_PUBLISHED = "2026-04-15";
 
 // Word count for the main prose: TL;DR + 10 H2 sections of detailed content + 10 FAQs.
@@ -274,6 +275,14 @@ export default function Page() {
               ומסלול הפטור מהיתר (תקנה 30ב׳) תקף עד 25.10.2026.
             </p>
           </div>
+        </div>
+      </Section>
+
+      {/* V8 B.2.C: Interactive mamad cost calculator. Novel value vs every Israeli
+          competitor in this SERP. In-memory state, no analytics. */}
+      <Section tone="soft">
+        <div className="max-w-3xl mx-auto">
+          <MamadCostCalculator />
         </div>
       </Section>
 
