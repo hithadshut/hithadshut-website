@@ -20,7 +20,7 @@ import {
   OFEK_PERSON_ID,
 } from "@/lib/schema";
 
-const DATE_MODIFIED = "2026-04-30";
+const DATE_MODIFIED = "2026-05-14";
 const DATE_PUBLISHED = "2026-04-15";
 
 // Word count for the main prose: TL;DR + 10 H2 sections of detailed content + 10 FAQs.
@@ -42,9 +42,9 @@ const TOC_ITEMS = [
 ];
 
 const PATH = "/guides/mamad-cost";
-const TITLE = "מחיר ממ״ד 2026: כמה עולה לבנות ממ״ד | התחדשות";
+const TITLE = "מחיר ממ״ד 2026: 120,000-200,000 ש״ח לפי 4 תרחישי בנייה";
 const DESCRIPTION =
-  "כמה עולה ממ״ד ב-2026? בית פרטי 160,000-220,000 ₪, מיגון חדר 40,000-150,000 ₪. פירוט עלויות, טבלאות השוואה ומה משפיע על המחיר.";
+  "ממ״ד תקני בית פרטי: 160,000-220,000 ש״ח. ממ״ד יביל unit-only: 90,000-130,000. יביל all-in: 180,000-250,000. שיפור מיגון: 40,000-150,000. בצפון עד 132,000 ש״ח סבסוד מדינה. פירוט לפי תרחיש.";
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 
@@ -251,6 +251,29 @@ export default function Page() {
         <div className="flex flex-wrap justify-center items-center gap-3">
           <Byline author="ofek-mazor" dateModified={DATE_MODIFIED} />
           <ReadingTimeBadge words={WORD_COUNT} />
+        </div>
+      </Section>
+
+      {/* Answer-first opening: V6 5.E template. First 50-100 words = LLM citation block.
+          Front-loads every key number + the 25.10.2026 deadline + 132K north subsidy USP. */}
+      <Section tone="white">
+        <div className="max-w-3xl mx-auto">
+          <div
+            className="rounded-2xl border-2 border-[var(--color-accent)] bg-white p-6 md:p-8 shadow-sm"
+            aria-labelledby="answer-first-heading"
+          >
+            <h2 id="answer-first-heading" className="text-xl md:text-2xl font-black text-[var(--color-primary)] mb-3">
+              בקצרה: כמה עולה ממ״ד בישראל 2026
+            </h2>
+            <p className="text-[17px] text-[var(--color-ink)] leading-8 mb-0">
+              מחיר בניית ממ״ד תקני 9 מ״ר בבית פרטי בישראל ב-2026 נע בין 160,000 ל-220,000 ש״ח בתוספת מע״מ.
+              ממ״ד יביל unit-only (יציאה מהמפעל בלבד): 90,000-130,000 ש״ח. ממ״ד יביל all-in
+              (כולל יסודות, הובלה, הנפה, חיבורי תשתית, אטימה ואישור פיקוד העורף): 180,000-250,000 ש״ח.
+              שיפור מיגון לחדר קיים: 40,000-150,000 ש״ח. ביישובי קו ראשון בצפון (1-5 ק״מ מהגבול),
+              המדינה מסבסדת עד 132,000 ש״ח במסלול &ldquo;מימוש עצמי&rdquo;. תהליך הבנייה אורך 3-5 חודשים,
+              ומסלול הפטור מהיתר (תקנה 30ב׳) תקף עד 25.10.2026.
+            </p>
+          </div>
         </div>
       </Section>
 
