@@ -1,6 +1,4 @@
-"use client";
-
-import { useEffect, useRef, type ReactNode } from "react";
+import type { ReactNode } from "react";
 
 type Props = {
   children: ReactNode;
@@ -9,46 +7,26 @@ type Props = {
   className?: string;
 };
 
-const variantClass = {
-  up: "reveal",
-  left: "reveal-left",
-  right: "reveal-right",
-  scale: "reveal-scale",
-};
-
-export default function Reveal({
-  children,
-  variant = "up",
-  delay = 0,
-  className = "",
-}: Props) {
-  const ref = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    if (typeof IntersectionObserver === "undefined") {
-      el.classList.add("is-visible");
-      return;
-    }
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            window.setTimeout(() => el.classList.add("is-visible"), delay);
-            io.unobserve(el);
-          }
-        });
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, [delay]);
-
-  return (
-    <div ref={ref} className={`${variantClass[variant]} ${className}`}>
-      {children}
-    </div>
-  );
+/**
+ * Reveal: server-rendered passthrough wrapper.
+ *
+ * Previously this was a "use client" component that hid its children with
+ * `opacity: 0` until an IntersectionObserver fired on scroll. That caused
+ * /pinui-binui hub to score Perf 28 on mobile (LCP 7.7s, TBT 1990ms): the
+ * LCP element was inside the first Reveal block and PSI waited for JS to
+ * make it visible.
+ *
+ * Used in 50 files across the site as a structural wrapper. Keeping the
+ * same API (children, variant, delay, className) but eliminating the
+ * client behavior and hide-state CSS makes content visible immediately,
+ * preserves callsites unchanged, and removes ~50 client-component
+ * boundaries from the hydration cost. The decorative scroll-reveal
+ * animation is dropped as the cost-benefit no longer justifies it.
+ *
+ * The unused `variant` and `delay` props are kept in the type so callsites
+ * don't need to change.
+ */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export default function Reveal({ children, variant, delay, className = "" }: Props) {
+  return <div className={className}>{children}</div>;
 }
