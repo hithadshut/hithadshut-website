@@ -4,8 +4,12 @@ import { site } from "@/lib/site";
 /**
  * Robots policy.
  *
- * - Wildcard: allow all except `/api/` (server endpoints) and `/_next/`
- *   (build artifacts; Google ignores these by default but explicit is safer).
+ * - Wildcard: allow all except `/api/` (server endpoints).
+ *   `/_next/static/` is explicitly allowed: Googlebot fetches JS and CSS
+ *   chunks from there to render the page, and any disallow on `/_next/`
+ *   (even as a defensive prefix) blocks those fetches and degrades how
+ *   Google sees the rendered DOM. GSC flagged this in May 2026 with
+ *   "Blocked by robots.txt" against /_next/static/chunks/*.js.
  * - AI-engine bots are explicitly allowed. AI Overviews, ChatGPT search,
  *   Perplexity, Claude, and Bing-Copilot use these user-agents to ground
  *   their responses; blocking them removes us from those answer surfaces.
@@ -33,7 +37,11 @@ export default function robots(): MetadataRoute.Robots {
 
   return {
     rules: [
-      { userAgent: "*", allow: "/", disallow: ["/api/", "/_next/"] },
+      {
+        userAgent: "*",
+        allow: ["/", "/_next/static/"],
+        disallow: "/api/",
+      },
       ...aiBots.map((ua) => ({ userAgent: ua, allow: "/" as const })),
     ],
     sitemap: `${site.url}/sitemap.xml`,

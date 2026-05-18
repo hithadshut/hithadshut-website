@@ -60,6 +60,24 @@ const nextConfig: NextConfig = {
           { key: "Cache-Control", value: "public, max-age=3600, must-revalidate" },
         ],
       },
+      // Manifest and Next-emitted icon endpoints are crawled by Googlebot
+      // but should not be considered for the web index. GSC flagged them
+      // as "Crawled, currently not indexed" in May 2026; explicit
+      // X-Robots-Tag confirms intent and removes the surface from index
+      // pipelines, while leaving the resources fetchable for PWA install
+      // and favicon rendering.
+      {
+        source: "/manifest.webmanifest",
+        headers: [{ key: "X-Robots-Tag", value: "noindex" }],
+      },
+      {
+        source: "/icon",
+        headers: [{ key: "X-Robots-Tag", value: "noindex" }],
+      },
+      {
+        source: "/apple-icon",
+        headers: [{ key: "X-Robots-Tag", value: "noindex" }],
+      },
       {
         source: "/:path*",
         headers: [
