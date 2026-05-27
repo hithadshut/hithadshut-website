@@ -108,7 +108,7 @@ export default function Page() {
         <Reveal>
           <div className="max-w-3xl">
             <div className="mb-5">
-              <Byline author="ofek-mazor" dateModified={MODIFIED_DATE} />
+              <Byline author="hithadshut-team" dateModified={MODIFIED_DATE} />
             </div>
             <p className="text-[17px] text-[var(--color-ink)] leading-8">
               חוק פינוי ובינוי דורש כיום הסכמת 67% מבעלי הדירות (שני שלישים) להגשת תביעה נגד דייר סרבן בבית משותף. זו ירידה משמעותית מ-80% שהיו נדרשים בעבר, לפי תיקון החוק שנכנס לתוקף ב-2024. בפועל, נכון לאמצע 2026, רוב הפרויקטים מסתיימים בהסכמה ללא הליך משפטי. דייר השוקל סירוב, או נציגות{" "}
@@ -394,7 +394,7 @@ export default function Page() {
 
       <RelatedLinks
         seed="pinui-binui/chok-67"
-        targets={["pinui-binui", "pinui-binui-temurot", "ofek-mazor"]}
+        targets={["pinui-binui", "pinui-binui-temurot", "hithadshut-team"]}
       />
 
       <FAQ

@@ -65,7 +65,7 @@ function lastModifiedFor(...sourcePaths: string[]): Date {
  *   0.9  pillar/hub pages - /services/*, /guides/*, /compare/*, /about,
  *        /contact, /areas
  *   0.7  city standalone pages, indexable city × service pairs,
- *        /projects index, /about/ofek-mazor
+ *        /projects index
  *   0.6  project detail pages
  *   0.3  legal pages
  */
@@ -393,15 +393,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${site.url}/about`,
       lastModified: lastModifiedFor("src/app/about/page.tsx"),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    // Author page (Ofek Mazor) - anchors Person schema for E-E-A-T.
-    // Bumped to 0.9 per V6 plan (2026-05-14): real GSC data shows this is
-    // the highest-CTR page on the site (43.3% at pos 4.4).
-    {
-      url: `${site.url}/about/ofek-mazor`,
-      lastModified: lastModifiedFor("src/app/about/ofek-mazor/page.tsx"),
       changeFrequency: "monthly",
       priority: 0.9,
     },

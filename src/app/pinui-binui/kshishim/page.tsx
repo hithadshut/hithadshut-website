@@ -93,7 +93,7 @@ export default function Page() {
         <Reveal>
           <div className="max-w-3xl">
             <div className="mb-5">
-              <Byline author="ofek-mazor" dateModified={MODIFIED_DATE} />
+              <Byline author="hithadshut-team" dateModified={MODIFIED_DATE} />
             </div>
 
             {/* Answer-first box: extractable LLM citation block (BrightEdge 44.2% rule) */}
@@ -360,7 +360,7 @@ export default function Page() {
 
       <RelatedLinks
         seed="pinui-binui/kshishim"
-        targets={["pinui-binui", "pinui-binui-temurot", "ofek-mazor"]}
+        targets={["pinui-binui", "pinui-binui-temurot", "hithadshut-team"]}
       />
 
       <FAQ

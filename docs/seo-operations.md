@@ -99,7 +99,7 @@ The sitemap is generated at build time from
 - Priority distribution:
   - `1.0` — homepage
   - `0.9` — pillar/hub pages (services, guides, compare, about, contact, areas)
-  - `0.7` — city standalone, indexable city × service, projects index, /about/ofek-mazor
+  - `0.7` — city standalone, indexable city × service, projects index, /about
   - `0.6` — project detail pages
   - `0.3` — legal pages
 - Sitemap index split is needed at ~10K URLs. Far below today.

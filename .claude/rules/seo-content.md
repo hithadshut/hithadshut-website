@@ -36,7 +36,7 @@ Every money or guide page on the site follows this structure. The `/new-page` co
    - At least one specific number in every section.
 
 4. **Trust elements**
-   - Author byline: "מאת אופק מזור, מנכ"ל ומייסד התחדשות בינוי ויזמות".
+   - Author byline: "מאת התחדשות בינוי ויזמות".
    - `publishedDate` + `lastUpdated` visible AND in schema.
    - At least one outbound link to an official source.
 
@@ -113,7 +113,7 @@ Pages under 800 words on this site = Google penalizes us for thin content. Do no
 This is a YMYL (Your Money Your Life) site. Inaccuracy ruins us.
 
 1. **Never fabricate** numbers, dates, percentages, code names, law sections, sums, contractor names, project names.
-2. **If unsure**, write `[טעון אימות]` inline AND surface every instance in your final reply for Ofek to verify.
+2. **If unsure**, write `[טעון אימות]` inline AND surface every instance in your final reply for the operator to verify.
 3. **Verified sources only** for outbound links: gov.il, oref.org.il, kolzchut.org.il, nevo.co.il, taxes.gov.il, planning.gov.il, boi.org.il, cbs.gov.il.
 4. **Regulatory facts must match strategic context**:
    - TAMA 38 expires May 2026 (most areas).
@@ -124,7 +124,7 @@ This is a YMYL (Your Money Your Life) site. Inaccuracy ruins us.
    - Hardut Barzel exemption track for ממ"ד: extended into 2026, deadline October 2026 per latest publications. Always link to oref.org.il for current status.
    - 03/2026 Tax Authority position paper: heirs in pinui-binui projects — exemption from capital gains preserved post-demolition.
 
-If any of these conflicts with what you find in source files or web search, flag the conflict to Ofek. Do not silently update the rule.
+If any of these conflicts with what you find in source files or web search, flag the conflict to the operator. Do not silently update the rule.
 
 ---
 
@@ -205,7 +205,7 @@ To get cited in ChatGPT / Perplexity / Gemini / Google AI Overviews:
 
 ## 10. Trust layer (every page)
 
-- Visible byline: "מאת אופק מזור, מנכ"ל ומייסד התחדשות בינוי ויזמות".
+- Visible byline: "מאת התחדשות בינוי ויזמות".
 - Visible publication date + last-updated date.
 - One+ outbound link to an official .gov.il / .org.il source.
 - Footer disclaimer: "מידע זה אינו מהווה ייעוץ משפטי, פיננסי או הנדסי. מומלץ להתייעץ עם בעלי המקצוע הרלוונטיים לפני קבלת החלטות."

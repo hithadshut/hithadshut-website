@@ -59,7 +59,7 @@ export type Project = {
    * knowing which one is shown - illustrations are not photographic
    * evidence. Default treatment: same UI, but caption + alt note that
    * a photograph is the next step. Replace `.svg` with `.jpg` and
-   * flip this to "photograph" once Ofek uploads the real images.
+   * flip this to "photograph" once the real images are provided.
    */
   imageType?: "illustration" | "photograph";
   /** Optional which service slug this project showcases - used to embed it on the service page. */
@@ -84,7 +84,7 @@ export function getProject(slug: string): Project | undefined {
 }
 
 /**
- * Five real projects shown to us by Ofek (the 5 photos sent on session 2).
+ * Five real company projects (sourced from the operator's photo library).
  * Filenames below are the agreed canonical paths; until the JPGs are
  * actually saved at /public/projects/<filename>, hasRealImage is `false`
  * and the card renders the description-only placeholder.

@@ -3,20 +3,19 @@ import { site } from "@/lib/site";
 
 type BylineProps = {
   /**
-   * When provided, render an attributed byline linking to the author's page.
-   * Currently the only supported author is Ofek Mazor.
-   * Leave undefined to fall back to the collective team byline.
+   * When provided, render an attributed byline linking to the company page.
+   * Leave undefined to fall back to the same collective company byline.
    */
-  author?: "ofek-mazor";
+  author?: "hithadshut-team";
   /** Visible "עודכן: ..." line. Pass an ISO date or a free-form Hebrew label. */
   dateModified?: string;
 };
 
 const AUTHORS = {
-  "ofek-mazor": {
-    name: "אופק מזור",
-    role: "מנכ״ל ומייסד, מתווך מקרקעין מוסמך, רישיון 3246290",
-    href: "/about/ofek-mazor",
+  "hithadshut-team": {
+    name: "צוות התחדשות",
+    role: "מומחי ממ״ד והתחדשות עירונית",
+    href: "/about",
   },
 } as const;
 

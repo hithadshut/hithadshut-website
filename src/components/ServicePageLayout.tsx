@@ -292,8 +292,8 @@ export default function ServicePageLayout({
       )}
 
       {/* Real-project showcase - auto-renders for the service slug if a
-          tagged project has hasRealImage:true. No-op until Ofek saves
-          the JPGs and flips the flag in src/content/projects.ts. */}
+          tagged project has hasRealImage:true. No-op until the JPGs are
+          saved and the flag flipped in src/content/projects.ts. */}
       <ServiceProjectShowcase serviceSlug={path.replace("/services/", "")} />
 
       {children}

@@ -113,7 +113,7 @@ export default function Page() {
         <Reveal>
           <div className="max-w-3xl">
             <div className="mb-5">
-              <Byline author="ofek-mazor" dateModified={MODIFIED_DATE} />
+              <Byline author="hithadshut-team" dateModified={MODIFIED_DATE} />
             </div>
             <p className="text-[17px] text-[var(--color-ink)] leading-8">
               תמורה סטנדרטית בפרויקט{" "}
@@ -452,7 +452,7 @@ export default function Page() {
         targets={[
           "pinui-binui",
           "pinui-binui-machshvon",
-          "ofek-mazor",
+          "hithadshut-team",
           "contact",
         ]}
       />

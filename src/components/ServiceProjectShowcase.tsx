@@ -7,8 +7,8 @@ import { getProjectForService } from "@/content/projects";
  *
  * Renders nothing if there's no project tagged for this service, OR if
  * the tagged project doesn't yet have a real photo (`hasRealImage:false`).
- * That keeps service pages clean until Ofek drops the JPGs into
- * `public/projects/` and flips the flag.
+ * That keeps service pages clean until the JPGs are dropped into
+ * `public/projects/` and the flag is flipped.
  *
  * Designed as an additive band - does not modify the existing
  * ServicePageLayout structure.

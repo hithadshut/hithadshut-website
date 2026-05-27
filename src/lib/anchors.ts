@@ -25,8 +25,8 @@ export const PINUI_BINUI_HREFS = {
 } as const;
 
 export const ABOUT_HREFS = {
-  ofekMazor: "/about/ofek-mazor",
-  // Future: company, founders, partners - add here as each ships.
+  hithadshutTeam: "/about",
+  // Future: founders, partners - add here as each ships.
 } as const;
 
 export const MEMAD_HREFS = {
@@ -111,7 +111,7 @@ export type LinkTarget =
   | "madrichim-shipur-migun"
   | "madrichim-yorshim"
   | "madrichim-yazamim"
-  | "ofek-mazor";
+  | "hithadshut-team";
 
 export const ANCHOR_VARIANTS: Record<LinkTarget, string[]> = {
   "building-mamad": [
@@ -480,14 +480,14 @@ export const ANCHOR_VARIANTS: Record<LinkTarget, string[]> = {
     "יזמים מובילים בישראל",
     "מסגרת להערכת יזמים",
   ],
-  "ofek-mazor": [
-    "אופק מזור, מנכ״ל ומייסד",
-    "אופק מזור: מנכ״ל ומייסד התחדשות",
-    "פרופיל מקצועי של אופק מזור",
-    "על אופק מזור, מנכ״ל החברה",
-    "אופק מזור - המנכ״ל",
-    "אודות אופק מזור",
-    "מנכ״ל החברה: אופק מזור",
+  "hithadshut-team": [
+    "אודות התחדשות",
+    "מי אנחנו: צוות התחדשות",
+    "צוות התחדשות",
+    "על החברה",
+    "כל מי שמאחורי התחדשות",
+    "אודות צוות החברה",
+    "התחדשות: על החברה",
   ],
 };
 
@@ -558,7 +558,7 @@ export const HREF_MAP: Record<LinkTarget, string> = {
   "madrichim-shipur-migun": MADRICHIM_HREFS.shipurMigun,
   "madrichim-yorshim": MADRICHIM_HREFS.yorshim,
   "madrichim-yazamim": MADRICHIM_HREFS.yazamim,
-  "ofek-mazor": ABOUT_HREFS.ofekMazor,
+  "hithadshut-team": ABOUT_HREFS.hithadshutTeam,
 };
 
 // Short one-line summaries shown on RelatedLinks cards.
@@ -651,8 +651,8 @@ export const TARGET_SUMMARY: Record<LinkTarget, string> = {
     "זכות בעלות מול זכות יורשים בפינוי בינוי: ההבחנה המשפטית ומה לעגן בהסכם.",
   "madrichim-yazamim":
     "מסגרת להערכת יזמי פינוי בינוי בישראל 2026: 8 קריטריונים לשקילה.",
-  "ofek-mazor":
-    "פרופיל מקצועי של אופק מזור, מנכ״ל ומייסד התחדשות בינוי ויזמות.",
+  "hithadshut-team":
+    "מי עומדים מאחורי התחדשות: מודל העבודה, תחומי ההתמחות, וערכי החברה.",
 };
 
 export const TARGET_LABEL: Record<LinkTarget, string> = {
@@ -700,5 +700,5 @@ export const TARGET_LABEL: Record<LinkTarget, string> = {
   "madrichim-shipur-migun": "מתי שיפור מיגון עדיף",
   "madrichim-yorshim": "זכות בעלות מול זכות יורשים",
   "madrichim-yazamim": "השוואת יזמי פינוי בינוי",
-  "ofek-mazor": "אופק מזור, מנכ״ל ומייסד",
+  "hithadshut-team": "צוות התחדשות",
 };

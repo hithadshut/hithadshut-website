@@ -4,7 +4,7 @@ This folder is the canonical location for real project photographs.
 Filenames are referenced from `src/content/projects.ts`. Keep names
 exactly as listed there — the page won't auto-discover other names.
 
-## Required files (5 projects, sent by Ofek 2026-04-30)
+## Required files (5 projects)
 
 | Path | Subject |
 |---|---|

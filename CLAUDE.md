@@ -11,8 +11,8 @@ Build the #1 organic Hebrew-language authority in Israel for:
 1. **Urban renewal** — pinui-binui, TAMA 38 expiry, Chalufat Shaked, condominium plans, tenant rights.
 2. **Memad construction** — building, retrofitting, prefab, Home Front Command approvals.
 
-The site is a real construction company: **התחדשות בינוי ויזמות**, founded by Ofek Mazor (CEO).
-Treat the site as a construction firm, not as a brokerage. Ofek is the executive face.
+The site is a real construction company: **התחדשות בינוי ויזמות**, founded by the company team.
+Treat the site as a construction firm, not as a brokerage. The company speaks with one institutional voice.
 
 We are not optimizing for vanity rankings. We optimize for: **citable answers in Google AI Overviews, ChatGPT, Perplexity, Gemini, plus #1 organic positions on transactional Hebrew queries.**
 
@@ -107,7 +107,7 @@ If `build` fails, fix it before opening a PR. Never commit a broken build.
 │   └── /tochnit-ironit/
 │
 ├── /madrichim/                        Knowledge hub (1500+ word authority articles)
-├── /odot/                             About Ofek + the company
+├── /odot/                             About the company
 └── /tzor-kesher/                      Contact
 ```
 
@@ -120,7 +120,7 @@ If `build` fails, fix it before opening a PR. Never commit a broken build.
 
 ---
 
-## Voice — who Ofek is on the site
+## Voice — who the company is on the site
 
 - CEO and founder of התחדשות בינוי ויזמות.
 - The company is a construction firm with contractor partnerships.
@@ -130,7 +130,7 @@ If `build` fails, fix it before opening a PR. Never commit a broken build.
 
 ---
 
-## What you (Claude Code) decide vs. what Ofek decides
+## What you (Claude Code) decide vs. what the operator decides
 
 You decide:
 - HTML/JSX structure, CSS classes, component reuse, file paths.
@@ -138,7 +138,7 @@ You decide:
 - Internal link placement within a page.
 - Build/lint compliance.
 
-Ofek + content lead decide:
+Operator + content lead decide:
 - Content strategy, page priority order, regulatory facts, voice tone.
 - Whether a fact is verified or `[טעון אימות]`.
 - Final copy review before merge.
@@ -159,7 +159,7 @@ For any new or edited page, run this self-check and report results in your final
 - [ ] At least one outbound link to an official source (gov.il / oref.org.il / kolzchut / nevo / Tax Authority)
 - [ ] 3+ internal links to existing site pages
 - [ ] FAQPage schema present and matches visible FAQ
-- [ ] Article schema present with author=Ofek Mazor, datePublished, dateModified
+- [ ] Article schema present with author=Organization, datePublished, dateModified
 - [ ] BreadcrumbList schema present
 - [ ] No `[טעון אימות]` left without explicit flag in your reply
 

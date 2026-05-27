@@ -10,8 +10,8 @@ import { featuredProjects } from "@/content/projects";
  * with the project's metadata (location, service type, stage).
  *
  * No fabricated images. No stock photos. The placeholder is honest
- * about being a placeholder and is replaced the moment Ofek drops
- * the real JPG into /public/projects/ and flips hasRealImage:true.
+ * about being a placeholder and is replaced the moment the real JPG
+ * is dropped into /public/projects/ and hasRealImage is flipped to true.
  */
 export default function ProjectsTeaser() {
   return (

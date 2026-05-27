@@ -11,8 +11,6 @@ import {
   faqJsonLd,
   breadcrumbJsonLd,
   articleJsonLd,
-  ofekPersonJsonLd,
-  OFEK_PERSON_ID,
 } from "@/lib/schema";
 
 const DATE_PUBLISHED = "2026-04-15";
@@ -241,9 +239,7 @@ export default function Page() {
             url: PATH,
             datePublished: DATE_PUBLISHED,
             dateModified: DATE_MODIFIED,
-            authorPersonId: OFEK_PERSON_ID,
           }),
-          ofekPersonJsonLd(),
         ]}
       />
 

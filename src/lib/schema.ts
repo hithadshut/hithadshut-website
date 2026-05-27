@@ -1,8 +1,5 @@
 import { site } from "./site";
 
-/** Stable @id for Ofek's Person node - referenced by Article.author across guides. */
-export const OFEK_PERSON_ID = `${site.url}/about/ofek-mazor#person`;
-
 type BreadcrumbItem = { name: string; url: string };
 
 export function breadcrumbJsonLd(items: BreadcrumbItem[]) {
@@ -49,13 +46,6 @@ export function organizationJsonLd() {
     slogan: site.tagline,
     priceRange: "₪₪₪",
     foundingDate: "2024",
-    founder: {
-      "@type": "Person",
-      "@id": OFEK_PERSON_ID,
-      name: "אופק מזור",
-      jobTitle: "מנכ״ל ומייסד, מתווך מקרקעין מוסמך, רישיון 3246290",
-      url: `${site.url}/about/ofek-mazor`,
-    },
     serviceType: [
       "בניית ממ״ד",
       "מיגון חדר קיים",
@@ -173,8 +163,6 @@ export function articleJsonLd(params: {
   url: string;
   datePublished?: string;
   dateModified?: string;
-  /** When provided, set Article.author to a Person reference instead of the Organization. */
-  authorPersonId?: string;
 }) {
   const now = new Date().toISOString();
   return {
@@ -185,85 +173,13 @@ export function articleJsonLd(params: {
     inLanguage: "he-IL",
     datePublished: params.datePublished ?? "2026-04-15",
     dateModified: params.dateModified ?? now.slice(0, 10),
-    author: params.authorPersonId
-      ? { "@id": params.authorPersonId }
-      : { "@id": `${site.url}/#organization` },
+    author: { "@id": `${site.url}/#organization` },
     publisher: { "@id": `${site.url}/#organization` },
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": params.url.startsWith("http") ? params.url : `${site.url}${params.url}`,
     },
     image: `${site.url}${site.ogImage}`,
-  };
-}
-
-/**
- * Person schema for Ofek Mazor - founder & CEO of Hithadshut.
- * Positions him as a developer / project manager in urban renewal +
- * protected-room construction. `sameAs` left empty until Ofek supplies
- * authoritative social URLs (B-030).
- */
-export function ofekPersonJsonLd() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "@id": OFEK_PERSON_ID,
-    name: "אופק מזור",
-    givenName: "אופק",
-    familyName: "מזור",
-    jobTitle: "מנכ״ל ומייסד, מתווך מקרקעין מוסמך",
-    hasCredential: {
-      "@type": "EducationalOccupationalCredential",
-      credentialCategory: "רישיון תיווך מקרקעין",
-      recognizedBy: { "@type": "GovernmentOrganization", name: "משרד המשפטים, רשם המתווכים" },
-      identifier: "3246290",
-    },
-    worksFor: { "@id": `${site.url}/#organization` },
-    url: `${site.url}/about/ofek-mazor`,
-    image: `${site.url}/ofek-mazor.jpg`,
-    telephone: site.phoneE164,
-    email: site.email,
-    knowsLanguage: ["he", "en"],
-    knowsAbout: [
-      "בניית ממ״ד",
-      "מיגון חדר קיים",
-      "תקן פיקוד העורף",
-      "ניהול פרויקטי בנייה",
-      "התחדשות עירונית",
-      "פינוי בינוי",
-      "תמ״א 38",
-      "חלופת שקד",
-      "בנייה פרטית",
-      "ירושה בפינוי בינוי",
-      "זכויות קשישים בפינוי בינוי",
-    ],
-    sameAs: [],
-  };
-}
-
-/**
- * ImageObject schema for the Ofek Mazor portrait. Strengthens E-E-A-T
- * by giving the author photo a structured, citable record. Linked from
- * /about/ofek-mazor and (via @id) by Person/Organization schemas.
- */
-export function ofekImageJsonLd() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "ImageObject",
-    "@id": `${site.url}/ofek-mazor.jpg#image`,
-    contentUrl: `${site.url}/ofek-mazor.jpg`,
-    url: `${site.url}/ofek-mazor.jpg`,
-    caption: "אופק מזור, מנכ״ל ומייסד התחדשות בינוי ויזמות",
-    description:
-      "תמונת פרופיל של אופק מזור, מנכ״ל ומייסד התחדשות בינוי ויזמות.",
-    creator: {
-      "@type": "Organization",
-      name: "התחדשות בינוי ויזמות",
-      url: site.url,
-    },
-    copyrightYear: "2026",
-    license: `${site.url}/about/ofek-mazor`,
-    representativeOfPage: true,
   };
 }
 

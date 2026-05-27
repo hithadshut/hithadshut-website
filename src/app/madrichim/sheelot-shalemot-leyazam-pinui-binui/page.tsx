@@ -95,7 +95,7 @@ export default function Page() {
         <Reveal>
           <div className="max-w-3xl">
             <div className="mb-5">
-              <Byline author="ofek-mazor" dateModified={MODIFIED_DATE} />
+              <Byline author="hithadshut-team" dateModified={MODIFIED_DATE} />
             </div>
             <div className="rounded-2xl border-2 border-[var(--color-accent)]/30 bg-[var(--color-soft)] p-6 md:p-7 mb-6">
               <div className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-[var(--color-accent-dark)] mb-3">

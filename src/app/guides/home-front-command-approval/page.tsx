@@ -15,8 +15,6 @@ import KeyStats from "@/components/KeyStats";
 import { buildMetadata } from "@/lib/metadata";
 import {
   articleJsonLd,
-  ofekPersonJsonLd,
-  OFEK_PERSON_ID,
 } from "@/lib/schema";
 
 const DATE_PUBLISHED = "2026-04-15";
@@ -93,9 +91,7 @@ export default function Page() {
             url: PATH,
             datePublished: DATE_PUBLISHED,
             dateModified: DATE_MODIFIED,
-            authorPersonId: OFEK_PERSON_ID,
           }),
-          ofekPersonJsonLd(),
         ]}
       />
 
@@ -110,7 +106,7 @@ export default function Page() {
 
       <Section tone="white">
         <div className="flex flex-wrap justify-center items-center gap-3">
-          <Byline author="ofek-mazor" dateModified={DATE_MODIFIED} />
+          <Byline author="hithadshut-team" dateModified={DATE_MODIFIED} />
           <ReadingTimeBadge words={WORD_COUNT} />
         </div>
       </Section>

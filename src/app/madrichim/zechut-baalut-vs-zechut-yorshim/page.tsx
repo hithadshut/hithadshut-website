@@ -94,7 +94,7 @@ export default function Page() {
         <Reveal>
           <div className="max-w-3xl">
             <div className="mb-5">
-              <Byline author="ofek-mazor" dateModified={MODIFIED_DATE} />
+              <Byline author="hithadshut-team" dateModified={MODIFIED_DATE} />
             </div>
             <p className="text-[17px] text-[var(--color-ink)] leading-8">
               ההבחנה בין זכות בעלות לזכות יורשים היא יסוד משפטי שמשפיע באופן מהותי על כל החלטה בפרויקט פינוי בינוי. בעלות היא זכות מלאה ועכשווית בנכס. זכות יורשים היא זכות עתידית שתחול רק אחרי הפטירה. ההבחנה הזאת משפיעה על מי יכול לחתום על הסכמים, מי זכאי לתמורה, ומי נושא בחבות מס. מאמר זה מסביר את ההבחנה, מציג את ההשלכות בפרויקט פינוי בינוי, ומפרט מה לעגן בהסכם להגנת היורשים. למידע מקיף על ירושה ראו את המדריך על{" "}

@@ -3,10 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import Section, { Prose } from "@/components/Section";
+import FAQ from "@/components/FAQ";
 import Reveal from "@/components/Reveal";
 import JsonLd from "@/components/JsonLd";
 import SchemaBreadcrumb from "@/components/schema/breadcrumb";
-import { ofekPersonJsonLd, ofekImageJsonLd, organizationJsonLd } from "@/lib/schema";
+import { organizationJsonLd, type FaqItem } from "@/lib/schema";
 import { buildMetadata } from "@/lib/metadata";
 import { site } from "@/lib/site";
 import { PRICING } from "@/lib/data/pricing";
@@ -14,9 +15,9 @@ import { PRICING } from "@/lib/data/pricing";
 const fmt = (n: number) => n.toLocaleString("en-US");
 
 const PATH = "/press";
-const TITLE = "ערכת עיתונאים | התחדשות בינוי ויזמות";
+const TITLE = "ערכת תקשורת | התחדשות";
 const DESCRIPTION =
-  "ביו, תמונות, לוגו, ציטוטים מוכנים ונתוני שוק מאומתים. כל מה שעיתונאי צריך לכתוב על נישת ממ״ד והתחדשות עירונית בישראל.";
+  "ערכת תקשורת של התחדשות בינוי ויזמות: על החברה, תחומי התמחות, ציטוטים מוכנים, נתוני שוק מאומתים, לוגו להורדה ויצירת קשר לעיתונאים.";
 
 export const metadata: Metadata = buildMetadata({
   title: TITLE,
@@ -112,26 +113,56 @@ const ASSET_FILES = [
   { label: "לוגו רק אייקון (PNG)", href: "/logo-icon-only.png", note: "ל-avatar ולסושיאל" },
   { label: "לוגו אופקי במקור (1314×380)", href: "/logo-horizontal.png", note: "לעריכה גרפית" },
   { label: "אייקון 512×512", href: "/icon-512.png", note: "ל-PWA / icons" },
-  { label: "תמונת אופק מזור", href: "/ofek-mazor.jpg", note: "לפרסום ולציטוטים" },
+  { label: "תמונת מותג (OG, 1200×630)", href: "/og-image.jpg", note: "לכותרת כתבה ולסושיאל" },
+];
+
+const TOPICS = [
+  "מחיר ממ״ד 2026: מה כולל המחיר ומה לא",
+  "ההבדל בין ממ״ד תקני לשיפור מיגון",
+  "מסלול פטור מהיתר (סעיף 30ב׳)",
+  "אישורי פיקוד העורף: תהליך והתנהלות",
+  "תקני 4422, 4570, 4577: מה דורש כל אחד",
+  "בחירת קבלן ממ״ד: דגלים אדומים וירוקים",
+  "ממ״ד יביל: מתי כן ומתי לא",
+  "פוקעת תמ״א 38 במאי 2026: מה דייר עושה",
+  "חלופת שקד מול תמ״א 38",
+  "פינוי בינוי: חוק 67% וההשלכות",
+  "זכויות קשישים בפינוי בינוי (גיל 70+ ו-75+)",
+  "ירושה ומיסוי בפינוי בינוי",
+  "ערבויות בנקאיות וערבויות חוק מכר",
+  "דייר סרבן: תהליך משפטי והגנות",
+];
+
+const pressFaqs: FaqItem[] = [
+  {
+    q: "מי דובר התחדשות לתקשורת?",
+    a: "דובר רשמי מטעם החברה מטפל בכל פנייה לתקשורת. ניתן לפנות בטלפון, באימייל או בוואטסאפ דרך הקישורים בעמוד זה, ונחזיר תשובה תוך שעות בשעות העבודה.",
+  },
+  {
+    q: "כמה זמן לוקח לקבל תגובה?",
+    a: "בשעות העבודה (א׳-ה׳ עד 19:00, ו׳ עד 13:00) אנחנו מתחייבים לתגובה תוך 4 שעות. לפניות דחופות בערבים או בסופי שבוע ניתן לפנות בוואטסאפ עם ציון דחיפות.",
+  },
+  {
+    q: "האם הנתונים בערכת התקשורת ניתנים לציטוט?",
+    a: "כל הנתונים והציטוטים בעמוד זה מאומתים וניתנים לציטוט ישיר בייחוס \"התחדשות בינוי ויזמות\". לקבלת מקור מלא או מסמך רקע על נתון ספציפי, צרו קשר.",
+  },
+  {
+    q: "האם ניתן לקבל סיור באתר עבודה?",
+    a: "כן, בכפוף לזמינות פרויקט פעיל ולאישור הלקוח. תיאום סיור באתר עבודה מתבצע מראש, וכולל הסבר טכני על שלב הביצוע, רכיבים בולטים והקשר רגולטורי.",
+  },
 ];
 
 export default function Page() {
   return (
     <>
-      <SchemaBreadcrumb items={[{ name: "ערכת עיתונאים", url: PATH }]} />
-      <JsonLd
-        data={[
-          organizationJsonLd(),
-          ofekPersonJsonLd(),
-          ofekImageJsonLd(),
-        ]}
-      />
+      <SchemaBreadcrumb items={[{ name: "ערכת תקשורת", url: PATH }]} />
+      <JsonLd data={organizationJsonLd()} />
 
       <PageHero
         eyebrow="Press Kit"
-        title="ערכת עיתונאים | התחדשות בינוי ויזמות"
-        subtitle="ביו, תמונות, לוגו, ציטוטים מוכנים ונתוני שוק מאומתים. כל מה שעיתונאי צריך לכתבה על נישת ממ״ד והתחדשות עירונית בישראל."
-        crumbs={[{ name: "ערכת עיתונאים", href: PATH }]}
+        title="ערכת תקשורת | התחדשות"
+        subtitle="כל מה שעיתונאי צריך לכתבה על נישת ממ״ד והתחדשות עירונית בישראל. ביו חברה, תחומי התמחות, ציטוטים מוכנים ונתוני שוק מאומתים."
+        crumbs={[{ name: "ערכת תקשורת", href: PATH }]}
       />
 
       {/* Quick contact */}
@@ -140,7 +171,7 @@ export default function Page() {
           <div className="max-w-3xl">
             <div className="h-1 w-16 gold-line mb-5" />
             <h2 className="text-2xl md:text-3xl font-black text-[var(--color-primary)] mb-5">
-              יצירת קשר ישיר
+              יצירת קשר לעיתונאים
             </h2>
             <div className="grid md:grid-cols-3 gap-4">
               <a
@@ -174,47 +205,47 @@ export default function Page() {
         </Reveal>
       </Section>
 
-      {/* Bio */}
+      {/* About the company */}
       <Section tone="soft">
         <div className="max-w-4xl mx-auto">
           <Reveal>
-            <div className="grid md:grid-cols-[200px_minmax(0,1fr)] gap-8 items-start">
-              <figure className="rounded-2xl overflow-hidden ring-1 ring-[var(--color-accent)]/30 bg-white">
+            <div className="grid md:grid-cols-[260px_minmax(0,1fr)] gap-8 items-start">
+              <figure className="rounded-2xl overflow-hidden ring-1 ring-[var(--color-accent)]/30 bg-white p-6 flex items-center justify-center">
                 <Image
-                  src="/ofek-mazor.jpg"
-                  alt="אופק מזור, מנכ״ל ומייסד התחדשות בינוי ויזמות"
-                  width={400}
-                  height={500}
-                  sizes="200px"
+                  src="/logo-full-vertical.png"
+                  alt="התחדשות בינוי ויזמות, לוגו"
+                  width={876}
+                  height={918}
+                  sizes="260px"
                   className="w-full h-auto"
                 />
               </figure>
               <div>
                 <div className="h-1 w-16 gold-line mb-5" />
                 <h2 className="text-2xl md:text-3xl font-black text-[var(--color-primary)] mb-2">
-                  אופק מזור
+                  על התחדשות
                 </h2>
                 <div className="text-sm text-[var(--color-muted)] mb-5 font-medium">
-                  מנכ״ל ומייסד · מתווך מקרקעין מוסמך, רישיון 3246290
+                  חברת בינוי ויזמות · בניית ממ״ד והתחדשות עירונית
                 </div>
                 <Prose>
                   <p>
-                    <strong>ביו קצר (40 מילים):</strong> אופק מזור הוא מנכ״ל ומייסד
-                    התחדשות בינוי ויזמות, חברת בנייה לממ״דים ומלווה דיירים בהתחדשות
-                    עירונית. מתווך מקרקעין מוסמך (רישיון 3246290), מומחה לבניית
-                    ממ״ד תקני, פינוי בינוי וחלופת שקד.
+                    <strong>תיאור קצר (40 מילים):</strong> התחדשות בינוי ויזמות היא חברת
+                    בנייה ישראלית שמתמחה בבניית ממ״ד תקני, שיפור מיגון, בנייה פרטית, ובהתחדשות
+                    עירונית (פינוי בינוי, תמ״א 38, חלופת שקד). חוזה אחד מקצה לקצה, בלי קבלני
+                    משנה אנונימיים.
                   </p>
                   <p>
-                    <strong>ביו ארוך (120 מילים):</strong> אופק מזור הוא מנכ״ל ומייסד
-                    חברת התחדשות בינוי ויזמות, חברת בנייה ישראלית שמתמחה בבניית
-                    ממ״דים תקניים, מיגון פרטי, בנייה פרטית ושיפוצים, ומלווה דיירים
-                    בהתחדשות עירונית: פינוי בינוי, חלופת שקד ותמ״א 38. בעל רישיון
-                    תיווך מקרקעין מוסמך (3246290) שהוצא על ידי משרד המשפטים. אופק
-                    מנהל אישית כל פרויקט מהשיחה הראשונה ועד מסירת המפתחות, וזמין
-                    לעיתונאים לתת זווית מקצועית, נתון מאומת, או דוגמה מהשטח על כל
-                    נושא בנישה: מחיר ממ״ד 2026, מסלול פטור מהיתר, זכויות דיירים
-                    קשישים בפינוי בינוי, פוקעת תמ״א 38, וההבדל בין הפתרונות שפיקוד
-                    העורף מאשר לבית פרטי במרכז הארץ.
+                    <strong>תיאור ארוך (120 מילים):</strong> התחדשות בינוי ויזמות היא חברת
+                    בנייה ישראלית שמלווה בעלי דירות ובתים בהחלטות הבנייה הגדולות של חייהם:
+                    בניית ממ״ד תקני, שיפור מיגון, בנייה פרטית, שיפוצים מקיפים, הרחבות
+                    ותוספות בנייה, ופרויקטי התחדשות עירונית (פינוי בינוי, חלופת שקד ותמ״א 38).
+                    הליבה המקצועית של החברה היא בניית ממ״ד לפי תקני פיקוד העורף, וההתמחות
+                    הזאת מאפשרת להעניק שירות אחד מקצה לקצה גם בפרויקטים שמשלבים בנייה ומיגון.
+                    החברה זמינה לעיתונאים לזווית מקצועית, נתון מאומת או דוגמה מהשטח על כל
+                    נושא בנישה: מחיר ממ״ד 2026, מסלול פטור מהיתר, זכויות דיירים קשישים בפינוי
+                    בינוי, פוקעת תמ״א 38, וההבדל בין הפתרונות שפיקוד העורף מאשר לבית פרטי
+                    במרכז הארץ.
                   </p>
                 </Prose>
               </div>
@@ -223,8 +254,84 @@ export default function Page() {
         </div>
       </Section>
 
-      {/* Quotes */}
+      {/* Specialty areas */}
       <Section tone="white">
+        <div className="max-w-4xl mx-auto">
+          <Reveal>
+            <div className="mb-8">
+              <div className="h-1 w-16 gold-line mb-5" />
+              <h2 className="text-2xl md:text-3xl font-black text-[var(--color-primary)] mb-3">
+                תחומי התמחות
+              </h2>
+              <p className="text-[var(--color-muted)] leading-relaxed">
+                ארבעה תחומי ידע שהחברה זמינה לדבר עליהם לתקשורת, עם מספרים, מקורות רגולטוריים
+                ודוגמאות מהשטח.
+              </p>
+            </div>
+          </Reveal>
+          <div className="grid md:grid-cols-2 gap-5">
+            <Reveal>
+              <article className="card-premium p-6">
+                <div className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[var(--color-accent-dark)] mb-2">
+                  הליבה
+                </div>
+                <h3 className="text-xl font-black text-[var(--color-primary)] mb-2">
+                  ממ״ד תקני ומיגון
+                </h3>
+                <p className="text-[var(--color-muted)] leading-relaxed">
+                  בניית ממ״דים לפי תקני פיקוד העורף, שיפור מיגון לחדרים קיימים, וממ״דים
+                  יבילים מאושרי פקע״ר. כולל מסלול הפטור (סעיף 30ב׳) שתקף עד אוקטובר 2026.
+                </p>
+              </article>
+            </Reveal>
+            <Reveal>
+              <article className="card-premium p-6">
+                <div className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[var(--color-accent-dark)] mb-2">
+                  התחדשות עירונית
+                </div>
+                <h3 className="text-xl font-black text-[var(--color-primary)] mb-2">
+                  פינוי בינוי
+                </h3>
+                <p className="text-[var(--color-muted)] leading-relaxed">
+                  ליווי דיירים בפרויקטי פינוי בינוי, הסבר חוק 67%, זכויות קשישים (גיל 70+
+                  ו-75+), מלכוד היורשים, וערבויות.
+                </p>
+              </article>
+            </Reveal>
+            <Reveal>
+              <article className="card-premium p-6">
+                <div className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[var(--color-accent-dark)] mb-2">
+                  תוכנית פוקעת
+                </div>
+                <h3 className="text-xl font-black text-[var(--color-primary)] mb-2">
+                  תמ״א 38
+                </h3>
+                <p className="text-[var(--color-muted)] leading-relaxed">
+                  פוקעת מאי 2026 ברוב הארץ. הבחנה בין 38/1 ו-38/2, מצב פרויקטים פעילים,
+                  ואלטרנטיבות עבור דיירים בלי היתר.
+                </p>
+              </article>
+            </Reveal>
+            <Reveal>
+              <article className="card-premium p-6">
+                <div className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[var(--color-accent-dark)] mb-2">
+                  המסלול החדש
+                </div>
+                <h3 className="text-xl font-black text-[var(--color-primary)] mb-2">
+                  חלופת שקד
+                </h3>
+                <p className="text-[var(--color-muted)] leading-relaxed">
+                  תיקון 139 לחוק התכנון והבנייה. המסלול שמחליף את תמ״א 38/2 בבניין יחיד,
+                  רף הסכמה 80%, וזכויות בנייה משופרות.
+                </p>
+              </article>
+            </Reveal>
+          </div>
+        </div>
+      </Section>
+
+      {/* Quotes */}
+      <Section tone="soft">
         <div className="max-w-4xl mx-auto">
           <Reveal>
             <div className="mb-8">
@@ -234,7 +341,7 @@ export default function Page() {
               </h2>
               <p className="text-[var(--color-muted)] leading-relaxed">
                 7 ציטוטים על הנושאים העיקריים בנישה. ניתן להשתמש כפי שהם או לקצר,
-                והמידע בכולם מאומת. המקור: אופק מזור, מנכ״ל התחדשות בינוי ויזמות.
+                והמידע בכולם מאומת. המקור: התחדשות בינוי ויזמות.
               </p>
             </div>
           </Reveal>
@@ -249,7 +356,7 @@ export default function Page() {
                     &ldquo;{q.quote}&rdquo;
                   </blockquote>
                   <div className="mt-3 text-sm text-[var(--color-muted)]">
-                    אופק מזור, מנכ״ל התחדשות בינוי ויזמות
+                    התחדשות בינוי ויזמות
                   </div>
                 </article>
               </Reveal>
@@ -259,13 +366,13 @@ export default function Page() {
       </Section>
 
       {/* Verified stats */}
-      <Section tone="soft">
+      <Section tone="white">
         <div className="max-w-5xl mx-auto">
           <Reveal>
             <div className="mb-8">
               <div className="h-1 w-16 gold-line mb-5" />
               <h2 className="text-2xl md:text-3xl font-black text-[var(--color-primary)] mb-3">
-                נתונים מאומתים
+                נתונים שניתן לצטט
               </h2>
               <p className="text-[var(--color-muted)] leading-relaxed">
                 שמונה נתונים שניתן לצטט ישירות בכתבה. כל נתון עם מקור. אם תרצו את
@@ -290,13 +397,13 @@ export default function Page() {
       </Section>
 
       {/* Asset downloads */}
-      <Section tone="white">
+      <Section tone="soft">
         <div className="max-w-4xl mx-auto">
           <Reveal>
             <div className="mb-8">
               <div className="h-1 w-16 gold-line mb-5" />
               <h2 className="text-2xl md:text-3xl font-black text-[var(--color-primary)] mb-3">
-                לוגו ותמונות להורדה
+                לוגו וויזואלים להורדה
               </h2>
               <p className="text-[var(--color-muted)] leading-relaxed">
                 כל הקבצים מאושרים לשימוש מערכתי בהקשר של כתבה על החברה או על
@@ -327,47 +434,41 @@ export default function Page() {
         </div>
       </Section>
 
-      {/* Topics Ofek covers */}
-      <Section tone="soft">
+      {/* Topics the company covers */}
+      <Section tone="white">
         <div className="max-w-4xl mx-auto">
           <Reveal>
             <div className="mb-8">
               <div className="h-1 w-16 gold-line mb-5" />
               <h2 className="text-2xl md:text-3xl font-black text-[var(--color-primary)] mb-3">
-                נושאים שאופק יכול לדבר עליהם
+                נושאים שאנחנו זמינים לראיון
               </h2>
             </div>
           </Reveal>
           <div className="grid md:grid-cols-2 gap-4">
             <ul className="space-y-2 text-[var(--color-ink)]">
-              <li>✓ מחיר ממ״ד 2026: מה כולל המחיר ומה לא</li>
-              <li>✓ ההבדל בין ממ״ד תקני לשיפור מיגון</li>
-              <li>✓ מסלול פטור מהיתר (סעיף 30ב׳)</li>
-              <li>✓ אישורי פיקוד העורף: תהליך והתנהלות</li>
-              <li>✓ תקני 4422, 4570, 4577: מה דורש כל אחד</li>
-              <li>✓ בחירת קבלן ממ״ד: דגלים אדומים וירוקים</li>
-              <li>✓ ממ״ד יביל: מתי כן ומתי לא</li>
+              {TOPICS.slice(0, 7).map((t) => (
+                <li key={t}>✓ {t}</li>
+              ))}
             </ul>
             <ul className="space-y-2 text-[var(--color-ink)]">
-              <li>✓ פוקעת תמ״א 38 במאי 2026: מה דייר עושה</li>
-              <li>✓ חלופת שקד מול תמ״א 38</li>
-              <li>✓ פינוי בינוי: חוק 67% וההשלכות</li>
-              <li>✓ זכויות קשישים בפינוי בינוי (גיל 70+ ו-75+)</li>
-              <li>✓ ירושה ומיסוי בפינוי בינוי</li>
-              <li>✓ ערבויות בנקאיות וערבויות חוק מכר</li>
-              <li>✓ דייר סרבן: תהליך משפטי והגנות</li>
+              {TOPICS.slice(7).map((t) => (
+                <li key={t}>✓ {t}</li>
+              ))}
             </ul>
           </div>
           <div className="mt-8 text-center">
             <Link
-              href="/about/ofek-mazor"
+              href="/about"
               className="inline-flex items-center gap-2 text-[var(--color-primary)] font-bold underline underline-offset-4 hover:text-[var(--color-accent-dark)]"
             >
-              קראו עוד על אופק מזור ←
+              קראו עוד על התחדשות ←
             </Link>
           </div>
         </div>
       </Section>
+
+      <FAQ items={pressFaqs} title="שאלות נפוצות מעיתונאים" />
     </>
   );
 }

@@ -74,7 +74,7 @@ All four templates ship with every page. Use these as the source of truth.
   "dateModified": "{{ page.lastUpdated }}",
   "author": {
     "@type": "Person",
-    "name": "אופק מזור",
+    "name": "צוות התחדשות",
     "jobTitle": "מנכ\"ל ומייסד, התחדשות בינוי ויזמות",
     "url": "https://hithadshut.co.il/odot"
   },
@@ -139,7 +139,7 @@ The FAQPage schema must mirror the visible FAQ exactly. Do not include questions
   "logo": "https://hithadshut.co.il/logo.png",
   "founder": {
     "@type": "Person",
-    "name": "אופק מזור",
+    "name": "צוות התחדשות",
     "jobTitle": "מנכ\"ל ומייסד"
   },
   "areaServed": "IL",
@@ -167,9 +167,9 @@ After implementing schema for any page, run mental validation against:
 - Schema must match visible content exactly. No invisible questions, no fabricated dates.
 - All `datePublished` and `dateModified` are ISO 8601 (`2026-05-02T00:00:00+03:00`).
 - All URLs are absolute, starting with `https://hithadshut.co.il/`.
-- Author always = Ofek Mazor unless specifically a guest post.
+- Author always = the company team unless specifically a guest post.
 
-If you cannot validate without external tooling, surface to Ofek: "Schema needs validation at https://validator.schema.org/ before merge."
+If you cannot validate without external tooling, surface to the operator: "Schema needs validation at https://validator.schema.org/ before merge."
 
 ---
 
@@ -238,7 +238,7 @@ To meet these:
 - No third-party scripts above-the-fold (analytics deferred).
 - WhatsApp button: lazy-loaded, not blocking.
 
-After every build, surface the Lighthouse score to Ofek if available locally. Otherwise note: "Lighthouse not run; verify on Vercel deploy preview."
+After every build, surface the Lighthouse score to the operator if available locally. Otherwise note: "Lighthouse not run; verify on Vercel deploy preview."
 
 ---
 
@@ -248,7 +248,7 @@ The lead form is the highest-value asset on the site. Build with care.
 
 - Two fields only on primary form: name + phone. Email optional.
 - No "service type" required dropdown — that's friction.
-- Server action posts to Resend → forwards to Ofek's inbox.
+- Server action posts to Resend → forwards to the operator's inbox.
 - Success state: thank-you message + WhatsApp deep link as fallback CTA.
 - Failure state: explicit error + WhatsApp link + phone number.
 - Honeypot for spam prevention. No CAPTCHA (alienates older audience).

@@ -86,7 +86,7 @@ export default function Page() {
         <Reveal>
           <div className="max-w-3xl">
             <div className="mb-5">
-              <Byline author="ofek-mazor" dateModified={MODIFIED_DATE} />
+              <Byline author="hithadshut-team" dateModified={MODIFIED_DATE} />
             </div>
             <p className="text-[17px] text-[var(--color-ink)] leading-8">
               תמ״א 38 היא תוכנית מתאר ארצית שאושרה בישראל בשנת 2005, שמטרתה הייתה חיזוק מבנים ישנים מפני רעידות אדמה. במהלך השנים התוכנית הוארכה מספר פעמים, ופוקעת סופית במאי 2026 ברוב הארץ. פרויקטים שכבר קיבלו היתר בנייה ממשיכים, אך פרויקטים שלא צריכים מסלול חלופי כמו{" "}

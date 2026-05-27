@@ -11,7 +11,7 @@ import Link from "next/link";
  * The "מהנדס קונסטרוקציה רשום" pillar makes a process claim (every project
  * goes through a registered structural engineer) rather than naming a
  * specific engineer - a specific name + license is parked under BLOCKERS
- * (B-022) until Ofek supplies them.
+ * (B-022) until the operator supplies them.
  */
 type Pillar = {
   title: string;

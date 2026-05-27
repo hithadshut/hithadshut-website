@@ -86,7 +86,7 @@ export default function HashvaaHubPage() {
           </Reveal>
           <Reveal delay={0.1}>
             <div className="mt-4">
-              <Byline author="ofek-mazor" dateModified={MODIFIED_DATE} />
+              <Byline author="hithadshut-team" dateModified={MODIFIED_DATE} />
             </div>
           </Reveal>
         </div>
@@ -119,7 +119,7 @@ export default function HashvaaHubPage() {
 
       <InlineLeadForm
         title="לא בטוחים איזה מסלול מתאים לבניין שלכם?"
-        subtitle="השאירו פרטים ואופק יחזור אליכם עם המלצה."
+        subtitle="השאירו פרטים ונחזור אליכם עם המלצה."
       />
 
       <RelatedLinks

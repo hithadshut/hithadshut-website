@@ -7,8 +7,8 @@ type TrustBlockProps = {
   publishedDate: string;
   /** ISO 8601 date the page was last updated. */
   modifiedDate: string;
-  /** Author identifier. Currently only "ofek-mazor" is supported. */
-  author?: "ofek-mazor";
+  /** Author identifier. Currently the company byline is the only option. */
+  author?: "hithadshut-team";
   /** Override the legal disclaimer text. Pass `false` to suppress entirely. */
   disclaimer?: string | false;
   /** Optional link to a regulatory source cited in the page body. */
@@ -38,7 +38,7 @@ function formatIsoToHebrew(iso: string): string {
 export default function TrustBlock({
   publishedDate,
   modifiedDate,
-  author = "ofek-mazor",
+  author = "hithadshut-team",
   disclaimer = DEFAULT_DISCLAIMER,
   source,
   className = "",

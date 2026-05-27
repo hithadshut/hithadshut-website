@@ -21,13 +21,13 @@ Before writing any code, gather:
    - Comparison (X vs Y)
 4. **Primary keyword.** Single Hebrew phrase, 1–4 words.
 5. **Secondary keywords.** 3–7 long-tail variants.
-6. **The H1** (you may propose, Ofek confirms).
+6. **The H1** (you may propose, the operator confirms).
 7. **The opening direct-answer paragraph (50–100 words).** This is the AI-extraction chunk. Critical.
 8. **The 5–10 FAQ questions** (in natural Hebrew search phrasing).
 9. **3–5 internal links to add** to existing pages on the site.
 10. **1+ outbound link** to an official source (gov.il / oref.org.il / kolzchut / nevo / taxes.gov.il).
 
-If any of 4–10 are missing, do not invent them. Stop and ask Ofek.
+If any of 4–10 are missing, do not invent them. Stop and ask the operator.
 
 ## Workflow
 
@@ -134,11 +134,11 @@ Notes on the components:
   `includeSchema` is true the FAQ component injects FAQPage JSON-LD that
   exactly mirrors the visible questions. Pages that already emit FAQ
   schema separately via `faqJsonLd(faqs)` should pass `includeSchema={false}`.
-- `TrustBlock` defaults `author="ofek-mazor"`. Pass `disclaimer={false}` to
+- `TrustBlock` defaults `author="hithadshut-team"`. Pass `disclaimer={false}` to
   suppress the legal disclaimer; pass a `source={{ label, url }}` to surface
   the page's primary regulatory citation in the trust strip.
-- `SchemaArticle` author is hard-coded to Ofek Mazor (anchored to the
-  Person node on /about/ofek-mazor); publisher is the legal entity from
+- `SchemaArticle` author is hard-coded to the company team (anchored to the
+  Person node on /about); publisher is the legal entity from
   `lib/site.ts`. Override only if you are intentionally publishing a
   guest post.
 - `SchemaBreadcrumb` automatically prepends the homepage as position 1 —
@@ -167,7 +167,7 @@ In `/data/internal-links.ts`:
 1. Add 3–5 outbound entries (`fromUrl: thisNewPage`).
 2. Identify 2–3 existing pages that should link to this new page. For each, either:
    - Edit those pages directly to add the inline link, OR
-   - Surface to Ofek: "These existing pages should be updated to link to the new page: [list]. Edit them now or queue for next session?"
+   - surface to the operator: "These existing pages should be updated to link to the new page: [list]. Edit them now or queue for next session?"
 
 ### Step 7 — Add to sitemap
 
@@ -189,7 +189,7 @@ Run the full self-audit from seo-content.md section 11. Output the result as a c
 ✅ All regulatory facts verified or flagged [טעון אימות]
 ✅ No banned phrases
 ✅ Schema valid JSON
-⚠️ Items needing Ofek review: [list]
+⚠️ Items needing the operator review: [list]
 ```
 
 ### Step 9 — Build verification
@@ -204,7 +204,7 @@ Surface results. Do not declare done until all pass.
 
 ### Step 10 — Final report
 
-Report to Ofek with:
+Report to the operator with:
 - Path of the new page.
 - Word count.
 - List of items flagged `[טעון אימות]` if any.

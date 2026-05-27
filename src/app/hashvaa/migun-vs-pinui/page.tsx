@@ -94,7 +94,7 @@ export default function Page() {
         <Reveal>
           <div className="max-w-3xl">
             <div className="mb-5">
-              <Byline author="ofek-mazor" dateModified={MODIFIED_DATE} />
+              <Byline author="hithadshut-team" dateModified={MODIFIED_DATE} />
             </div>
             <p className="text-[17px] text-[var(--color-ink)] leading-8">
               שיפור מיגון ופינוי בינוי הם שתי גישות שונות לחלוטין לשיפור הבית: האחת היא חיזוק חדר קיים בדירה לרמת הגנה משופרת, השנייה היא הריסת הבניין כולו ובניית מתחם חדש. הבחירה ביניהן תלויה בגודל המתחם, במצב הבניין, בתקציב הזמין, ובאופק הזמן של הדיירים. מדריך זה משווה בין השניים, מציג מסגרת החלטה לפי גיל ובניין, ומסייע לבעלי דירה להחליט. ההבחנה חשובה במיוחד לבעלי בניינים ישנים שצריכים להחליט בין פתרון מהיר לפתרון ארוך טווח.

@@ -14,10 +14,10 @@
 - [P0] [TODO] Populate KEYWORD_MAP.md (60+ terms)
 - [P0] [TODO] Populate CONTENT_GUARDRAILS.md (verified facts only)
 - [P0] [TODO] Populate MONEY_PAGES.md, AREA_PAGES.md, SCHEMA_MAP.md, INTERNAL_LINKING.md
-- [P1] [BLOCKED-on-Ofek] Document GA4 + GSC + Bing Webmaster integration steps in BLOCKERS
+- [P1] [BLOCKED-on-the operator] Document GA4 + GSC + Bing Webmaster integration steps in BLOCKERS
 
 ## Week 2 — E-E-A-T Layer 1
-- [P1] [DONE 2026-04-30] Create `/about/ofek-mazor` page with bio + Person schema (broker license framing removed 2026-05-03 per strategic positioning shift)
+- [P1] [DONE 2026-04-30] Create `/about` page with bio + Person schema (broker license framing removed 2026-05-03 per strategic positioning shift)
 - [P1] [TODO] Add byline+dateModified to every `/guides/*` page (collective Byline already exists; switch to attributed when bio live)
 - [P1] [TODO] Article schema on every guide (author/datePublished/dateModified/image)
 - [P1] [TODO] Trust Strip below hero on home: 4 trust pillars (PCR / Engineer / Registered Contractor / Licensed Realtor)
@@ -30,7 +30,7 @@
 - [P2] [TODO] Quick Answer also on top of services + areas pages
 
 ## Week 4 — Local SEO Push
-- [P1] [BLOCKED-on-Ofek] GBP setup (categories: Home builder + General contractor + Concrete contractor)
+- [P1] [BLOCKED-on-the operator] GBP setup (categories: Home builder + General contractor + Concrete contractor)
 - [P1] [TODO] LocalBusiness schema injected on home page (alongside Organization + WebSite)
 - [P1] [TODO] Givatayim area page rewrite as model — neighborhoods, ועדה גבעתיים-רמת-גן, תב״ע, anonymous case
 - [P2] [TODO] Replicate Givatayim model to next-priority cities (Modiin, Ramat Gan, Herzliya, Raanana, Kfar Saba)
@@ -46,11 +46,11 @@
 - [P2] [TODO] Listicle layout for /guides/mamad-mistakes + choosing-mamad-contractor
 
 ## Week 7 — Visual Authenticity
-- [P2] [BLOCKED-on-Ofek] Real project photos (5-15 projects, before/during/after)
+- [P2] [BLOCKED-on-the operator] Real project photos (5-15 projects, before/during/after)
 - [P2] [TODO] /projects route with ImageObject schema (skeleton ready, populate when photos arrive)
 
 ## Week 8 — Reviews & Social Proof
-- [P2] [BLOCKED-on-Ofek] Real reviews (5-10 written, with consent)
+- [P2] [BLOCKED-on-the operator] Real reviews (5-10 written, with consent)
 - [P2] [TODO] /reviews route + Review schema (skeleton)
 - [P2] [TODO] GBP review CTA on /contact (after GBP verified)
 
@@ -65,8 +65,8 @@
 - [P2] [TODO] /guides/mamad-air-filter-system (1500+ words)
 
 ## Week 11 — Off-site Authority
-- [P2] [BLOCKED-on-Ofek] Wikipedia "מרחב מוגן דירתי" entry improvement (no self-link)
-- [P2] [BLOCKED-on-Ofek] Business directory listings (B144, Zap, Dapei Zahav) — needs Ofek's NAP confirmation
+- [P2] [BLOCKED-on-the operator] Wikipedia "מרחב מוגן דירתי" entry improvement (no self-link)
+- [P2] [BLOCKED-on-the operator] Business directory listings (B144, Zap, Dapei Zahav) — needs the operator's NAP confirmation
 - [P3] [TODO] GEO baseline test: query 10 core terms in ChatGPT/Perplexity/Gemini/AIO
 
 ## Week 12 — Iteration

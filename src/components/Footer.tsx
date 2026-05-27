@@ -198,9 +198,6 @@ export default function Footer() {
 
       <div className="relative border-t border-white/10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-5 flex flex-col items-center gap-3 text-xs text-white/60">
-          <div className="text-center text-white/75 font-medium">
-            אופק מזור, מתווך מקרקעין מוסמך, רישיון 3246290
-          </div>
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 w-full">
             <div>© {new Date().getFullYear()} התחדשות בינוי ויזמות. כל הזכויות שמורות.</div>
             <div>אתר זה אינו מהווה ייעוץ הנדסי או משפטי. כל החלטה דורשת בדיקה פרטנית.</div>

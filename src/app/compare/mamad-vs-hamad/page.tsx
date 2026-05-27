@@ -94,7 +94,7 @@ export default function Page() {
         <Reveal>
           <div className="max-w-3xl">
             <div className="mb-5">
-              <Byline author="ofek-mazor" dateModified={MODIFIED_DATE} />
+              <Byline author="hithadshut-team" dateModified={MODIFIED_DATE} />
             </div>
             <p className="text-[17px] text-[var(--color-ink)] leading-8">
               <strong>ממ״ד</strong> הוא מרחב מוגן דירתי תקני לפי{" "}
@@ -499,7 +499,7 @@ export default function Page() {
       <TrustBlock
         publishedDate={PUBLISHED_DATE}
         modifiedDate={MODIFIED_DATE}
-        author="ofek-mazor"
+        author="hithadshut-team"
         source={{ label: "פיקוד העורף, תקן 4422", url: "https://www.oref.org.il" }}
       />
 

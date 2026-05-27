@@ -35,7 +35,7 @@
 ✗ 120 צמדים → noindex כברירת מחדל. זה כוונת מכוון — `INDEXABLE_GEO_PAIRS` ריק עד קידום ידני.
 
 ### `src/app/sitemap.ts`
-✓ Home, Contact, Services, Guides, Compares, Areas (לא noindex), Projects, About, About/Ofek, Legal — כולם בסייטמאפ.
+✓ Home, Contact, Services, Guides, Compares, Areas (לא noindex), Projects, About, About/the operator, Legal — כולם בסייטמאפ.
 ✓ 8 מדריכים בסייטמאפ (5 מקור + 3 חדשים).
 ✓ city×service מסונן לפי allowlist (אפס כעת).
 

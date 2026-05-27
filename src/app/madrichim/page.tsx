@@ -13,7 +13,7 @@ import { buildMetadata } from "@/lib/metadata";
 const PATH = "/madrichim";
 const TITLE = "מדריכי התחדשות עירונית וממ״ד 2026 | התחדשות בינוי ויזמות";
 const DESCRIPTION =
-  "מדריכים מקצועיים לבעלי דירות: פינוי בינוי, תמ״א 38, ערבויות, מיסוי, בחירת יזם, ממ״ד ומיגון. מידע עדכני 2026 מאופק מזור, מנכ״ל התחדשות.";
+  "מדריכים מקצועיים לבעלי דירות: פינוי בינוי, תמ״א 38, ערבויות, מיסוי, בחירת יזם, ממ״ד ומיגון. מידע עדכני 2026 מצוות התחדשות בינוי ויזמות.";
 const MODIFIED_DATE = "2026-05-11";
 
 export const metadata: Metadata = buildMetadata({
@@ -162,7 +162,7 @@ export default function MadrichimHub() {
               על ניסיון שטח ועל מקורות רשמיים, ומעודכן לשנת 2026.
             </p>
             <div className="mt-5">
-              <Byline author="ofek-mazor" dateModified={MODIFIED_DATE} />
+              <Byline author="hithadshut-team" dateModified={MODIFIED_DATE} />
             </div>
           </div>
         </Reveal>
@@ -206,7 +206,7 @@ export default function MadrichimHub() {
       {/* CTA */}
       <InlineLeadForm
         title="רוצים ליווי אישי בתהליך?"
-        subtitle="השאירו פרטים ואופק יחזור אליכם תוך שעות."
+        subtitle="השאירו פרטים ונחזור אליכם תוך שעות."
         prioritizeUrbanRenewal
       />
 

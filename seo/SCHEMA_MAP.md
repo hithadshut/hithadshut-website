@@ -8,9 +8,9 @@
 
 | URL | Schemas | Source | Validated |
 |---|---|---|---|
-| / | Organization, WebSite, Person (Ofek inline via FounderSection) | layout.tsx + components | needs Rich Results Test |
+| / | Organization, WebSite, Person (the operator inline via FounderSection) | layout.tsx + components | needs Rich Results Test |
 | /about | Organization | per-page | OK |
-| /about/ofek-mazor | Organization, Person, BreadcrumbList | W2 new page | needs RR Test |
+| /about | Organization, Person, BreadcrumbList | W2 new page | needs RR Test |
 | /services/* | Service, BreadcrumbList, FAQPage | ServicePageLayout (FAQ default emits FAQPage) | needs validation |
 | /guides/mamad-cost | Article(author=Person), Person, BreadcrumbList, FAQPage | per-page | needs validation |
 | /guides/mamad-process | Article(author=Person), Person, HowTo, FAQPage (via FAQ default) | per-page | needs validation |
@@ -31,8 +31,8 @@
 ## Planned (by week)
 
 ### W2
-- [ ] Person schema on /about/ofek-mazor (with sameAs once Ofek confirms social URLs)
-- [ ] Article author switch from collective (`#organization`) to Person (`#ofek-mazor`) on guides
+- [ ] Person schema on /about (with sameAs once the operator confirms social URLs)
+- [ ] Article author switch from collective (`#organization`) to Person (`#hithadshut-team`) on guides
 
 ### W3
 - [ ] Audit FAQPage emission on every page that visually shows FAQ (use Rich Results Test on each)

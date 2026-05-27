@@ -86,7 +86,7 @@ export default function Page() {
         <Reveal>
           <div className="max-w-3xl">
             <div className="mb-5">
-              <Byline author="ofek-mazor" dateModified={MODIFIED_DATE} />
+              <Byline author="hithadshut-team" dateModified={MODIFIED_DATE} />
             </div>
             <p className="text-[17px] text-[var(--color-ink)] leading-8">
               חלופת שקד היא מסלול התחדשות עירונית חדש שנכנס לתוקף עם תיקון 139 לחוק התכנון והבנייה. המסלול מאפשר חיזוק או הריסה ובנייה מחדש של בניין יחיד עם תוספת זכויות בנייה משמעותית, עד 400% משטח הבניין הקיים בתנאים מסוימים. הרוב הנדרש: 80% מבעלי הדירות. חלופת שקד מחליפה במידה רבה את{" "}

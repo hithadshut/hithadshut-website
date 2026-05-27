@@ -93,7 +93,7 @@ export default function Page() {
         <Reveal>
           <div className="max-w-3xl">
             <div className="mb-5">
-              <Byline author="ofek-mazor" dateModified={MODIFIED_DATE} />
+              <Byline author="hithadshut-team" dateModified={MODIFIED_DATE} />
             </div>
             <p className="text-[17px] text-[var(--color-ink)] leading-8">
               בחירת יזם בפינוי בינוי היא ההחלטה הקריטית של הפרויקט. במאמר זה אנחנו מציגים 10 שאלות מובנות שכל דייר חייב לשאול לפני חתימה, עם ניתוח עומק של כל שאלה, מה התשובה הראויה, ואילו דגלים אדומים לחפש בתשובת היזם. המאמר מרחיב את 12 השאלות הבסיסיות שמופיעות במדריך על{" "}

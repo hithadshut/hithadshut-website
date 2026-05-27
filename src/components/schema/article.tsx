@@ -29,9 +29,9 @@ function absoluteUrl(input: string): string {
 }
 
 /**
- * Canonical Article schema, per technical.md §4.1. Author is always Ofek
- * Mazor (anchored to the Person node on /about/ofek-mazor). Publisher is
- * the legal entity defined in lib/site.ts.
+ * Canonical Article schema, per technical.md §4.1. Author and publisher
+ * are both the Organization (defined sitewide in lib/schema.ts). The
+ * site speaks with one institutional voice.
  */
 export default function SchemaArticle({
   headline,
@@ -53,30 +53,18 @@ export default function SchemaArticle({
     lastReviewedDate: reviewed,
     ...(imageUrl ? { image: absoluteUrl(imageUrl) } : {}),
     author: {
-      "@type": "Person",
-      "@id": `${site.url}/about/ofek-mazor#person`,
-      name: "אופק מזור",
-      jobTitle: 'מנכ"ל ומייסד, מתווך מקרקעין מוסמך',
-      url: `${site.url}/about/ofek-mazor`,
-      // E-E-A-T credential: real estate broker license. Same @id as
-      // ofekPersonJsonLd() so Schema.org graph-merges the two nodes
-      // when both appear on a page.
-      hasCredential: {
-        "@type": "EducationalOccupationalCredential",
-        credentialCategory: "רישיון תיווך מקרקעין",
-        recognizedBy: {
-          "@type": "GovernmentOrganization",
-          name: "משרד המשפטים, רשם המתווכים",
-        },
-        identifier: "3246290",
-      },
+      "@type": "Organization",
+      "@id": `${site.url}/#organization`,
+      name: site.legalName,
+      url: site.url,
     },
     publisher: {
       "@type": "Organization",
+      "@id": `${site.url}/#organization`,
       name: site.legalName,
       logo: {
         "@type": "ImageObject",
-        url: `${site.url}/logo.png`,
+        url: `${site.url}/logo-full-vertical.png`,
       },
     },
     mainEntityOfPage: {

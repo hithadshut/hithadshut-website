@@ -43,6 +43,21 @@ const nextConfig: NextConfig = {
         destination: "/guides/home-front-command-approval",
         permanent: true,
       },
+      // Author page collapsed into /about. permanent:true emits 308; Google
+      // treats 308 equivalently to 301 for canonical signal-passing. Both
+      // trailing-slash and non-trailing variants resolve to /about so the
+      // surface in GSC moves cleanly to "alternate page with proper
+      // canonical/redirect" without losing equity.
+      {
+        source: "/about/ofek-mazor",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/about/ofek-mazor/",
+        destination: "/about",
+        permanent: true,
+      },
     ];
   },
   async headers() {

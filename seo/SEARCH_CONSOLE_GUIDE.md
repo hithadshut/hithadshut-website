@@ -82,7 +82,7 @@ URL: https://search.google.com/search-console/
 
 ### לבקש indexing מיד עבור
 - https://hithadshut.co.il/projects (חדש)
-- https://hithadshut.co.il/about/ofek-mazor (חדש)
+- https://hithadshut.co.il/about (חדש)
 - https://hithadshut.co.il/guides/mamad-permit-exemption-2026 (חדש)
 - https://hithadshut.co.il/guides/mamad-vs-shelter (חדש)
 - https://hithadshut.co.il/guides/mamad-air-filter-system (חדש)

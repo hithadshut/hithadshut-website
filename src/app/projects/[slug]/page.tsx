@@ -7,7 +7,7 @@ import Section, { Prose } from "@/components/Section";
 import InlineLeadForm from "@/components/InlineLeadForm";
 import JsonLd from "@/components/JsonLd";
 import { buildMetadata } from "@/lib/metadata";
-import { breadcrumbJsonLd, OFEK_PERSON_ID } from "@/lib/schema";
+import { breadcrumbJsonLd } from "@/lib/schema";
 import { site } from "@/lib/site";
 import { projects, getProject } from "@/content/projects";
 
@@ -52,7 +52,7 @@ export default async function ProjectPage({ params }: { params: Params }) {
     inLanguage: "he-IL",
     datePublished: `${p.capturedAt}-01`,
     dateModified: `${p.capturedAt}-01`,
-    author: { "@id": OFEK_PERSON_ID },
+    author: { "@id": `${site.url}/#organization` },
     publisher: { "@id": `${site.url}/#organization` },
     mainEntityOfPage: { "@type": "WebPage", "@id": `${site.url}${url}` },
     about: p.serviceType,

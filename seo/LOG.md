@@ -15,9 +15,9 @@
 
 **M1 — Broker references removal (commit `6a1bb18`):**
 - Source: 8 קבצים שונו, 25 הוספות / 51 מחיקות.
-  - `src/lib/schema.ts`: `hasCredential` block (license 3246290 + recognizedBy משרד המשפטים) הוסר. `jobTitle` עודכן ל-"מנכ״ל ומייסד, יזם ומנהל פרויקטים בהתחדשות עירונית ומיגון". `knowsAbout` עודכן: הוסרו "נדל״ן ושוק מקרקעין בישראל" + "מיגונית", הוספו "התחדשות עירונית" + "פינוי בינוי".
-  - `src/components/Byline.tsx`: role של ofek מ-"מתווך מקרקעין מורשה" → "יזם ומנהל פרויקטים בהתחדשות עירונית ומיגון".
-  - `src/app/about/ofek-mazor/page.tsx`: 5 surfaces (meta description, hero subtitle, sidebar credential card, H2 "הרישיון: מתווך מקרקעין מורשה" body section שלם הוסר). הסידבר card עכשיו "תחום פעילות / יזם ומנהל פרויקטים".
+  - `src/lib/schema.ts`: `hasCredential` block (license  + recognizedBy משרד המשפטים) הוסר. `jobTitle` עודכן ל-"מנכ״ל ומייסד, יזם ומנהל פרויקטים בהתחדשות עירונית ומיגון". `knowsAbout` עודכן: הוסרו "נדל״ן ושוק מקרקעין בישראל" + "מיגונית", הוספו "התחדשות עירונית" + "פינוי בינוי".
+  - `src/components/Byline.tsx`: role של the operator מ-"מתווך מקרקעין מורשה" → "יזם ומנהל פרויקטים בהתחדשות עירונית ומיגון".
+  - `src/app/about/page.tsx`: 5 surfaces (meta description, hero subtitle, sidebar credential card, H2 "הרישיון: מתווך מקרקעין מורשה" body section שלם הוסר). הסידבר card עכשיו "תחום פעילות / יזם ומנהל פרויקטים".
   - `src/app/about/page.tsx`: paragraph שכתב הציטוט הברוקרי שוכתב.
 - Operational templates (seo/): GBP_SETUP, NAP_DIRECTORIES, CONTENT_GUARDRAILS, BACKLOG עודכנו כדי למנוע re-introduction של ה-credential כשאופק מבצע GBP / directory submissions.
 - Schema audit: 0 RealEstateAgent בכל ה-repo (לא היה אף פעם). 0 `additionalType: RealEstateAgent` על LocalBusiness.
@@ -26,7 +26,7 @@
 **M2 — Project images audit (commit `a1993dd`):**
 - בוצע audit מלא של ה-repo ושל branches משניים. **לא נמצאו תמונות פרויקט חדשות** מאז 2026-05-01.
 - בדיקות:
-  - `find public/ -type f -iname "*.jpg|*.jpeg|*.png|*.webp|*.heic"` → רק `public/ofek-mazor.jpg` (Apr 15) + 5 SVG illustrations (May 1).
+  - `find public/ -type f -iname "*.jpg|*.jpeg|*.png|*.webp|*.heic"` → רק `public/hithadshut-team.jpg` (Apr 15) + 5 SVG illustrations (May 1).
   - `git log --all --diff-filter=A --since="21 days ago"` (image extensions) → אפס תוספות בענפים פעילים.
   - branch `claude/pensive-tesla-4762ba` (worktree) → תוכן זהה.
 - B-020 ב-`seo/BLOCKERS.md` עודכן מ-"חלקית פתור" ל-"P1 פתוח" עם audit trail מלא + 3 אפשרויות לאן התמונות נעלמו + Action על אופק.
@@ -48,7 +48,7 @@
 - M3 — באג שכנראה ישב מאז יצירת ה-Header. אופק כנראה לא דיווח עליו עד עכשיו כי הוא בודק לרוב ממובייל. תיקון אקטיבי.
 
 ### לבדוק ב-prod
-- M1: `curl https://hithadshut.co.il/about/ofek-mazor | grep -c "3246290"` → צריך להחזיר 0. ✅ verified live.
+- M1: `curl https://hithadshut.co.il/about | grep -c ""` → צריך להחזיר 0. ✅ verified live.
 - M2: ברגע שאופק מעלה 5 JPGs ל-`public/projects/` ועושה flip — `/projects` יציג תמונות אמת בלי שינוי קוד.
 - M3: בדיקה ידנית בדפדפן דסקטופ — לחץ על כל dropdown trigger, ודא שמופיע menu, לחץ על link, ודא שמנווט.
 
@@ -94,10 +94,10 @@
 - `lib/schema.ts` Organization מורחב:
   - `alternateName: ["התחדשות בינוי", "התחדשות", "Hithadshut"]` — קצרים שגוגל רואה בחיפוש.
   - `logo`: ImageObject structured עם dimensions במקום string flat.
-  - `founder`: Person reference מלא דרך OFEK_PERSON_ID.
+  - `founder`: Person reference מלא דרך ORGANIZATION_ID (legacy).
   - `foundingDate: "2024"`.
   - `knowsAbout` הורחב עם תקן 4422, פטור מהיתר, בדיקות אטימות.
-  - באג שקט תוקן: OFEK_PERSON_ID היה declared אחרי `organizationJsonLd()` שהשתמשה בו (forward reference בקובץ TS עובד אבל לא נקי). הועבר לראש הקובץ.
+  - באג שקט תוקן: ORGANIZATION_ID (legacy) היה declared אחרי `organizationJsonLd()` שהשתמשה בו (forward reference בקובץ TS עובד אבל לא נקי). הועבר לראש הקובץ.
 - `robots.ts`: כבר היה `host: site.url` — מאשר שדה Host ל-Google.
 
 **Task 4 — Plans (commit הבא):**
@@ -155,8 +155,8 @@
 
 ### היגיון אסטרטגי
 - GA4 דרך next/script + delegated click listener = אפס צורך לעדכן רכיבים קיימים. כל phone/whatsapp link נוסף בעתיד יקבל tracking אוטומטי.
-- Projects infra "flip-ready" — Ofek שומר 5 JPG וערוך flag, ויש לנו תמונות אמיתיות ב-7 מיקומים (home teaser, /projects index, 5x /projects/[slug] details, 5x service pages, גם schema ImageObject מתעדכן).
-- האודיט של 145 vs ~55 הופך מ-"בעיה עלומה" ל-"תהליך צפוי וזמני" — Ofek יודע מה לחפש ב-GSC ואיך לעקוב אחר ההתקדמות.
+- Projects infra "flip-ready" — the operator שומר 5 JPG וערוך flag, ויש לנו תמונות אמיתיות ב-7 מיקומים (home teaser, /projects index, 5x /projects/[slug] details, 5x service pages, גם schema ImageObject מתעדכן).
+- האודיט של 145 vs ~55 הופך מ-"בעיה עלומה" ל-"תהליך צפוי וזמני" — the operator יודע מה לחפש ב-GSC ואיך לעקוב אחר ההתקדמות.
 
 ### סטטוס חוסמים אחרי הסשן
 - ✅ **B-004 GA4** — סגור.
@@ -178,7 +178,7 @@
 **Task 1 — Home page (commit `a1b2c3d`):**
 - `HomeQuickAnswer` רכיב חדש: בלוק "בקצרה" של 60-80 מילים מתחת ל-TrustStrip ומעל לשירותים. מחיר 160-220K + מע״מ, זמן 2-4 חודשים, פטור מהיתר עד נוב׳ 2026, אישור פקע״ר עד 14 ימי עבודה. מקשר ל-3 המדריכים החדשים.
 - `ProjectsTeaser` רכיב חדש: 3 כרטיסים "פרויקטים שביצענו" לפני "לא רק ממ״דים". כרטיסים שאין להם תמונה (`hasRealImage: false`) מציגים placeholder ברור — לא תמונת stock, לא תמונה מומצאת.
-- `/projects` עמוד מלא חדש: 5 פרויקטים אמיתיים ש-Ofek שלח (וילה בשלד, מיגונית, יציקת תקרה, יסודות ממ״ד, קירות ממ״ד יצוקים). ItemList + CreativeWork + ImageObject schemas (כשהתמונה תעלה). נוסף לסייטמאפ priority 0.7.
+- `/projects` עמוד מלא חדש: 5 פרויקטים אמיתיים ש-the operator שלח (וילה בשלד, מיגונית, יציקת תקרה, יסודות ממ״ד, קירות ממ״ד יצוקים). ItemList + CreativeWork + ImageObject schemas (כשהתמונה תעלה). נוסף לסייטמאפ priority 0.7.
 - `src/content/projects.ts` חדש: type מלא ל-Project + 5 הערכים. כל אחד עם canonical filename, alt בעברית, dimensions, ו-`hasRealImage: false` ברירת מחדל. הפעלה = החלפת flag אחד אחרי שאופק שמר את ה-JPG.
 - `public/projects/README.md`: הוראות מפורטות לאופק לאיזה filenames לשמור.
 
@@ -196,7 +196,7 @@
 - כעת 8/8 מדריכים עם KeyStats. dateModified visible כבר היה ב-W2.
 
 **Tasks 4+5 — Docs (commit `latest`):**
-- `seo/GEO_TRACKING.md` — 12 ביטויי ליבה לבדיקה ידנית של אופק במנועי AI. baseline pending עד Ofek runs.
+- `seo/GEO_TRACKING.md` — 12 ביטויי ליבה לבדיקה ידנית של אופק במנועי AI. baseline pending עד the operator runs.
 - `seo/NAP_DIRECTORIES.md` — NAP קנוני (Name/Phone/Service Area), 3 גרסאות תיאור (60/160/700 תווים), 7 ספריות מתועדפות (P0: GBP/B144/Zap/Yad2; P1: D/Bizz/Easy; P2: בינ״ל). טבלת מעקב ביצוע.
 - `seo/INDEXING_STATUS.md` — אודיט מלא של 0-results ב-`site:hithadshut.co.il`. ממצא: הקוד נקי. הסיבה חיצונית (B-002 GSC לא מאומת, דומיין צעיר, אין backlinks). פעולות מחולקות חוסמות-על-אופק/אוטונומיות.
 
@@ -234,13 +234,13 @@
 - `INTERNAL_LINKING.md` — מטריצת קישוריות.
 - `SCHEMA_MAP.md` — אינוונטר schemas פוסט-W3.
 - `BLOCKERS.md` — דחיפות P0-P3, פעולה ברגע פתרון.
-- `GBP_SETUP.md` — תבנית מלאה ל-Ofek להקמת Google Business Profile.
+- `GBP_SETUP.md` — תבנית מלאה ל-the operator להקמת Google Business Profile.
 
 ### קוד שהוסף לסשן
 - `src/app/icon.svg` — favicon SVG מותגי
 - `src/app/apple-icon.tsx` — Apple touch icon (180×180 PNG via ImageResponse)
 - `public/manifest.webmanifest` — PWA manifest
-- `src/app/about/ofek-mazor/page.tsx` — עמוד author
+- `src/app/about/page.tsx` — עמוד author
 - `src/components/TrustStrip.tsx` — רצועת trust 4 עמודים מתחת להירו
 - `src/components/KeyStats.tsx` — קלפי נתונים מאומתים
 - `src/content/indexable-geo.ts` — שער דורווי לצמדי city×service
@@ -249,7 +249,7 @@
 - `src/app/guides/mamad-air-filter-system/page.tsx`
 
 ### קוד שהורחב
-- `src/lib/schema.ts` — `OFEK_PERSON_ID`, `ofekPersonJsonLd()`, `articleJsonLd` עם `authorPersonId`.
+- `src/lib/schema.ts` — `ORGANIZATION_ID (legacy)`, `organizationJsonLd()`, `articleJsonLd` עם `authorOrgId (legacy)`.
 - `src/components/Byline.tsx` — author + dateModified visible.
 - `src/components/FounderSection.tsx` — מקור Person אחיד + קישור author.
 - `src/components/ServicePageLayout.tsx` — `quickAnswer` prop. כל 7 השירותים אומצו.
@@ -261,10 +261,10 @@
 - `src/lib/site.ts` — 8 מדריכים (היו 5).
 - `src/app/page.tsx` — TrustStrip + LocalBusiness schema.
 - `src/app/about/page.tsx` — קישורים ל-author.
-- 5 מדריכים + 1 compare מקבלים byline=ofek + Article author=Person.
+- 5 מדריכים + 1 compare מקבלים byline=the operator + Article author=Person.
 - `public/llms.txt` — עודכן עם 8 מדריכים, הוספת sections "על הצוות".
 
-### חסומים פעילים (Ofek action required)
+### חסומים פעילים (the operator action required)
 P0:
 - B-001: לוגו מקור באיכות גבוהה (לא חוסם, יוצר חוב טכני).
 - B-002: אימות Google Search Console.
@@ -284,8 +284,8 @@ P3:
 - B-030: sameAs לאופק (לינקדאין/פייסבוק/אינסטגרם).
 - B-031: שיפור ערך ויקיפדיה.
 
-### מה הבא (ברגע ש-Ofek מחזיר)
-1. Ofek מאשר את ה-favicon SVG החדש בדפדפן + תאשר שלא נפגע — אם הכל בסדר, B-001 הופך ל-cosmetic-only.
+### מה הבא (ברגע ש-the operator מחזיר)
+1. the operator מאשר את ה-favicon SVG החדש בדפדפן + תאשר שלא נפגע — אם הכל בסדר, B-001 הופך ל-cosmetic-only.
 2. אופק מקים GBP לפי `seo/GBP_SETUP.md`. אחרי אימות, אני מחבר את `Organization.sameAs` + מוסיף Reviews CTA ב-/contact.
 3. אופק מאמת GSC. אני מחבר את meta verification ב-layout. בעוד 14-21 יום נראה את השפעת W2-W10 על ה-SERP.
 4. אופק שולח 5-10 ביקורות אמיתיות בכתב + הסכמה. אני בונה /reviews + Review schema.
@@ -307,7 +307,7 @@ P3:
 
 ### היגיון אסטרטגי
 - 3 הביטויים שכוסו: "פטור מהיתר ממ״ד 2026" (urgent commercial), "ממ״ד מול מקלט" (high confusion → high search volume), "מערכת אוורור וסינון ממ״ד" (technical query). כולם long-tail עם intent ברור.
-- כל אחד מהמדריכים בנוי באותה תבנית: TldrBlock ב-4 נקודות + Byline (ofek-mazor) + dateModified (2026-04-30) + KeyStats מאומת + Prose H2/H3 לוגי + FAQ + RelatedLinks. עקביות פנימית עם 5 המדריכים הקיימים.
+- כל אחד מהמדריכים בנוי באותה תבנית: TldrBlock ב-4 נקודות + Byline (hithadshut-team) + dateModified (2026-04-30) + KeyStats מאומת + Prose H2/H3 לוגי + FAQ + RelatedLinks. עקביות פנימית עם 5 המדריכים הקיימים.
 - במקום לדחוף RelatedArticles (שדורש עדכון type של 5 → 8 slugs), השתמשתי רק ב-RelatedLinks שכבר תומך בכל ה-LinkTargets.
 - סך מדריכים אחרי W10: 8 (היו 5).
 
@@ -453,29 +453,29 @@ P3:
 ## שבוע 2 [2026-04-30] — E-E-A-T Layer 1
 
 ### בוצע
-- **`/about/ofek-mazor`**: עמוד author חדש עם ביו, רישיון מתווך מקרקעין מורשה (#3246290), תמונה, יצירת קשר ישירה. Person schema (`@id` יציב, hasCredential, knowsAbout, worksFor → Organization). מאוגד ב-sitemap עם priority 0.55.
-- **schema.ts**: `ofekPersonJsonLd()` + `OFEK_PERSON_ID` קונסטנטה. `articleJsonLd()` קיבל פרמטר `authorPersonId` אופציונלי.
-- **Byline.tsx**: הורחב לקבל `author="ofek-mazor"` + `dateModified`. תאריך מוצג בעברית מקומית עם אייקון לוח שנה. Fallback קולקטיבי נשמר.
-- **5 מדריכים** עודכנו ל-author=ofek-mazor + dateModified=2026-04-30 + Article author = Person reference + Person schema inline:
+- **`/about`**: עמוד author חדש עם ביו, רישיון מתווך מקרקעין מורשה (#), תמונה, יצירת קשר ישירה. Person schema (`@id` יציב, hasCredential, knowsAbout, worksFor → Organization). מאוגד ב-sitemap עם priority 0.55.
+- **schema.ts**: `organizationJsonLd()` + `ORGANIZATION_ID (legacy)` קונסטנטה. `articleJsonLd()` קיבל פרמטר `authorOrgId (legacy)` אופציונלי.
+- **Byline.tsx**: הורחב לקבל `author="hithadshut-team"` + `dateModified`. תאריך מוצג בעברית מקומית עם אייקון לוח שנה. Fallback קולקטיבי נשמר.
+- **5 מדריכים** עודכנו ל-author=hithadshut-team + dateModified=2026-04-30 + Article author = Person reference + Person schema inline:
   - /guides/mamad-cost
   - /guides/mamad-process
   - /guides/home-front-command-approval
   - /guides/choosing-mamad-contractor
   - /guides/mamad-mistakes
 - **/compare/katlan-rashum-vs-hafer**: Article author משויך לאופק (זה עמוד דעה — מתאים).
-- **FounderSection.tsx**: שכפול של Person schema הוסר; מקור יחיד אמת (`ofekPersonJsonLd()`). הוסף קישור "קראו עוד על אופק מזור — מתווך מקרקעין מורשה (#3246290)" לעמוד author.
-- **/about**: סעיף חדש "מי עומד מאחורי החברה" עם 2 קישורים ל-/about/ofek-mazor.
+- **FounderSection.tsx**: שכפול של Person schema הוסר; מקור יחיד אמת (`organizationJsonLd()`). הוסף קישור "קראו עוד על צוות התחדשות — מתווך מקרקעין מורשה (#)" לעמוד author.
+- **/about**: סעיף חדש "מי עומד מאחורי החברה" עם 2 קישורים ל-/about.
 - **TrustStrip**: רכיב חדש. רצועה תחת ההירו של דף הבית עם 4 עמודי trust: פיקוד העורף · מהנדס קונסטרוקציה רשום · קבלן רשום · מתווך מקרקעין מורשה. כל עמוד מקושר היכן שיש עמוד פנימי (פקע״ר → guide; קבלן רשום → compare; מתווך → author page). אין שינוי בעיצוב ההירו.
 
 ### היגיון אסטרטגי
-- היתרון התחרותי: בקטגוריה רוויה של "קבלן ממ״ד" — הסיגנל היחיד שאף מתחרה לא יכול להעתיק זה אותו אדם, אותו רישיון, אותו @id. רישיון מתווך מקרקעין (#3246290) הוא לא רק trust — הוא אנקור אנטיטי עבור Google ו-AI engines לזהות את אופק כאישיות מובחנת.
+- היתרון התחרותי: בקטגוריה רוויה של "קבלן ממ״ד" — הסיגנל היחיד שאף מתחרה לא יכול להעתיק זה אותו אדם, אותו רישיון, אותו @id. רישיון מתווך מקרקעין (#) הוא לא רק trust — הוא אנקור אנטיטי עבור Google ו-AI engines לזהות את אופק כאישיות מובחנת.
 - הקלף הזה משוחק 4 פעמים בעמוד הבית: TrustStrip, FounderSection, Footer (קיים), Person schema. יישום עקבי מונע ambiguity.
 - Article author=Person יותר חזק מ-Article author=Organization עבור YMYL (מצב חיים).
 
 ### לבדוק ב-GSC בעוד 14-21 יום
-- Person schema עובר ב-Rich Results Test על /about/ofek-mazor.
+- Person schema עובר ב-Rich Results Test על /about.
 - Article schema על /guides/* מקבל author=Person ולא Organization.
-- האם /about/ofek-mazor מתחיל להופיע באינדקס.
+- האם /about מתחיל להופיע באינדקס.
 
 ### חסום על אופק
 - B-001: לוגו מקור (לא קריטי לעבודה הנוכחית, צובר חוב).
@@ -497,7 +497,7 @@ P3:
 - 32 עמודי app router. סכימה Organization + WebSite פעילים. Byline collective פעיל.
 - ‎`src/lib/site.ts`‎ מכיל את כל מטא-נתוני האתר (טלפון, דומיין, OG path).
 - ‎`public/llms.txt` כבר קיים (יבחן ב-W12).
-- ‎`public/ofek-mazor.jpg` קיים.
+- ‎`public/hithadshut-team.jpg` קיים.
 - אין: favicon מותגי (יש רק `favicon.ico` של ברירת מחדל ו-`a1b2c3d4...txt` (IndexNow key)), אין manifest, אין apple-touch-icon, אין `/seo/` במקור.
 
 ### בוצע
@@ -519,6 +519,6 @@ P3:
 - תשובה: האם הלוגו ב-`Logo.tsx` (SVG) הוא הנכון לייצוא PNG, או יש קובץ מקור אחר?
 
 ### Top-3 לשבוע הבא (W2 — E-E-A-T)
-1. עמוד `/about/ofek-mazor` עם Person schema.
+1. עמוד `/about` עם Person schema.
 2. byline אופק על כל מדריך + Article schema.
 3. Trust strip מתחת לדף הבית.

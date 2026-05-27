@@ -16,8 +16,6 @@ import {
   articleJsonLd,
   breadcrumbJsonLd,
   faqJsonLd,
-  ofekPersonJsonLd,
-  OFEK_PERSON_ID,
 } from "@/lib/schema";
 
 const DATE_MODIFIED = "2026-05-14";
@@ -128,10 +126,8 @@ export default function Page() {
           url: PATH,
           datePublished: DATE_PUBLISHED,
           dateModified: DATE_MODIFIED,
-          authorPersonId: OFEK_PERSON_ID,
         })}
       />
-      <JsonLd data={ofekPersonJsonLd()} />
       <JsonLd data={faqJsonLd(faqs)} />
       <JsonLd
         data={breadcrumbJsonLd([
@@ -249,7 +245,7 @@ export default function Page() {
       {/* Byline + reading-time */}
       <Section tone="white">
         <div className="flex flex-wrap justify-center items-center gap-3">
-          <Byline author="ofek-mazor" dateModified={DATE_MODIFIED} />
+          <Byline author="hithadshut-team" dateModified={DATE_MODIFIED} />
           <ReadingTimeBadge words={WORD_COUNT} />
         </div>
       </Section>

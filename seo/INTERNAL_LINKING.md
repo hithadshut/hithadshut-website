@@ -32,7 +32,7 @@
 
 ## Audit / TODO
 
-- [W2] Add Author byline links from every guide → /about/ofek-mazor (when live).
+- [W2] Add Author byline links from every guide → /about (when live).
 - [W4] Add "אזור שירות שלנו ב-{city}" link from compare pages back to top 8 cities.
 - [W5] After area page rewrites, ensure each rewritten city links to a relevant case study (when projects gallery live).
 - [W6] After listicle reformat (mistakes/contractor): each item should link to a sub-topic where useful.
