@@ -226,7 +226,7 @@ export async function POST(req: Request) {
       {
         ok: false,
         error: "delivery_failed",
-        message: "השליחה נכשלה. נסו שוב או חייגו 054-671-2130.",
+        message: `השליחה נכשלה. נסו שוב או חייגו ${site.phone}.`,
       },
       { status: 500 },
     );

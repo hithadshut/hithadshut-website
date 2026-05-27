@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { site } from "@/lib/site";
 
 type Status = "idle" | "loading" | "success" | "error";
 
@@ -104,7 +105,7 @@ export default function ContactForm({
     } catch (err) {
       setStatus("error");
       const msg = err instanceof Error && err.message && err.message !== "send failed" ? err.message : null;
-      setErrorMsg(msg || "משהו השתבש. אפשר להתקשר ישירות: 054-671-2130");
+      setErrorMsg(msg || `משהו השתבש. אפשר להתקשר ישירות: ${site.phone}`);
     }
   }
 
@@ -118,7 +119,7 @@ export default function ContactForm({
         </div>
         <h3 className="font-extrabold text-xl text-[var(--color-ink)] mb-1">הפרטים התקבלו, תודה</h3>
         <p className="text-[var(--color-muted)] text-sm">
-          נחזור אליכם בהקדם. לפנייה דחופה: 054-671-2130.
+          נחזור אליכם בהקדם. לפנייה דחופה: {site.phone}.
         </p>
       </div>
     );

@@ -143,11 +143,11 @@ The FAQPage schema must mirror the visible FAQ exactly. Do not include questions
     "jobTitle": "מנכ\"ל ומייסד"
   },
   "areaServed": "IL",
-  "telephone": "+972-54-671-2130",
+  "telephone": "+97283006068",
   "email": "info@hithadshut.co.il",
   "contactPoint": {
     "@type": "ContactPoint",
-    "telephone": "+972-54-671-2130",
+    "telephone": "+97283006068",
     "contactType": "customer service",
     "areaServed": "IL",
     "availableLanguage": "Hebrew"
@@ -262,8 +262,8 @@ The lead form is the highest-value asset on the site. Build with care.
   - Good: "שלחו לי פרטים", "אני רוצה לדבר עם אופק", "קבלו ייעוץ ראשוני".
   - Bad: "שלח", "אישור", "המשך".
 - Sticky bottom bar on mobile with phone + WhatsApp icons.
-- Click-to-call: `tel:+972546712130` (full international format).
-- WhatsApp deep link with pre-populated message: `https://wa.me/972546712130?text=...`
+- Click-to-call: `tel:+97283006068` (full international format).
+- WhatsApp deep link with pre-populated message: `https://wa.me/97283006068?text=...`
 
 ---
 

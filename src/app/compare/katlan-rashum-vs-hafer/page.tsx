@@ -450,7 +450,7 @@ export default function Page() {
             קבלו הצעת מחיר מקבלן רשום ←
           </Link>
           <a
-            href={`https://wa.me/972546712130?text=${encodeURIComponent(
+            href={`https://wa.me/${site.phoneE164.replace("+", "")}?text=${encodeURIComponent(
               "היי, הגעתי מעמוד קבלן רשום מול חאפר"
             )}`}
             target="_blank"

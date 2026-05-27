@@ -10,7 +10,7 @@ import { site } from "@/lib/site";
 const PATH = "/contact";
 const TITLE = "צור קשר | התחדשות בינוי ויזמות | קבלו הצעת מחיר";
 const DESCRIPTION =
-  "צרו קשר עם התחדשות בינוי ויזמות: בניית ממ״ד, מיגון ובנייה פרטית. ייעוץ ראשוני ללא עלות, חזרה באותו יום. 054-671-2130 או WhatsApp.";
+  `צרו קשר עם התחדשות בינוי ויזמות: בניית ממ״ד, מיגון ובנייה פרטית. ייעוץ ראשוני ללא עלות, חזרה באותו יום. ${site.phone} או WhatsApp.`;
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 

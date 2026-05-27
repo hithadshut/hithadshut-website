@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import Section, { Prose } from "@/components/Section";
 import { buildMetadata } from "@/lib/metadata";
+import { site } from "@/lib/site";
 
 const PATH = "/accessibility";
 const TITLE = "הצהרת נגישות | התחדשות בינוי ויזמות";
@@ -45,7 +46,7 @@ export default function Page() {
           </p>
           <ul>
             <li><strong>שם:</strong> רכז נגישות, התחדשות בינוי ויזמות</li>
-            <li><strong>טלפון:</strong> 054-671-2130</li>
+            <li><strong>טלפון:</strong> {site.phone}</li>
             <li><strong>דוא״ל:</strong> info@hithadshut.co.il</li>
           </ul>
 

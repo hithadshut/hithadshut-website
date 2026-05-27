@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
+import { site } from "@/lib/site";
 
 export default function FounderSection() {
   return (
@@ -75,10 +76,10 @@ export default function FounderSection() {
                 <div className="text-[var(--color-primary)] font-bold">
                   רוצים לדבר עם המומחים שלנו? חייגו{" "}
                   <a
-                    href="tel:054-671-2130"
+                    href={`tel:${site.phoneDial}`}
                     className="text-[var(--color-accent-dark)] underline underline-offset-4 hover:text-[var(--color-accent)]"
                   >
-                    054-671-2130
+                    {site.phone}
                   </a>
                 </div>
               </div>
