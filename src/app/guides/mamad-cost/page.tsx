@@ -11,6 +11,7 @@ import Byline from "@/components/Byline";
 import TableOfContents from "@/components/TableOfContents";
 import RelatedArticles from "@/components/RelatedArticles";
 import KeyStats from "@/components/KeyStats";
+import MamadCostCalculator from "@/components/MamadCostCalculator";
 import { buildMetadata } from "@/lib/metadata";
 import {
   articleJsonLd,
@@ -18,7 +19,7 @@ import {
   faqJsonLd,
 } from "@/lib/schema";
 
-const DATE_MODIFIED = "2026-05-14";
+const DATE_MODIFIED = "2026-05-15";
 const DATE_PUBLISHED = "2026-04-15";
 
 // Word count for the main prose: TL;DR + 10 H2 sections of detailed content + 10 FAQs.
@@ -86,6 +87,18 @@ const faqs = [
   {
     q: "כמה עולה ממ״ד בדירה בקומה גבוהה?",
     a: "ממ\"ד בדירה בקומה עולה 200,000-260,000 ₪ + מע״מ, בהתאם לגישה, הקומה וסוג הבניין. התוספת לעומת בית פרטי נובעת משינוע חומרים במעלית או במנוף, הגנה על שכנים וחיזוק רצפה. כל פרויקט נבדק פרטנית לפני הצעת מחיר.",
+  },
+  {
+    q: "מה ההבדל בין ממ״ד יביל Unit-Only ל-All-In?",
+    a: "ממ\"ד יביל Unit-Only הוא היחידה הממוגנת בלבד שיוצאת מהמפעל: 90,000-130,000 ש\"ח. הוא לא כולל הובלה, הנפה במנוף, יסודות בטון, חיבורי חשמל-מים-ביוב, אטימה ובדיקת אטימות, או הגשת אישור פיקוד העורף. ממ\"ד יביל All-In כולל את כל הרכיבים יחד: 180,000-250,000 ש\"ח. הפער של 40-50% הוא לא רכיב אופציונלי, הוא תנאי לקבלת אישור פיקוד העורף, ולכן רוב ההצעות \"זולות\" של 90 אלף אינן הצעות אמיתיות לפתרון פעיל.",
+  },
+  {
+    q: "האם המדינה מסבסדת בניית ממ״ד?",
+    a: "ביישובי קו ראשון בצפון הארץ (1-5 ק\"מ מהגבול), המדינה מסבסדת עד 132,000 ש\"ח לבניית ממ\"ד דירתי במסלול \"מימוש עצמי\" (לפי אתר כל זכות). הסבסוד מועבר ישירות לבעל הנכס בהשלמת הפרויקט ובאישור פקע\"ר. ביישובי קו שני וביישובי דרום קיים סבסוד חלקי דרך משרד הביטחון ורשויות מקומיות, אך הסכומים נמוכים יותר וזכאות תלויית-ישוב. מומלץ לאמת מול הרשות המקומית לפני תכנון התקציב.",
+  },
+  {
+    q: "עד מתי תקפה הוראת השעה לבניית ממ״ד ללא היתר?",
+    a: "תקנה 30ב׳ לתקנות התכנון והבנייה (הוראת שעה) תקפה עד 25.10.2026. ההוראה מאפשרת בניית ממ\"ד בבתים צמודי קרקע ובניינים עד 2 קומות במסלול מהיר ללא היתר רגיל. נדרש רק אישור פיקוד העורף תוך 14 ימי עבודה ודיווח לוועדה המקומית. לאחר 25.10.2026, אם ההוראה לא תוארך, יחזור הליך היתר הבנייה הרגיל שאורך 6-12 חודשים נוספים. מי שמתכנן ממ\"ד, חלון הזמנים לפעולה במסלול הזריז הוא קצר.",
   },
 ];
 
@@ -270,6 +283,14 @@ export default function Page() {
               ומסלול הפטור מהיתר (תקנה 30ב׳) תקף עד 25.10.2026.
             </p>
           </div>
+        </div>
+      </Section>
+
+      {/* V8 B.2.C: Interactive mamad cost calculator. Novel value vs every Israeli
+          competitor in this SERP. In-memory state, no analytics. */}
+      <Section tone="soft">
+        <div className="max-w-3xl mx-auto">
+          <MamadCostCalculator />
         </div>
       </Section>
 
