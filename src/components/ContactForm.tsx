@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { site } from "@/lib/site";
 
 type Status = "idle" | "loading" | "success" | "error";
@@ -199,8 +200,14 @@ export default function ContactForm({
         {status === "loading" ? "שולח..." : "השאירו פרטים, נחזור אליכם"}
       </button>
 
-      <p className="text-xs text-[var(--color-muted-2)] text-center">
-        שליחת הפרטים מהווה הסכמה לקבלת פנייה מהתחדשות. אין בכך התחייבות מצדכם.
+      <p className="text-xs leading-5 text-[var(--color-muted-2)] text-center">
+        מסירת הפרטים נעשית מרצונכם ובהסכמתכם, ואינכם חייבים על פי חוק למוסרם.
+        הפרטים ישמשו ליצירת קשר ולמתן השירות המבוקש, וייתכן שיועברו לאיש מקצוע
+        רלוונטי לצורך זה, כמפורט ב
+        <Link href="/privacy" className="underline underline-offset-2 hover:text-[var(--color-primary)]">
+          מדיניות הפרטיות
+        </Link>
+        . ניתן לפנות אלינו בכל עת לעיון, תיקון או מחיקת המידע.
       </p>
     </form>
   );

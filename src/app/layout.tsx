@@ -9,6 +9,7 @@ import AccessibilityWidget from "@/components/AccessibilityWidget";
 import ExitIntentModal from "@/components/ExitIntentModal";
 import JsonLd from "@/components/JsonLd";
 import Analytics from "@/components/Analytics";
+import CookieConsent from "@/components/CookieConsent";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/schema";
 import { site } from "@/lib/site";
 
@@ -106,6 +107,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <WhatsAppButton />
         <AccessibilityWidget />
         <ExitIntentModal />
+        <CookieConsent />
         <Analytics />
       </body>
     </html>
