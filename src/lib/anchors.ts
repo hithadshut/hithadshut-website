@@ -75,6 +75,7 @@ export type LinkTarget =
   | "home-front-command-approval"
   | "choosing-mamad-contractor"
   | "mamad-mistakes"
+  | "architect-mamad-role"
   | "compare-main"
   | "compare-tzamud"
   | "compare-rashum-hafer"
@@ -187,6 +188,15 @@ export const ANCHOR_VARIANTS: Record<LinkTarget, string[]> = {
     "טעויות לדעת לפני בניית ממ״ד",
     "איך להימנע מטעויות ממ״ד",
     "טעויות יקרות בבניית ממ״ד",
+  ],
+  "architect-mamad-role": [
+    "אדריכל לממ״ד",
+    "תפקיד עורך הבקשה לממ״ד",
+    "אדריכל מול מהנדס בממ״ד",
+    "מי מתכנן ומי חותם על הממ״ד",
+    "תפקיד האדריכל בהיתר לממ״ד",
+    "מתי צריך אדריכל לממ״ד",
+    "עורך בקשה לממ״ד",
   ],
   "compare-main": [
     "השוואה: ממ״ד vs מיגון vs מיגונית",
@@ -522,6 +532,7 @@ export const HREF_MAP: Record<LinkTarget, string> = {
   "home-front-command-approval": "/guides/home-front-command-approval",
   "choosing-mamad-contractor": "/guides/choosing-mamad-contractor",
   "mamad-mistakes": "/guides/mamad-mistakes",
+  "architect-mamad-role": "/guides/architect-mamad-role",
   "compare-main": "/compare/mamad-vs-miggun-vs-migunit",
   "compare-tzamud": "/compare/mamad-tzamud-vs-hitzoni",
   "compare-rashum-hafer": "/compare/katlan-rashum-vs-hafer",
@@ -579,6 +590,8 @@ export const TARGET_SUMMARY: Record<LinkTarget, string> = {
     "עשר שאלות שחובה לשאול, דגלים אדומים ומה לבדוק ברישיונות.",
   "mamad-mistakes":
     "טעויות נפוצות שמייקרות את הפרויקט, ואיך להימנע מהן.",
+  "architect-mamad-role":
+    "תפקיד האדריכל ועורך הבקשה בהיתר לממ״ד, ההבדל ממהנדס מבנים, ומתי צריך אדריכל.",
   "compare-main":
     "השוואה טכנית מלאה בין ממ״ד, מיגון חדר ומיגונית, כולל עלות וזמן.",
   "compare-tzamud":
@@ -664,6 +677,7 @@ export const TARGET_LABEL: Record<LinkTarget, string> = {
   "home-front-command-approval": "אישורי פיקוד העורף",
   "choosing-mamad-contractor": "בחירת קבלן ממ״ד",
   "mamad-mistakes": "טעויות בבניית ממ״ד",
+  "architect-mamad-role": "אדריכל לממ״ד",
   "compare-main": "השוואת הפתרונות",
   "compare-tzamud": "ממ״ד צמוד vs חיצוני",
   "compare-rashum-hafer": "קבלן רשום vs חאפר",
