@@ -378,6 +378,7 @@ export default function Page() {
       <RelatedLinks
         seed="chalufat-shaked"
         targets={[
+          "home-front-command-approval",
           "tama-38",
           "tama-38-sug-2",
           "pinui-binui",
