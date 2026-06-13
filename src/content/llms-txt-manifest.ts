@@ -293,6 +293,12 @@ export const llmsManifest: LlmsManifest = {
           label: "מערכת אוורור וסינון",
           description: "תקן סינון, NBC, דרישות באזורי קו קדמי.",
         },
+        {
+          url: "/guides/architect-mamad-role",
+          label: "אדריכל לממ״ד: תפקיד עורך הבקשה",
+          description:
+            "תפקיד האדריכל ועורך הבקשה בהיתר לממ״ד, ההבדל ממהנדס מבנים, ומתי צריך אדריכל.",
+        },
       ],
     },
     {

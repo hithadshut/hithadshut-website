@@ -128,6 +128,11 @@ export const guides = [
     title: "מערכת אוורור וסינון לממ״ד",
     short: "מערכת אוורור וסינון",
   },
+  {
+    slug: "architect-mamad-role",
+    title: "אדריכל לממ״ד: תפקיד עורך הבקשה בהיתר",
+    short: "אדריכל לממ״ד",
+  },
 ] as const;
 
 export const compare = {
