@@ -5,6 +5,7 @@ import Section, { Prose } from "@/components/Section";
 import FAQ from "@/components/FAQ";
 import ContactCTA from "@/components/ContactCTA";
 import JsonLd from "@/components/JsonLd";
+import AnswerBlock from "@/components/AnswerBlock";
 import TldrBlock from "@/components/TldrBlock";
 import RelatedLinks from "@/components/RelatedLinks";
 import ReadingTimeBadge from "@/components/ReadingTimeBadge";
@@ -88,6 +89,36 @@ export default function Page() {
             datePublished: DATE_PUBLISHED,
             dateModified: DATE_MODIFIED,
           }),
+        ]}
+      />
+
+      <AnswerBlock
+        service="בניית ממ״ד וקבלן ממ״ד רשום בכל הארץ"
+        process="סיור ומדידה, תכנון, אישור פקע״ר, ביצוע ומסירה"
+        answer={
+          <>
+            קבלן ממ״ד טוב הוא קבלן רשום בפנקס הקבלנים, מבוטח, עם חוזה מפורט בכתב וניסיון ספציפי בממ״ד
+            ובאישורי פיקוד העורף, לא רק בשיפוצים. התחדשות בינוי ויזמות בונה ממ״דים בכל הארץ כחברה אחת:
+            תכנון, רישוי, בנייה וגמר בחוזה אחד ובאחריות אחת לפי חוק המכר.
+          </>
+        }
+        faqs={[
+          {
+            q: "איך בוחרים קבלן ממ״ד?",
+            a: "בודקים רישום בפנקס הקבלנים עם סיווג תואם, ביטוח עבודות קבלניות וצד ג׳ בתוקף, חוזה מפורט בכתב, וניסיון ספציפי בממ״ד מול פיקוד העורף. מבקשים המלצות עם פרטי קשר.",
+          },
+          {
+            q: "מה ההבדל בין קבלן רשום לחאפר?",
+            a: "קבלן רשום עובד מול חוק, מבוטח, מנפיק חשבונית מס וחייב באחריות שנה/3/7 לפי חוק המכר. חאפר פועל ללא רישום, ללא ביטוח וללא אחריות משפטית.",
+          },
+          {
+            q: "האם אתם הקבלן הבונה?",
+            a: "כן. התחדשות בינוי ויזמות מבצעת את כל הפרויקט בעצמה: תכנון, רישוי, בנייה וגמר, בחוזה אחד ובאחריות אחת.",
+          },
+          {
+            q: "איזה סיווג קבלני נדרש לממ״ד?",
+            a: "ממ״ד דורש קבלן רשום בפנקס הקבלנים עם סיווג תואם להיקף הכספי של הפרויקט. לבית פרטי לרוב סיווג בנייה קטן מספיק, בכפוף לבדיקה.",
+          },
         ]}
       />
 
