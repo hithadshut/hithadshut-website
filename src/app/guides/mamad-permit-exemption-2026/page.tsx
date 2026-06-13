@@ -429,7 +429,6 @@ export default function Page() {
           "building-mamad",
           "mamad-process",
           "home-front-command-approval",
-          "architect-mamad-role",
           "mamad-cost",
           "contact",
         ]}

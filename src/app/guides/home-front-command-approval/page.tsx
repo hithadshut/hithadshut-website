@@ -306,8 +306,7 @@ export default function Page() {
           <h2 id="our-approach">איך מוציאים היתר לממ״ד אצלנו, מקצה לקצה</h2>
           <p>
             בהתחדשות אנחנו מטפלים בכל תהליך הרישוי והאישור עבורכם: בחירת המסלול המתאים, הכנת התיק,
-            הגשה, מענה להערות, ומעקב עד קבלת האישור. עריכת הבקשה והתכנון נעשים אצלנו, בשירות{" "}
-            <Link href="/guides/architect-mamad-role">תכנון אדריכלי ועריכת בקשה לממ״ד</Link>, והביצוע
+            הגשה, מענה להערות, ומעקב עד קבלת האישור. עריכת הבקשה וההגשה נעשים אצלנו, והביצוע
             המלא נעשה בשירות{" "}
             <Link href="/services/building-mamad">בניית ממ״ד תקני</Link>. הכל חלק מהחבילה, לא שירות
             נפרד. לקריאה על התהליך הכולל:{" "}
@@ -414,7 +413,6 @@ export default function Page() {
         targets={[
           "building-mamad",
           "prefab-mamad",
-          "architect-mamad-role",
           "compare-main",
           "mamad-process",
           "mamad-cost",
