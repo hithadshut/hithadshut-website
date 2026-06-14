@@ -5,6 +5,7 @@ import Section from "@/components/Section";
 import ContentSection from "@/components/ContentSection";
 import ComparisonTable from "@/components/ComparisonTable";
 import FAQ from "@/components/FAQ";
+import AnswerBlock from "@/components/AnswerBlock";
 import InlineLeadForm from "@/components/InlineLeadForm";
 import RelatedLinks from "@/components/RelatedLinks";
 import SchemaArticle from "@/components/schema/article";
@@ -108,6 +109,37 @@ export default function Page() {
           </div>
         </Reveal>
       </Section>
+
+      <AnswerBlock
+        service="ליווי דיירים בהתחדשות עירונית: חלופת שקד ופינוי בינוי"
+        process="בדיקת היתכנות, השוואת הצעות יזמים וליווי עד מסירה"
+        answer={
+          <>
+            חלופת שקד היא מסלול התחדשות עירונית לפי תיקון 139 לחוק התכנון והבנייה, שמחליף את
+            תמ״א 38/2. המסלול מאפשר חיזוק או הריסה ובנייה של בניין יחיד ברוב של 80% מבעלי הדירות,
+            עם תוספת זכויות בנייה משמעותית. בהתחדשות בינוי ויזמות מלווים דיירים בבחינת המסלול,
+            בשבילם ולא בשביל היזם, מבדיקת ההיתכנות ועד המסירה.
+          </>
+        }
+        faqs={[
+          {
+            q: "מה זה תיקון 139 לחוק התכנון והבנייה?",
+            a: "תיקון 139 הוא החקיקה שמסדירה את 'חלופת שקד', מסלול התחדשות עירונית עצמאי שמחליף את תמ״א 38/2. בניגוד להוראת שעה, מדובר בחקיקה ראשית קבועה שמספקת יציבות רגולטורית לתכנון ארוך טווח.",
+          },
+          {
+            q: "מה הרוב הנדרש בחלופת שקד?",
+            a: "80% מבעלי הדירות בבניין, זהה לרוב הנדרש בתמ״א 38/2.",
+          },
+          {
+            q: "כמה זכויות בנייה מאפשרת חלופת שקד?",
+            a: "עד 400% משטח הבניין הקיים בתנאים מסוימים. בערי המרכז התוספת המקובלת היא 200%-300% משטח קיים, בכפוף לתב״ע המקומית ולאישור הוועדה.",
+          },
+          {
+            q: "חלופת שקד או פינוי בינוי?",
+            a: "חלופת שקד מתאימה לבניין יחיד. פינוי בינוי מתאים למתחם של 24 יחידות ומעלה. ההחלטה תלויה בעיקר בגודל המתחם.",
+          },
+        ]}
+      />
 
       <Section tone="white">
         <Reveal>
@@ -378,6 +410,7 @@ export default function Page() {
       <RelatedLinks
         seed="chalufat-shaked"
         targets={[
+          "home-front-command-approval",
           "tama-38",
           "tama-38-sug-2",
           "pinui-binui",
