@@ -7,6 +7,7 @@ import ComparisonTable from "@/components/ComparisonTable";
 import FAQ from "@/components/FAQ";
 import InlineLeadForm from "@/components/InlineLeadForm";
 import RelatedLinks from "@/components/RelatedLinks";
+import AnswerBlock from "@/components/AnswerBlock";
 import SchemaArticle from "@/components/schema/article";
 import SchemaBreadcrumb from "@/components/schema/breadcrumb";
 import TrustBlock from "@/components/TrustBlock";
@@ -128,6 +129,39 @@ export default function Page() {
           </div>
         </Reveal>
       </Section>
+
+      {/* Citeable entity block: NAP single-source (site.ts) + liftable answer for AI engines.
+          includeFaqSchema omitted (default false) so the single FAQPage stays on the bottom FAQ. */}
+      <AnswerBlock
+        service="ליווי דיירים בפינוי בינוי והתחדשות עירונית בכל הארץ"
+        process="בדיקת ההסכם והזכויות, ליווי מול היזם, וייעוץ עד מסירה"
+        answer={
+          <>
+            דייר סרבן בפינוי בינוי הוא בעל דירה שמתנגד לפרויקט שזכה לרוב 67%. היזם או הנציגות יכולים
+            להגיש תביעה לבית המשפט המחוזי, שבוחן אם הסירוב סביר. הליך טיפוסי אורך 12 עד 24 חודשים,
+            ורוב המקרים נסגרים בהסכמה. בהתחדשות בינוי ויזמות מלווים דיירים בהבנת ההגנות והזכויות,
+            בשבילם ולא בשביל היזם.
+          </>
+        }
+        faqs={[
+          {
+            q: "מאיזה רוב אפשר לתבוע דייר סרבן?",
+            a: "67% מבעלי הדירות, ירידה מ-80% לפי תיקון 2024. זהו רף לתביעה, לא לביצוע.",
+          },
+          {
+            q: "מתי סירוב נחשב סביר?",
+            a: "כשהוא נובע מתמורה נמוכה מהסטנדרט, היעדר ערבויות, או פגיעה בזכויות גיל. סירוב גורף בלי נימוק נחשב בלתי סביר.",
+          },
+          {
+            q: "מה זה כונס נכסים בפינוי בינוי?",
+            a: "בעל תפקיד שממנה בית המשפט לחתום על ההסכם במקום דייר סרבן. הדייר ממשיך לקבל את דירת התמורה וכל הזכויות.",
+          },
+          {
+            q: "יש הגנות מיוחדות לדייר מבוגר?",
+            a: "כן. גיל 70+ ו-75+ מקנים הגנות, ובית המשפט בוחן בקפידה רבה יותר את סבירות הסירוב של דייר מבוגר.",
+          },
+        ]}
+      />
 
       <Section tone="white">
         <Reveal>

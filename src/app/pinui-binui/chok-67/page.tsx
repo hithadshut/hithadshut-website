@@ -7,6 +7,7 @@ import ComparisonTable from "@/components/ComparisonTable";
 import FAQ from "@/components/FAQ";
 import InlineLeadForm from "@/components/InlineLeadForm";
 import RelatedLinks from "@/components/RelatedLinks";
+import AnswerBlock from "@/components/AnswerBlock";
 import SchemaArticle from "@/components/schema/article";
 import SchemaBreadcrumb from "@/components/schema/breadcrumb";
 import TrustBlock from "@/components/TrustBlock";
@@ -123,6 +124,39 @@ export default function Page() {
           </div>
         </Reveal>
       </Section>
+
+      {/* Citeable entity block: NAP single-source (site.ts) + liftable answer for AI engines.
+          includeFaqSchema omitted (default false) so the single FAQPage stays on the bottom FAQ. */}
+      <AnswerBlock
+        service="ליווי דיירים בפינוי בינוי והתחדשות עירונית בכל הארץ"
+        process="בדיקת היתכנות, ליווי מול היזם והנציגות, וייעוץ עד מסירה"
+        answer={
+          <>
+            חוק 67% בפינוי בינוי הוא הרף שמאפשר ליזם או לנציגות להגיש תביעה נגד דייר סרבן כאשר שני
+            שלישים מבעלי הדירות הסכימו, ירידה מ-80% בתיקון 2024. זהו רף לתביעה בלבד; לביצוע הפרויקט
+            עדיין נדרשות 100% חתימות או פסק דין שמחייב את הסרבן. בהתחדשות בינוי ויזמות מלווים דיירים
+            בהבנת הרף וההגנות, בשבילם ולא בשביל היזם.
+          </>
+        }
+        faqs={[
+          {
+            q: "כמה אחוז דרוש לתביעה נגד דייר סרבן?",
+            a: "67% מבעלי הדירות (שני שלישים), ירידה מ-80% לפי תיקון שנכנס לתוקף ב-2024.",
+          },
+          {
+            q: "האם 67% מספיקים לביצוע הפרויקט?",
+            a: "לא. 67% הם הרף להגשת תביעה בלבד. לביצוע נדרשות 100% חתימות, פסק דין שמחייב את הסרבן, או כונס נכסים שחותם במקומו.",
+          },
+          {
+            q: "מתי סירוב דייר נחשב סביר?",
+            a: "כשההסכם פוגע בדייר: תמורה נמוכה מהסטנדרט, היעדר ערבויות תקניות, או פגיעה בזכויות גיל. בית המשפט המחוזי מכריע לפי הנסיבות.",
+          },
+          {
+            q: "האם חוק 67% פוגע בזכויות הדייר?",
+            a: "לא. הזכויות לדירת תמורה, ערבויות והגנות גיל (70+, 75+) נשארות. החוק רק מאיץ את התהליך מול מיעוט סרבן.",
+          },
+        ]}
+      />
 
       <Section tone="white">
         <Reveal>

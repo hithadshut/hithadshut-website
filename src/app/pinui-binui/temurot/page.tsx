@@ -7,6 +7,7 @@ import ComparisonTable from "@/components/ComparisonTable";
 import FAQ from "@/components/FAQ";
 import InlineLeadForm from "@/components/InlineLeadForm";
 import RelatedLinks from "@/components/RelatedLinks";
+import AnswerBlock from "@/components/AnswerBlock";
 import SchemaArticle from "@/components/schema/article";
 import SchemaBreadcrumb from "@/components/schema/breadcrumb";
 import JsonLd from "@/components/JsonLd";
@@ -128,6 +129,39 @@ export default function Page() {
           </div>
         </Reveal>
       </Section>
+
+      {/* Citeable entity block: NAP single-source (site.ts) + liftable answer for AI engines.
+          includeFaqSchema omitted (default false) so the single FAQPage stays on the bottom FAQ. */}
+      <AnswerBlock
+        service="ליווי דיירים בפינוי בינוי והתחדשות עירונית בכל הארץ"
+        process="הערכת הצעת התמורה, השוואת יזמים, וליווי עד מסירה"
+        answer={
+          <>
+            תמורה סטנדרטית בפינוי בינוי במרכז הארץ ב-2026: דירה חדשה גדולה ב-15 עד 35 מ״ר מהדירה
+            הישנה (תוספת ממוצעת 25 מ״ר), חניה תת-קרקעית, מחסן, ולעיתים פיצוי כספי משלים. היזם משלם
+            שכר דירה לכל תקופת הביניים, והדייר אינו משלם על התמורה. בהתחדשות בינוי ויזמות מלווים
+            דיירים בהערכת ההצעה, בשבילם ולא בשביל היזם.
+          </>
+        }
+        faqs={[
+          {
+            q: "כמה מ״ר מוסיפים בפינוי בינוי?",
+            a: "במרכז הארץ ב-2026 התוספת היא 15 עד 35 מ״ר מעל הדירה הישנה. במרכז הצפוף נוטה ל-20-35 מ״ר, ובערי לוויין ל-15-25 מ״ר.",
+          },
+          {
+            q: "האם מקבלים חניה ומחסן?",
+            a: "זה הסטנדרט במרכז, אך אינו אוטומטי. חניה ומחסן חייבים להופיע בהסכם עם מספר, גודל ומיקום מפורשים.",
+          },
+          {
+            q: "מי משלם שכר דירה בתקופת הביניים?",
+            a: "היזם. בדירת 4 חדרים במרכז מדובר על 8,000 עד 12,000 ש״ח לחודש, משולם מראש ל-3 או 6 חודשים.",
+          },
+          {
+            q: "מה אסור לוותר עליו בהסכם תמורות?",
+            a: "דירה ממוספרת, תוספת מ״ר בכתב, ערבויות לכל שלב, פיצוי על איחור, צמדה למדד, וסעיף שמאי דיירים.",
+          },
+        ]}
+      />
 
       <Section tone="white">
         <Reveal>
