@@ -280,8 +280,8 @@ export const llmsManifest: LlmsManifest = {
         },
         {
           url: "/guides/mamad-permit-exemption-2026",
-          label: "מסלול פטור מהיתר 2026",
-          description: "הוראת חרבות ברזל, מי זכאי, איך מגישים.",
+          label: "פטור מהיתר לבניית ממ״ד 2026",
+          description: "תקנה 30ב׳: בנייה בלי היתר רגיל לבתים עד 2 קומות, מי זכאי, התנאים, ואישור פיקוד העורף תוך 14 ימי עבודה.",
         },
         {
           url: "/guides/mamad-vs-shelter",
