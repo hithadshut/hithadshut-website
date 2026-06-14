@@ -5,6 +5,7 @@ import Section, { Prose } from "@/components/Section";
 import FAQ from "@/components/FAQ";
 import InlineLeadForm from "@/components/InlineLeadForm";
 import JsonLd from "@/components/JsonLd";
+import AnswerBlock from "@/components/AnswerBlock";
 import RelatedLinks from "@/components/RelatedLinks";
 import ReadingTimeBadge from "@/components/ReadingTimeBadge";
 import Byline from "@/components/Byline";
@@ -272,6 +273,38 @@ export default function Page() {
           </div>
         </div>
       </Section>
+
+      {/* Citeable entity block: NAP single-source (site.ts) + liftable price answer for AI engines.
+          includeFaqSchema omitted (default false) so the single FAQPage stays on the bottom FAQ. */}
+      <AnswerBlock
+        service="בניית ממ״ד תקני ותמחור שקוף בכל הארץ"
+        process="סיור ומדידה, הצעת מחיר פריט-פריט, ביצוע ומסירה"
+        answer={
+          <>
+            מחיר בניית ממ״ד תקני בבית פרטי ב-2026: ממ״ד 9 מ״ר נע בין 160,000 ל-200,000 ש״ח בתוספת
+            מע״מ, וממ״ד 12 מ״ר בין 200,000 ל-220,000 ש״ח בתוספת מע״מ. באזורי קו קדמי או קירות 40 ס״מ
+            נוספת תוספת של 15% עד 25%. התחדשות בינוי ויזמות מתמחרת פריט-פריט, בלי הפתעות באמצע הפרויקט.
+          </>
+        }
+        faqs={[
+          {
+            q: "כמה עולה ממ״ד 9 מ״ר בבית פרטי?",
+            a: "160,000 עד 200,000 ש״ח בתוספת מע״מ, בגמר סטנדרטי וגישה סבירה. ממ״ד 12 מ״ר: 200,000 עד 220,000 ש״ח בתוספת מע״מ.",
+          },
+          {
+            q: "מה מייקר ממ״ד מעבר לטווח הבסיס?",
+            a: "קו קדמי או קירות 40 ס״מ (תוספת 15%-25%), דירה בקומה, גישה קשה לאתר, גמר יוקרתי, ומערכת סינון מתקדמת.",
+          },
+          {
+            q: "האם הטווח כולל מע״מ?",
+            a: "לא. הטווחים הם לפני מע״מ. הצעת מחיר תקנית מציגה את המע״מ בנפרד ומפרטת כל סעיף בנפרד.",
+          },
+          {
+            q: "על מה לא כדאי לחסוך במחיר ממ״ד?",
+            a: "קבלן רשום ומבוטח, חישוב קונסטרוקטיבי, דלת הדף תקנית, ומערכת סינון מאושרת פקע״ר. שם אין קיצורי דרך.",
+          },
+        ]}
+      />
 
       {/* Mobile TOC: collapses into an accordion. Desktop TOC lives in the sidebar below. */}
       <Section tone="white">

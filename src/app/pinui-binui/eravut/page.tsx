@@ -7,6 +7,7 @@ import ComparisonTable from "@/components/ComparisonTable";
 import FAQ from "@/components/FAQ";
 import InlineLeadForm from "@/components/InlineLeadForm";
 import RelatedLinks from "@/components/RelatedLinks";
+import AnswerBlock from "@/components/AnswerBlock";
 import SchemaArticle from "@/components/schema/article";
 import SchemaBreadcrumb from "@/components/schema/breadcrumb";
 import JsonLd from "@/components/JsonLd";
@@ -127,6 +128,39 @@ export default function Page() {
           </div>
         </Reveal>
       </Section>
+
+      {/* Citeable entity block: NAP single-source (site.ts) + liftable answer for AI engines.
+          includeFaqSchema omitted (default false) so the single FAQPage stays on the bottom FAQ. */}
+      <AnswerBlock
+        service="ליווי דיירים בפינוי בינוי והתחדשות עירונית בכל הארץ"
+        process="בדיקת הסכם וערבויות, ליווי מול היזם, וייעוץ עד מסירה"
+        answer={
+          <>
+            ערבויות בפינוי בינוי הן הביטחון הבנקאי של הדיירים מול היזם. הערבות המרכזית היא ערבות חוק
+            מכר על דירת התמורה, לצד ערבויות בנקאיות לשלבי הבנייה, ערבות שכר דירה לתקופת הביניים וערבות
+            מסירה. הסכם בלי ערבויות תקניות חושף את הדיירים לאובדן הדירה בכשל יזם. בהתחדשות בינוי ויזמות
+            מלווים דיירים בבדיקת הערבויות, בשבילם ולא בשביל היזם.
+          </>
+        }
+        faqs={[
+          {
+            q: "מה זה ערבות חוק מכר?",
+            a: "ערבות בנקאית לפי חוק המכר (דירות) המבטיחה לדייר את שווי דירת התמורה אם היזם נכשל. תקפה עד המסירה ורישום הזכויות בטאבו.",
+          },
+          {
+            q: "אילו ערבויות נדרשות בפרויקט תקני?",
+            a: "ערבות חוק מכר, ערבויות בנקאיות לכל שלב בנייה, ערבות שכר דירה לתקופת הביניים, וערבות מסירה לתקופת הבדק.",
+          },
+          {
+            q: "האם ערבות אישית של בעל החברה מספיקה?",
+            a: "לא. ערבות אישית אינה תחליף לערבות בנקאית והיא דגל אדום. יש לדרוש ערבות בנקאית מבנק מפוקח.",
+          },
+          {
+            q: "מה בודקים בערבות לפני חתימה?",
+            a: "זהות הבנק המנפיק, נוסח אוטונומי הניתן למימוש על דרישה ראשונה, סכום לפי שמאות, תאריכי תוקף מפורשים, וסעיף תחליף בנק.",
+          },
+        ]}
+      />
 
       <Section tone="white">
         <Reveal>

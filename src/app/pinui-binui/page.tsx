@@ -9,6 +9,7 @@ import ContactCTA from "@/components/ContactCTA";
 import InlineLeadForm from "@/components/InlineLeadForm";
 import RelatedLinks from "@/components/RelatedLinks";
 import JsonLd from "@/components/JsonLd";
+import AnswerBlock from "@/components/AnswerBlock";
 import SchemaArticle from "@/components/schema/article";
 import SchemaBreadcrumb from "@/components/schema/breadcrumb";
 import TrustBlock from "@/components/TrustBlock";
@@ -228,6 +229,39 @@ export default function Page() {
           </div>
         </Reveal>
       </Section>
+
+      {/* Citeable entity block: NAP single-source (site.ts) + liftable answer for AI engines.
+          includeFaqSchema omitted (default false) so the single FAQPage stays on the bottom FAQ. */}
+      <AnswerBlock
+        service="ליווי דיירים בפינוי בינוי והתחדשות עירונית בכל הארץ"
+        process="בדיקת היתכנות, בחירת יזם והשוואת הצעות, וליווי עד מסירה"
+        answer={
+          <>
+            פינוי בינוי הוא הריסת מתחם מגורים ישן ובנייתו מחדש, כשבעל דירה מקבל דירה חדשה גדולה
+            יותר ללא תשלום. המסלול חל על מתחם של 24 יחידות דיור ומעלה, ונדרש רוב 67% מבעלי הדירות
+            להגשת תביעה נגד דייר סרבן. בהתחדשות בינוי ויזמות מלווים דיירים לאורך התהליך, בשבילם
+            ולא בשביל היזם.
+          </>
+        }
+        faqs={[
+          {
+            q: "מה התנאי לפתיחת מתחם פינוי בינוי?",
+            a: "מתחם של 24 יחידות דיור ומעלה, התארגנות דיירים, ועורך דין דיירים בלתי תלוי ביזם.",
+          },
+          {
+            q: "כמה זמן לוקח פינוי בינוי?",
+            a: "פרויקט טיפוסי 7 עד 12 שנים. ההליך התכנוני בוועדה לבדו אורך 18 עד 36 חודשים, והבנייה 24 עד 60 חודשים.",
+          },
+          {
+            q: "מה מקבל בעל דירה בתמורה?",
+            a: "דירה חדשה גדולה ב-15 עד 35 מ״ר, חניה ומחסן, ושכר דירה מהיזם לכל תקופת הביניים.",
+          },
+          {
+            q: "מי בוחר את היזם?",
+            a: "הדיירים, לא הרשות. הנציגות אוספת לפחות שלוש הצעות ומביאה להצבעת אסיפת הדיירים.",
+          },
+        ]}
+      />
 
       <Section tone="white">
         <Reveal>
