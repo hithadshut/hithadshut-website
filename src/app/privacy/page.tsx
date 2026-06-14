@@ -3,6 +3,7 @@ import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import Section, { Prose } from "@/components/Section";
 import { buildMetadata } from "@/lib/metadata";
+import { site } from "@/lib/site";
 
 const PATH = "/privacy";
 const TITLE = "מדיניות פרטיות | התחדשות בינוי ויזמות";
@@ -217,7 +218,7 @@ export default function Page() {
           <h2>13. פניות בנושא פרטיות</h2>
           <p>
             13.1. בכל שאלה, בקשה או תלונה בנוגע למדיניות זו או לאופן הטיפול במידע שלכם, ניתן
-            לפנות אל: info@hithadshut.co.il · 083-006-068.
+            לפנות אל: info@hithadshut.co.il · {site.phone}.
           </p>
           <p>
             13.2. עומדת לכם הזכות לפנות גם{" "}

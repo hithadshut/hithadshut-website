@@ -10,7 +10,7 @@ export const site = {
     "חברת בינוי ויזמות לבניית ממ״דים, מיגון, ממ״ד מוכן ופינוי בינוי. אנחנו מבצעים.",
   domain: "hithadshut.co.il",
   url: "https://hithadshut.co.il",
-  phone: "083-006-068",
+  phone: "08-300-6068",
   phoneE164: "+97283006068",
   phoneDial: "083006068",
   whatsapp: "+97283006068",

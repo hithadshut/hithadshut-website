@@ -3,6 +3,7 @@ import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import Section, { Prose } from "@/components/Section";
 import { buildMetadata } from "@/lib/metadata";
+import { site } from "@/lib/site";
 
 const PATH = "/accessibility";
 const TITLE = "הצהרת נגישות | התחדשות בינוי ויזמות";
@@ -82,7 +83,7 @@ export default function Page() {
               <strong>רכז נגישות:</strong> אופק
             </li>
             <li>
-              <strong>טלפון:</strong> 083-006-068
+              <strong>טלפון:</strong> {site.phone}
             </li>
             <li>
               <strong>דוא״ל:</strong> info@hithadshut.co.il
