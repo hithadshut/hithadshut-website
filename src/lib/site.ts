@@ -128,6 +128,11 @@ export const guides = [
     title: "מערכת אוורור וסינון לממ״ד",
     short: "מערכת אוורור וסינון",
   },
+  {
+    slug: "mamad-specifications-2026",
+    title: "מפרט ודרישות ממ״ד תקני 2026",
+    short: "מפרט ודרישות ממ״ד",
+  },
 ] as const;
 
 export const compare = {

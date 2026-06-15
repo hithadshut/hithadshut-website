@@ -251,6 +251,7 @@ export default function Page() {
             לקריאה נוספת:{" "}
             <Link href="/services/building-mamad">בניית ממ״ד</Link>,{" "}
             <Link href="/guides/home-front-command-approval">אישורי פיקוד העורף</Link>,{" "}
+            <Link href="/guides/mamad-specifications-2026">מפרט ודרישות ממ״ד תקני</Link>,{" "}
             <Link href="/guides/mamad-cost">מחיר ממ״ד</Link>.
           </p>
         </Prose>
