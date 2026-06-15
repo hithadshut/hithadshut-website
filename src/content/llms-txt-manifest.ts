@@ -293,6 +293,11 @@ export const llmsManifest: LlmsManifest = {
           label: "מערכת אוורור וסינון",
           description: "תקן סינון, NBC, דרישות באזורי קו קדמי.",
         },
+        {
+          url: "/guides/mamad-specifications-2026",
+          label: "מפרט ודרישות ממ״ד תקני 2026",
+          description: "מידות מינימום (9 מ״ר, 22.5 מ״ק), דלת וחלון הדף תקן 4570, מערכת סינון, ואישור פיקוד העורף. כל נתון עם מקור רשמי.",
+        },
       ],
     },
     {
