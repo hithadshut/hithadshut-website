@@ -209,7 +209,8 @@ export default function Page() {
             </li>
             <li>
               <strong>חוזה ורישוי:</strong> חוזה בכתב, הגשה לוועדה המקומית ולפיקוד העורף, ניהול
-              ההתכתבות מולם.
+              ההתכתבות מולם, כולל{" "}
+              <Link href="/guides/home-front-command-approval">אישור פיקוד העורף</Link> לממ״ד.
             </li>
             <li>
               <strong>ביצוע ומסירה:</strong> ניהול פרויקט שבועי, דיווחים בכתב, סיורי שטח מתואמים,
