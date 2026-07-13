@@ -46,14 +46,13 @@ export const PRICING = {
 
   /** Reinforcement of an existing room (door, window, sealing, structural). */
   migunImprovement: {
-    min: 40_000,
+    min: 120_000,
     max: 150_000,
     currency: "ILS",
     includesVAT: false,
-    lastVerified: "2026-05-13",
+    lastVerified: "2026-07-13",
     sources: [
-      "oref.org.il (current approval categories)",
-      "internal field data, 8 reinforcement projects 2024–2026",
+      "owner-verified input, 2026-07-13 (canonical for this site; permanent price-consistency gate, see scripts/check-price-consistency.mjs)",
     ],
   } satisfies PriceRange,
 

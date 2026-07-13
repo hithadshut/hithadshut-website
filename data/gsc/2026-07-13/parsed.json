@@ -1,0 +1,23 @@
+{
+  "exportDate": "2026-07-13",
+  "dateRange": "2026-04-14 to 2026-07-13 (last 3 months, web search)",
+  "sanityCheck": {
+    "status": "PASS",
+    "checks": [
+      { "page": "/guides/home-front-command-approval", "expected": "~2579 imp, pos ~17.7, CTR ~0.54%", "actual": "2579 imp, pos 17.7, CTR 0.54%", "match": true },
+      { "page": "/services/room-reinforcement", "expected": "~411 imp, pos ~26.6", "actual": "411 imp, pos 26.61", "match": true },
+      { "page": "/pinui-binui/eravut", "expected": "~421 imp, pos ~9.9, CTR 0%", "actual": "421 imp, pos 9.94, CTR 0%", "match": true }
+    ]
+  },
+  "totals": {
+    "byCountryIsrael": { "clicks": 294, "impressions": 10837, "ctr": "2.71%", "position": 22.51 },
+    "byDevice": {
+      "mobile": { "clicks": 154, "impressions": 3188, "ctr": "4.83%", "position": 11.29 },
+      "desktop": { "clicks": 151, "impressions": 11707, "ctr": "1.29%", "position": 20.39 },
+      "tablet": { "clicks": 1, "impressions": 49, "ctr": "2.04%", "position": 19.73 }
+    },
+    "totalPagesInReport": 189
+  },
+  "source": "data/gsc/2026-07-13/{שאילתות,דפים,תרשים,מדינות,מכשירים}.csv, encoding utf-8-sig",
+  "note": "Full query/page rows retained only in source CSVs; this snapshot stores totals + sanity-check provenance for the historical record, not a full duplicate of the CSVs."
+}

@@ -111,7 +111,10 @@ export type LinkTarget =
   | "madrichim-shipur-migun"
   | "madrichim-yorshim"
   | "madrichim-yazamim"
-  | "hithadshut-team";
+  | "hithadshut-team"
+  | "migun-solutions"
+  | "migunit"
+  | "compare-migunit-muchan";
 
 export const ANCHOR_VARIANTS: Record<LinkTarget, string[]> = {
   "building-mamad": [
@@ -489,6 +492,30 @@ export const ANCHOR_VARIANTS: Record<LinkTarget, string[]> = {
     "אודות צוות החברה",
     "התחדשות: על החברה",
   ],
+  "migun-solutions": [
+    "פתרונות מיגון: מדריך החלטה",
+    "ארבעת פתרונות המיגון",
+    "איזה פתרון מיגון מתאים לי",
+    "מדריך פתרונות מיגון 2026",
+    "ממ״ד, מיגונית, מקלט או שיפור מיגון",
+    "מדריך לבחירת פתרון מיגון",
+    "כל פתרונות המיגון במקום אחד",
+  ],
+  "migunit": [
+    "מיגונית",
+    "יחידת מיגון מוכנה",
+    "שירות התקנת מיגונית",
+    "מיגונית מאושרת פקע״ר",
+    "פתרון מיגון חיצוני",
+    "מיגונית לחצר",
+  ],
+  "compare-migunit-muchan": [
+    "מיגונית מול ממ״ד מוכן",
+    "השוואה: מיגונית מול ממ״ד יביל",
+    "מה עדיף, מיגונית או ממ״ד מוכן",
+    "מדריך השוואה מיגونית וממ״ד מוכן",
+    "מיגונית או ממ״ד מוכן: ההבדלים",
+  ],
 };
 
 // Deterministic rotation based on a seed (e.g. the source page slug) so anchors
@@ -559,6 +586,9 @@ export const HREF_MAP: Record<LinkTarget, string> = {
   "madrichim-yorshim": MADRICHIM_HREFS.yorshim,
   "madrichim-yazamim": MADRICHIM_HREFS.yazamim,
   "hithadshut-team": ABOUT_HREFS.hithadshutTeam,
+  "migun-solutions": "/guides/migun-solutions",
+  "migunit": "/services/migunit",
+  "compare-migunit-muchan": "/compare/migunit-vs-mamad-muchan",
 };
 
 // Short one-line summaries shown on RelatedLinks cards.
@@ -653,6 +683,12 @@ export const TARGET_SUMMARY: Record<LinkTarget, string> = {
     "מסגרת להערכת יזמי פינוי בינוי בישראל 2026: 8 קריטריונים לשקילה.",
   "hithadshut-team":
     "מי עומדים מאחורי התחדשות: מודל העבודה, תחומי ההתמחות, וערכי החברה.",
+  "migun-solutions":
+    "ממ״ד, שיפור מיגון, ממ״ד יביל או מיגונית: הגדרה, רגולטור, קהל יעד וטווח השקעה לכל פתרון.",
+  "migunit":
+    "יחידת מיגון מוכנה מהמפעל, מאושרת פקע״ר, להתקנה מהירה בחצר או במרחב חיצוני.",
+  "compare-migunit-muchan":
+    "השוואה: מיגונית מול ממ״ד מוכן, הבדלי הגנה, מחיר וזמן התקנה.",
 };
 
 export const TARGET_LABEL: Record<LinkTarget, string> = {
@@ -701,4 +737,7 @@ export const TARGET_LABEL: Record<LinkTarget, string> = {
   "madrichim-yorshim": "זכות בעלות מול זכות יורשים",
   "madrichim-yazamim": "השוואת יזמי פינוי בינוי",
   "hithadshut-team": "צוות התחדשות",
+  "migun-solutions": "פתרונות מיגון",
+  "migunit": "מיגונית",
+  "compare-migunit-muchan": "מיגונית מול ממ״ד מוכן",
 };

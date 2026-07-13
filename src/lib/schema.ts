@@ -125,6 +125,43 @@ export function localBusinessJsonLd() {
   };
 }
 
+/**
+ * Person schema for /about/ofek-mazor. Mirrors only facts already visible
+ * on that page: role, company, license number, direct phone. No claims
+ * beyond what's rendered (see hard rule: schema must match visible content).
+ */
+export function ofekPersonJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": ["Person", "RealEstateAgent"],
+    "@id": `${site.url}/about/ofek-mazor/#person`,
+    name: "אופק מזור",
+    jobTitle: "מנכ״ל ומייסד",
+    worksFor: { "@id": `${site.url}/#organization` },
+    url: `${site.url}/about/ofek-mazor`,
+    image: `${site.url}/ofek-mazor.jpg`,
+    telephone: "+972546712130",
+    email: site.email,
+    identifier: {
+      "@type": "PropertyValue",
+      name: "רישיון תיווך מקרקעין",
+      value: "3246290",
+    },
+    areaServed: { "@type": "Country", name: "IL" },
+  };
+}
+
+export function ofekImageJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ImageObject",
+    "@id": `${site.url}/about/ofek-mazor/#image`,
+    contentUrl: `${site.url}/ofek-mazor.jpg`,
+    url: `${site.url}/ofek-mazor.jpg`,
+    caption: "אופק מזור, מנכ״ל ומייסד התחדשות בינוי ויזמות",
+  };
+}
+
 export function serviceJsonLd(params: {
   name: string;
   description: string;

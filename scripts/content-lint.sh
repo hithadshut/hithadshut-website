@@ -78,6 +78,14 @@ if grep -rnE "מיגונית.*בית פרטי.*מרכז|מיגונית.*במרכ
   FAIL=1
 fi
 
+echo "Gate 5: room-reinforcement price consistency (owner-verified 2026-07-13, permanent gate)"
+# Canonical range is 120,000-150,000 (src/lib/data/pricing.ts migunImprovement).
+# Any stale range for this service anywhere in the codebase is a hard fail.
+if grep -rn "40,000-150,000\|50,000-120,000" "${EXIST_TARGETS[@]}" "${EXT[@]}" 2>/dev/null; then
+  echo "FAIL: stale room-reinforcement price range found. Canonical is 120,000-150,000 ₪ + מע״מ (see src/lib/data/pricing.ts)."
+  FAIL=1
+fi
+
 if [ $FAIL -eq 1 ]; then
   echo ""
   echo "content-lint: gates failed. Push blocked."
