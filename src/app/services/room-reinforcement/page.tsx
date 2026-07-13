@@ -8,7 +8,7 @@ import { buildMetadata } from "@/lib/metadata";
 import { PRICING } from "@/lib/data/pricing";
 
 const PATH = "/services/room-reinforcement";
-const TITLE = "מיגון חדר קיים | פתרון מהיר לביטחון הבית | התחדשות";
+const TITLE = "מיגון חדר קיים מחיר 2026 | שיפור מיגון תקני | התחדשות";
 const DESCRIPTION =
   `מיגון חדר קיים: חיזוק קונסטרוקטיבי, דלת הדף, חלון ממ״ד ואטימה. ${PRICING.migunImprovement.min.toLocaleString("en-US")}-${PRICING.migunImprovement.max.toLocaleString("en-US")} ₪ + מע״מ, ביצוע של 2-8 שבועות. פתרון מהיר ומשתלם כשבניית ממ״ד חדש לא אפשרית.`;
 
@@ -37,7 +37,7 @@ const faqs = [
   },
   {
     q: "כמה זה עולה?",
-    a: "טווח רחב, תלוי בהיקף החיזוק: 40,000-150,000 ₪ + מע״מ. החלפת דלת+חלון+אטימה בלבד בצד הנמוך; חיזוק קונסטרוקטיבי של קירות ותקרה או מיגון בשילוב שיפוץ בצד הגבוה. אצלנו הצעת מחיר מפורטת לפי הרכיבים.",
+    a: "120,000-150,000 ₪ + מע״מ, תלוי בהיקף החיזוק: החלפת דלת+חלון+אטימה בלבד בצד הנמוך; חיזוק קונסטרוקטיבי של קירות ותקרה או מיגון בשילוב שיפוץ בצד הגבוה. אצלנו הצעת מחיר מפורטת לפי הרכיבים.",
   },
   {
     q: "צריך אישור פקע״ר?",
@@ -137,7 +137,7 @@ export default function Page() {
       steps={steps}
       benefits={benefits}
       timeline="החלפת דלת+חלון+אטימה: 2-4 שבועות. חיזוק קונסטרוקטיבי של קירות ותקרה: 1-2 חודשים. מיגון בשילוב שיפוץ: לפי לוח השיפוץ."
-      pricing="מיגון חדר קיים: 40,000-150,000 ₪ + מע״מ, בהתאם להיקף. החלפת דלת+חלון+אטימה בצד הנמוך, חיזוק קונסטרוקטיבי של קירות ותקרה או מיגון בשילוב שיפוץ בצד הגבוה."
+      pricing="מיגון חדר קיים: 120,000-150,000 ₪ + מע״מ, בהתאם להיקף. החלפת דלת+חלון+אטימה בצד הנמוך, חיזוק קונסטרוקטיבי של קירות ותקרה או מיגון בשילוב שיפוץ בצד הגבוה."
       faqs={faqs}
       defaultService="reinforcement"
       quickAnswer={
@@ -145,7 +145,7 @@ export default function Page() {
           <strong>שיפור מיגון</strong> הוא חיזוק חדר קיים בבית כך שיוכל לשמש כמרחב מוגן.
           המסלול מאושר על ידי פיקוד העורף <strong>רק כאשר אי אפשר לבנות ממ״ד תקני</strong>{" "}
           (מסיבות של גודל החלקה, מבנה הבניין או מגבלות עירוניות). עלות טיפוסית:{" "}
-          <strong>50,000-120,000 ₪ + מע״מ</strong>, זמן ביצוע 2-4 שבועות. ההגנה נמוכה
+          <strong>120,000-150,000 ₪ + מע״מ</strong>, זמן ביצוע 2-4 שבועות. ההגנה נמוכה
           מממ״ד תקני (תקן 4422), אך גבוהה משמעותית מחדר רגיל. <strong>נדרש אישור
           פיקוד העורף</strong> לפני תחילת העבודות.
         </>
@@ -180,7 +180,7 @@ export default function Page() {
                 <tbody>
                   <tr className="border-t border-[var(--color-border)]">
                     <td className="px-4 py-3 font-bold text-[var(--color-ink)]">מחיר</td>
-                    <td className="px-4 py-3">50,000-120,000 ₪ + מע״מ</td>
+                    <td className="px-4 py-3">120,000-150,000 ₪ + מע״מ</td>
                     <td className="px-4 py-3">160,000-220,000 ₪ + מע״מ</td>
                   </tr>
                   <tr className="border-t border-[var(--color-border)] bg-[var(--color-soft)]/40">
@@ -258,8 +258,9 @@ export default function Page() {
                   מתי החיסכון אמיתי, ומתי לא
                 </h3>
                 <p className="text-sm text-[var(--color-ink)] leading-relaxed">
-                  שיפור מיגון יכול לחסוך <strong>100,000+ ₪</strong> לעומת בניית ממ״ד
-                  חדש. אבל אם הבית שלכם מאפשר ממ״ד תקני, הממ״ד עדיף בטווח הארוך הן
+                  שיפור מיגון יכול לחסוך <strong>עד כ-100,000 ₪</strong> לעומת בניית ממ״ד
+                  חדש, אבל הפער בפועל תלוי בהיקף החיזוק שנדרש בבית שלכם ובתת-הסוג
+                  שנבחר. אם הבית שלכם מאפשר ממ״ד תקני, הממ״ד עדיף בטווח הארוך הן
                   בגלל שווי הדירה (פער 8.2-21% לטובת דירות עם ממ״ד) והן בגלל ההגנה
                   המלאה. לפני החלטה, ראו את{" "}
                   <Link
@@ -327,7 +328,7 @@ export default function Page() {
               <li className="flex items-start gap-3">
                 <span className="text-[var(--color-accent-dark)] font-black shrink-0 mt-1">•</span>
                 <span>
-                  <strong>כשעלויות המיגון מתקרבות לעלות ממ״ד:</strong> אם חיזוק הקירות, החלפת דלת הדף וחלון מגיעים ל-130,000 ₪+, עדיף לבחון ממ״ד חדש באותה עלות עם הגנה מלאה ותקנית.
+                  <strong>כשעלויות המיגון מתקרבות לעלות ממ״ד:</strong> הפער בין שיפור מיגון בהיקף מלא (עד 150,000 ₪ + מע״מ) לבין ממ״ד תקני (מ-160,000 ₪ + מע״מ) הוא לעיתים רק עשרות אלפי שקלים בודדות. במקרה כזה עדיף לבחון ממ״ד חדש עם הגנה מלאה ותקנית.
                 </span>
               </li>
             </ul>
@@ -379,9 +380,9 @@ export default function Page() {
           "mamad-cost",
           "choosing-mamad-contractor",
           "madrichim-shipur-migun",
-          "hashvaa-migun-vs-pinui",
+          "home-front-command-approval",
+          "migun-solutions",
           "compare-main",
-          "areas",
         ]}
       />
     </ServicePageLayout>

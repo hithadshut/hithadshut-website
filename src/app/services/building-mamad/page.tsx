@@ -381,7 +381,7 @@ export default function Page() {
                   </tr>
                   <tr className="border-t border-[var(--color-border)] bg-[var(--color-soft)]/40">
                     <td className="px-4 py-3 font-bold text-[var(--color-ink)]">שיפור מיגון לחדר קיים</td>
-                    <td className="px-4 py-3">40,000-150,000 ₪ + מע״מ</td>
+                    <td className="px-4 py-3">120,000-150,000 ₪ + מע״מ</td>
                     <td className="px-4 py-3">2-8 שבועות</td>
                     <td className="px-4 py-3 text-[var(--color-muted)]">כשבניית ממ״ד חדש לא אפשרית</td>
                   </tr>

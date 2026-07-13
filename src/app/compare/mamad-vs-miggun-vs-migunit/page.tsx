@@ -226,6 +226,7 @@ export default function Page() {
           "room-reinforcement",
           "prefab-mamad",
           "mamad-cost",
+          "migun-solutions",
           "compare-tzamud",
         ]}
       />

@@ -133,6 +133,11 @@ export const guides = [
     title: "מפרט ודרישות ממ״ד תקני 2026",
     short: "מפרט ודרישות ממ״ד",
   },
+  {
+    slug: "migun-solutions",
+    title: "פתרונות מיגון: ממ״ד, מיגונית, מקלט או שיפור מיגון",
+    short: "פתרונות מיגון",
+  },
 ] as const;
 
 export const compare = {

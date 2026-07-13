@@ -266,7 +266,8 @@ export const llmsManifest: LlmsManifest = {
         {
           url: "/guides/home-front-command-approval",
           label: "אישורי פיקוד העורף",
-          description: "מסמכים, זמני אישור, טעויות שגורמות לעיכוב.",
+          description:
+            "מי צריך אישור, מסלולי רישוי, מסמכים, זמני אישור, ערוצי פנייה רשמיים לפקע״ר, וטעויות שגורמות לעיכוב.",
         },
         {
           url: "/guides/choosing-mamad-contractor",
@@ -287,6 +288,12 @@ export const llmsManifest: LlmsManifest = {
           url: "/guides/mamad-vs-shelter",
           label: "ממ״ד מול מקלט בבניין",
           description: "השוואה ומה עדיף.",
+        },
+        {
+          url: "/guides/migun-solutions",
+          label: "פתרונות מיגון: ממ״ד, מיגונית, מקלט או שיפור מיגון",
+          description:
+            "מדריך החלטה בין ארבעת פתרונות המיגון בישראל: הגדרה, רגולטור, קהל יעד וטווח השקעה לכל אחד.",
         },
         {
           url: "/guides/mamad-air-filter-system",

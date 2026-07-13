@@ -1332,6 +1332,71 @@ export const internalLinks: InternalLink[] = [
     context: "related",
     note: "Pillar RelatedLinks inbound to hashvaa hub.",
   },
+  // 2026-07-13: weekly SEO/GEO cycle, Change 4 - new /guides/migun-solutions
+  // decision hub. Outbound + inbound link graph per technical.md §6.
+  {
+    fromUrl: "/guides/migun-solutions",
+    toUrl: "/services/building-mamad",
+    anchorText: "בניית ממ״ד תקני",
+    context: "inline",
+    note: "New page outbound link, cycle 2026-07-13.",
+  },
+  {
+    fromUrl: "/guides/migun-solutions",
+    toUrl: "/services/room-reinforcement",
+    anchorText: "מיגון חדר קיים",
+    context: "inline",
+    note: "New page outbound link, cycle 2026-07-13.",
+  },
+  {
+    fromUrl: "/guides/migun-solutions",
+    toUrl: "/services/prefab-mamad",
+    anchorText: "ממ״ד מוכן",
+    context: "related",
+    note: "New page RelatedLinks, cycle 2026-07-13.",
+  },
+  {
+    fromUrl: "/guides/migun-solutions",
+    toUrl: "/compare/mamad-vs-miggun-vs-migunit",
+    anchorText: "ממ״ד מול מיגון מול מיגונית",
+    context: "inline",
+    note: "New page outbound link, cycle 2026-07-13.",
+  },
+  {
+    fromUrl: "/guides/migun-solutions",
+    toUrl: "/guides/home-front-command-approval",
+    anchorText: "מערכת הרישוי המקוונת של פיקוד העורף",
+    context: "inline",
+    note: "New page outbound link, cycle 2026-07-13.",
+  },
+  {
+    fromUrl: "/guides/migun-solutions",
+    toUrl: "/guides/mamad-vs-shelter",
+    anchorText: "ממ״ד מול מקלט",
+    context: "inline",
+    note: "New page outbound link, cycle 2026-07-13.",
+  },
+  {
+    fromUrl: "/",
+    toUrl: "/guides/migun-solutions",
+    anchorText: "פתרונות מיגון",
+    context: "related",
+    note: "Homepage guides grid card (src/lib/site.ts guides[]), cycle 2026-07-13.",
+  },
+  {
+    fromUrl: "/compare/mamad-vs-miggun-vs-migunit",
+    toUrl: "/guides/migun-solutions",
+    anchorText: "פתרונות מיגון: מדריך החלטה",
+    context: "related",
+    note: "Compare-page RelatedLinks inbound, cycle 2026-07-13.",
+  },
+  {
+    fromUrl: "/services/room-reinforcement",
+    toUrl: "/guides/migun-solutions",
+    anchorText: "ארבעת פתרונות המיגון",
+    context: "related",
+    note: "Room-reinforcement RelatedLinks inbound, cycle 2026-07-13. Also added home-front-command-approval to this page's RelatedLinks (Change 2).",
+  },
 ];
 
 /** All internal links pointing FROM a given URL. */
