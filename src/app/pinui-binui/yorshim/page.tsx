@@ -15,11 +15,11 @@ import Reveal from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
 
 const PATH = "/pinui-binui/yorshim";
-const TITLE = "ירושת דירה בפינוי בינוי 2026: זכויות ומיסוי | התחדשות";
+const TITLE = "ירושת דירה בפרויקט פינוי בינוי פעיל 2026: זכויות ומיסוי | התחדשות";
 const DESCRIPTION =
-  "יורשי דירות בפינוי בינוי זכאים לפטור ממס שבח גם אחרי הריסת הבניין, לפי נייר עמדה של רשות המסים. מדריך 2026 לזכויות, חובות, וסעיפים שחובה לעגן.";
+  "ירשתם דירה שכבר נמצאת בהסכם פינוי בינוי חתום? זכאות לפטור ממס שבח גם אחרי הריסת הבניין, לפי נייר עמדה של רשות המסים, וסעיפים שחובה לעגן בהסכם.";
 const PUBLISHED_DATE = "2026-05-03";
-const MODIFIED_DATE = "2026-05-03";
+const MODIFIED_DATE = "2026-07-14";
 
 export const metadata: Metadata = buildMetadata({
   title: TITLE,
@@ -105,6 +105,20 @@ export default function Page() {
                 פינוי בינוי
               </Link>{" "}
               בישראל הייתה עד לאחרונה מקור לאי-ודאות גדולה ליורשים. רשות המסים פרסמה לאחרונה נייר עמדה שמרחיב את הפטור ממס שבח גם ליורשי דירות במתחמי התחדשות עירונית, גם לאחר שהבניין הישן נהרס. מדריך זה מסביר את &ldquo;מלכוד היורשים&rdquo; שהיה קיים בעבר, את הפטור החדש, ומה צריך לעגן בהסכם הפינוי כדי להגן על הזכויות של היורשים.
+            </p>
+            <p className="mt-4 text-[17px] text-[var(--color-ink)] leading-8">
+              מדריך זה עוסק ספציפית ביורשים של דירה שכבר נמצאת{" "}
+              <strong className="text-[var(--color-primary)]">בתוך פרויקט פינוי בינוי פעיל</strong>{" "}
+              - כלומר, כשהמוריש כבר היה צד להסכם, או כשהבניין כבר בתהליך פעיל. אם אתם
+              מחפשים מידע כללי יותר על מכירת דירה שירשתם, בכל בניין ובכל מצב, כולל מס
+              שבח וצו ירושה, המדריך המתאים הוא{" "}
+              <Link
+                href="/madrichim/mechirat-dira-beyerusha"
+                className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]"
+              >
+                מכירת דירה בירושה
+              </Link>
+              .
             </p>
           </div>
         </Reveal>
@@ -365,6 +379,7 @@ export default function Page() {
           "pinui-binui-temurot",
           "pinui-binui-kshishim",
           "madrichim-yorshim",
+          "madrichim-mechirat-dira-beyerusha",
         ]}
       />
 
