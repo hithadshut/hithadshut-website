@@ -4,6 +4,280 @@ Append-only. Each cycle gets one section, newest first.
 
 ---
 
+## Cycle 2026-07-14 (cycle #3) — inheritance-seller pillar + F-cluster domination
+
+Logged as the **third owner-approved exception to the one-deploy-per-week
+cap** (approved in chat 14.07.2026), per the precondition in this cycle's
+brief.
+
+### Precondition + scope guard
+
+- Verified cycle #2 (2026-07-14) is fully deployed and matches remote:
+  local `HEAD` == `origin/master` == `6e2a926` before starting. Proceeded.
+- Scope guard: `git remote -v` -> `hithadshut/hithadshut-website` only.
+  Zero `adrk` reference anywhere in the repo (grep clean). Brokerage grep
+  (תיווך/מתווך/broker) run against every new/changed file; one false
+  positive found and fixed (see Gate results).
+
+### Stage 0 - learning + experiment-lock verification
+
+Read this file's cycle #1 and #2 entries in full. Confirmed the 6-page
+experiment lock from cycle #2 (maturation 2026-08-11): `/pinui-binui`,
+`/pinui-binui/temurot`, `/pinui-binui/chok-67`, `/pinui-binui/sarvan`,
+`/pinui-binui/kshishim`, `/pinui-binui/mechirat-dira`. None of these were
+touched - verified twice: once before starting (`git diff` against
+`origin/master` was empty because no changes existed yet) and again as a
+hard gate after every commit (`git diff pre-cycle-2026-07-14b HEAD --
+<6 files>`), both times empty.
+
+Verified `/pinui-binui/yorshim` and `/pinui-binui/yazam` hold **no**
+active ledger entries (checked both cycle #1's and cycle #2's ledger
+tables in this file) - both were pre-Experiment-Ledger pages (shipped
+2026-05-03), so both were cleared for editing this cycle per the brief.
+
+Reused `data/gsc/2026-07-13/דפים.csv` and `שאילתות.csv`. Sanity anchors,
+0% deviation:
+
+| Anchor | Brief | Actual (CSV) |
+|---|---|---|
+| `/pinui-binui/yazam` | ~134 imp, pos ~45.5 | 134 imp, pos 45.53 |
+| "יזם פינוי בינוי" | ~109 imp, pos ~35.3 | 109 imp, pos 35.31 |
+
+No conflicts found between the brief's canonical legal anchors (67%
+pinui-binui threshold, 70-74/75+ senior tiers with no 80+ tier,
+inheritance-is-not-a-transaction under §4, §49ב(5) heir exemption) and
+this site's own already-shipped content on `/pinui-binui/yorshim` and
+`/pinui-binui/mechirat-dira` - the new page's tax section reuses the same
+verified §4/§49ב(5) citations already live on those two pages, rather
+than re-deriving them.
+
+### Changes shipped
+
+**1. New page `/madrichim/mechirat-dira-beyerusha`** - general
+inheritance-sale pillar (cluster C, not urban-renewal-specific). H1
+"מכירת דירה בירושה: מס שבח, צו ירושה, וכל הדרכים למכור". Opens with an
+explicit intent-separation paragraph distinguishing three related pages:
+this one (selling ANY inherited apartment, any building), `/pinui-binui/
+mechirat-dira` (selling before pinui-binui, for the potential), and
+`/pinui-binui/yorshim` (heirs' rights inside an active pinui-binui
+project) - with cross-links to both (permitted: links FROM new pages TO
+locked pages). Sections: bekitzur short-answer block; hashlavim (tzav
+yerusha steps, incl. a table of what can start before the order vs. what
+must wait); mas-shevach (§4 not-a-transaction, §49ב(5) exemption,
+partial-share sales, sourced to nevo.co.il inline); kama-yorshim (joint
+sale / heskem chalukat izavon / peruk shituf for a holdout heir);
+binyan-yashan (cross-links to the two locked-adjacent pages); bli-
+lehitrotzetz (the 4 owner-verified claims only: direct purchase,
+investor channel, occupied-apartment purchase, pre-tzav-yerusha
+engagement with completion explicitly conditioned on the order); 8-item
+visible FAQ + matching FAQPage schema. Reuses `SellerLeadForm` (2 mid-
+page placements + 1 pre-footer) with a new optional `defaultPropertyType`
+prop pre-selecting "דירת ירושה", and a new optional `pageContext` prop
+tagging the `seller_lead_submit` GA4 event - both additive with safe
+defaults, verified to leave `/pinui-binui/mechirat-dira`'s rendered
+output and event payload unchanged (that page never passes either prop).
+Wired into `src/lib/anchors.ts`, `src/data/internal-links.ts` (4 outbound
++ 3 inbound entries), `src/app/sitemap.ts`, `src/content/llms-txt-
+manifest.ts`, and a new card in the `/madrichim` hub's "זכויות, ערבויות
+וירושה" category (which also auto-updates the hub's `CollectionPage`
+schema). Before: 0 baseline (new page). Expected KPI: indexed <=7 days,
+first impressions on cluster-C queries <=14 days, >=1
+`seller_lead_submit` in 28 days.
+
+**2. `/pinui-binui/yazam` strengthening.** Baseline: page 134 imp, pos
+45.53; query "יזם פינוי בינוי" 109 imp, pos 35.31. Added a bekitzur
+short-answer block (previously the page opened straight into a plain
+paragraph, no direct-answer chunk for AI extraction); a new "מי מחליט על
+היזם" section clarifying the choice is the tenants' own decision via
+נציגות דיירים and the same consent threshold as the project itself (links
+`/pinui-binui/chok-67`); an expanded ערבויות paragraph on statutory deal-
+content guarantee requirements linking `/pinui-binui/eravut`. Title/meta
+rewritten to front-load the exact query: "יזם פינוי בינוי 2026: איך
+בוחרים, 12 שאלות ודגלים אדומים" (was "איך בוחרים יזם פינוי בינוי 2026:
+מדריך מלא"). The existing 12-question list, 8-red-flag list, comparison
+table, background-check list, and 8-item FAQ (already covering the
+target intent) were left as-is. Expected KPI: "יזם פינוי בינוי" pos 35.3
+-> under 20 within 28 days.
+
+**3. `/pinui-binui/yorshim` intent separation.** Verified no active
+ledger entry (confirmed above). Added an explicit second opening
+paragraph stating this page's scope is heirs **inside an active
+pinui-binui project** specifically, with a cross-link to the new general
+pillar for readers in the broader "just inherited an apartment" case.
+Title/meta sharpened to lead with "בפרויקט פינוי בינוי פעיל" (was
+generic "ירושת דירה בפינוי בינוי 2026"). Added the new pillar to this
+page's `RelatedLinks`. No changes to the existing malkod/neyar-emda/
+saifei-haskem/zechuyot-gil content - all already-verified facts kept
+verbatim.
+
+**4. GEO/AEO layer.** `llms.txt` manifest: new pillar added under
+"התחדשות עירונית" (cross-cluster placement, since its heaviest links are
+into that cluster even though its own scope is broader); yazam and
+yorshim manifest descriptions updated to match their sharpened on-page
+content. `Organization` schema `serviceType` gained "רכישת דירות תפוסות
+(המוכר ממשיך לגור בדירה)" - added only because that claim is now visible
+body content on the new page, per the schema-mirrors-visible-content
+rule. `robots.txt` verified unchanged and still AI-bot-compliant (no
+edit needed). The 5 conversational queries for the owner's GEO baseline
+(see Owner tasks) are listed there.
+
+**5. Indexing + hygiene audit.** Full report at
+`docs/INDEXING_REPORT_2026-07-14b.md`: sitemap covers the new URL,
+canonical/robots audit clean (all 4 touched/new pages `index:true` via
+`buildMetadata()`), orphan check passed (new page has 3 recorded inbound
+links), JSON-LD validated by a clean `npm run build` across all 198
+routes. Uncommitted-files triage below.
+
+### Bug found and fixed via post-deploy check (not one of the 5 changes)
+
+Post-deploy `<title>` inspection on the 3 files this cycle touches showed
+a **duplicate company-name suffix**: `... | התחדשות | התחדשות בינוי
+ויזמות`. Root cause: the root layout's title template
+(`%s | התחדשות בינוי ויזמות`, `src/app/layout.tsx`) already appends the
+company name to every page; the new pillar's and the yazam/yorshim
+rewritten titles additionally ended in `| התחדשות`, which pre-existed on
+yazam/yorshim's *original* titles too (this cycle inherited the pattern
+rather than introducing it, and then copied it into the new page). Fixed
+in a follow-up commit (`cfdea2b`) for the 3 files this cycle controls;
+verified live post-fix. **The same `| התחדשות` suffix pattern exists on
+~40 other `page.tsx` files sitewide** (`grep -rn 'TITLE = "[^"]*|
+התחדשות"' src/app --include=page.tsx` -> 40 matches) - pre-existing,
+out of this cycle's scope (would blow the max-5-changes budget and
+touches many files with no other reason to edit this cycle), **flagged
+here as a follow-up cleanup candidate** for a dedicated future cycle.
+
+### Ledger entries
+
+Opening fresh entries, maturation **2026-08-11** (matches this cycle's
++28-day window from 2026-07-14; unrelated to the cycle #2 lock's
+maturation on the same date - these are three different pages):
+
+| Page | Baseline (2026-07-14) | Change | Expected | Maturation |
+|---|---|---|---|---|
+| `/madrichim/mechirat-dira-beyerusha` | new page, 0 baseline | new inheritance-sale pillar + form | indexed <=7 days, seller_lead_submit >=1 in 28 days | 2026-08-11 |
+| `/pinui-binui/yazam` | pos 45.53 (page), "יזם פינוי בינוי" pos 35.31 | short-answer block + מי-מחליט section + ערבויות expansion + title/meta | "יזם פינוי בינוי" pos <20 | 2026-08-11 |
+| `/pinui-binui/yorshim` | not separately tracked (pre-ledger page) | intent-separation paragraph + cross-link + title/meta sharpening | no ranking regression on existing "ירושה"-cluster queries; increased qualified traffic (in-project intent) | 2026-08-11 |
+
+### Gate results
+
+- `bash scripts/content-lint.sh` (5 gates, run standalone + via
+  pre-commit hook on both commits): pass
+- `npm run typecheck`: pass
+- `npm run lint`: pass
+- `npm run build`: pass (198 routes, +1 for the new page)
+- Brokerage grep (תיווך/מתווך/broker) across new/changed files: **1 false
+  positive found and fixed** - "תיווך של עורך דין ניטרלי" in the new
+  page's multi-heir section used תיווך in its "mediation" sense, not real-
+  estate brokerage, but was reworded to "ליווי" to keep the gate
+  literal-string-clean. The only other hit (`src/lib/schema.ts`,
+  "רישיון תיווך מקרקעין" - Ofek Mazor's real broker license number on the
+  `/about/ofek-mazor` Person schema) is pre-existing, untouched this
+  cycle, and refers to a real professional credential disclosure, not
+  brokerage-as-a-service language.
+- Fabrication grep (percentages/premiums/testimonials/counts) on the new
+  page: clean
+- Legal-source gate: every legal/tax statement on the new page carries an
+  adjacent nevo.co.il source comment (§4, §49ב(5) לחוק מיסוי מקרקעין)
+- adrk-contamination grep: clean (repo-wide)
+- EXPERIMENT-LOCK gate: `git diff pre-cycle-2026-07-14b HEAD -- ` the 6
+  locked files, run after every one of the 3 commits: **empty every
+  time**
+- Claims gate: grep for stronger promise language (מבטיחים/מובטח/
+  בוודאות/נתחייב) on the new page: clean - only the 4 owner-verified
+  claims appear, phrased with the required precision on the pre-tzav-
+  yerusha engagement (completion explicitly conditioned on the order)
+- Disclaimer: visible on the new page (mas-shevach section) plus the
+  standard `TrustBlock` sitewide disclaimer on all 3 touched/new pages
+- Previous-cycle files (all 6 locked pinui-binui pages,
+  `/guides/home-front-command-approval`, `/services/room-reinforcement`)
+  untouched this cycle
+
+### Indexing report
+
+See `docs/INDEXING_REPORT_2026-07-14b.md`.
+
+### Post-deploy verification
+
+No browser-automation tool (Playwright) was available this session -
+`npx playwright` requires an offline package install this sandboxed
+session couldn't complete, same limitation disclosed in cycles #1 and
+#2's logs. Used live HTTPS fetch checks instead against production:
+
+- All 6 checked URLs (new page, yazam, yorshim, madrichim hub,
+  sitemap.xml, llms.txt) return `200`.
+- New page: canonical tag correct, `Article` + `FAQPage` +
+  `BreadcrumbList` JSON-LD all present exactly once, `dir="rtl"
+  lang="he"` on `<html>`, lead form present, `tel:` link correct.
+- Caught and fixed the title-suffix bug above via this exact check
+  (`<title>` inspection) - the value of live verification over
+  build-success alone.
+- `/madrichim` hub card for the new page confirmed live.
+- Confirmed `/pinui-binui/mechirat-dira` (locked) unchanged: `200`,
+  identical `<title>` to its pre-cycle value.
+- Homepage: `200`.
+
+### Protected-core change proposals
+
+None this cycle protected-core-wise. One **technical proposal** raised
+above (title-template duplicate-suffix cleanup across ~40 pages) for a
+dedicated future cycle - not a content-rule change, so not gated by the
+protected-core process, but flagged here since it's sitewide.
+
+### Uncommitted-files triage (report only, no commits taken)
+
+Every pre-existing uncommitted file, unchanged again this cycle per the
+"don't touch files outside this cycle's scope" guard, with a
+recommendation for the owner to action next cycle:
+
+| Item | Recommendation | Why |
+|---|---|---|
+| `public/manifest.webmanifest` | **Delete** | `src/app/manifest.ts`'s own comment states it explicitly replaces this static file. Dead/shadowed duplicate. |
+| `public/llms.txt` | **Delete** | Shadowed by the live `src/app/llms.txt` dynamic route (confirmed both exist and collide on the same path); content is stale relative to the curated manifest. |
+| `01-privacy-policy.md`, `02-terms-of-use.md`, `03-accessibility-statement.md`, `04-form-and-cookie-snippets.md` | Keep-pending | Look like drafts for the already-live `/privacy`, `/terms`, `/accessibility` routes. Needs a content-lead diff against the live pages before deciding integrate vs. discard. |
+| `legal.zip`, `data/2026-07-13.zip` | Keep-pending / likely delete | `data/2026-07-13.zip` is the already-extracted, already-used (cycle #1) GSC export archive - safe to delete once owner confirms. `legal.zip` contents unverified this session; may relate to the 01-04 legal drafts above - review together. |
+| `data/gsc/2026-07-13/*.csv` (7 files) | Keep-pending, do not commit | Full raw GSC export. Cycle #1's log already disclosed a deliberate decision to keep the full per-page/per-query breakdown local and uncommitted (only the aggregate `parsed.json` is committed) since this is a **public** repo. Same reasoning applies. |
+| `OPERATIONAL_MANDATE_V2.md` | Recommend **commit** | `scripts/content-lint.sh`'s own header comment cites this file as its authority source ("per OPERATIONAL_MANDATE_V2.md חלק ו'"). It's load-bearing documentation for a script that's already committed and running in the pre-commit hook; leaving it uncommitted is an inconsistency risk for future sessions/maintainers. |
+| `PERATIONAL_MANDATE_V2.md.txt` | **Delete** | Appears to be an accidental duplicate/typo'd save of `OPERATIONAL_MANDATE_V2.md` (missing leading "O", stray `.txt` extension). |
+| `LOGO_V2_POST_DEPLOY.md`, `POST_DEPLOY_TASKS.md`, `ROAD_TO_NUMBER_1_ISRAEL.md` | Keep-pending | Planning/task-tracking docs from prior sessions; may still be load-bearing for upcoming work. Owner call. |
+| `public/logo-transparent-full.png`, `public/logo-white-bg.jpg`, `public/logo-white-bg.png`, `public/og-image-old.jpg`, `public/og-image-with-logo.jpg` | Keep-pending | Not referenced anywhere in `src/` (grep clean) - currently orphaned assets, likely inputs for the pending work described in `LOGO_V2_POST_DEPLOY.md`. Not urgent. |
+| `public/projects/*.svg` (5 files) | Keep-pending, low priority | `src/content/projects.ts` (already committed) references `.jpg` filenames for these same projects, not `.svg` - these are the known placeholder assets the file's own comments describe (`hasRealImage: false`, tracked as B-020), not a broken-reference risk. |
+| `public/a1b2c3d4e5f678901234567890abcdef.txt` | Keep-pending | Filename pattern matches a search-console domain-verification token. Owner should confirm which webmaster tool this verifies before any action. |
+| `scripts/_parity_audit.mjs`, `scripts/gsc-ping.ts`, `scripts/notify-indexnow.ts` | Keep-pending | Utility scripts from prior sessions, not part of this cycle's pipeline. Owner call on whether to commit. |
+| `src/app/about/ofek-mazor/`, `src/app/apple-icon.tsx`, `src/app/compare/migunit-vs-mamad-muchan/`, `src/app/guides/architect-mamad-role/`, `src/app/icon.svg`, `src/app/icon.tsx`, `src/app/opengraph-image.tsx`, `src/app/services/migunit/`, `src/components/MamadCostCalculator.tsx` | Keep-pending | Same set flagged unchanged in cycles #1 and #2's logs - already build-clean and typecheck-clean, not shipped per each cycle's "max 1 new page" scope. Still awaiting a dedicated review/ship cycle. |
+
+### Owner tasks
+
+1. Submit these 4 URLs in GSC URL Inspection -> Request Indexing:
+   - `https://hithadshut.co.il/madrichim/mechirat-dira-beyerusha`
+   - `https://hithadshut.co.il/pinui-binui/yazam`
+   - `https://hithadshut.co.il/pinui-binui/yorshim`
+   - `https://hithadshut.co.il/madrichim`
+2. GEO baseline - run these 5 conversational queries once each in
+   ChatGPT/Gemini/Perplexity and save screenshots as the pre-measurement
+   baseline for the 2026-08-11 verdict:
+   - "ירשתי דירה עם האחים שלי ואנחנו רוצים למכור, מאיפה מתחילים"
+   - "אפשר למכור דירה בירושה לפני צו ירושה"
+   - "מי קונה דירות ישנות בישראל"
+   - "איך בוחרים יזם לפינוי בינוי ומה השאלות שצריך לשאול"
+   - "מי מחליט על היזם בפינוי בינוי"
+3. Fresh GSC CSV export on 2026-07-21 into `data/gsc/2026-07-21/` for the
+   next cycle's measurement (per cycle #2's already-standing ask, still
+   open).
+4. Approve/reject the uncommitted-files triage list above - in
+   particular the two **Delete** recommendations
+   (`public/manifest.webmanifest`, `public/llms.txt`, both confirmed
+   shadowed/superseded by live dynamic routes) and the **commit**
+   recommendation for `OPERATIONAL_MANDATE_V2.md`.
+5. Decide on the sitewide title-template duplicate-suffix cleanup
+   (~40 pages) flagged above - candidate for a dedicated technical cycle,
+   not a content cycle.
+6. Cycle #2's still-open ask: resolve the two flagged fact-check
+   conflicts (60%/71ב consent threshold vs. the verified 67%; whether an
+   80+ elderly tier exists) if there's an authoritative source this
+   session's web search didn't find.
+
+---
+
 ## Cycle 2026-07-14 (cycle #2) — pinui-binui cluster domination + seller bridge
 
 Logged as an **owner-approved exception to the one-deploy-per-week cap**
