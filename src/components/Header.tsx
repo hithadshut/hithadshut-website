@@ -25,6 +25,7 @@ const urbanRenewalLinks = [
   { href: "/pinui-binui/temurot", label: "תמורות בפינוי בינוי" },
   { href: "/pinui-binui/chok-67", label: "חוק 67%" },
   { href: "/pinui-binui/kshishim", label: "זכויות קשישים" },
+  { href: "/pinui-binui/mechirat-dira", label: "מכירת דירה לפני פינוי בינוי" },
 ];
 
 type DropdownKey = "services" | "urban" | "guides";

@@ -27,7 +27,8 @@ export type AnalyticsEvent =
   | "lead_form_success"
   | "service_page_view"
   | "guide_page_view"
-  | "cta_click";
+  | "cta_click"
+  | "seller_lead_submit";
 
 type EventParams = Record<string, string | number | boolean | undefined>;
 

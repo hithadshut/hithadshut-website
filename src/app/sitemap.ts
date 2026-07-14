@@ -141,6 +141,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    {
+      url: `${site.url}/pinui-binui/mechirat-dira`,
+      lastModified: lastModifiedFor("src/app/pinui-binui/mechirat-dira/page.tsx"),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
     // Memad depth sub-pages - authority cluster under /memad/*
     {
       url: `${site.url}/memad/bayit-prati`,

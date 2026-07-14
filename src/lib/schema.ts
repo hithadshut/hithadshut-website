@@ -54,6 +54,7 @@ export function organizationJsonLd() {
       "בנייה פרטית",
       "שיפוצים",
       "הרחבות ותוספות בנייה",
+      "רכישת דירות, בניינים ומגרשים במסלול ישיר",
     ],
     areaServed: { "@type": "Country", name: "IL" },
     address: { "@type": "PostalAddress", addressCountry: "IL" },

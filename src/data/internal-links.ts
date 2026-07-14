@@ -1397,6 +1397,100 @@ export const internalLinks: InternalLink[] = [
     context: "related",
     note: "Room-reinforcement RelatedLinks inbound, cycle 2026-07-13. Also added home-front-command-approval to this page's RelatedLinks (Change 2).",
   },
+  // 2026-07-14: weekly SEO/GEO cycle, seller-bridge page launch
+  // (/pinui-binui/mechirat-dira) + pillar/sarvan/kshishim overhauls.
+  {
+    fromUrl: "/pinui-binui/mechirat-dira",
+    toUrl: "/pinui-binui",
+    anchorText: "פינוי בינוי",
+    context: "inline",
+    note: "Mandatory back-link from new page to pillar, cycle 2026-07-14.",
+  },
+  {
+    fromUrl: "/pinui-binui/mechirat-dira",
+    toUrl: "/pinui-binui/temurot",
+    anchorText: "תמורות בפינוי בינוי",
+    context: "inline",
+    note: "Inline link in kama-shave (valuation mechanism) section, cycle 2026-07-14.",
+  },
+  {
+    fromUrl: "/pinui-binui/mechirat-dira",
+    toUrl: "/pinui-binui/machshvon-temurot",
+    anchorText: "מחשבון פינוי בינוי",
+    context: "inline",
+    note: "Inline link in kama-shave section, cycle 2026-07-14.",
+  },
+  {
+    fromUrl: "/pinui-binui/mechirat-dira",
+    toUrl: "/madrichim/luach-zmanim-pinui-binui-2026",
+    anchorText: "לוח הזמנים לפינוי בינוי 2026",
+    context: "inline",
+    note: "Inline link in mochrim-o-mechakim (sell-vs-wait) section, cycle 2026-07-14.",
+  },
+  {
+    fromUrl: "/pinui-binui/mechirat-dira",
+    toUrl: "/pinui-binui/sarvan",
+    anchorText: "דייר סרבן",
+    context: "inline",
+    note: "Inline link in mochrim-o-mechakim risk-factors section, cycle 2026-07-14.",
+  },
+  {
+    fromUrl: "/pinui-binui/mechirat-dira",
+    toUrl: "/pinui-binui/kshishim",
+    anchorText: "זכויות קשישים בפינוי בינוי",
+    context: "inline",
+    note: "Inline link in kshishim section, cycle 2026-07-14.",
+  },
+  {
+    fromUrl: "/pinui-binui/mechirat-dira",
+    toUrl: "/contact",
+    anchorText: "צור קשר",
+    context: "related",
+    note: "RelatedLinks card, cycle 2026-07-14.",
+  },
+  // Inbound to the new page from the pillar + additive bridges + rewrites.
+  {
+    fromUrl: "/pinui-binui",
+    toUrl: "/pinui-binui/mechirat-dira",
+    anchorText: "מכירת דירה לפני פינוי בינוי",
+    context: "inline",
+    note: "Pillar overhaul: 'מדריכי המשך' box + sub-question hub (sq-mechira) + RelatedLinks, cycle 2026-07-14.",
+  },
+  {
+    fromUrl: "/pinui-binui/temurot",
+    toUrl: "/pinui-binui/mechirat-dira",
+    anchorText: "מכירת דירה לפני פינוי בינוי",
+    context: "inline",
+    note: "Additive bridge section (o-lemchor), cycle 2026-07-14. Existing text/H1/meta/opening answer untouched.",
+  },
+  {
+    fromUrl: "/pinui-binui/chok-67",
+    toUrl: "/pinui-binui/mechirat-dira",
+    anchorText: "מכירת דירה לפני פינוי בינוי",
+    context: "inline",
+    note: "Additive bridge section (o-lemchor), cycle 2026-07-14. Existing text/H1/meta/opening answer untouched.",
+  },
+  {
+    fromUrl: "/pinui-binui/kshishim",
+    toUrl: "/pinui-binui/mechirat-dira",
+    anchorText: "מכירת דירה לפני פינוי בינוי",
+    context: "inline",
+    note: "Full overhaul: new 'או למכור' section + RelatedLinks, cycle 2026-07-14.",
+  },
+  {
+    fromUrl: "/pinui-binui/sarvan",
+    toUrl: "/pinui-binui/mechirat-dira",
+    anchorText: "מכירת דירה לפני פינוי בינוי",
+    context: "inline",
+    note: "Full overhaul: new 'או למכור' section + FAQ entry + RelatedLinks, cycle 2026-07-14.",
+  },
+  {
+    fromUrl: "/",
+    toUrl: "/pinui-binui/mechirat-dira",
+    anchorText: "שוקלים למכור דירה בבניין ישן?",
+    context: "related",
+    note: "Homepage tools-section banner card, cycle 2026-07-14.",
+  },
 ];
 
 /** All internal links pointing FROM a given URL. */
