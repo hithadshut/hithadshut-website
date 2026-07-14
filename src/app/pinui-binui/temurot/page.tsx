@@ -453,6 +453,27 @@ export default function Page() {
         </Reveal>
       </Section>
 
+      <Section tone="soft">
+        <Reveal>
+          <ContentSection id="o-lemchor" title="אפשרות נוספת: למכור את הדירה עם הפוטנציאל שלה">
+            <p>
+              התמורות שפורטו למעלה מגיעות רק בסוף תהליך של שנים, מרגע ההתארגנות הראשונית ועד
+              מסירת הדירה החדשה בפועל. לא כל בעל דירה מעוניין או יכול לחכות לאופק זמן כזה. יש גם
+              אפשרות למכור את הדירה עם הפוטנציאל שלה עוד היום, בלי להמתין לסיום הפרויקט, ובלי
+              צורך בהסכמת שאר בעלי הדירות במתחם. הקונים במקרים כאלה מתמחרים את הפוטנציאל לפי שלב
+              הפרויקט ורמת הוודאות שלו, ולא לפי אחוז קבוע. מדריך{" "}
+              <Link
+                href="/pinui-binui/mechirat-dira"
+                className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]"
+              >
+                מכירת דירה לפני פינוי בינוי
+              </Link>{" "}
+              מסביר איך מתומחר הפוטנציאל, למי מוכרים, ומתי עדיף למכור לעומת לחכות לתום התהליך.
+            </p>
+          </ContentSection>
+        </Reveal>
+      </Section>
+
       <TrustBlock
         publishedDate={PUBLISHED_DATE}
         modifiedDate={MODIFIED_DATE}

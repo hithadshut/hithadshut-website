@@ -18,11 +18,11 @@ import Reveal from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
 
 const PATH = "/pinui-binui";
-const TITLE = "פינוי בינוי 2026: מדריך שלם לדיירים + זכויותיכם המלאות";
+const TITLE = "פינוי בינוי 2026: איך זה עובד, כמה זמן ומה מקבלים";
 const DESCRIPTION =
-  "פינוי בינוי הוא הריסת מתחם ובנייתו מחדש. דיירים מקבלים דירה חדשה +25 מ״ר. נדרש רוב 67%. מדריך תהליך מלא, זכויות קשישים, חוזה, בחירת יזם נכון.";
+  "פינוי בינוי הוא הריסת מתחם ובנייתו מחדש: דירה חדשה גדולה יותר, רוב 67% נדרש נגד דייר סרבן, ותהליך של 7-12 שנים. המדריך המלא: תמורות, זכויות קשישים, חוזה ובחירת יזם.";
 const PUBLISHED_DATE = "2026-05-03";
-const MODIFIED_DATE = "2026-05-14";
+const MODIFIED_DATE = "2026-07-14";
 
 export const metadata: Metadata = buildMetadata({
   title: TITLE,
@@ -224,6 +224,12 @@ export default function Page() {
                   </Link>
                   {" · "}מס שבח, חלוקת ירושה, וזכויות יורש בפרויקט פעיל.
                 </li>
+                <li>
+                  <Link href="/pinui-binui/mechirat-dira" className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]">
+                    מכירת דירה לפני פינוי בינוי
+                  </Link>
+                  {" · "}כמה שווה הפוטנציאל, למי מוכרים, ומתי עדיף למכור לעומת לחכות.
+                </li>
               </ul>
             </div>
           </div>
@@ -262,6 +268,126 @@ export default function Page() {
           },
         ]}
       />
+
+      {/* Sub-question hub: each block is a short, self-contained, quotable
+          answer + link to the deep page. Structured for AI-engine
+          decomposition (Google AI Overviews / ChatGPT / Perplexity), per
+          seo-content.md §9. */}
+      <Section tone="soft">
+        <Reveal>
+          <div className="max-w-3xl mb-8">
+            <div className="h-1 w-16 gold-line mb-5" />
+            <h2 className="text-2xl md:text-3xl font-black text-[var(--color-primary)] leading-tight">
+              כל השאלות על פינוי בינוי, תשובה קצרה לכל אחת
+            </h2>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            <ContentSection level={3} id="sq-tahalich" title="איך התהליך עובד">
+              <p>
+                פינוי בינוי הוא הריסה של מספר בניינים ישנים במתחם ובנייתם מחדש, כשהדיירים
+                הקיימים מקבלים דירה חדשה בתמורה לדירה הישנה, ללא תשלום. התהליך המלא, מ
+                <a href="#tahalich" className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]">
+                  התארגנות ראשונית ועד מסירת מפתח
+                </a>
+                , מפורט למטה בעמוד.
+              </p>
+            </ContentSection>
+
+            <ContentSection level={3} id="sq-zman" title="כמה זמן לוקח פינוי בינוי">
+              <p>
+                פרויקט טיפוסי אורך 7 עד 12 שנים מההסכמה הראשונית עד מסירת הדירה החדשה, כשהשלב
+                התכנוני בוועדה המקומית לבדו יכול לקחת 18 עד 36 חודשים. פירוט מלא של כל שלב
+                ולוחות הזמנים שלו במדריך{" "}
+                <Link href="/madrichim/luach-zmanim-pinui-binui-2026" className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]">
+                  לוח הזמנים לפינוי בינוי 2026
+                </Link>
+                .
+              </p>
+            </ContentSection>
+
+            <ContentSection level={3} id="sq-hascama" title="כמה הסכמה צריך">
+              <p>
+                נדרש רוב של 67% מבעלי הדירות (שני שלישים) כדי להגיש תביעה נגד דייר סרבן, ירידה
+                מ-80% לפי תיקון 2024. זהו רף להגשת תביעה בלבד, ולביצוע הפרויקט בפועל נדרשים
+                עדיין 100% חתימות או פסק דין. הפירוט המלא במדריך{" "}
+                <Link href="/pinui-binui/chok-67" className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]">
+                  חוק 67% בפינוי בינוי
+                </Link>
+                .
+              </p>
+            </ContentSection>
+
+            <ContentSection level={3} id="sq-temurot" title="מה התמורות, ואפשר לקבל 2 דירות">
+              <p>
+                התמורה הסטנדרטית היא דירה חדשה גדולה ב-15 עד 35 מ״ר מהדירה הישנה, חניה ומחסן.
+                במקרים מסוימים, בעיקר בפרויקטים גדולים או לבעלים של יותר מדירה אחת בבניין, ניתן
+                לקבל שתי דירות קטנות יותר ששוויין הכולל שווה לדירת התמורה. פירוט מלא במדריך{" "}
+                <Link href="/pinui-binui/temurot" className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]">
+                  תמורות בפינוי בינוי
+                </Link>
+                .
+              </p>
+            </ContentSection>
+
+            <ContentSection level={3} id="sq-kshishim" title="זכויות מיוחדות לבני 70 ומעלה">
+              <p>
+                דיירים בני 70 ומעלה זכאים לדירת תמורה ולפחות חלופה אחת נוספת (דיור מוגן, דירה
+                חלופית, או שתי דירות), ובני 75 ומעלה זכאים לכל החלופות יחד. המדריך המלא{" "}
+                <Link href="/pinui-binui/kshishim" className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]">
+                  זכויות קשישים בפינוי בינוי
+                </Link>{" "}
+                מסביר איך לעגן את הזכויות בהסכם.
+              </p>
+            </ContentSection>
+
+            <ContentSection level={3} id="sq-sarvan" title="מה עושים עם דייר סרבן">
+              <p>
+                כשדייר לא מסכים להסכם שעליו חתמו 67% מבעלי הדירות, היזם או הנציגות יכולים
+                להגיש תביעה לבית המשפט המחוזי, שבוחן אם הסירוב סביר. המדריך{" "}
+                <Link href="/pinui-binui/sarvan" className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]">
+                  דייר סרבן בפינוי בינוי
+                </Link>{" "}
+                מפרט את ההליך, ואת האפשרות למכור את הדירה כחלופה למאבק.
+              </p>
+            </ContentSection>
+
+            <ContentSection level={3} id="sq-yazam" title="מי היזם, ואיך בוחרים">
+              <p>
+                היזם נבחר על ידי הדיירים עצמם, לא על ידי הרשות. הנציגות אוספת בדרך כלל לפחות
+                שלוש הצעות מיזמים לפני שהיא מביאה אותן להצבעת אסיפת הדיירים. מדריך{" "}
+                <Link href="/pinui-binui/yazam" className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]">
+                  איך בוחרים יזם פינוי בינוי
+                </Link>{" "}
+                מפרט את שאלות הבדיקה והדגלים האדומים.
+              </p>
+            </ContentSection>
+
+            <ContentSection level={3} id="sq-heskem" title="הסכם פינוי בינוי: מה חייב להיות בו">
+              <p>
+                הסכם תקני חייב לכלול דירת תמורה ממוספרת, תוספת מ״ר בכתב, ערבויות בנקאיות לכל
+                שלב, שכר דירה לתקופת הביניים, ופיצוי על איחור במסירה. פירוק מלא של סעיפי
+                החובה במדריך{" "}
+                <Link href="/madrichim/heskem-pinui-binui-shel-2-amudim" className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]">
+                  הסכם פינוי בינוי של 2 עמודים
+                </Link>
+                .
+              </p>
+            </ContentSection>
+
+            <ContentSection level={3} id="sq-mechira" title="אפשרות נוספת: למכור את הדירה לפני">
+              <p>
+                מי שלא רוצה או לא יכול לחכות לתום התהליך יכול למכור את הדירה עם הפוטנציאל שלה
+                עוד היום, בלי הסכמת שאר הדיירים. מדריך{" "}
+                <Link href="/pinui-binui/mechirat-dira" className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]">
+                  מכירת דירה לפני פינוי בינוי
+                </Link>{" "}
+                מסביר איך מתומחר הפוטנציאל ולמי מוכרים.
+              </p>
+            </ContentSection>
+          </div>
+        </Reveal>
+      </Section>
 
       <Section tone="white">
         <Reveal>
@@ -601,6 +727,7 @@ export default function Page() {
         seed="pinui-binui/pillar"
         targets={[
           "pinui-binui-machshvon",
+          "pinui-binui-mechirat-dira",
           "madrichim-shealot-yazam",
           "madrichim-yorshim",
           "hashvaa-pinui-vs-tama",

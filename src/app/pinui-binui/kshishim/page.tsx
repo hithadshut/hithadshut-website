@@ -3,6 +3,7 @@ import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import Section from "@/components/Section";
 import ContentSection from "@/components/ContentSection";
+import ComparisonTable from "@/components/ComparisonTable";
 import FAQ from "@/components/FAQ";
 import InlineLeadForm from "@/components/InlineLeadForm";
 import RelatedLinks from "@/components/RelatedLinks";
@@ -14,11 +15,11 @@ import Reveal from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
 
 const PATH = "/pinui-binui/kshishim";
-const TITLE = "פינוי בינוי לקשישים 2026: זכויות גיל 70+ ו-75+ + חלופות דיור";
+const TITLE = "זכויות קשישים בפינוי בינוי: גיל 70 ומעלה | 2026";
 const DESCRIPTION =
-  "קשישים בני 70+ זכאים לדירת תמורה + לפחות חלופה אחת מ-3 (דיור מוגן / דירה חלופית / 2 דירות בשווי שווה). בני 75+ זכאים לכל החלופות. מדריך זכויות מלא לכל המבחנים החוקיים.";
+  "פינוי בינוי גיל 70: זכאות לדירת תמורה + לפחות חלופה אחת מ-3 (דיור מוגן / דירה חלופית / 2 דירות). גיל 75+ זכאים לכל החלופות. הזכויות, איך לעגן אותן, ואפשרות המכירה.";
 const PUBLISHED_DATE = "2026-05-03";
-const MODIFIED_DATE = "2026-05-14";
+const MODIFIED_DATE = "2026-07-14";
 
 export const metadata: Metadata = buildMetadata({
   title: TITLE,
@@ -125,6 +126,40 @@ export default function Page() {
               </Link>{" "}
               בישראל זכאים להגנות מיוחדות שאינן ניתנות לוויתור: היזם חייב להציע &ldquo;דירת תמורה&rdquo; כמו לכל דייר אחר, וגם לפחות חלופה אחת מתוך שלוש: דיור מוגן, רכישת דירה חלופית בערך זהה, או שתי דירות בשווי הדירה החדשה. דיירים בני 75 ומעלה זכאים לכל החלופות, לא רק לאחת. מדריך זה מסביר את הזכויות, איך לעגן אותן בהסכם, ומה לבדוק לפני חתימה כשמדובר בבן או בת משפחה מבוגרים.
             </p>
+
+            <div className="mt-8 max-w-5xl">
+              <ComparisonTable
+                caption="פינוי בינוי גיל 70 מול גיל 75: מה משתנה"
+                columns={[
+                  { key: "zakaut", header: "זכאות לחלופות" },
+                  { key: "bechira", header: "מי בוחר" },
+                ]}
+                rows={[
+                  {
+                    label: "גיל 70 עד 74",
+                    cells: {
+                      zakaut: "דירת תמורה + לפחות חלופה אחת מתוך שלוש",
+                      bechira: "הדייר בוחר מבין החלופות שהיזם מציע",
+                    },
+                  },
+                  {
+                    label: "גיל 75 ומעלה, או חולה סופני",
+                    cells: {
+                      zakaut: "דירת תמורה + כל שלוש החלופות יחד",
+                      bechira: "הדייר בוחר מבין כל החלופות",
+                    },
+                  },
+                  {
+                    label: "סיעוד ברמה 5 או 6 (בכל גיל)",
+                    cells: {
+                      zakaut: "אותה זכאות כמו גיל 75 ומעלה",
+                      bechira: "הדייר בוחר מבין כל החלופות",
+                    },
+                  },
+                ]}
+                footnote="שלוש החלופות: דיור מוגן באיכות מקבילה, רכישת דירה חלופית בערך זהה, או שתי דירות ששוויין הכולל שווה לדירת התמורה."
+              />
+            </div>
           </div>
         </Reveal>
       </Section>
@@ -330,6 +365,26 @@ export default function Page() {
         </Reveal>
       </Section>
 
+      <Section tone="soft">
+        <Reveal>
+          <ContentSection id="o-lemchor" title="או למכור: אפשרות נוספת בכבוד">
+            <p>
+              לצד הזכויות שפורטו למעלה, מכירת הדירה היא אפשרות לגיטימית נוספת, לא סתירה להן.
+              עבור בעל דירה מבוגר או משפחה ששוקלים אם עדיף לחכות שנים לתום התהליך או למכור
+              עכשיו ולקבל ודאות מיידית, שתי הדרכים ראויות לשיקול רגוע וללא לחץ. מדריך{" "}
+              <Link
+                href="/pinui-binui/mechirat-dira"
+                className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]"
+              >
+                מכירת דירה לפני פינוי בינוי
+              </Link>{" "}
+              מסביר איך מתומחר הפוטנציאל ומה כדאי לבדוק לפני שמחליטים, ורצוי לקיים את הבירור
+              הזה בליווי בן משפחה ועורך דין דיירים מנוסה.
+            </p>
+          </ContentSection>
+        </Reveal>
+      </Section>
+
       <TrustBlock
         publishedDate={PUBLISHED_DATE}
         modifiedDate={MODIFIED_DATE}
@@ -360,7 +415,7 @@ export default function Page() {
 
       <RelatedLinks
         seed="pinui-binui/kshishim"
-        targets={["pinui-binui", "pinui-binui-temurot", "hithadshut-team"]}
+        targets={["pinui-binui", "pinui-binui-temurot", "pinui-binui-mechirat-dira", "hithadshut-team"]}
       />
 
       <FAQ

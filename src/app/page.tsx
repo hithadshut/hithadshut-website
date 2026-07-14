@@ -248,6 +248,24 @@ export default function Home() {
               </div>
             </div>
           </Reveal>
+          <Reveal>
+            <Link
+              href="/pinui-binui/mechirat-dira"
+              className="mt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 rounded-2xl border border-[var(--color-border)] bg-soft p-6 md:p-7 hover:border-[var(--color-accent-dark)] transition group"
+            >
+              <div>
+                <div className="text-sm font-extrabold text-[var(--color-primary)] mb-1 group-hover:underline underline-offset-4">
+                  שוקלים למכור דירה בבניין ישן?
+                </div>
+                <p className="text-[var(--color-muted)] text-sm leading-relaxed">
+                  בדקו כמה שווה הפוטנציאל של דירה עם פינוי בינוי, למי מוכרים, ומתי עדיף למכור לעומת לחכות.
+                </p>
+              </div>
+              <span className="shrink-0 inline-flex items-center bg-[var(--color-primary)] text-white font-extrabold px-5 py-2.5 rounded-xl group-hover:brightness-110 transition">
+                בדקו כמה שווה ←
+              </span>
+            </Link>
+          </Reveal>
         </div>
       </section>
 

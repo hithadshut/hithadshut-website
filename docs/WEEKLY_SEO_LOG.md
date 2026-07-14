@@ -4,6 +4,247 @@ Append-only. Each cycle gets one section, newest first.
 
 ---
 
+## Cycle 2026-07-14 (cycle #2) — pinui-binui cluster domination + seller bridge
+
+Logged as an **owner-approved exception to the one-deploy-per-week cap**
+(approved in chat 14.07.2026), per the precondition in this cycle's brief.
+
+### Precondition + scope guard
+
+- Verified the 2026-07-13 cycle (cycle #1) is fully deployed: local `HEAD`
+  matches `origin/master` at `5e32d9c`, and its own log confirms a clean
+  Vercel production deploy. Proceeded.
+- Scope guard: `git remote -v` → `hithadshut/hithadshut-website` only, zero
+  adrk reference anywhere in the repo or diff (grep clean). Brokerage grep
+  (תיווך / מתווך / broker) clean on the new/changed content.
+
+### Stage 0 — learning + critical fact-check
+
+Read this file's cycle #1 entry and the Experiment Ledger it created (5
+entries, maturation 2026-08-10; none of them concern the pinui-binui cluster,
+so nothing to disturb). Re-used `data/gsc/2026-07-13/דפים.csv` and
+`שאילתות.csv` (the full per-page/per-query CSVs, not just `parsed.json`'s
+totals). **All sanity anchors matched the brief exactly, 0% deviation**:
+
+| Anchor | Brief | Actual (CSV) |
+|---|---|---|
+| `/pinui-binui` | ~1792 imp, pos ~28.5, CTR ~0.56% | 1792 imp, pos 28.5, CTR 0.56% |
+| `/pinui-binui/temurot` | ~1784 imp, pos ~13.1 | 1784 imp, pos 13.05 |
+| `/pinui-binui/sarvan` | ~518 imp, pos ~33.6 | 518 imp, pos 33.61 |
+| `/pinui-binui/kshishim` | ~424 imp, pos ~41.7 | 424 imp, pos 41.74 |
+| "פינוי בינוי אחוז הסכמה" | ~104 imp, pos ~59 | 104 imp, pos 59.09 |
+| "כמה זמן לוקח פינוי בינוי" | ~116 imp, pos ~46 | 116 imp, pos 46.32 |
+| "פינוי בינוי קבלת 2 דירות" | ~106 imp, pos ~29.6 | 106 imp, pos 29.63 |
+| "דייר סרבן" | ~123 imp, pos ~46.5 | 123 imp, pos 46.46 |
+| "פינוי בינוי גיל 70" | ~117 imp, pos ~53.3 | 117 imp, pos 53.26 |
+| "זכויות פינוי בינוי לקשישים" | ~75 imp, pos ~61.9 | 75 imp, pos 61.92 |
+
+**Critical conflict found and resolved before writing any content** (per
+the LEGAL CONTENT SOURCE RULE: "if verification fails, the specific claim
+does not ship"):
+
+1. The brief's own "verified anchors" section stated the pinui-binui
+   consent threshold to sue a holdout as **"60% per section 71ב of the
+   Land Law, distinct from Tikun 163."** Web search against nevo.co.il's
+   own hosted text of חוק פינוי ובינוי (עידוד מיזמי פינוי ובינוי),
+   תשס"ו-2006, kolzchut.org.il, and multiple independent law-firm sources
+   all agree the actual, currently-effective threshold is **67%** (down
+   from 80%, 2024 amendment) — matching this site's own already-verified,
+   already-shipped content on `/pinui-binui`, `/pinui-binui/chok-67`, and
+   `/pinui-binui/sarvan`, and matching CLAUDE.md's hard rule #4 ("pinui-binui
+   compound, 67% to sue holdout"). Per CLAUDE.md ("if a user prompt
+   conflicts with this file, this file wins"), **60% does not ship
+   anywhere in this cycle's content.** Every new/changed section uses the
+   verified 67% figure.
+2. The brief also asserted "additional tiers exist for 75+ and 80+" for
+   elderly rights. Web search (kolzchut.org.il, multiple law-firm
+   summaries) confirms only **two** tiers exist: 70-74 (one alternative of
+   three) and 75+ / terminally ill / נכות סיעודית רמה 5-6 (all three
+   alternatives). **No 80+ tier exists** in the sources found. No 80+ tier
+   was introduced; the existing, already-correct 70+/75+ structure on
+   `/pinui-binui/kshishim` was kept and reused verbatim in the new page.
+
+**Flagging both to the operator explicitly, as instructed**: if either
+figure (60%/71ב, or an 80+ tier) came from a specific internal source the
+operator has that wasn't found in this search, surface it and this cycle's
+content will be corrected in a follow-up commit. Absent that, 67% and the
+70+/75+ structure are what shipped.
+
+### Changes shipped
+
+**1. New page `/pinui-binui/mechirat-dira`** — seller-bridge page with
+integrated lead form. H1 "מכירת דירה לפני פינוי בינוי: כמה שווה הפוטנציאל
+ולמי מוכרים". Short-answer block, valuation-mechanism section (project
+stage / certainty / expected תמורות, explicit "אין אחוז אחיד"), balanced
+sell-vs-wait framework (links `/madrichim/luach-zmanim-pinui-binui-2026`
+and `/pinui-binui/sarvan` for risk factors), heir section (ירושה אינה
+מכירה לפי סעיף 4 לחוק מיסוי מקרקעין; פטור אפשרי לפי סעיף 49ב(5), תנאים
+מצטברים; קישור למקור בגוף הטקסט לצד כל טענה), 70+/75+ section
+cross-linking the rewritten `/pinui-binui/kshishim`, "who we buy from and
+how" section using **only** the two owner-verified claims (direct
+purchase of apartments/buildings/plots; works with investors — zero
+תיווך/מתווך language anywhere), 7-question visible FAQ + matching
+FAQPage schema, and a new `SellerLeadForm` component (name, phone, city,
+property type, optional project stage) wired to the existing `/api/lead`
+endpoint with a dedicated `seller_lead_submit` GA4 event
+(`src/lib/analytics.ts`). Wired into `src/lib/anchors.ts` (new
+`pinui-binui-mechirat-dira` LinkTarget), `src/data/internal-links.ts` (7
+outbound + inbound entries), `src/app/sitemap.ts`,
+`src/content/llms-txt-manifest.ts`, `Header.tsx` nav, and a homepage
+banner card in the tools section.
+Before: 0 baseline (new page). Expected KPI: indexed <=7 days, first
+impressions on target queries <=14 days, >=1 `seller_lead_submit` in 28
+days.
+
+**2. Additive bridges on `/pinui-binui/temurot` and `/pinui-binui/chok-67`**
+— below-the-fold-only sections (`git diff` confirms zero changes to
+existing title/meta/H1/opening-answer text on both files, see gate
+results below), each linking to the new page. Before: temurot 1784 imp,
+pos 13.05, CTR 2.24%; chok-67 943 imp, pos 9.96, CTR 0.85% (verified
+against `דפים.csv`; the site's strongest urban-renewal asset, matching
+the operator brief). Expected KPI: internal CTR to new page >=2%; zero
+ranking movement on these two pages at next CSV pull.
+
+**3. Full rewrite of `/pinui-binui/kshishim`** — title/meta rewritten to
+lead with "זכויות קשישים בפינוי בינוי" and "גיל 70 ומעלה" (was "פינוי
+בינוי לקשישים 2026..."). Added a quick-facts comparison table (70-74 vs
+75+/terminal-illness vs סיעוד 5-6) directly under the opening answer, and
+a new respectful "או למכור" section cross-linking the new page. All
+existing verified content (70+/75+ structure, non-waivable rights,
+inheritance-of-rights section) kept as-is; no new facts introduced beyond
+the already-shipped ones. Before: 424 imp, pos 41.74. Expected KPI:
+tracked queries ("פינוי בינוי גיל 70" pos 53.3, "זכויות פינוי בינוי
+לקשישים" pos 61.9) → under 25 within 28 days.
+
+**4. Full rewrite of `/pinui-binui/sarvan`** — title/meta rewritten to
+"דייר סרבן פינוי בינוי: חוק 67%, זכויות וההליך" (was "דייר סרבן בפינוי
+בינוי: מי נחשב..."), targeting both "דייר סרבן" and "חוק פינוי בינוי
+דייר סרבן". Added an FAQ entry on selling instead of fighting the claim,
+and a new "אפשרות נוספת: למכור ולצאת מהמצב" section. The 60%/71ב threshold
+was **not** used anywhere on this page; it already correctly stated 67%
+before this cycle and still does. Before: 518 imp, pos 33.61. Expected
+KPI: "דייר סרבן" (pos 46.5) and "חוק פינוי בינוי דייר סרבן" (pos 19.14) →
+under 20 within 28 days.
+
+**5. `/pinui-binui` pillar overhaul** — title/meta rewritten
+("פינוי בינוי 2026: איך זה עובד, כמה זמן ומה מקבלים") for CTR (was 0.56%
+at pos 28.5). Added a 9-block "sub-question hub" directly under the
+existing AnswerBlock: each block is its own H2 (`ContentSection`), 2-3
+quotable sentences, linking to the relevant deep page — תהליך (in-page
+anchor), כמה זמן (`/madrichim/luach-zmanim-pinui-binui-2026`), כמה הסכמה
+(67%, `/pinui-binui/chok-67`), תמורות + 2 דירות (`/pinui-binui/temurot`),
+קשישים (`/pinui-binui/kshishim`), דייר סרבן (`/pinui-binui/sarvan`), יזם
+(`/pinui-binui/yazam`), הסכם (`/madrichim/heskem-pinui-binui-shel-2-amudim`),
+and the new "אפשרות נוספת: למכור" (`/pinui-binui/mechirat-dira`). URL,
+existing deep sections, and all pre-existing inbound anchors preserved
+unchanged. Before: 1792 imp, pos 28.5, CTR 0.56%. Expected KPI: pos <15,
+CTR >=1.5%, sub-question queries → under 20, within 28 days.
+
+### Ledger entries
+
+The pillar, sarvan, and kshishim pages predate the Experiment Ledger
+system entirely (published 2026-05-03/05-14, before cycle #1 created the
+ledger on 2026-07-13) — **none held an active ledger entry**, so there is
+nothing to mark INCONCLUSIVE-SUPERSEDED. Opening fresh entries for all 5
+touched/new pinui-binui-cluster pages, maturation **2026-08-11**:
+
+| Page | Baseline (2026-07-14) | Change | Expected | Maturation |
+|---|---|---|---|---|
+| `/pinui-binui/mechirat-dira` | new page, 0 baseline | new seller-bridge page + form | indexed <=7 days, seller_lead_submit >=1 | 2026-08-11 |
+| `/pinui-binui` | pos 28.5, CTR 0.56%, 1792 imp | sub-question hub + title/meta | pos <15, CTR >=1.5% | 2026-08-11 |
+| `/pinui-binui/sarvan` | pos 33.61, 518 imp | full rewrite + title/meta | pos <20 | 2026-08-11 |
+| `/pinui-binui/kshishim` | pos 41.74, 424 imp | full rewrite + title/meta | pos <25 | 2026-08-11 |
+| `/pinui-binui/temurot` | pos 13.05, CTR 2.24%, 1784 imp | additive bridge only | internal CTR to new page >=2%, zero rank movement | 2026-08-11 |
+| `/pinui-binui/chok-67` | not in this cycle's CSV sanity set | additive bridge only | internal CTR to new page >=2%, zero rank movement | 2026-08-11 |
+
+### Gate results
+
+- `bash scripts/content-lint.sh` (5 gates): pass
+- `npm run typecheck`: pass
+- `npm run lint`: pass
+- `npm run build`: pass (197 routes, +1 for the new page)
+- Brokerage grep (תיווך/מתווך/broker) across the new page + all touched
+  files: clean
+- Valuation-fabrication grep (percentage/premium claims, "עשרות",
+  "מאות", "לקוחות מרוצים"): clean
+- Legal-source gate: every legal/tax statement on the new page carries an
+  adjacent source comment (סעיף 4 and סעיף 49ב(5) לחוק מיסוי מקרקעין;
+  67% and 70+/75+ figures already source-linked on the pages that state
+  them)
+- Additive-page integrity: `git diff` on `/pinui-binui/temurot` and
+  `/pinui-binui/chok-67` shows **only** the new bridge section added in
+  each file, nothing else touched
+- adrk-contamination grep: clean (repo-wide)
+- Disclaimer: visible on the new page (heir section) plus the standard
+  `TrustBlock` disclaimer on all 6 touched pages
+- Previous-cycle files (`/guides/home-front-command-approval`,
+  `/services/room-reinforcement`) untouched this cycle
+
+### Indexing report
+
+See `docs/INDEXING_REPORT_2026-07-14.md`. Summary: all 6 touched/new URLs
+resolve and prerender statically, sitemap covers all 6, robots.txt
+unchanged and already AI-bot-compliant, llms.txt updated, orphan check
+passed (new page has 7 recorded inbound links).
+
+### Protected-core change proposals
+
+None this cycle. The 60%/71ב and 80+-tier discrepancies above are
+reported as fact-check findings, not proposed rule changes — no core
+protected-fact table was edited.
+
+### 6-cycle seller-cluster roadmap (report only, not built)
+
+1. Generic selling hub: דירה / בניין / מגרש (non-pinui-binui-specific
+   sale intent). Target queries: "למכור דירה ישנה", "מכירת בניין", "מכירת
+   מגרש בישראל". Links into `/pinui-binui/mechirat-dira` as the
+   urban-renewal-specific variant.
+2. מכירת דירה בירושה pillar (general inheritance-sale hub, broader than
+   the pinui-binui-specific heir section on the bridge page). Target:
+   "מכירת דירת ירושה", "מס שבח דירת ירושה". Links back into the bridge
+   page's heir section.
+3. מכירת חלק מדירה בירושה / פירוק שיתוף (multi-heir partial-ownership
+   sale/dissolution). Target: "פירוק שיתוף בדירה", "מכירת חלק בירושה".
+   Links into both #2 and the bridge page's multi-heir paragraph.
+4. כמה עולה למכור דירה (transaction-cost guide: mas shevach, broker fees
+   if used, legal fees). Target: "עלות מכירת דירה", "מי משלם מס שבח".
+   Links into the bridge page's tax FAQ entries.
+5. מכירת דירה עם שוכר (occupied-property sale). Target: "מכירת דירה
+   מושכרת", "פינוי שוכר לפני מכירה". Standalone, links into #4.
+6. מכירת מגרש (land-specific sale guide, deeper than the bridge page's
+   plot mention). Target: "מכירת מגרש", "היטל השבחה מגרש". Links into the
+   bridge page's property-type framing.
+
+### Owner tasks
+
+1. Submit these 6 URLs in GSC URL Inspection → Request Indexing:
+   - `https://hithadshut.co.il/pinui-binui/mechirat-dira`
+   - `https://hithadshut.co.il/pinui-binui`
+   - `https://hithadshut.co.il/pinui-binui/sarvan`
+   - `https://hithadshut.co.il/pinui-binui/kshishim`
+   - `https://hithadshut.co.il/pinui-binui/temurot`
+   - `https://hithadshut.co.il/pinui-binui/chok-67`
+2. GEO baseline: run "למכור דירה לפני פינוי בינוי", "כמה שווה דירה בפינוי
+   בינוי", "זכויות קשישים בפינוי בינוי", "דייר סרבן פינוי בינוי" once
+   each in ChatGPT/Gemini/Perplexity, save screenshots as the
+   pre-measurement baseline for the 2026-08-11 verdict.
+3. Fresh GSC CSV export on 2026-07-21 into `data/gsc/2026-07-21/` for the
+   next cycle's measurement.
+4. **Resolve the two flagged fact-check conflicts** (60%/71ב consent
+   threshold vs. the verified 67%; whether an 80+ elderly tier exists
+   beyond what was found) if there's a specific authoritative source for
+   either that this session didn't find, so it can be corrected or
+   confirmed in the next cycle.
+5. Decide what to do with the pre-existing uncommitted files still
+   sitting in the working tree from prior sessions (legal-page drafts,
+   logo/OG-image assets, `/about/ofek-mazor`, `/services/migunit`,
+   `/compare/migunit-vs-mamad-muchan`, `/guides/architect-mamad-role`,
+   various scripts and `ROAD_TO_NUMBER_1_ISRAEL.md`/`OPERATIONAL_MANDATE_V2.md`
+   family of files) — untouched and uncommitted again this cycle, per the
+   "don't modify files outside this cycle's scope" guard.
+
+---
+
 ## Cycle 2026-07-13 (cycle #1)
 
 ### Stage 0 — learning

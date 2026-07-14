@@ -398,6 +398,27 @@ export default function Page() {
         </Reveal>
       </Section>
 
+      <Section tone="white">
+        <Reveal>
+          <ContentSection id="o-lemchor" title="אפשרות נוספת: לצאת מהתמונה ולמכור">
+            <p>
+              דייר שמתלבט בין להיכנס למאבק על סבירות הסירוב שלו לבין להסכים לפרויקט, יכול לשקול
+              גם אפשרות שלישית: למכור את הדירה עם הפוטנציאל שלה, ולצאת מהמצב מבלי לחכות לתוצאה
+              של הליך משפטי או של שנים ארוכות עד מסירת דירת התמורה. מכירה כזו אינה תלויה בהסכמת
+              שאר הדיירים במתחם, ואינה משנה את הזכויות של מי שכבר חתם על ההסכם. מדריך{" "}
+              <Link
+                href="/pinui-binui/mechirat-dira"
+                className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]"
+              >
+                מכירת דירה לפני פינוי בינוי
+              </Link>{" "}
+              מפרט איך מתומחר הפוטנציאל, למי מוכרים, ומה כדאי לבדוק לפני שמחליטים בין להישאר
+              לבין למכור.
+            </p>
+          </ContentSection>
+        </Reveal>
+      </Section>
+
       <TrustBlock
         publishedDate={PUBLISHED_DATE}
         modifiedDate={MODIFIED_DATE}

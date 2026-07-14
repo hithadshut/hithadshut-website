@@ -16,11 +16,11 @@ import Reveal from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
 
 const PATH = "/pinui-binui/sarvan";
-const TITLE = "דייר סרבן בפינוי בינוי: מי נחשב, מה הזכויות, מה הסיכון | 2026";
+const TITLE = "דייר סרבן פינוי בינוי: חוק 67%, זכויות וההליך | 2026";
 const DESCRIPTION =
-  "דייר סרבן הוא בעל דירה שמתנגד לפרויקט פינוי בינוי. רוב 67% מהדיירים יכולים להגיש תביעה (ירידה מ-80%). מתי הסירוב צודק, ההגנות החוקיות שלכם ומה צפוי בהליך משפטי.";
+  "חוק פינוי בינוי דייר סרבן: רוב 67% מהדיירים יכולים להגיש תביעה (ירידה מ-80%). מי נחשב דייר סרבן, מתי הסירוב סביר, ההגנות החוקיות שלכם, ומה צפוי בהליך המשפטי. מדריך 2026.";
 const PUBLISHED_DATE = "2026-05-03";
-const MODIFIED_DATE = "2026-05-14";
+const MODIFIED_DATE = "2026-07-14";
 
 export const metadata: Metadata = buildMetadata({
   title: TITLE,
@@ -60,6 +60,10 @@ const faqs = [
   {
     q: "האם אני יכול לערער על פסק דין שמחייב חתימה?",
     a: "כן. פסק דין של בית המשפט המחוזי בעניין דייר סרבן ניתן לערעור לבית המשפט העליון. הערעור צריך להתבצע תוך תקופה קצובה (בדרך כלל 30 עד 45 יום), ודורש הצגת עילה משפטית מוצדקת לערעור. עורך דין שמתמחה בערעורים יכול להעריך את סיכויי הערעור. במהלך הערעור, פסק הדין המקורי בדרך כלל לא מבוצע, אבל זה תלוי בהחלטת בית המשפט.",
+  },
+  {
+    q: "אפשר למכור את הדירה במקום להיכנס למאבק מול היזם?",
+    a: "כן. מכירת הדירה עם הפוטנציאל שלה היא אפשרות לגיטימית בכל שלב, כולל לפני הגשת תביעה או במהלכה, ואינה תלויה בהסכמת שאר הדיירים. לאחר המכירה, הקונה נכנס לנעליכם לכל דבר ועניין בפרויקט. מדריך מכירת דירה לפני פינוי בינוי מפרט איך מתומחר הפוטנציאל ולמי מוכרים.",
   },
 ];
 
@@ -408,6 +412,26 @@ export default function Page() {
         </Reveal>
       </Section>
 
+      <Section tone="soft">
+        <Reveal>
+          <ContentSection id="o-lemchor" title="אפשרות נוספת: למכור ולצאת מהמצב">
+            <p>
+              דייר שמרגיש תקוע בבניין, בין אם בגלל מאבק מול היזם ובין אם פשוט לא רוצה לחכות
+              לשנים שנותרו עד מסירת דירת התמורה, יכול לשקול גם למכור את הדירה עם הפוטנציאל
+              שלה. מכירה כזו אפשרית בכל שלב, כולל לפני הגשת תביעה או במהלכה, ואינה תלויה
+              בהסכמת שאר הדיירים במתחם. מדריך{" "}
+              <Link
+                href="/pinui-binui/mechirat-dira"
+                className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]"
+              >
+                מכירת דירה לפני פינוי בינוי
+              </Link>{" "}
+              מסביר איך מתומחר הפוטנציאל, למי מוכרים, ומה כדאי לבדוק לפני שמחליטים.
+            </p>
+          </ContentSection>
+        </Reveal>
+      </Section>
+
       <TrustBlock
         publishedDate={PUBLISHED_DATE}
         modifiedDate={MODIFIED_DATE}
@@ -438,7 +462,7 @@ export default function Page() {
 
       <RelatedLinks
         seed="pinui-binui/sarvan"
-        targets={["pinui-binui", "pinui-binui-chok-67", "pinui-binui-kshishim"]}
+        targets={["pinui-binui", "pinui-binui-chok-67", "pinui-binui-kshishim", "pinui-binui-mechirat-dira"]}
       />
 
       <FAQ
