@@ -15,7 +15,7 @@ import Reveal from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
 
 const PATH = "/pinui-binui/yorshim";
-const TITLE = "ירושת דירה בפרויקט פינוי בינוי פעיל 2026: זכויות ומיסוי | התחדשות";
+const TITLE = "ירושת דירה בפרויקט פינוי בינוי פעיל 2026: זכויות ומיסוי";
 const DESCRIPTION =
   "ירשתם דירה שכבר נמצאת בהסכם פינוי בינוי חתום? זכאות לפטור ממס שבח גם אחרי הריסת הבניין, לפי נייר עמדה של רשות המסים, וסעיפים שחובה לעגן בהסכם.";
 const PUBLISHED_DATE = "2026-05-03";

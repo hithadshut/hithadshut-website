@@ -16,7 +16,7 @@ import Reveal from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
 
 const PATH = "/pinui-binui/yazam";
-const TITLE = "יזם פינוי בינוי 2026: איך בוחרים, 12 שאלות ודגלים אדומים | התחדשות";
+const TITLE = "יזם פינוי בינוי 2026: איך בוחרים, 12 שאלות ודגלים אדומים";
 const DESCRIPTION =
   "יזם פינוי בינוי: 12 שאלות שחובה לשאול לפני חתימה, 8 דגלים אדומים, מי מחליט בפועל, ואילו ערבויות חובה לדרוש. מדריך 2026 לנציגות דיירים ובעלי דירות.";
 const PUBLISHED_DATE = "2026-05-03";

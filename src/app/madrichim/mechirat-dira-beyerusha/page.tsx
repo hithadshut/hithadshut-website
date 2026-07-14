@@ -16,7 +16,7 @@ import { buildMetadata } from "@/lib/metadata";
 import { site } from "@/lib/site";
 
 const PATH = "/madrichim/mechirat-dira-beyerusha";
-const TITLE = "מכירת דירה בירושה 2026: מס שבח, צו ירושה ופטורים | התחדשות";
+const TITLE = "מכירת דירה בירושה 2026: מס שבח, צו ירושה ופטורים";
 const DESCRIPTION =
   "ירשתם דירה ורוצים למכור? מדריך 2026: מה קורה עם מס שבח, איך מתחילים לפני צו ירושה, מה כשיש כמה יורשים, ולמי מוכרים דירת ירושה בלי להתרוצץ.";
 const PUBLISHED_DATE = "2026-07-14";
