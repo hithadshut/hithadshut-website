@@ -1491,6 +1491,66 @@ export const internalLinks: InternalLink[] = [
     context: "related",
     note: "Homepage tools-section banner card, cycle 2026-07-14.",
   },
+  // 2026-07-14: cycle #3, new /madrichim/mechirat-dira-beyerusha
+  // inheritance-seller pillar. Outbound + inbound link graph.
+  {
+    fromUrl: "/madrichim/mechirat-dira-beyerusha",
+    toUrl: "/pinui-binui",
+    anchorText: "פינוי בינוי",
+    context: "inline",
+    note: "Inline link in intent-separation opening paragraph, cycle #3.",
+  },
+  {
+    fromUrl: "/madrichim/mechirat-dira-beyerusha",
+    toUrl: "/pinui-binui/mechirat-dira",
+    anchorText: "מכירת דירה לפני פינוי בינוי",
+    context: "inline",
+    note: "Inline link in intent-separation opening paragraph + binyan-yashan section, cycle #3. Target page is locked but inbound links TO it from new pages are permitted.",
+  },
+  {
+    fromUrl: "/madrichim/mechirat-dira-beyerusha",
+    toUrl: "/pinui-binui/yorshim",
+    anchorText: "ירושה דירה בפינוי בינוי",
+    context: "inline",
+    note: "Inline link in intent-separation opening paragraph + binyan-yashan section, cycle #3. Target page is locked but inbound links TO it from new pages are permitted.",
+  },
+  {
+    fromUrl: "/madrichim/mechirat-dira-beyerusha",
+    toUrl: "/contact",
+    anchorText: "צור קשר",
+    context: "related",
+    note: "RelatedLinks card, cycle #3.",
+  },
+  // Inbound to the new pillar.
+  {
+    fromUrl: "/madrichim",
+    toUrl: "/madrichim/mechirat-dira-beyerusha",
+    anchorText: "מכירת דירה בירושה",
+    context: "related",
+    note: "Hub card link to new article, 'זכויות, ערבויות וירושה' category, cycle #3.",
+  },
+  {
+    fromUrl: "/pinui-binui/yorshim",
+    toUrl: "/madrichim/mechirat-dira-beyerusha",
+    anchorText: "מכירת דירה בירושה",
+    context: "inline",
+    note: "Intent-separation cross-link added to sharpen in-project vs. general-sale scope, cycle #3.",
+  },
+  {
+    fromUrl: "/madrichim/zechut-baalut-vs-zechut-yorshim",
+    toUrl: "/madrichim/mechirat-dira-beyerusha",
+    anchorText: "מדריך מכירת דירת ירושה",
+    context: "inline",
+    note: "3rd inbound link for the new pillar, sibling inheritance article, cycle #3.",
+  },
+  // 2026-07-14: cycle #3, /pinui-binui/yazam strengthening (Change 2).
+  {
+    fromUrl: "/pinui-binui/yazam",
+    toUrl: "/pinui-binui/chok-67",
+    anchorText: "חוק 67%",
+    context: "inline",
+    note: "New inline link in mi-machlit (who decides) section, cycle #3.",
+  },
 ];
 
 /** All internal links pointing FROM a given URL. */

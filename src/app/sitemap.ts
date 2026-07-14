@@ -315,6 +315,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    {
+      url: `${site.url}/madrichim/mechirat-dira-beyerusha`,
+      lastModified: lastModifiedFor("src/app/madrichim/mechirat-dira-beyerusha/page.tsx"),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
     // Services
     ...services.map((s) => ({
       url: `${site.url}/services/${s.slug}`,

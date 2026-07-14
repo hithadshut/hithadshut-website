@@ -55,6 +55,7 @@ export function organizationJsonLd() {
       "שיפוצים",
       "הרחבות ותוספות בנייה",
       "רכישת דירות, בניינים ומגרשים במסלול ישיר",
+      "רכישת דירות תפוסות (המוכר ממשיך לגור בדירה)",
     ],
     areaServed: { "@type": "Country", name: "IL" },
     address: { "@type": "PostalAddress", addressCountry: "IL" },

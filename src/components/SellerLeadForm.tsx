@@ -24,6 +24,13 @@ const PROJECT_STAGES = [
   { value: "היתר בנייה", label: "היתר בנייה" },
 ] as const;
 
+type Props = {
+  /** Pre-selects a property type (e.g. "דירת ירושה" on inheritance pages). */
+  defaultPropertyType?: string;
+  /** Tags the seller_lead_submit GA4 event so conversions are attributable per source page. Omitted = identical payload to the original form. */
+  pageContext?: string;
+};
+
 /**
  * Dedicated lead form for the seller-bridge page. Reuses /api/lead (name +
  * phone are the only hard requirements there) but carries property type,
@@ -31,8 +38,8 @@ const PROJECT_STAGES = [
  * context in the email, and fires a distinct GA4 event so this page's
  * conversion can be measured apart from the general contact form.
  */
-export default function SellerLeadForm() {
-  const [propertyType, setPropertyType] = useState<string>("");
+export default function SellerLeadForm({ defaultPropertyType, pageContext }: Props = {}) {
+  const [propertyType, setPropertyType] = useState<string>(defaultPropertyType ?? "");
   const [stage, setStage] = useState<string>("");
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
@@ -84,10 +91,11 @@ export default function SellerLeadForm() {
         property_type: propertyType,
         project_stage: stage || "unknown",
         city: city || "unknown",
+        ...(pageContext ? { page_context: pageContext } : {}),
       });
       setStatus("success");
       (e.target as HTMLFormElement).reset();
-      setPropertyType("");
+      setPropertyType(defaultPropertyType ?? "");
       setStage("");
     } catch (err) {
       setStatus("error");

@@ -65,6 +65,7 @@ export const MADRICHIM_HREFS = {
   shipurMigun: "/madrichim/matey-shipur-migun-adif",
   yorshim: "/madrichim/zechut-baalut-vs-zechut-yorshim",
   yazamim: "/madrichim/hashvaa-yazamim-mobililim-2026",
+  mechiratDiraBeyerusha: "/madrichim/mechirat-dira-beyerusha",
 } as const;
 
 export type LinkTarget =
@@ -113,6 +114,7 @@ export type LinkTarget =
   | "madrichim-shipur-migun"
   | "madrichim-yorshim"
   | "madrichim-yazamim"
+  | "madrichim-mechirat-dira-beyerusha"
   | "hithadshut-team"
   | "migun-solutions"
   | "migunit"
@@ -494,6 +496,15 @@ export const ANCHOR_VARIANTS: Record<LinkTarget, string[]> = {
     "יזמים מובילים בישראל",
     "מסגרת להערכת יזמים",
   ],
+  "madrichim-mechirat-dira-beyerusha": [
+    "מכירת דירה בירושה",
+    "מדריך מכירת דירת ירושה",
+    "מס שבח על דירת ירושה",
+    "איך מוכרים דירה שירשתם",
+    "כמה יורשים ומכירה משותפת",
+    "מכירת דירת ירושה לפני צו ירושה",
+    "מדריך ליורשים שרוצים למכור",
+  ],
   "hithadshut-team": [
     "אודות התחדשות",
     "מי אנחנו: צוות התחדשות",
@@ -597,6 +608,7 @@ export const HREF_MAP: Record<LinkTarget, string> = {
   "madrichim-shipur-migun": MADRICHIM_HREFS.shipurMigun,
   "madrichim-yorshim": MADRICHIM_HREFS.yorshim,
   "madrichim-yazamim": MADRICHIM_HREFS.yazamim,
+  "madrichim-mechirat-dira-beyerusha": MADRICHIM_HREFS.mechiratDiraBeyerusha,
   "hithadshut-team": ABOUT_HREFS.hithadshutTeam,
   "migun-solutions": "/guides/migun-solutions",
   "migunit": "/services/migunit",
@@ -695,6 +707,8 @@ export const TARGET_SUMMARY: Record<LinkTarget, string> = {
     "זכות בעלות מול זכות יורשים בפינוי בינוי: ההבחנה המשפטית ומה לעגן בהסכם.",
   "madrichim-yazamim":
     "מסגרת להערכת יזמי פינוי בינוי בישראל 2026: 8 קריטריונים לשקילה.",
+  "madrichim-mechirat-dira-beyerusha":
+    "מס שבח, צו ירושה, הסכם חלוקת עיזבון, ולמי אפשר למכור דירת ירושה בכל מצב ובכל בניין.",
   "hithadshut-team":
     "מי עומדים מאחורי התחדשות: מודל העבודה, תחומי ההתמחות, וערכי החברה.",
   "migun-solutions":
@@ -751,6 +765,7 @@ export const TARGET_LABEL: Record<LinkTarget, string> = {
   "madrichim-shipur-migun": "מתי שיפור מיגון עדיף",
   "madrichim-yorshim": "זכות בעלות מול זכות יורשים",
   "madrichim-yazamim": "השוואת יזמי פינוי בינוי",
+  "madrichim-mechirat-dira-beyerusha": "מכירת דירה בירושה",
   "hithadshut-team": "צוות התחדשות",
   "migun-solutions": "פתרונות מיגון",
   "migunit": "מיגונית",
