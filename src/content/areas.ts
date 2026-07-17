@@ -60,7 +60,6 @@ export const areas: Area[] = [
     ],
     localNote:
       "עיר צפופה עם מבנים ישנים וחדשים. בניית ממ״ד דורשת שיקולי גישה, רישוי עירוני וזמינות חנייה.",
-    noindexReason: "תוכן ייחודי מתחת ל-800 מילים. דורש extendedNotes + geoIntros לפני אינדוקס.",
   },
   {
     slug: "jerusalem",
@@ -79,7 +78,6 @@ export const areas: Area[] = [
     neighborhoods: ["כרמל", "הדר", "קרית אליעזר", "רמת אלון", "נווה שאנן"],
     localNote:
       "טופוגרפיה הררית ובתים על מדרונות. תכנון ממ״ד דורש התייחסות להעמסת יסודות ולגישה לאתר.",
-    noindexReason: "תוכן ייחודי מתחת ל-800 מילים. דורש extendedNotes + geoIntros לפני אינדוקס.",
   },
   {
     slug: "rishon-lezion",
@@ -312,7 +310,6 @@ export const areas: Area[] = [
     nameEn: "Kiryat",
     district: "מחוז חיפה",
     localNote: "מתחם הקריות שצפונית לחיפה, אזור מעורב של בתים פרטיים ודירות.",
-    noindexReason: "תוכן לא מספק מתחת לסף doorway. לעדכון בעתיד.",
   },
   {
     slug: "afula",
@@ -356,7 +353,6 @@ export const areas: Area[] = [
     nameEn: "Ganei Tikva",
     district: "מחוז המרכז",
     localNote: "עיר בעיקר של בתים פרטיים. ממ״ד חיצוני או הרחבה עם ממ״ד הם פתרונות נפוצים.",
-    noindexReason: "תוכן לא מספק מתחת לסף doorway. לעדכון בעתיד.",
   },
   {
     slug: "or-yehuda",
@@ -364,7 +360,6 @@ export const areas: Area[] = [
     nameEn: "Or Yehuda",
     district: "מחוז תל אביב",
     localNote: "תמהיל של דירות ובתים ותיקים. מיגון חדר קיים פתרון נפוץ בדירות הישנות.",
-    noindexReason: "תוכן לא מספק מתחת לסף doorway. לעדכון בעתיד.",
   },
   {
     slug: "rosh-haayin",
@@ -372,7 +367,6 @@ export const areas: Area[] = [
     nameEn: "Rosh HaAyin",
     district: "מחוז המרכז",
     localNote: "עיר מתפתחת עם שכונות חדשות ובתים פרטיים ותיקים. פתרונות מיגון: בניית ממ״ד, מיגון חדר קיים, מיגונית.",
-    noindexReason: "תוכן לא מספק מתחת לסף doorway. לעדכון בעתיד.",
   },
   {
     slug: "shoham",
@@ -380,7 +374,6 @@ export const areas: Area[] = [
     nameEn: "Shoham",
     district: "מחוז המרכז",
     localNote: "יישוב מתוכנן של בתים פרטיים ודירות גן. ממ״ד צמוד לבית נפוץ.",
-    noindexReason: "תוכן לא מספק מתחת לסף doorway. לעדכון בעתיד.",
   },
   {
     slug: "zichron-yaakov",
@@ -388,7 +381,6 @@ export const areas: Area[] = [
     nameEn: "Zichron Yaakov",
     district: "מחוז חיפה",
     localNote: "יישוב עם בתים פרטיים וילות, עם פוטנציאל לממ״ד יצוק באתר בתכנון אדריכלי מתואם.",
-    noindexReason: "תוכן לא מספק מתחת לסף doorway. לעדכון בעתיד.",
   },
 ];
 
