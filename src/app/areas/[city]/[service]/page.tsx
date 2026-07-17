@@ -290,6 +290,12 @@ export default async function GeoServicePage({ params }: { params: Params }) {
               >
                 ← השוואה בין פתרונות המיגון
               </Link>
+              <Link
+                href="/guides/home-front-command-approval"
+                className="card-premium p-4 font-bold text-[var(--color-primary)] hover:shadow-[var(--shadow-deep)]"
+              >
+                ← אישור פיקוד העורף: המדריך המלא
+              </Link>
             </div>
             <p className="mt-5 text-sm text-[var(--color-muted)]">
               שירותים אחרים ב{area.name}:{" "}

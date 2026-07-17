@@ -142,6 +142,12 @@ export const llmsManifest: LlmsManifest = {
             "כמה שווה הפוטנציאל, למי מוכרים (רכישה ישירה או משקיעים), מתי עדיף למכור מול לחכות, ומקרי ירושה.",
         },
         {
+          url: "/pinui-binui/yorshim-mechira",
+          label: "מכירת דירת ירושה בפינוי בינוי 2026",
+          description:
+            "ליורשים ששוקלים למכור דירה שכבר נמצאת בבניין בפינוי בינוי: מה עובר לקונה מזכויות הגיל של המוריש, מיסוי, וסדר הפעולות.",
+        },
+        {
           url: "/madrichim/mechirat-dira-beyerusha",
           label: "מכירת דירה בירושה 2026",
           description:

@@ -16,11 +16,11 @@ import Reveal from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
 
 const PATH = "/chalufat-shaked";
-const TITLE = "חלופת שקד 2026: תיקון 139 לחוק התכנון והבנייה | התחדשות";
+const TITLE = "חלופת שקד 2026: תיקון 139, 80% הסכמה ומה זה אומר";
 const DESCRIPTION =
-  "חלופת שקד היא מסלול התחדשות עירונית שמחליף את תמ״א 38/2. רוב 80%, זכויות בנייה עד 400%. מדריך 2026: ההבדלים מתמ״א 38, השוואה לפינוי בינוי, ותהליך הפרויקט.";
+  "חלופת שקד: מסלול התחדשות עירונית (תיקון 139) שמחליף את תמ״א 38/2. נדרשים 80% הסכמה וזכויות בנייה עד 400%. השוואה לתמ״א 38 ולפינוי בינוי, ותהליך הפרויקט.";
 const PUBLISHED_DATE = "2026-05-04";
-const MODIFIED_DATE = "2026-05-04";
+const MODIFIED_DATE = "2026-07-17";
 
 export const metadata: Metadata = buildMetadata({
   title: TITLE,

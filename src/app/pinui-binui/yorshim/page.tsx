@@ -118,6 +118,14 @@ export default function Page() {
               >
                 מכירת דירה בירושה
               </Link>
+              . ואם כבר ירשתם דירה כזו ואתם שוקלים למכור אותה, ולא רק להבין את הזכויות, ראו את
+              המדריך{" "}
+              <Link
+                href="/pinui-binui/yorshim-mechira"
+                className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]"
+              >
+                מכירת דירת ירושה בפינוי בינוי
+              </Link>
               .
             </p>
           </div>

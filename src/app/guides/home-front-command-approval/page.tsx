@@ -20,7 +20,7 @@ import {
 } from "@/lib/schema";
 
 const DATE_PUBLISHED = "2026-04-15";
-const DATE_MODIFIED = "2026-07-13";
+const DATE_MODIFIED = "2026-07-17";
 
 // Word count estimated from prose sections on this page.
 const WORD_COUNT = 650;
@@ -36,9 +36,9 @@ const TOC_ITEMS = [
 ];
 
 const PATH = "/guides/home-front-command-approval";
-const TITLE = "אישור פיקוד העורף לממ״ד והוצאת היתר: המדריך המלא 2026";
+const TITLE = "אישור פיקוד העורף לממ״ד 2026: רישוי, מסלולים והיתר";
 const DESCRIPTION =
-  "אישור פיקוד העורף לממ״ד: שלושה מסלולי רישוי (פטור מהיתר, מקוצר, רגיל), זמן אישור של כ-14 ימי עבודה במסלול פטור, המסמכים הנדרשים, וטעויות נפוצות שמעכבות אישור.";
+  "אישור פיקוד העורף לממ״ד: רישוי במסלול פטור תוך כ-14 ימי עבודה, המסמכים הנדרשים וערוצי פנייה רשמיים לפקע״ר. מדריך 2026 לשלושת מסלולי הרישוי וטעויות שמעכבות אישור.";
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 
@@ -314,6 +314,10 @@ export default function Page() {
           </ul>
 
           <h2 id="contact-channels">ערוצי פנייה רשמיים לפקע״ר</h2>
+          {/* Source: https://www.oref.org.il/heb/contact-page/ (retrieved 2026-07-17).
+              No central national phone number is published there; contact is by district.
+              Do not publish a specific phone number here without a live, dated re-check
+              of that page - the official page states these details may change. */}
           <p>
             הערוץ הראשי לטיפול בבקשת אישור הוא <strong>מערכת הרישוי המקוונת</strong>{" "}
             של פיקוד העורף בכתובת{" "}

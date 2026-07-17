@@ -21,6 +21,7 @@ export const PINUI_BINUI_HREFS = {
   sarvan: "/pinui-binui/sarvan",
   machshvonTemurot: "/pinui-binui/machshvon-temurot",
   mechiratDira: "/pinui-binui/mechirat-dira",
+  yorshimMechira: "/pinui-binui/yorshim-mechira",
   // Future: ownerAttorney,
   // zechuyot, madrich, misui - add here as each ships.
 } as const;
@@ -92,6 +93,7 @@ export type LinkTarget =
   | "pinui-binui-sarvan"
   | "pinui-binui-machshvon"
   | "pinui-binui-mechirat-dira"
+  | "pinui-binui-yorshim-mechira"
   | "memad-bayit-prati"
   | "memad-dira-bekoma"
   | "memad-binyan-meshutaf"
@@ -329,6 +331,13 @@ export const ANCHOR_VARIANTS: Record<LinkTarget, string[]> = {
     "מכירת דירת ירושה בבניין ישן",
     "בדיקת שווי הפוטנציאל של הדירה",
     "מדריך מכירה לפני פינוי בינוי",
+  ],
+  "pinui-binui-yorshim-mechira": [
+    "מכירת דירת ירושה בפינוי בינוי",
+    "יורש שמוכר דירה בפינוי בינוי",
+    "מכירת דירה שירשתי בבניין פינוי בינוי",
+    "מדריך יורשים למכירת דירת ירושה",
+    "זכויות גיל של המוריש במכירה",
   ],
   "memad-bayit-prati": [
     "ממ״ד לבית פרטי",
@@ -586,6 +595,7 @@ export const HREF_MAP: Record<LinkTarget, string> = {
   "pinui-binui-sarvan": PINUI_BINUI_HREFS.sarvan,
   "pinui-binui-machshvon": PINUI_BINUI_HREFS.machshvonTemurot,
   "pinui-binui-mechirat-dira": PINUI_BINUI_HREFS.mechiratDira,
+  "pinui-binui-yorshim-mechira": PINUI_BINUI_HREFS.yorshimMechira,
   "memad-bayit-prati": MEMAD_HREFS.bayitPrati,
   "memad-dira-bekoma": MEMAD_HREFS.diraBekoma,
   "memad-binyan-meshutaf": MEMAD_HREFS.binyanMeshutaf,
@@ -663,6 +673,8 @@ export const TARGET_SUMMARY: Record<LinkTarget, string> = {
     "כלי הערכה אינטראקטיבי לבדיקת הצעת יזם - תוספת מ״ר, חניה, מחסן, פיצוי, וזכויות גיל.",
   "pinui-binui-mechirat-dira":
     "כמה שווה דירה עם פוטנציאל פינוי בינוי, למי מוכרים, ומתי כדאי למכור במקום לחכות לתהליך.",
+  "pinui-binui-yorshim-mechira":
+    "יורשים ששוקלים למכור דירה בבניין בפינוי בינוי: זכויות המוריש, מיסוי, וסדר הפעולות הנכון.",
   "memad-bayit-prati":
     "ארבעה סוגי ממ״ד לבית פרטי, מחירון מפורט, מסלול הפטור, ושלבי הביצוע מהתכנון ועד המסירה.",
   "memad-dira-bekoma":
@@ -743,6 +755,7 @@ export const TARGET_LABEL: Record<LinkTarget, string> = {
   "pinui-binui-sarvan": "דייר סרבן בפינוי בינוי",
   "pinui-binui-machshvon": "מחשבון פינוי בינוי",
   "pinui-binui-mechirat-dira": "מכירת דירה לפני פינוי בינוי",
+  "pinui-binui-yorshim-mechira": "מכירת דירת ירושה בפינוי בינוי",
   "memad-bayit-prati": "ממ״ד לבית פרטי",
   "memad-dira-bekoma": "ממ״ד בדירה בקומה",
   "memad-binyan-meshutaf": "ממ״ד בבניין משותף",

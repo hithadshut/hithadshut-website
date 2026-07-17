@@ -426,7 +426,16 @@ export default function Page() {
               >
                 מכירת דירה לפני פינוי בינוי
               </Link>{" "}
-              מסביר איך מתומחר הפוטנציאל, למי מוכרים, ומה כדאי לבדוק לפני שמחליטים.
+              מסביר איך מתומחר הפוטנציאל, למי מוכרים, ומה כדאי לבדוק לפני שמחליטים. יורש שירש
+              דירה כזו ושוקל למכור אותה, ולא רק להמשיך במאבק שהמוריש התחיל, ימצא מדריך ייעודי
+              ב
+              <Link
+                href="/pinui-binui/yorshim-mechira"
+                className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]"
+              >
+                מכירת דירת ירושה בפינוי בינוי
+              </Link>
+              .
             </p>
           </ContentSection>
         </Reveal>

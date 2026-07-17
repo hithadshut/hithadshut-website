@@ -230,6 +230,12 @@ export default function Page() {
                   </Link>
                   {" · "}כמה שווה הפוטנציאל, למי מוכרים, ומתי עדיף למכור לעומת לחכות.
                 </li>
+                <li>
+                  <Link href="/pinui-binui/yorshim-mechira" className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]">
+                    מכירת דירת ירושה בפינוי בינוי
+                  </Link>
+                  {" · "}ליורשים ששוקלים למכור: זכויות המוריש, מיסוי, וסדר הפעולות הנכון.
+                </li>
               </ul>
             </div>
           </div>
@@ -383,6 +389,17 @@ export default function Page() {
                   מכירת דירה לפני פינוי בינוי
                 </Link>{" "}
                 מסביר איך מתומחר הפוטנציאל ולמי מוכרים.
+              </p>
+            </ContentSection>
+
+            <ContentSection level={3} id="sq-shaked" title="מה ההבדל מחלופת שקד">
+              <p>
+                פינוי בינוי מיועד למתחם של 24 יחידות דיור ומעלה ודורש רוב של 67% להגשת תביעה.{" "}
+                <Link href="/chalufat-shaked" className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]">
+                  חלופת שקד
+                </Link>{" "}
+                היא מסלול נפרד לבניין יחיד, לפי תיקון 139, עם רוב נדרש של 80%. אם הבניין שלכם
+                אינו חלק ממתחם, חלופת שקד עשויה להיות המסלול הרלוונטי במקום פינוי בינוי.
               </p>
             </ContentSection>
           </div>

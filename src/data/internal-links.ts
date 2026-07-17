@@ -1551,6 +1551,87 @@ export const internalLinks: InternalLink[] = [
     context: "inline",
     note: "New inline link in mi-machlit (who decides) section, cycle #3.",
   },
+  // 2026-07-17: weekly SEO/GEO cycle, new page /pinui-binui/yorshim-mechira
+  // (heirs considering selling in an active pinui-binui project). Outbound
+  // + inbound link graph.
+  {
+    fromUrl: "/pinui-binui/yorshim-mechira",
+    toUrl: "/pinui-binui",
+    anchorText: "פרויקט פינוי בינוי",
+    context: "inline",
+    note: "Mandatory back-link from new page to pillar, cycle 2026-07-17.",
+  },
+  {
+    fromUrl: "/pinui-binui/yorshim-mechira",
+    toUrl: "/pinui-binui/yorshim",
+    anchorText: "ירושה דירה בפינוי בינוי",
+    context: "inline",
+    note: "Intent-separation opening paragraph, cycle 2026-07-17. Also referenced by name (no link) in zechuyot-gil-mechira and misui sections to stay within the 7-link body cap.",
+  },
+  {
+    fromUrl: "/pinui-binui/yorshim-mechira",
+    toUrl: "/pinui-binui/mechirat-dira",
+    anchorText: "מכירת דירה לפני פינוי בינוי",
+    context: "inline",
+    note: "Intent-separation opening paragraph, cycle 2026-07-17.",
+  },
+  {
+    fromUrl: "/pinui-binui/yorshim-mechira",
+    toUrl: "/madrichim/mechirat-dira-beyerusha",
+    anchorText: "מכירת דירה בירושה",
+    context: "inline",
+    note: "Intent-separation opening paragraph, cycle 2026-07-17. Also referenced by name (no link) in misarvan section to stay within the 7-link body cap.",
+  },
+  {
+    fromUrl: "/pinui-binui/yorshim-mechira",
+    toUrl: "/pinui-binui/kshishim",
+    anchorText: "זכויות קשישים בפינוי בינוי",
+    context: "inline",
+    note: "Inline link in zechuyot-gil-mechira section, cycle 2026-07-17.",
+  },
+  {
+    fromUrl: "/pinui-binui/yorshim-mechira",
+    toUrl: "/pinui-binui/chok-67",
+    anchorText: "67% מבעלי הדירות",
+    context: "inline",
+    note: "Inline link in misarvan section, cycle 2026-07-17.",
+  },
+  {
+    fromUrl: "/pinui-binui/yorshim-mechira",
+    toUrl: "/pinui-binui/sarvan",
+    anchorText: "דייר סרבן בפינוי בינוי",
+    context: "inline",
+    note: "Inline link in misarvan section, cycle 2026-07-17.",
+  },
+  // Inbound to the new page from the pillar + additive edits on siblings.
+  {
+    fromUrl: "/pinui-binui",
+    toUrl: "/pinui-binui/yorshim-mechira",
+    anchorText: "מכירת דירת ירושה בפינוי בינוי",
+    context: "inline",
+    note: "Pillar 'מדריכי המשך' box, cycle 2026-07-17.",
+  },
+  {
+    fromUrl: "/pinui-binui/yorshim",
+    toUrl: "/pinui-binui/yorshim-mechira",
+    anchorText: "מכירת דירת ירושה בפינוי בינוי",
+    context: "inline",
+    note: "Additive cross-link for readers considering selling, cycle 2026-07-17. Existing content untouched.",
+  },
+  {
+    fromUrl: "/pinui-binui/kshishim",
+    toUrl: "/pinui-binui/yorshim-mechira",
+    anchorText: "מכירת דירת ירושה בפינוי בינוי",
+    context: "inline",
+    note: "Additive cross-link in the existing 'או למכור' section, cycle 2026-07-17.",
+  },
+  {
+    fromUrl: "/pinui-binui/sarvan",
+    toUrl: "/pinui-binui/yorshim-mechira",
+    anchorText: "מכירת דירת ירושה בפינוי בינוי",
+    context: "inline",
+    note: "Additive cross-link near the existing sell-instead FAQ entry, cycle 2026-07-17.",
+  },
 ];
 
 /** All internal links pointing FROM a given URL. */
