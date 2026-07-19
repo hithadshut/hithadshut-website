@@ -38,6 +38,13 @@ export const INDEXABLE_GEO_PAIRS = new Set<string>([
   "herzliya/prefab-mamad",
   "modiin/room-reinforcement",
   "modiin/building-mamad",
+  // Promoted 2026-07-19, cycle "doorway insurance" (EXP-AREAS-DIFF-
+  // 2026-07-19): the 3 highest-impression non-promoted pairs per the
+  // 2026-07-13 GSC export, given genuine hand-authored geoIntros +
+  // extendedNotes expanding areas.ts's pre-existing localNote facts.
+  "jerusalem/building-mamad",
+  "jerusalem/prefab-mamad",
+  "petah-tikva/prefab-mamad",
 ]);
 
 /**

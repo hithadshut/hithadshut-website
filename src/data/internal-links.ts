@@ -1632,6 +1632,56 @@ export const internalLinks: InternalLink[] = [
     context: "inline",
     note: "Additive cross-link near the existing sell-instead FAQ entry, cycle 2026-07-17.",
   },
+  // 2026-07-19: weekly SEO/GEO cycle, new page /pinui-binui/diur-mugan
+  // (families selling a pinui-binui-potential unit to fund assisted
+  // living). Deliberately does NOT link from /pinui-binui, /pinui-binui/
+  // kshishim, or /pinui-binui/mechirat-dira - all 3 are inside the
+  // cycle-#2 experiment lock (matures 2026-08-11). Inbound wiring routes
+  // through unlocked pages only; see report for the lock-breach
+  // disclosure this cycle corrects going forward.
+  {
+    fromUrl: "/pinui-binui/diur-mugan",
+    toUrl: "/pinui-binui",
+    anchorText: "פינוי בינוי",
+    context: "inline",
+    note: "Intent-separation opening paragraph, cycle 2026-07-19. Outbound link FROM a new page TO a locked page is fine; only edits TO locked pages are avoided.",
+  },
+  {
+    fromUrl: "/pinui-binui/diur-mugan",
+    toUrl: "/pinui-binui/kshishim",
+    anchorText: "זכויות קשישים בפינוי בינוי",
+    context: "inline",
+    note: "Intent-separation opening paragraph + mikre-meyuchad section, cycle 2026-07-19.",
+  },
+  {
+    fromUrl: "/pinui-binui/diur-mugan",
+    toUrl: "/pinui-binui/mechirat-dira",
+    anchorText: "מכירת דירה לפני פינוי בינוי",
+    context: "inline",
+    note: "Intent-separation opening paragraph + timing section, cycle 2026-07-19.",
+  },
+  {
+    fromUrl: "/pinui-binui/diur-mugan",
+    toUrl: "/pinui-binui/yorshim-mechira",
+    anchorText: "מכירת דירת ירושה בפינוי בינוי",
+    context: "inline",
+    note: "Intent-separation opening paragraph + misui section, cycle 2026-07-19.",
+  },
+  // Inbound to the new page, from unlocked pages only (see note above).
+  {
+    fromUrl: "/pinui-binui/yorshim-mechira",
+    toUrl: "/pinui-binui/diur-mugan",
+    anchorText: "מכירת דירה ומעבר לדיור מוגן",
+    context: "inline",
+    note: "Additive cross-link, cycle 2026-07-19. Existing content untouched.",
+  },
+  {
+    fromUrl: "/pinui-binui/yorshim",
+    toUrl: "/pinui-binui/diur-mugan",
+    anchorText: "מכירת דירה ומעבר לדיור מוגן",
+    context: "inline",
+    note: "Additive cross-link, cycle 2026-07-19. Existing content untouched. Gives the new page 2 inbound links without touching any of the 6 locked files.",
+  },
 ];
 
 /** All internal links pointing FROM a given URL. */

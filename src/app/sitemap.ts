@@ -153,6 +153,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    {
+      url: `${site.url}/pinui-binui/diur-mugan`,
+      lastModified: lastModifiedFor("src/app/pinui-binui/diur-mugan/page.tsx"),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
     // Memad depth sub-pages - authority cluster under /memad/*
     {
       url: `${site.url}/memad/bayit-prati`,
