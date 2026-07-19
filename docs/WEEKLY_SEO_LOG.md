@@ -4,6 +4,258 @@ Append-only. Each cycle gets one section, newest first.
 
 ---
 
+## Cycle 2026-07-19 — seller cluster + debt closure + doorway insurance
+
+### Precondition + scope guard
+
+`.vercel/project.json` confirmed `projectId: prj_1rOa8XSuwPLI47jovGS11kfICq8V`
+before any commit. `git remote -v` -> `hithadshut/hithadshut-website`
+only. Tag `pre-cycle-2026-07-19` created and pushed at `37e516a` (local
+`HEAD` == `origin/master` at start, after Task 0 also committed the
+delayed 2026-07-17 report as `dc2d599` before tagging - see below).
+
+### Stage 0 - learning + three findings surfaced before any edit
+
+**1. `ledger.json` does not exist**, same as 2026-07-17. Confirmed via
+direct file check. The real Experiment Ledger is the markdown tables in
+this file. `data/gsc/2026-07-18` or later also does not exist - only
+`data/gsc/2026-07-13/` is real. Per the brief's own fallback instruction,
+used that export and stated the limitation plainly rather than
+estimating: **no query data exists yet for מכירת דירה / למכור דירה, and
+no page-level GSC data exists for `mechirat-dira` or `yorshim-mechira`**,
+because the 2026-07-13 export predates both pages' launch (2026-07-14
+and 2026-07-17 respectively). Any KPI baseline for those pages/queries
+starts at zero, not from this export.
+
+**2. The cycle-#2 six-page experiment lock is still active and this
+cycle's own brief asked to breach it further.** `/pinui-binui`,
+`/pinui-binui/mechirat-dira`, `/pinui-binui/sarvan`,
+`/pinui-binui/kshishim`, `/pinui-binui/temurot`, `/pinui-binui/chok-67`
+matured 2026-08-11 - still 23 days out. Checking `git show --stat
+37e516a` (the 2026-07-17 content commit) showed **that cycle had already
+breached the lock**: it edited `kshishim`, `sarvan`, and the pillar page
+with small additive cross-links, without checking the lock first. This
+is disclosed here as a correction, not repeated. Today's brief's Changes
+1-3 asked for further direct edits to the still-locked `mechirat-dira`
+(title rewrite, new table, new FAQ, new H2 section) and `kshishim`
+(inbound link) - surfaced to the operator directly before writing
+anything. **Operator decision: respect the lock strictly from here on.**
+Consequence: Change 1 deferred (see below), Change 3 redirected to
+`yorshim-mechira`, Change 2's new page wired for inbound links through
+`yorshim-mechira`/`yorshim` instead of the locked pillar/kshishim/
+mechirat-dira. Verified via `git diff pre-cycle-2026-07-19 -- ` the 6
+locked paths after every commit this cycle: **empty every time.**
+
+**3. The brief's adrk-contamination grep flagged hithadshut's own
+canonical phone number as a suspected contamination signal**
+("no 08-300-6068"). Checked `src/lib/site.ts`: `08-300-6068` /
+`+97283006068` is hithadshut's real, sitewide phone number, and matches
+the number hardcoded in this project's own `CLAUDE.md`/`technical.md`
+Organization-schema template verbatim. Not contamination. No action
+taken - flagged here as a likely error in the brief's own grep target,
+so a future cycle doesn't waste time "fixing" the site's real phone
+number.
+
+### Task 0 - debt closure (freeze-exempt)
+
+1. Committed the 2026-07-17 report (`dc2d599`), appending one line
+   noting the delayed-commit date. No other content changed.
+2. `npm run indexnow -- --all`: **200 OK, 182 URLs submitted**
+   (the full sitemap as of that point - all 112 `/areas/*` URLs +
+   `yorshim-mechira` + every 2026-07-17 change).
+3. Operator confirmed (2026-07-19) GSC "Validate Fix" and manual
+   URL-Inspection indexing requests for the top areas URLs were
+   performed - recorded here as owner-task completion.
+
+### Gate-strengthening - `scripts/noindex-live-check.mjs`
+
+Added as instructed. Why the 2026-07-17 static gate
+(`noindex-audit.mjs`) alone is insufficient, per its own header comment:
+it reads `next build`'s prerendered HTML files and cannot see
+response-header-level signals (`X-Robots-Tag`) or any gap between build
+output and what a real client receives. This script fetches sampled
+URLs from the real canonical production host instead - which also
+sidesteps `src/middleware.ts`'s host-canonicalization redirect entirely
+(the exact problem that forced last cycle's static-file redesign).
+Windows/Git-Bash note added to the script header: MSYS mangles
+leading-slash path args into Windows paths unless run with
+`MSYS_NO_PATHCONV=1` - hit this live during post-deploy verification,
+documented so the next cycle doesn't lose time on it.
+
+### Changes shipped
+
+**Change 1 [DEFERRED] - sell-or-wait strengthening.** Target
+`/pinui-binui/mechirat-dira` is locked. Read the page in full first
+(per the brief's own "last cycle proved briefs overestimate gaps"
+instruction): it already has a bekitzur block, a 4-factor valuation
+list, a full "מכור עכשיו או לחכות" section with the exact non-committal
+framing requested, and the verbatim buying-claim text. There was nothing
+left to add even if it were unlocked. The one genuinely new item (the
+sale-and-leaseback FAQ) shipped instead on `yorshim-mechira`, credited
+jointly to Change 1 and Change 5.
+**Ledger:** `EXP-SELL-OR-WAIT-2026-07-19`, status **DEFERRED**, reason =
+active experiment lock, revisit after 2026-08-11. Baseline captured for
+that future cycle: no GSC data yet exists for this query family (see
+Stage 0 finding #1).
+
+**Change 2 [MEDIUM] - new page `/pinui-binui/diur-mugan`.** For families
+selling a pinui-binui-potential unit to fund a parent's move to assisted
+living. Anti-cannibalization verified before writing: `kshishim` covers
+elderly rights while staying in a project; `mechirat-dira` is a general
+seller-bridge; `yorshim-mechira` is heir-specific. None cover the
+sell-to-fund-diur-mugan decision - real gap. ~1500 words, respectful
+family-decision tone throughout, no urgency language. Covers: intent
+separation, bekitzur block, who-this-applies-to (factually mentions
+ייפוי כוח מתמשך as an existing legal mechanism, sourced to kolzchut.org.il
+in a code comment, no legal advice given), why a pinui-binui-potential
+unit is a special case (elder-tier 70-74/75+ rights, explicitly no 80+
+tier, reused via cross-link not restated), the timing question (links
+`mechirat-dira`'s existing section rather than restating it),
+sale-and-leaseback as a bridge, a timeline-coordination section, a
+practical-steps checklist, and a tax section reusing only
+already-verified §4/§49ב(5) facts. `SellerLeadForm` with
+`defaultPropertyType="דירה"` (`דירת הורים` isn't a valid option in the
+component; used the closest existing valid value per the brief's own
+fallback instruction) and `pageContext="pinui-binui-diur-mugan"`. FAQ:
+8 items including all 3 brief-specified questions, buying-claim text
+copied verbatim from `mechirat-dira`'s `lemi-mochrim` section, not
+paraphrased. Trimmed from an initial 7 body links (with 3 duplicate
+repeat-target links) down to 4 clean, single-use links, well under cap.
+**Wiring, lock-safe:** `anchors.ts` (6-location pattern), `internal-
+links.ts`, `sitemap.ts`, `llms-txt-manifest.ts`. No edits to the pillar,
+`kshishim`, or `mechirat-dira` - inbound links instead added on
+`yorshim-mechira` and `yorshim` (both unlocked), giving the new page 2
+inbound links, clearing the no-orphan-pages minimum without touching any
+locked file. **Follow-up flagged:** once the pillar unlocks 2026-08-11,
+add `diur-mugan` to its "מדריכי המשך" children list.
+**Ledger:** `EXP-DIUR-MUGAN-2026-07-19`. KPI: indexed <=7 days, first
+impressions <=14 days, >=1 `seller_lead_submit` in 28 days.
+
+**Change 3 [REDIRECTED, LOW] - AEO "who buys" block, on
+`yorshim-mechira`.** Brief explicitly permitted "the most-fitting
+existing seller page" as an alternative to the locked `mechirat-dira`.
+Added one H2 ("מי קונה דירות עם פוטנציאל פינוי בינוי", 3-4 quotable
+sentences, entity-clear) + one matching FAQ entry to `yorshim-mechira`,
+which had a CTA paragraph but no dedicated quotable AEO block. Placed
+here rather than duplicating `diur-mugan`'s own FAQ answer on the same
+question (which stays a single FAQ item there, not a dedicated section)
+so the two pages don't compete on identical content.
+**Ledger:** `EXP-WHO-BUYS-AEO-2026-07-19`. KPI: impressions for מי קונה
+queries; AI-citation spot-check is an owner task below.
+
+**Change 4 [MEDIUM] - doorway insurance, 3 pairs differentiated.** GSC
+sanity check on `/areas/*/*` impressions (2026-07-13 export, pre-dates
+the noindex removal so these are residual numbers, still real):
+highest-impression **non-promoted** pairs were `jerusalem/building-mamad`
+(29 impr, pos 4.03), `jerusalem/prefab-mamad` (27 impr, pos 6.15),
+`petah-tikva/prefab-mamad` (25 impr, pos 9.36), `rehovot/building-mamad`
+(12 impr), `tel-aviv/building-mamad` (7 impr). Differentiated the top 3
+where solid pre-existing factual anchors already existed in `areas.ts`'s
+`localNote` to expand from: Jerusalem's stone-cladding requirement,
+sloped-lot foundation implications, and preservation-committee review
+layer; Petah Tikva's 1970s/80s building stock lacking mamad provision by
+default. 158 and 127 combined words respectively (geoIntro +
+extendedNotes), both clearing the 120-200 word floor. Zero invented case
+studies, partner names, project counts, or reviews - pure expansion of
+already-verified facts. Added to `INDEXABLE_GEO_PAIRS` in
+`indexable-geo.ts` (content-richness promotion only; indexing status is
+unaffected, already unconditionally `true` since 2026-07-17). This is a
+different experiment from the 6-page lock (`EXP-AREAS-INDEX-2026-07-17`,
+matures 2026-08-14, doesn't touch indexing status) - reasoning documented
+here for the operator to overrule next cycle if read differently.
+**Ledger:** `EXP-AREAS-DIFF-2026-07-19`. KPI: impressions/position for
+these 3 pairs vs. the remaining undifferentiated pairs as control.
+
+**Change 5 [LOW] - sell-and-stay FAQ on `yorshim-mechira`.** One FAQ
+entry, adapted to the heir-seller context (a family member continuing to
+live in the unit, not copy-pasted from the general framing). `kshishim`
+correctly excluded per the brief's own self-check - still locked.
+**Ledger:** `EXP-SELL-STAY-FAQ-2026-07-19`.
+
+### Gate results
+
+- `npm run typecheck`: pass
+- `npm run lint`: pass
+- `npm run build`: pass (200 routes, +1 for `diur-mugan`)
+- `bash scripts/content-lint.sh` (5 gates, on all 3 commits via
+  pre-commit hook): pass
+- `node scripts/noindex-audit.mjs`: **pass**, 183 sitemap URLs, all
+  `index,follow`
+- **Experiment-lock overlap check** (new this cycle, the gate that was
+  skipped 2026-07-17): `git diff pre-cycle-2026-07-19 -- ` the 6 locked
+  paths, run after every commit: **empty every time**
+- JSON-LD parse + FAQ-schema-parity check on `diur-mugan` (6 blocks, 8
+  FAQ items, count and text match visible content) and `yorshim-mechira`
+  (6 blocks, 10 FAQ items, count and text match): clean
+- 7-body-link cap: `diur-mugan` at 4, `yorshim-mechira` held at exactly
+  7 (one existing link demoted to plain-text reference to make room for
+  the new `diur-mugan` cross-link)
+- adrk-contamination grep (repo-wide): clean, with the phone-number false
+  positive noted in Stage 0
+- Brokerage grep (תיווך/מתווך) on all new/changed content: clean
+- Legal-facts grep: 67% threshold correct; 70-74/75+ tiers correct, no
+  80+ tier introduced (one line on `diur-mugan` explicitly states "no
+  80+ tier" as a correct negative fact); zero 60%/71ב occurrences
+  anywhere in pinui-binui context
+- Fabrication/outcome-promise grep on new content: clean
+- Price-audit: no stale room-reinforcement price figures touched or
+  introduced
+- EM-DASH scan: clean. Placeholder scan: clean.
+- TrustBlock disclaimer present on `diur-mugan`
+- BIDI/RTL spot check on live production: `dir="rtl" lang="he"` correct,
+  no corruption
+
+### Deploy evidence
+
+Four commits this cycle (one more than the brief's nominal three, split
+for cleaner history - docs-only vs. gate-script vs. content):
+- `dc2d599` - delayed 2026-07-17 report (Task 0)
+- `99b1f5d` - `noindex-live-check.mjs` + `package.json` wiring
+- `e54deb2` - content (Changes 2-5 + wiring)
+- this report (below)
+
+GitHub commit status API confirms Vercel deployment
+`DSDxi4MCdhwwEkLdpBFF4TNkcKVy` on `e54deb2` completed successfully.
+
+### Post-deploy verification
+
+`node scripts/noindex-live-check.mjs` (10 URLs incl. all 3 differentiated
+areas pairs + `diur-mugan` + `yorshim-mechira`): **PASSED**, all `200`,
+`index,follow`, no `X-Robots-Tag: noindex`. `diur-mugan` live: title
+correct (single company suffix), canonical correct, `dir="rtl" lang="he"`
+correct, all 6 JSON-LD blocks parse, `SellerLeadForm` name field present
+(did not submit a test lead). `yorshim-mechira` live: new AEO section,
+new leaseback FAQ, and the `diur-mugan` cross-link all confirmed present.
+Live `/sitemap.xml`: 183 `<loc>` entries (182 + 1), `diur-mugan` present.
+No rollback needed. IndexNow fired for the 5 changed/new URLs post-
+deploy: **200 OK**.
+
+### Differentiation roadmap progress
+
+**11 of 112** `/areas/[city]/[service]` pairs now have hand-authored
+`geoIntros`/`extendedNotes` (8 from 2026-05-03 + 3 this cycle). 101
+pairs remain on the rotated generic template, serving as the control
+group for `EXP-AREAS-DIFF-2026-07-19`'s KPI.
+
+### Protected-core change proposals
+
+None. The lock-breach disclosure above is a process correction, not a
+protected-fact or rule change.
+
+### Owner tasks
+
+1. GSC URL Inspection: request indexing for
+   `https://hithadshut.co.il/pinui-binui/diur-mugan` on day of deploy.
+2. GEO baseline: ask ChatGPT, Gemini, and Perplexity in Hebrew "מי קונה
+   דירות עם פוטנציאל פינוי בינוי בישראל?" and "כדאי למכור דירה לפני
+   פינוי בינוי?" - record whether hithadshut is cited/named, paste
+   results into next cycle's input.
+3. Evidence collection: 1-2 real anonymized permit/process examples
+   (city, request type, duration, no client details) - still outstanding
+   from two prior cycles.
+
+---
+
 ## Cycle 2026-07-17 — index ceiling break + Pikud Haoref cluster
 
 *Note: this report was written 2026-07-17 but committed 2026-07-19 as
