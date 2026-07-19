@@ -10,6 +10,7 @@
     "lint:content": "bash scripts/content-lint.sh",
     "typecheck": "tsc --noEmit",
     "noindex-audit": "node scripts/noindex-audit.mjs",
+    "noindex-live-check": "node scripts/noindex-live-check.mjs",
     "predeploy": "npm run typecheck && npm run lint && npm run build && npm run noindex-audit",
     "indexnow": "tsx scripts/submit-to-indexnow.ts",
     "gsc-ping": "tsx scripts/gsc-ping.ts",
