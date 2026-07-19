@@ -4,6 +4,353 @@ Append-only. Each cycle gets one section, newest first.
 
 ---
 
+## Cycle 2026-07-17 — index ceiling break + Pikud Haoref cluster
+
+*Note: this report was written 2026-07-17 but committed 2026-07-19 as
+Task 0 of the following cycle, after a platform-side tool outage
+prevented `git commit`/`git push` for the remainder of the 2026-07-17
+session. Content below is unchanged from what was written that day.*
+
+Normal weekly cycle, not a cap exception: last log entry was 2026-07-14
+(cycle #3), and `git log` confirmed no deploy happened between then and
+the start of this cycle (local `HEAD` == `origin/master` == `01e5ac9`
+before starting).
+
+### Precondition + scope guard
+
+`git remote -v` -> `hithadshut/hithadshut-website` only. `.vercel/project.json`
+confirmed `projectId: prj_1rOa8XSuwPLI47jovGS11kfICq8V`,
+`projectName: hithadshut-website` before any commit. adrk-contamination
+grep (repo-wide): clean. Tag `pre-cycle-2026-07-17` created and pushed at
+`01e5ac9` for rollback reference.
+
+### Stage 0 - learning + critical diagnosis correction
+
+Read cycles #1-#3 in full. No open ledger items from those cycles
+conflicted with this cycle's scope (none of the 6 files locked by
+cycle #3's experiment lock, matured 2026-08-11, were touched).
+
+**The brief's central premise for Change 1 was factually wrong, and this
+was caught and corrected before any code changed.** The brief frames the
+`/areas/` noindex as an undetected gate failure ("was never caught by
+the gate battery"). Direct inspection of `src/content/indexable-geo.ts`
+(its own header comment) and `src/content/areas.ts` (`noindexReason`
+field) showed this was a **deliberate, documented anti-doorway-page
+system**, built by a prior cycle (commit `0c8d1c0`, 2026-05-03),
+specifically because `/areas/[city]/[service]` (28 cities x 4 services =
+112 pages of rotated near-duplicate template copy) is, in that system's
+own words, "the textbook doorway-pages pattern that Google's March-2026
+update penalizes." Only 8 of 112 city x service pairs had been
+hand-promoted to indexable after content-lead sign-off; 8 of 28 city
+pages carried `noindexReason` for sub-800-word content. This was a
+working quality gate, not a bug.
+
+This conflict was surfaced to the operator directly, with the real
+diagnosis and the doorway-pages risk explained, before Change 1 was
+touched. **The operator confirmed: proceed exactly as briefed** - index
+all ~112 pages immediately, accepting the risk the prior cycle's
+architecture was built to avoid. That decision is what shipped. This is
+logged here as the record of an owner override of a working safety gate,
+not as a bug fix.
+
+**Second finding:** `data/gsc/2026-07-17/` (the GSC export path the
+brief cites in Stage A) does not exist in the repository. Only
+`data/gsc/2026-07-13/` is present. Used the 2026-07-13 export as the
+closest real data source (per prior cycles' practice of reusing the most
+recent available export) and sanity-checked the brief's cited cluster
+figures against it:
+
+| Query | Brief (claimed 07-17) | Actual 2026-07-13 CSV |
+|---|---|---|
+| אישור ממד פיקוד העורף | pos 10.95, 102 impr | pos 10.85, 91 impr |
+| רישוי פיקוד העורף | pos 8.06 | pos 8.12, 33 impr |
+| פיקוד העורף היתר בנייה | pos 15.54 | pos 15.59, 34 impr |
+| הג א אישור ממ ד טלפון | pos 16.18 | pos 16.91, 34 impr |
+| מיגון חדר קיים | pos 32.6, 157 impr | pos 32.84, 155 impr |
+| עלות מיגון חדר קיים | pos 14.75 | pos 14.98, 42 impr |
+| חלופת שקד | 542 impr, pos 22.9, CTR 0.18% | 520 impr, pos 23.11, CTR 0.19% |
+| חלופת שקד תיקון 139 | pos 8.77 | pos 8.85, 86 impr |
+
+Close but not identical - consistent with natural ~4-day drift on a
+real, slightly older export, not fabricated. "אישור פיקוד העורף" (the
+brief's stated head term, 158 impr pos 23.01) and "מיגון לבית פרטי" (pos
+16.13) do not appear as standalone rows in this CSV at all; nearby
+queries exist but not those exact strings. Flagged here, not silently
+corrected - the strategic direction (front-load "אישור פיקוד העורף",
+address private-home framing) is sound regardless and was carried out
+against the verified adjacent queries.
+
+**Also caught during Change 1 fact-finding (Stage 0's mandated "gate
+script" item):** the noindex-audit gate could not be implemented as a
+`next start` + HTTP-fetch loop as first designed, because
+`src/middleware.ts` 301-redirects any request whose Host header isn't
+the canonical production domain - confirmed even with an explicit
+`Host: hithadshut.co.il` override (curl -v showed the header was sent
+correctly and still got redirected). Redesigned the gate to read
+`next build`'s own prerendered HTML output directly instead of running a
+server - more direct (checks exactly what ships) and sidesteps the
+middleware entirely. See `scripts/noindex-audit.mjs`.
+
+### Changes shipped
+
+**1. [HIGH RISK] Remove noindex from all `/areas/` pages.** Owner
+override, described above. `src/content/areas.ts`: removed the 8
+`noindexReason` assignments (type field kept for future use).
+`src/content/indexable-geo.ts`: `isGeoPairIndexable()` now always
+returns `true` (signature and `INDEXABLE_GEO_PAIRS` allowlist kept as
+historical record of which 8 pairs have hand-authored `geoIntros`/
+`extendedNotes` - the page template still branches on this function to
+decide whether to render that richer content vs. the rotated generic
+intro). `sitemap.ts` needed no edit: both its filters (`!a.noindexReason`,
+`isGeoPairIndexable`) now pass everything through as a natural
+consequence. Truth pass on both `/areas/[city]/[service]` templates:
+read in full, no invented partner names, project counts, case studies,
+or reviews found - `localNote`/`extendedNotes`/`geoIntros` are factual
+regional construction notes, not social proof. No "רשת שותפים" phrasing
+needed since no partner-network claim existed to soften. Price check:
+the `[service]` template's generic price paragraph never hardcodes the
+room-reinforcement number; the `[city]` template's FAQ prices are for
+building-mamad (160,000-230,000), a different service, not a conflict
+with the 120,000-150,000 room-reinforcement canonical. Thin-content risk
+accepted per owner decision; no bulk content generation this cycle
+(budget) - differentiation roadmap proposed below.
+**Rollback:** revert commit restoring the 8 `noindexReason` values and
+`isGeoPairIndexable`'s conditional body (both are 2-file, single-purpose
+diffs), then re-run `npm run indexnow -- --all` with the reverted
+sitemap. Pre-cycle tag `pre-cycle-2026-07-17` at `01e5ac9`; pre-cycle
+Vercel production deployment was the one serving before deployment
+`B6sy5dZDbwccMYexdHPbpe29xnQ1` (this cycle's deploy).
+**Ledger:** `EXP-AREAS-INDEX-2026-07-17`, maturation 2026-08-14. KPI:
+indexed `/areas/*` count in GSC, impressions/clicks on `/areas/*`.
+
+**2. [MEDIUM] Pikud Haoref cluster push,
+`guides/home-front-command-approval`.** This page was already strong
+(direct-answer block, TL;DR, KeyStats, a dedicated official-contact-
+channels section, and a FAQ entry correctly answering the phone-intent
+query with no fabricated number) - confirmed by reading it in full
+before editing, so no content-section rewrite was needed. Scope was:
+title/meta reordered to lead with the weakest cluster query ("אישור
+פיקוד העורף", pos ~23) in the first ~15 characters while keeping
+"רישוי" and "היתר בנייה" (the two strongest queries, pos ~8 and ~15.5);
+`DATE_MODIFIED` bumped to 2026-07-17; a code comment added citing
+oref.org.il/heb/contact-page/ (retrieved 2026-07-17) next to the
+contact-channels section for audit-trail purposes, no visible-copy
+change since the existing text was already correct (no phone number
+published, links to the official page instead). Verified `AnswerBlock`'s
+`includeFaqSchema` defaults to `false` on this page - no duplicate
+FAQPage schema, confirmed by reading the component. Added the 2 inline
+body-copy links that were genuinely missing (confirmed by grep before
+adding - `guides/mamad-permit-exemption-2026` already linked here twice,
+no edit needed there): one in `services/room-reinforcement`'s
+`quickAnswer` block, one in `compare/mamad-vs-miggun-vs-migunit`'s body
+prose. Added one more link card to the shared
+`/areas/[city]/[service]/page.tsx` "מידע נוסף וקישורים מקצועיים" block -
+a single template edit that fans out to all 112 now-indexed area pages.
+**Ledger:** `EXP-PIKUD-CLUSTER-2026-07-17`. KPI: position of the 5
+cluster queries, guide CTR.
+
+**3. [MEDIUM] New page `/pinui-binui/yorshim-mechira`** - for heirs who
+inherited a unit already inside an active/potential pinui-binui project
+and are weighing sell-vs-stay. Verified before writing (not assumed)
+that this doesn't cannibalize: `/pinui-binui/yorshim` covers heir
+*rights* while staying in the project (tax exemption, malkod ha-yorshim,
+contract clauses) with zero selling-decision content; `/pinui-binui/
+mechirat-dira` is a general seller-bridge for any owner, heirs get one
+FAQ line; `/madrichim/mechirat-dira-beyerusha` is inheritance-sale for
+any building, explicitly not pinui-binui-specific. Confirmed via grep
+that neither `kshishim` nor `sarvan` (which already cross-link to
+`mechirat-dira` for "sell instead") linked to anything heir-specific.
+1530 words. Structure: intent-separation opening (cross-links all 3
+related pages), bekitzur direct-answer block, who-this-applies-to,
+selling mechanics for an inherited unit mid-project, elder-tier-
+transfer-then-sell interaction (reuses `yorshim`'s already-verified
+70-74/75+ tiers, no 80+ tier, translated into "does selling forfeit an
+inherited elevated-tier right"), a sell-before-vs-after-signing decision
+table (non-committal framing, no outcome promises), a section
+distinguishing co-heir-blocks-sale (private co-ownership dissolution,
+cross-links the general inheritance-sale guide) from
+neighbor-blocks-project (67% mechanic, cross-links chok-67/sarvan,
+explicit that a neighbor's refusal never blocks the heir's own private
+sale), a practical-steps checklist, and a tax section reusing only the
+already-verified §4/§49ב(5) facts with a nevo.co.il citation. CTA reuses
+`SellerLeadForm` with `defaultPropertyType="דירת ירושה"` and
+`pageContext="pinui-binui-yorshim-mechira"` (both pre-existing, additive
+props - confirmed unset on every other page, no regression) - buying
+claim text matched verbatim to the already owner-verified wording on
+`mechirat-dira` ("רוכשים דירות, בניינים ומגרשים במסלול ישיר... עובדים
+מול משקיעים") rather than paraphrased. Trimmed from an initial 10 body
+links down to exactly 7 (technical.md's per-page cap) by removing
+redundant repeat links to the same target and referencing the guide by
+name instead where a link had already appeared higher on the page.
+Wired into `src/lib/anchors.ts` (namespace href + `LinkTarget` union +
+all 4 keyed records), `src/data/internal-links.ts` (7 outbound + 4
+inbound entries), `src/app/sitemap.ts`, `src/content/llms-txt-
+manifest.ts`, the `/pinui-binui` pillar's "מדריכי המשך" children list
+(pillar-links-to-all-children hard rule), and one additive cross-link
+each on `yorshim`, `kshishim`, and `sarvan` (existing content on all 3
+otherwise untouched).
+**Ledger:** `EXP-INHERITANCE-PILLAR-2026-07-17`. KPI: indexed <=7 days,
+first cluster impressions <=14 days, >=1 `seller_lead_submit` in 28 days.
+
+**4. [MEDIUM] `services/room-reinforcement`, light touch.** Already met
+most of the brief on inspection (canonical 120,000-150,000 price,
+full comparison table, a "when reinforcement isn't enough" section) -
+confirmed by reading the whole file before editing, so no rewrite was
+done. Two additive edits: linked "אישור פיקוד העורף" inline in the
+`quickAnswer` block (previously plain bold text, now links to the
+guide - this single edit also satisfies Change 2's ask from the other
+direction); added one new FAQ entry, "האם שיפור מיגון מתאים לבית פרטי?",
+answered per CLAUDE.md hard rules #2/#3 (yes for this service in any
+region, explicitly distinguishing from מיגונית which is not a
+private-home solution in the center/coastal region), cross-referencing
+the comparison page. No title/meta change - already leads with cost
+intent, matching the brief's ask; no identifiable improvement without
+new data.
+**Ledger:** `EXP-ROOM-REINF-2026-07-17`.
+
+**5. [LOW] `chalufat-shaked` CTR.** Title already led with the head term
+("חלופת שקד 2026") and kept "תיקון 139"; description tightened for CTR
+without new claims. `DATE_MODIFIED` bumped to 2026-07-17. Fixed a
+pre-existing duplicate company-name-suffix bug on this exact title while
+already rewriting it (old title ended `...הבנייה | התחדשות`, and the
+root layout's title template already appends the full company name -
+the same bug class cycle #3 found and fixed on 3 other files, flagged
+there as a ~40-file sitewide cleanup candidate; this one file is now
+fixed as a side effect of touching it this cycle, the other ~39 remain
+out of scope). `tama-38/page.tsx` already linked to `/chalufat-shaked`
+twice (confirmed via grep) - no edit needed there. `/pinui-binui` did
+not link to it (confirmed via grep) - added one new sub-question block
+("מה ההבדל מחלופת שקד") to the pillar's existing 9-block hub, matching
+its established pattern, no restructuring of existing blocks.
+**Ledger:** `EXP-SHAKED-CTR-2026-07-17`.
+
+### Gate results
+
+- `bash scripts/content-lint.sh` (5 gates, run standalone + via
+  pre-commit hook on both commits): pass
+- `npm run typecheck`: pass
+- `npm run lint`: pass (0 errors; fixed 2 pre-existing-this-cycle
+  unused-var warnings on `isGeoPairIndexable`'s params via a documented
+  `eslint-disable` rather than dropping the params, so callers don't
+  need edits if this ever reverts)
+- `npm run build`: pass (199 routes, +1 for the new page)
+- `node scripts/noindex-audit.mjs` (new permanent gate): **pass** - all
+  182 sitemap URLs confirmed `index,follow` in the prerendered build
+  output, including all 112 `/areas/*` URLs. `/admin/seo-dashboard`
+  correctly sampled as `noindex` and correctly absent from the sitemap
+  (negative-case check).
+- JSON-LD parse check on all 10 changed/new + spot-checked pages: clean,
+  all `Article`/`FAQPage`/`BreadcrumbList`/`Service`/`LocalBusiness`
+  blocks parse. FAQPage schema on the new page verified to mirror the
+  8 visible FAQ items exactly (count and text, programmatically diffed).
+- adrk-contamination grep (repo-wide): clean
+- Brokerage grep (תיווך/מתווך) on all changed files: clean - one draft
+  instance of "לתיווך פרטני" was caught and reworded before commit (see
+  new page, tzaadim section)
+- Legal-facts grep: 67% pinui-binui threshold used correctly and
+  consistently; 70-74/75+ elderly tiers used correctly, no 80+ tier
+  introduced; zero occurrences of 60%/71ב anywhere in pinui-binui
+  context repo-wide
+  (one unrelated "80 ומעלה" hit in `machshvon-temurot`'s 0-100 scoring
+  calculator is a false positive, not an elderly-tier claim, and that
+  file is untouched this cycle)
+- Fabrication/outcome-promise grep (מבטיחים/מובטח/בוודאות/נתחייב) on the
+  new page: clean
+- Price-audit: only 120,000-150,000 tied to room-reinforcement anywhere
+  it's mentioned; the 160,000-220,000 figure that appears on that same
+  page is in a comparison-table row explicitly labeled ממ״ד תקני (a
+  different service), not a mislabel
+- Disclaimer: `TrustBlock` default disclaimer present on the new page
+- Previous-cycle-locked files (6-page cycle #3 experiment lock,
+  maturation 2026-08-11): untouched, verified via `git diff` against
+  those 6 paths after both commits - empty both times
+
+### Indexing report
+
+Sitemap: 182 URLs (up from 71 before Change 1's areas unblock - 182
+total now includes 112 `/areas/*` URLs, all newly `index,follow`, plus
+the new pillar page). `robots.txt` unchanged, still explicitly allows
+Googlebot + the 14 listed AI-crawler user agents. `llms.txt` manifest
+updated with the new page.
+
+### Deploy evidence
+
+Two commits pushed to `master`:
+- `60087b8` - fix commit (noindex removal + `noindex-audit.mjs` +
+  `package.json` wiring)
+- `37e516a` - content commit (Changes 2-5 + new page + all linking/
+  sitemap/manifest wiring)
+
+GitHub commit status API confirms Vercel deployment
+`B6sy5dZDbwccMYexdHPbpe29xnQ1` on `37e516a` completed successfully
+("Deployment has completed", state `success`), confirming merge-to-
+`master` auto-deploys to production on this project.
+
+### Post-deploy verification
+
+Live HTTPS fetch checks against production (no Playwright available in
+this sandboxed session, same disclosed limitation as cycles #1-#3):
+
+- All 6 brief-specified sample URLs + the new page + `chalufat-shaked` +
+  `pinui-binui` hub: `200`, `<meta name="robots" content="index,
+  follow"/>` confirmed on every one, including `areas/haifa` and
+  `areas/kfar-saba/room-reinforcement` (both previously noindexed).
+- New page: `<title>` correct (single company suffix, not duplicated),
+  `dir="rtl" lang="he"` on `<html>`, canonical tag correct, all 6 JSON-LD
+  blocks (`Organization`, `WebSite`, `Article`, 2x `BreadcrumbList`,
+  `FAQPage`) parse cleanly, `SellerLeadForm`'s name field present in the
+  rendered HTML (form renders; did not submit a real test lead to avoid
+  creating a fake entry in the operator's inbox).
+- `chalufat-shaked` live `<title>` confirmed single-suffix
+  ("...ומה זה אומר | התחדשות בינוי ויזמות") - the duplicate-suffix fix
+  is live.
+- Live `/sitemap.xml`: 182 `<loc>` entries, 112 containing `areas/`, 1
+  containing `yorshim-mechira` - matches the local build exactly.
+- `/robots.txt`: AI-bot allowlist confirmed still present live.
+
+No rollback needed.
+
+### Protected-core change proposals
+
+None. Change 1 is an explicit, disclosed owner override of an existing
+protected mechanism (the doorway-page promotion gate), not a proposal to
+change a protected fact or rule.
+
+### Differentiation roadmap (report only, not built this cycle)
+
+Per the accepted doorway-pages risk on Change 1: propose batch-adding
+hand-authored `geoIntros`/`extendedNotes` (the mechanism already built
+in `indexable-geo.ts`/`areas.ts`) to a handful of the highest-impression
+now-indexed city x service pairs each future cycle, prioritized by
+whichever pairs show real impressions in the next GSC pull, until the
+full 112 have genuine city-specific differentiation rather than only the
+8 pairs that have it today.
+
+### Uncommitted-files triage
+
+Unchanged again this cycle, same set flagged in cycles #1-#3's logs
+(legal-page drafts, logo/OG-image assets, `/about/ofek-mazor`,
+`/services/migunit`, scripts, planning docs, the full raw GSC CSVs kept
+local/uncommitted per the public-repo reasoning already on record). No
+new uncommitted files were left behind by this cycle - `git status`
+after both commits shows only the same pre-existing pile.
+
+### Owner tasks
+
+1. In GSC: open the noindex coverage issue for `/areas/*` and click
+   "Validate Fix" (אימות תיקון) now that the deploy is live.
+2. In GSC URL Inspection, request indexing for the 10 highest-potential
+   `/areas/` URLs (prioritizing cities with existing impressions per the
+   brief): `jerusalem`, `givatayim`, `rishon-lezion`, `modiin`,
+   `ramat-hasharon`, `ramat-gan`, plus `tel-aviv`, `haifa`, `netanya`,
+   `petah-tikva`. Also request indexing for
+   `https://hithadshut.co.il/pinui-binui/yorshim-mechira`.
+3. Evidence collection: provide 1-2 real, anonymized permit/process
+   examples (city, request type, duration, no client details) for future
+   Pikud Haoref proof content, as asked in the brief.
+
+---
+
 ## Cycle 2026-07-14 (cycle #3) — inheritance-seller pillar + F-cluster domination
 
 Logged as the **third owner-approved exception to the one-deploy-per-week
