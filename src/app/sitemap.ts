@@ -187,6 +187,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    {
+      url: `${site.url}/mechira/yerusha`,
+      lastModified: lastModifiedFor("src/app/mechira/yerusha/page.tsx"),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
     // Memad depth sub-pages - authority cluster under /memad/*
     {
       url: `${site.url}/memad/bayit-prati`,

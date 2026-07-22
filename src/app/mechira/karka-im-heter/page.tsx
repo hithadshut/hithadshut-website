@@ -12,6 +12,7 @@ import SchemaBreadcrumb from "@/components/schema/breadcrumb";
 import TrustBlock from "@/components/TrustBlock";
 import Byline from "@/components/Byline";
 import Reveal from "@/components/Reveal";
+import AboutBuyer from "@/components/AboutBuyer";
 import { buildMetadata } from "@/lib/metadata";
 
 const PATH = "/mechira/karka-im-heter";
@@ -19,7 +20,7 @@ const TITLE = "מכירת קרקע עם היתר בנייה: מה קובע את 
 const DESCRIPTION =
   "מוכרים קרקע עם היתר בנייה בתוקף? מה זה היתר בתוקף, איך בודקים זכויות בנייה וייעוד, ומי קונה קרקע עם היתר בישראל. מדריך 2026 לבעלי מגרש.";
 const PUBLISHED_DATE = "2026-07-21";
-const MODIFIED_DATE = "2026-07-21";
+const MODIFIED_DATE = "2026-07-28";
 
 export const metadata: Metadata = buildMetadata({
   title: TITLE,
@@ -258,6 +259,39 @@ export default function Page() {
         </Reveal>
       </Section>
 
+      <Section tone="soft">
+        <Reveal>
+          <ContentSection id="netu" title="משווי גולמי לשווי נטו: מה משפיע על הסכום שנשאר בידיים">
+            <p>
+              המחיר שקונה מציע עבור קרקע הוא שווי גולמי, בהתאם לייעוד ולזכויות הבנייה הקיימות
+              כרגע. הסכום שנשאר בידי המוכר בפועל, בסוף העסקה, יכול להיות נמוך משמעותית, בהתאם
+              לכמה גורמים שכדאי לברר לפני קביעת מחיר, לא אחריה.
+            </p>
+            <ul className="mt-4 space-y-3 list-disc pr-6 marker:text-[var(--color-accent-dark)]">
+              <li>
+                <strong className="text-[var(--color-primary)]">היטל השבחה.</strong> אם חלה
+                השבחה בייעוד או בזכויות הבנייה מאז הרכישה המקורית (למשל אישור תוכנית שהגדילה את
+                זכויות הבנייה), הוועדה המקומית עשויה לגבות היטל השבחה מהמוכר בעת המכירה. שיעורו
+                המדויק נבדק מול הוועדה המקומית הרלוונטית לקרקע הספציפית.
+              </li>
+              <li>
+                <strong className="text-[var(--color-primary)]">מס שבח.</strong> בכפוף לחישוב
+                שווי הרכישה מול שווי המכירה ולפטורים הרלוונטיים, כמפורט בהמשך המדריך.
+              </li>
+              <li>
+                <strong className="text-[var(--color-primary)]">עלויות הסדרה, אם נדרשות.</strong>{" "}
+                טיפול בחריגות רישום או בהארכת תוקף היתר לפני המכירה, אם רלוונטי לקרקע הספציפית.
+              </li>
+            </ul>
+            <p>
+              קרקע עם ייעוד שהשביח משמעותית מאז הרכישה עשויה לשאת היטל השבחה גבוה יחסית לשווי
+              הגולמי, ולכן בירור מוקדם מול הוועדה המקומית, לצד רואה חשבון מיסוי מקרקעין, הוא
+              חלק הכרחי מקביעת המחיר הריאלי שיישאר בידי המוכר.
+            </p>
+          </ContentSection>
+        </Reveal>
+      </Section>
+
       <Section tone="white">
         <Reveal>
           <ContentSection id="tzaadim" title="צעדים מעשיים לפני פנייה לקונה">
@@ -380,6 +414,12 @@ export default function Page() {
         </Reveal>
       </Section>
 
+      <Section tone="white">
+        <Reveal>
+          <AboutBuyer variant="compact" />
+        </Reveal>
+      </Section>
+
       <TrustBlock
         publishedDate={PUBLISHED_DATE}
         modifiedDate={MODIFIED_DATE}
@@ -401,13 +441,13 @@ export default function Page() {
               וללא התחייבות.
             </p>
           </div>
-          <SellerLeadForm defaultPropertyType="מגרש" pageContext="mechira-karka-im-heter" />
+          <SellerLeadForm defaultPropertyType="קרקע עם היתר" pageContext="mechira-karka-im-heter" />
         </Reveal>
       </Section>
 
       <RelatedLinks
         seed="mechira/karka-im-heter"
-        targets={["mechira-hub", "mechira-binyan-shalem", "mechira-nachla"]}
+        targets={["mechira-hub", "mechira-binyan-shalem", "mechira-nachla", "mechira-yerusha"]}
       />
 
       <FAQ

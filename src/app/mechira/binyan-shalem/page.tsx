@@ -12,6 +12,7 @@ import SchemaBreadcrumb from "@/components/schema/breadcrumb";
 import TrustBlock from "@/components/TrustBlock";
 import Byline from "@/components/Byline";
 import Reveal from "@/components/Reveal";
+import AboutBuyer from "@/components/AboutBuyer";
 import { buildMetadata } from "@/lib/metadata";
 
 const PATH = "/mechira/binyan-shalem";
@@ -19,7 +20,7 @@ const TITLE = "איך למכור בניין שלם: מי קונה ומה קוב�
 const DESCRIPTION =
   "מוכרים בניין שלם בבעלות אחת? מה צריך להכין (נסח, זכויות בנייה, היתרים), מה משפיע על השווי, ומי קונה בניינים שלמים בישראל במסלול ישיר. מדריך 2026.";
 const PUBLISHED_DATE = "2026-07-21";
-const MODIFIED_DATE = "2026-07-21";
+const MODIFIED_DATE = "2026-07-28";
 
 export const metadata: Metadata = buildMetadata({
   title: TITLE,
@@ -179,11 +180,27 @@ export default function Page() {
         </Reveal>
       </Section>
 
+      <Section tone="white">
+        <Reveal>
+          <ContentSection id="mi-koneh" title="מי בפועל קונה בניין שלם">
+            <p>
+              שלושה סוגי קונים חוזרים בעסקאות בניין שלם, וההבדל ביניהם משפיע על מהירות העסקה
+              ועל סוג הבדיקות שהקונה ידרוש. חברות רכישה ישירה, כמו התחדשות בינוי ויזמות, בודקות
+              את הנכס ונותנות הצעה מהירה יחסית, לרוב בלי תלות בגורם מימון חיצוני. משקיעים
+              פרטיים וקרנות נדל״ן מתמקדים בעיקר בבניינים מניבים, שבהם יש כבר הכנסה משכירות, ובודקים
+              את הנכס גם לפי התשואה השנתית שלו, לא רק לפי מ״ר. יזמים מתעניינים בעיקר בזכויות
+              הבנייה שנותרו לניצול, ולעיתים מוכנים לשלם יותר עבור בניין ישן עם פוטנציאל בנייה
+              גדול, גם אם מצבו הפיזי דורש השקעה.
+            </p>
+          </ContentSection>
+        </Reveal>
+      </Section>
+
       <Section tone="soft">
         <Reveal>
           <ContentSection id="hachana" title="מה צריך להכין למכירה">
             <p>
-              לפני פנייה לכל קונה, ארבעה מסמכים וסוגי בדיקה נדרשים כדי שהצעת מחיר תהיה מבוססת
+              לפני פנייה לכל קונה, שישה מסמכים וסוגי בדיקה נדרשים כדי שהצעת מחיר תהיה מבוססת
               על מידע מלא, ולא על הערכה גסה.
             </p>
             <ul className="mt-4 space-y-3 list-disc pr-6 marker:text-[var(--color-accent-dark)]">
@@ -204,6 +221,18 @@ export default function Page() {
                 לא מוסדרת עלולה לעכב עסקה או להשפיע על המחיר.
               </li>
               <li>
+                <strong className="text-[var(--color-primary)]">טופס 4 (תעודת גמר) לבניין הקיים.</strong>{" "}
+                קונה רציני בודק שהבנוי בפועל קיבל את כל האישורים הנדרשים לאכלוס. בניין בלי טופס
+                4 מלא, או עם תוספות שלא נכללות בו, נחשב בדרך כלל לעסקה מורכבת יותר, וזה משפיע
+                גם על קצב המכירה וגם על המחיר.
+              </li>
+              <li>
+                <strong className="text-[var(--color-primary)]">מיפוי דיירים או שוכרים קיימים.</strong>{" "}
+                אם בבניין מתגוררים שוכרים בחוזי שכירות פעילים, יש לרכז את כל החוזים והתנאים
+                שלהם מראש. קונה צריך לדעת בדיוק מה הוא יורש מבחינת התחייבויות קיימות כלפי
+                דיירים, לא לגלות זאת אחרי החתימה.
+              </li>
+              <li>
                 <strong className="text-[var(--color-primary)]">מצב פיזי של המבנה.</strong>{" "}
                 חוות דעת הנדסית על מצב השלד, המערכות, וגיל הבניין, במיוחד אם הקונה שוקל בנייה
                 נוספת או שדרוג משמעותי.
@@ -218,7 +247,7 @@ export default function Page() {
           <ContentSection id="shavi" title="מה קובע את השווי">
             <p>
               אין נוסחה אחידה או טווח מחיר גורף שמתאים לכל בניין שלם, כי ההבדלים בין נכסים
-              גדולים. במקום זה, ארבעה גורמים משפיעים ביחד על השווי, וכל אחד מהם צריך להיבדק
+              גדולים. במקום זה, שישה גורמים משפיעים ביחד על השווי, וכל אחד מהם צריך להיבדק
               לגופו.
             </p>
             <ol className="mt-4 space-y-3 list-decimal pr-6 marker:font-bold marker:text-[var(--color-accent-dark)]">
@@ -241,9 +270,20 @@ export default function Page() {
                 ייעוד למגורים, למסחר, או ייעוד מעורב, וכל שינוי ייעוד עתידי צפוי, משפיעים על
                 הפוטנציאל הכלכלי של הנכס.
               </li>
+              <li>
+                <strong className="text-[var(--color-primary)]">הכנסה משכירות, אם קיימת.</strong>{" "}
+                בבניין שכבר מניב שכר דירה מדיירים קיימים, משקיעים ומוסדות משתמשים בשיטת היוון
+                תשואה: חישוב שווי לפי ההכנסה השנתית מהנכס, לצד שיטת ההשוואה למ״ר. זו שיטת הערכה
+                שונה מהותית מזו שמקובלת בדירת מגורים בודדת, ולכן היא רלוונטית בעיקר לבניין מניב.
+              </li>
+              <li>
+                <strong className="text-[var(--color-primary)]">פוטנציאל התחדשות עירונית.</strong>{" "}
+                בניין ישן באזור שמתאים לתמ״א 38 או לפינוי בינוי (כחלק ממתחם) עשוי להיות שווה
+                יותר בעיני יזם, גם אם מצבו הפיזי דורש השקעה, בזכות הפוטנציאל התכנוני הנוסף.
+              </li>
             </ol>
             <p>
-              הערכת שווי מקצועית שבוחנת את ארבעת הגורמים ביחד, ולא רק את מחיר המ״ר הממוצע
+              הערכת שווי מקצועית שבוחנת את כל הגורמים ביחד, ולא רק את מחיר המ״ר הממוצע
               באזור, נותנת תמונה ריאלית יותר מהערכה גסה. קונה רציני יבקש לראות את המסמכים
               שפורטו למעלה לפני שיציע מחיר סופי.
             </p>
@@ -447,6 +487,12 @@ export default function Page() {
         </Reveal>
       </Section>
 
+      <Section tone="soft">
+        <Reveal>
+          <AboutBuyer variant="compact" />
+        </Reveal>
+      </Section>
+
       <TrustBlock publishedDate={PUBLISHED_DATE} modifiedDate={MODIFIED_DATE} />
 
       <Section tone="white">
@@ -461,7 +507,7 @@ export default function Page() {
               וללא התחייבות.
             </p>
           </div>
-          <SellerLeadForm defaultPropertyType="בניין" pageContext="mechira-binyan-shalem" />
+          <SellerLeadForm defaultPropertyType="בניין שלם" pageContext="mechira-binyan-shalem" />
         </Reveal>
       </Section>
 
@@ -471,6 +517,7 @@ export default function Page() {
           "mechira-hub",
           "mechira-nachla",
           "mechira-karka-im-heter",
+          "mechira-yerusha",
           "pinui-binui-mechirat-dira",
         ]}
       />

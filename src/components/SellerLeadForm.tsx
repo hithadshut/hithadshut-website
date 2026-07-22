@@ -11,8 +11,9 @@ type Status = "idle" | "loading" | "success" | "error";
 const PROPERTY_TYPES = [
   { value: "דירה", label: "דירה" },
   { value: "דירת ירושה", label: "דירת ירושה" },
-  { value: "בניין", label: "בניין" },
-  { value: "מגרש", label: "מגרש" },
+  { value: "בניין שלם", label: "בניין שלם" },
+  { value: "נחלה", label: "נחלה" },
+  { value: "קרקע עם היתר", label: "קרקע עם היתר" },
 ] as const;
 
 const PROJECT_STAGES = [

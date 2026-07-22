@@ -56,6 +56,7 @@ export function organizationJsonLd() {
       "הרחבות ותוספות בנייה",
       "רכישת דירות, בניינים ומגרשים במסלול ישיר",
       "רכישת דירות תפוסות (המוכר ממשיך לגור בדירה)",
+      "רכישת נחלות במסלול ישיר",
     ],
     areaServed: { "@type": "Country", name: "IL" },
     address: { "@type": "PostalAddress", addressCountry: "IL" },

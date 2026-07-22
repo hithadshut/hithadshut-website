@@ -1788,6 +1788,137 @@ export const internalLinks: InternalLink[] = [
     context: "inline",
     note: "Closes 2-cycle-old pillar-links-to-all-children debt (flagged 2026-07-19), cycle 2026-07-21. Owner-override of the cycle-#2 lock on this file, reconfirmed 2026-07-21.",
   },
+
+  // 2026-07-28: weekly SEO/GEO cycle. Change 1 (pillar deep-rescue) +
+  // Change 3 (authority-flow linking to /mechira). Pillar itself stays
+  // under owner override for title/H1/meta this cycle (see report);
+  // this is additive body-content linking only.
+  {
+    fromUrl: "/pinui-binui",
+    toUrl: "/mechira/binyan-shalem",
+    anchorText: "מדריך מכירת בניין שלם",
+    context: "inline",
+    note: "New bridge sentence in the 'פחות כדאי כש' (single-building) bullet, cycle 2026-07-28. Natural intent match: owner of a standalone building ineligible for pinui-binui may prefer a direct sale over TAMA 38/2 or Chalufat Shaked.",
+  },
+  {
+    fromUrl: "/madrichim",
+    toUrl: "/pinui-binui",
+    anchorText: "פינוי בינוי",
+    context: "inline",
+    note: "Upgraded the existing RelatedLinks-only inbound signal to a contextual in-body link in the hub's opening paragraph, cycle 2026-07-28 (Change 1d authority-flow). areas hub and home-front-command-approval guide were evaluated and rejected as inbound sources: both are pure mamad/migun subject matter with zero natural pinui-binui connection, and chalufat-shaked already links to the pillar from a prior cycle.",
+  },
+  {
+    fromUrl: "/",
+    toUrl: "/mechira",
+    anchorText: "בניינים שלמים, נחלות וקרקעות עם היתר בנייה",
+    context: "inline",
+    note: "Homepage services intro paragraph, cycle 2026-07-28 (Change 3a: inbound from the site's strongest page).",
+  },
+  {
+    fromUrl: "*",
+    toUrl: "/mechira",
+    anchorText: "מכירת בניין, נחלה או קרקע",
+    context: "footer-cta",
+    note: "Sitewide Footer nav entry added under 'החברה', cycle 2026-07-28 (Change 3b). Header's urban-renewal dropdown deliberately left untouched to preserve its pinui-binui-only topical focus; Footer was the clean, low-risk reachability fix.",
+  },
+  {
+    fromUrl: "/mechira",
+    toUrl: "/about",
+    anchorText: "אודות החברה",
+    context: "inline",
+    note: "AboutBuyer full block, cycle 2026-07-28 (Change 5). Links to the general (live, committed) /about hub rather than /about/ofek-mazor, which exists only as pre-existing uncommitted work from an earlier session outside this cycle's scope, and would 404 in production if linked.",
+  },
+  {
+    fromUrl: "/mechira/binyan-shalem",
+    toUrl: "/mechira",
+    anchorText: "מכירת בניין, נחלה או קרקע",
+    context: "inline",
+    note: "AboutBuyer compact block, cycle 2026-07-28 (Change 5). Additive to the existing RelatedLinks edge to the same target.",
+  },
+  {
+    fromUrl: "/mechira/nachla",
+    toUrl: "/mechira",
+    anchorText: "מכירת בניין, נחלה או קרקע",
+    context: "inline",
+    note: "AboutBuyer compact block, cycle 2026-07-28 (Change 5). Additive to the existing RelatedLinks edge to the same target.",
+  },
+  {
+    fromUrl: "/mechira/karka-im-heter",
+    toUrl: "/mechira",
+    anchorText: "מכירת בניין, נחלה או קרקע",
+    context: "inline",
+    note: "AboutBuyer compact block, cycle 2026-07-28 (Change 5). Additive to the existing RelatedLinks edge to the same target.",
+  },
+
+  // 2026-07-28: new page /mechira/yerusha (inheriting + selling a large
+  // asset). Justified by Stage-A research: "ירשתי בניין מה עושים" returns
+  // zero relevant content; the real competing cluster ("פירוק שיתוף בין
+  // יורשים") targets apartments/generic estates, not a whole
+  // income-producing building with tenants and deferred maintenance. See
+  // report for full A3 justification.
+  {
+    fromUrl: "/mechira/yerusha",
+    toUrl: "/mechira/binyan-shalem",
+    anchorText: "מכירת בניין שלם",
+    context: "inline",
+    note: "'בניין שלם בירושה' section, cycle 2026-07-28.",
+  },
+  {
+    fromUrl: "/mechira/yerusha",
+    toUrl: "/mechira/nachla",
+    anchorText: "מכירת נחלה",
+    context: "inline",
+    note: "'נחלה בירושה' section, cycle 2026-07-28.",
+  },
+  {
+    fromUrl: "/mechira/yerusha",
+    toUrl: "/mechira/karka-im-heter",
+    anchorText: "מכירת קרקע עם היתר בנייה",
+    context: "inline",
+    note: "'קרקע עם היתר בירושה' section, cycle 2026-07-28.",
+  },
+  {
+    fromUrl: "/mechira/yerusha",
+    toUrl: "/madrichim/mechirat-dira-beyerusha",
+    anchorText: "מכירת דירה בירושה",
+    context: "inline",
+    note: "Intent-separation opening paragraph (single-apartment heirs), cycle 2026-07-28.",
+  },
+  {
+    fromUrl: "/mechira/yerusha",
+    toUrl: "/pinui-binui/yorshim-mechira",
+    anchorText: "מכירת דירת ירושה בפינוי בינוי",
+    context: "inline",
+    note: "Intent-separation opening paragraph (heirs of an apartment already in an active pinui-binui project), cycle 2026-07-28.",
+  },
+  {
+    fromUrl: "/mechira",
+    toUrl: "/mechira/yerusha",
+    anchorText: "ירשתי בניין או נחלה",
+    context: "related",
+    note: "Hub RelatedLinks block, cycle 2026-07-28.",
+  },
+  {
+    fromUrl: "/mechira/binyan-shalem",
+    toUrl: "/mechira/yerusha",
+    anchorText: "ירשתי בניין או נחלה",
+    context: "related",
+    note: "RelatedLinks block, cycle 2026-07-28. Provides one of the 2 required inbound links for the new page.",
+  },
+  {
+    fromUrl: "/mechira/nachla",
+    toUrl: "/mechira/yerusha",
+    anchorText: "ירשתי בניין או נחלה",
+    context: "related",
+    note: "RelatedLinks block, cycle 2026-07-28. Provides the second required inbound link for the new page.",
+  },
+  {
+    fromUrl: "/mechira/karka-im-heter",
+    toUrl: "/mechira/yerusha",
+    anchorText: "ירשתי בניין או נחלה",
+    context: "related",
+    note: "RelatedLinks block, cycle 2026-07-28. Third inbound link, beyond the 2-link minimum.",
+  },
 ];
 
 /** All internal links pointing FROM a given URL. */

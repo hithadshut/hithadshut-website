@@ -37,6 +37,7 @@ export const MECHIRA_HREFS = {
   binyanShalem: "/mechira/binyan-shalem",
   nachla: "/mechira/nachla",
   karkaImHeter: "/mechira/karka-im-heter",
+  yerusha: "/mechira/yerusha",
 } as const;
 
 export const MEMAD_HREFS = {
@@ -133,7 +134,8 @@ export type LinkTarget =
   | "mechira-hub"
   | "mechira-binyan-shalem"
   | "mechira-nachla"
-  | "mechira-karka-im-heter";
+  | "mechira-karka-im-heter"
+  | "mechira-yerusha";
 
 export const ANCHOR_VARIANTS: Record<LinkTarget, string[]> = {
   "building-mamad": [
@@ -590,6 +592,12 @@ export const ANCHOR_VARIANTS: Record<LinkTarget, string[]> = {
     "מדריך מכירת קרקע עם היתר בתוקף",
     "מכירת מגרש עם היתר בנייה",
   ],
+  "mechira-yerusha": [
+    "ירשתי בניין או נחלה, מה עושים",
+    "מכירה משותפת של יורשים",
+    "מדריך ליורשים לפני מכירה",
+    "פירוק שיתוף מול מכירה מוסכמת",
+  ],
 };
 
 // Deterministic rotation based on a seed (e.g. the source page slug) so anchors
@@ -671,6 +679,7 @@ export const HREF_MAP: Record<LinkTarget, string> = {
   "mechira-binyan-shalem": MECHIRA_HREFS.binyanShalem,
   "mechira-nachla": MECHIRA_HREFS.nachla,
   "mechira-karka-im-heter": MECHIRA_HREFS.karkaImHeter,
+  "mechira-yerusha": MECHIRA_HREFS.yerusha,
 };
 
 // Short one-line summaries shown on RelatedLinks cards.
@@ -787,6 +796,8 @@ export const TARGET_SUMMARY: Record<LinkTarget, string> = {
     "בן ממשיך, פיצול נחלה, היוון, ומה באמת עובר בעסקת מכירה של נחלה.",
   "mechira-karka-im-heter":
     "זכויות בנייה, ייעוד קרקע, ומה זה היתר בנייה בתוקף בעסקת מכירת קרקע.",
+  "mechira-yerusha":
+    "צו ירושה, מה קורה כשהיורשים לא מסכימים, ואיך מכירה משותפת ישירה חוסכת פירוק שיתוף.",
 };
 
 export const TARGET_LABEL: Record<LinkTarget, string> = {
@@ -846,4 +857,5 @@ export const TARGET_LABEL: Record<LinkTarget, string> = {
   "mechira-binyan-shalem": "מכירת בניין שלם",
   "mechira-nachla": "מכירת נחלה",
   "mechira-karka-im-heter": "מכירת קרקע עם היתר בנייה",
+  "mechira-yerusha": "ירשתי בניין או נחלה",
 };

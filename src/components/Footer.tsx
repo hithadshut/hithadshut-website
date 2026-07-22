@@ -173,6 +173,11 @@ export default function Footer() {
               </Link>
             </li>
             <li>
+              <Link href="/mechira" className="hover:text-[var(--color-accent)]">
+                מכירת בניין, נחלה או קרקע
+              </Link>
+            </li>
+            <li>
               <Link href="/accessibility" className="hover:text-[var(--color-accent)]">
                 הצהרת נגישות
               </Link>

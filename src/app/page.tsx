@@ -145,7 +145,14 @@ export default function Home() {
                 >
                   פינוי בינוי
                 </Link>{" "}
-                במסלול ההתחדשות העירונית.
+                במסלול ההתחדשות העירונית, ורוכשים במסלול ישיר{" "}
+                <Link
+                  href="/mechira"
+                  className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]"
+                >
+                  בניינים שלמים, נחלות וקרקעות עם היתר בנייה
+                </Link>
+                .
               </p>
             </div>
           </Reveal>

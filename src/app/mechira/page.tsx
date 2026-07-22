@@ -10,14 +10,17 @@ import SchemaBreadcrumb from "@/components/schema/breadcrumb";
 import TrustBlock from "@/components/TrustBlock";
 import Byline from "@/components/Byline";
 import Reveal from "@/components/Reveal";
+import AboutBuyer from "@/components/AboutBuyer";
+import JsonLd from "@/components/JsonLd";
 import { buildMetadata } from "@/lib/metadata";
+import { serviceJsonLd } from "@/lib/schema";
 
 const PATH = "/mechira";
 const TITLE = "מכירת בניין, נחלה או קרקע: מי קונה ואיך מתחילים 2026";
 const DESCRIPTION =
   "מוכרים בניין שלם, נחלה או קרקע עם היתר בנייה? שלושה מסלולים נפרדים, מה ההבדל ביניהם, ומי קונה כל סוג נכס בישראל. נקודת פתיחה לבעלים וליורשים.";
 const PUBLISHED_DATE = "2026-07-21";
-const MODIFIED_DATE = "2026-07-21";
+const MODIFIED_DATE = "2026-07-28";
 
 export const metadata: Metadata = buildMetadata({
   title: TITLE,
@@ -60,6 +63,15 @@ export default function Page() {
         lastReviewedDate={`${MODIFIED_DATE}T00:00:00+03:00`}
       />
       <SchemaBreadcrumb items={[{ name: "מכירת בניין, נחלה או קרקע", url: PATH }]} />
+      <JsonLd
+        data={serviceJsonLd({
+          name: "רכישה ישירה של בניינים שלמים, נחלות וקרקעות עם היתר בנייה",
+          description:
+            "רכישה ישירה מהבעלים של בניין שלם, נחלה במושב, או קרקע עם היתר בנייה בתוקף, ללא תיווך, בפריסה ארצית.",
+          url: PATH,
+          serviceType: "רכישת נכסים גדולים במסלול ישיר",
+        })}
+      />
 
       <PageHero
         eyebrow="מכירת נכסים גדולים"
@@ -169,14 +181,16 @@ export default function Page() {
             id="hurim-diur-mugan"
             title="ההורים רוצים למכור נחלה או בניין ולעבור לדיור מוגן"
           >
+            <p className="font-bold">
+              התשובה הקצרה: אין מסלול אחיד, כי סוג הנכס קובע את קצב התהליך. נחלה טעונה בדיקת
+              זכויות מול רמ״י לפני כל צעד, ולוקחת בדרך כלל יותר זמן. בניין בבעלות פרטית נבדק
+              מול הטאבו, ולרוב מתקדם מהר יותר. הצעד הראשון בשני המקרים זהה: בדיקת מסמכי הזכויות
+              במקביל לקבלת הערכה ראשונית לשווי, כדי לתכנן את התקציב למעבר בלי לחץ.
+            </p>
             <p>
-              זו שאלה שחוזרת הרבה: משפחה עם הורה מבוגר שמחזיק בניין או נחלה, ורוצה למכור כדי
-              לממן מעבר לדיור מוגן. אין תשובה אחידה, אבל שני דברים כדאי לברר קודם: מה בדיוק סוג
-              הנכס (נחלה טעונה בדיקת זכויות מול רמ״י שלוקחת זמן, בניין נבדק מול הטאבו ובדרך כלל
-              מהיר יותר), ומה לוח הזמנים הרצוי בפועל למעבר. תכנון מוקדם של שני התהליכים במקביל,
-              בדיקת הזכויות וחיפוש המקום בדיור המוגן, מונע מצב שבו אחד מהם מעכב את השני. למשפחות
-              ששוקלות את השאלה הזאת בהקשר של דירה בפרויקט פינוי בינוי, ולא בניין או נחלה, קיים
-              מדריך ייעודי ב
+              תכנון מוקדם של שני התהליכים במקביל, בדיקת הזכויות וחיפוש המקום בדיור המוגן, מונע
+              מצב שבו אחד מהם מעכב את השני. למשפחות ששוקלות את השאלה הזאת בהקשר של דירה בפרויקט
+              פינוי בינוי, ולא בניין או נחלה, קיים מדריך ייעודי ב
               <Link
                 href="/pinui-binui/diur-mugan"
                 className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]"
@@ -189,6 +203,12 @@ export default function Page() {
         </Reveal>
       </Section>
 
+      <Section tone="soft">
+        <Reveal>
+          <AboutBuyer variant="full" />
+        </Reveal>
+      </Section>
+
       <TrustBlock publishedDate={PUBLISHED_DATE} modifiedDate={MODIFIED_DATE} />
 
       <RelatedLinks
@@ -197,6 +217,7 @@ export default function Page() {
           "mechira-binyan-shalem",
           "mechira-nachla",
           "mechira-karka-im-heter",
+          "mechira-yerusha",
           "pinui-binui-diur-mugan",
           "pinui-binui-yorshim-mechira",
           "pinui-binui-kshishim",
