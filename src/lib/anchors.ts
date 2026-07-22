@@ -32,6 +32,13 @@ export const ABOUT_HREFS = {
   // Future: founders, partners - add here as each ships.
 } as const;
 
+export const MECHIRA_HREFS = {
+  hub: "/mechira",
+  binyanShalem: "/mechira/binyan-shalem",
+  nachla: "/mechira/nachla",
+  karkaImHeter: "/mechira/karka-im-heter",
+} as const;
+
 export const MEMAD_HREFS = {
   bayitPrati: "/memad/bayit-prati",
   diraBekoma: "/memad/dira-bekoma",
@@ -122,7 +129,11 @@ export type LinkTarget =
   | "hithadshut-team"
   | "migun-solutions"
   | "migunit"
-  | "compare-migunit-muchan";
+  | "compare-migunit-muchan"
+  | "mechira-hub"
+  | "mechira-binyan-shalem"
+  | "mechira-nachla"
+  | "mechira-karka-im-heter";
 
 export const ANCHOR_VARIANTS: Record<LinkTarget, string[]> = {
   "building-mamad": [
@@ -552,8 +563,32 @@ export const ANCHOR_VARIANTS: Record<LinkTarget, string[]> = {
     "מיגונית מול ממ״ד מוכן",
     "השוואה: מיגונית מול ממ״ד יביל",
     "מה עדיף, מיגונית או ממ״ד מוכן",
-    "מדריך השוואה מיגونית וממ״ד מוכן",
+    "מדריך השוואה מיגונית וממ״ד מוכן",
     "מיגונית או ממ״ד מוכן: ההבדלים",
+  ],
+  "mechira-hub": [
+    "מכירת בניין, נחלה או קרקע",
+    "מדריך מכירת נכסים גדולים",
+    "מי קונה בניין שלם, נחלה או קרקע",
+    "מוכרים נכס גדול? מתחילים כאן",
+  ],
+  "mechira-binyan-shalem": [
+    "איך למכור בניין שלם",
+    "מכירת בניין שלם 2026",
+    "מי קונה בניין שלם",
+    "מדריך למכירת בניין בבעלות אחת",
+  ],
+  "mechira-nachla": [
+    "איך למכור נחלה",
+    "מכירת נחלה 2026",
+    "כמה שווה נחלה",
+    "מדריך מכירת נחלה בירושה או בבעלות",
+  ],
+  "mechira-karka-im-heter": [
+    "מכירת קרקע עם היתר בנייה",
+    "כמה שווה קרקע עם היתר",
+    "מדריך מכירת קרקע עם היתר בתוקף",
+    "מכירת מגרש עם היתר בנייה",
   ],
 };
 
@@ -632,6 +667,10 @@ export const HREF_MAP: Record<LinkTarget, string> = {
   "migun-solutions": "/guides/migun-solutions",
   "migunit": "/services/migunit",
   "compare-migunit-muchan": "/compare/migunit-vs-mamad-muchan",
+  "mechira-hub": MECHIRA_HREFS.hub,
+  "mechira-binyan-shalem": MECHIRA_HREFS.binyanShalem,
+  "mechira-nachla": MECHIRA_HREFS.nachla,
+  "mechira-karka-im-heter": MECHIRA_HREFS.karkaImHeter,
 };
 
 // Short one-line summaries shown on RelatedLinks cards.
@@ -740,6 +779,14 @@ export const TARGET_SUMMARY: Record<LinkTarget, string> = {
     "יחידת מיגון מוכנה מהמפעל, מאושרת פקע״ר, להתקנה מהירה בחצר או במרחב חיצוני.",
   "compare-migunit-muchan":
     "השוואה: מיגונית מול ממ״ד מוכן, הבדלי הגנה, מחיר וזמן התקנה.",
+  "mechira-hub":
+    "מכירת בניין שלם, נחלה או קרקע עם היתר: שלושה מסלולים, מי קונה, ואיך מתחילים.",
+  "mechira-binyan-shalem":
+    "למי זה מתאים, מה צריך להכין, מה קובע את השווי, ואיך עובד תהליך מול קונה ישיר.",
+  "mechira-nachla":
+    "בן ממשיך, פיצול נחלה, היוון, ומה באמת עובר בעסקת מכירה של נחלה.",
+  "mechira-karka-im-heter":
+    "זכויות בנייה, ייעוד קרקע, ומה זה היתר בנייה בתוקף בעסקת מכירת קרקע.",
 };
 
 export const TARGET_LABEL: Record<LinkTarget, string> = {
@@ -795,4 +842,8 @@ export const TARGET_LABEL: Record<LinkTarget, string> = {
   "migun-solutions": "פתרונות מיגון",
   "migunit": "מיגונית",
   "compare-migunit-muchan": "מיגונית מול ממ״ד מוכן",
+  "mechira-hub": "מכירת בניין, נחלה או קרקע",
+  "mechira-binyan-shalem": "מכירת בניין שלם",
+  "mechira-nachla": "מכירת נחלה",
+  "mechira-karka-im-heter": "מכירת קרקע עם היתר בנייה",
 };

@@ -1682,6 +1682,112 @@ export const internalLinks: InternalLink[] = [
     context: "inline",
     note: "Additive cross-link, cycle 2026-07-19. Existing content untouched. Gives the new page 2 inbound links without touching any of the 6 locked files.",
   },
+  // 2026-07-21: weekly SEO/GEO cycle, new /mechira/ vertical (whole
+  // building, agricultural estate, permitted land - owners 60+ and heirs).
+  // Deliberately isolated from /pinui-binui/ subject matter; shares only
+  // the seller persona via cross-links from kshishim/yorshim-mechira/
+  // diur-mugan. Owner override reconfirms the cycle-#2 six-page lock
+  // breach for /pinui-binui (pillar) and /pinui-binui/kshishim this cycle
+  // (see report); mechirat-dira, sarvan, temurot, chok-67 stay untouched.
+  {
+    fromUrl: "/mechira",
+    toUrl: "/mechira/binyan-shalem",
+    anchorText: "מכירת בניין שלם",
+    context: "inline",
+    note: "Hub intro + three-card summary, cycle 2026-07-21.",
+  },
+  {
+    fromUrl: "/mechira",
+    toUrl: "/mechira/nachla",
+    anchorText: "מכירת נחלה",
+    context: "inline",
+    note: "Hub intro + three-card summary, cycle 2026-07-21.",
+  },
+  {
+    fromUrl: "/mechira",
+    toUrl: "/mechira/karka-im-heter",
+    anchorText: "מכירת קרקע עם היתר בנייה",
+    context: "inline",
+    note: "Hub intro + three-card summary, cycle 2026-07-21.",
+  },
+  {
+    fromUrl: "/mechira",
+    toUrl: "/pinui-binui/mechirat-dira",
+    anchorText: "מכירת דירה לפני פינוי בינוי",
+    context: "inline",
+    note: "Intent-separation link for single-apartment sellers, cycle 2026-07-21.",
+  },
+  {
+    fromUrl: "/mechira",
+    toUrl: "/pinui-binui/diur-mugan",
+    anchorText: "מכירת דירה ומעבר לדיור מוגן",
+    context: "inline",
+    note: "Persona AEO section (diur-mugan cross-answer), cycle 2026-07-21.",
+  },
+  {
+    fromUrl: "/mechira/binyan-shalem",
+    toUrl: "/mechira/nachla",
+    anchorText: "מכירת נחלה",
+    context: "inline",
+    note: "Intent-separation opening, cycle 2026-07-21.",
+  },
+  {
+    fromUrl: "/mechira/nachla",
+    toUrl: "/mechira/binyan-shalem",
+    anchorText: "מכירת בניין שלם",
+    context: "inline",
+    note: "Intent-separation opening, cycle 2026-07-21.",
+  },
+  {
+    fromUrl: "/mechira/karka-im-heter",
+    toUrl: "/mechira/binyan-shalem",
+    anchorText: "מכירת בניין שלם",
+    context: "inline",
+    note: "Intent-separation opening, cycle 2026-07-21.",
+  },
+  {
+    fromUrl: "/mechira/karka-im-heter",
+    toUrl: "/mechira/nachla",
+    anchorText: "מכירת נחלה",
+    context: "inline",
+    note: "Intent-separation opening, cycle 2026-07-21.",
+  },
+  // Inbound to /mechira from the persona cluster.
+  {
+    fromUrl: "/pinui-binui/kshishim",
+    toUrl: "/mechira",
+    anchorText: "מכירת בניין, נחלה או קרקע",
+    context: "inline",
+    note: "Additive cross-link in the existing 'או למכור' section, cycle 2026-07-21. kshishim is inside the (owner-overridden) cycle-#2 lock; see report.",
+  },
+  {
+    fromUrl: "/pinui-binui/yorshim-mechira",
+    toUrl: "/mechira",
+    anchorText: "מכירת בניין, נחלה או קרקע",
+    context: "inline",
+    note: "Additive cross-link in the mi-koneh section, cycle 2026-07-21. One existing link (to madrichim-mechirat-dira-beyerusha) demoted to plain text on the same page to hold the 7-link body cap.",
+  },
+  {
+    fromUrl: "/pinui-binui/diur-mugan",
+    toUrl: "/mechira/binyan-shalem",
+    anchorText: "מכירת בניין שלם",
+    context: "inline",
+    note: "New 'לא רק דירה' section, cycle 2026-07-21.",
+  },
+  {
+    fromUrl: "/pinui-binui/diur-mugan",
+    toUrl: "/mechira/nachla",
+    anchorText: "מכירת נחלה",
+    context: "inline",
+    note: "New 'לא רק דירה' section, cycle 2026-07-21.",
+  },
+  {
+    fromUrl: "/pinui-binui",
+    toUrl: "/pinui-binui/diur-mugan",
+    anchorText: "מכירת דירה ומעבר לדיור מוגן",
+    context: "inline",
+    note: "Closes 2-cycle-old pillar-links-to-all-children debt (flagged 2026-07-19), cycle 2026-07-21. Owner-override of the cycle-#2 lock on this file, reconfirmed 2026-07-21.",
+  },
 ];
 
 /** All internal links pointing FROM a given URL. */

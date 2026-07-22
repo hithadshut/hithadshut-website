@@ -159,6 +159,34 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    // Mechira cluster - large-asset sellers (whole building, agricultural
+    // estate, permitted land). Isolated from /pinui-binui/ deliberately
+    // (2026-07-21): shares the 60+ seller/heir persona but not the
+    // urban-renewal subject matter.
+    {
+      url: `${site.url}/mechira`,
+      lastModified: lastModifiedFor("src/app/mechira/page.tsx"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${site.url}/mechira/binyan-shalem`,
+      lastModified: lastModifiedFor("src/app/mechira/binyan-shalem/page.tsx"),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${site.url}/mechira/nachla`,
+      lastModified: lastModifiedFor("src/app/mechira/nachla/page.tsx"),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${site.url}/mechira/karka-im-heter`,
+      lastModified: lastModifiedFor("src/app/mechira/karka-im-heter/page.tsx"),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
     // Memad depth sub-pages - authority cluster under /memad/*
     {
       url: `${site.url}/memad/bayit-prati`,
