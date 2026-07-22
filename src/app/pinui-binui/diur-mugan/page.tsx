@@ -18,7 +18,7 @@ const TITLE = "מכירת דירה ומעבר לדיור מוגן: מדריך פ
 const DESCRIPTION =
   "ההורים רוצים למכור דירה במתחם פינוי בינוי כדי לממן מעבר לדיור מוגן? מה משפיע על השווי, מה קורה לזכויות הגיל, ואיך מתאמים את התזמון. מדריך משפחתי 2026.";
 const PUBLISHED_DATE = "2026-07-19";
-const MODIFIED_DATE = "2026-07-19";
+const MODIFIED_DATE = "2026-07-21";
 
 export const metadata: Metadata = buildMetadata({
   title: TITLE,
@@ -307,6 +307,34 @@ export default function Page() {
               עצמו ירש אותה ולא רכש אותה, ייתכן שחלים כללי מיסוי נוספים, כפי שמפורט במדריך מכירת
               דירת ירושה בפינוי בינוי שהוזכר למעלה. מומלץ להתייעץ עם רואה חשבון או עורך דין
               מיסוי מקרקעין לפני מכירה, כדי לבדוק אילו פטורים חלים על המצב הספציפי של המשפחה.
+            </p>
+          </ContentSection>
+        </Reveal>
+      </Section>
+
+      <Section tone="white">
+        <Reveal>
+          <ContentSection id="lo-rak-dira" title="לא רק דירה: בניין שלם או נחלה">
+            <p>
+              המדריך הזה עוסק במכירת דירה. אבל לא כל משפחה שההורה בה שוקל מעבר לדיור מוגן
+              מוכרת דווקא דירה: לעיתים מדובר בבניין שלם בבעלות המשפחה, או בנחלה במושב. שני
+              הנכסים האלה נמכרים בתהליך שונה מהותית ממכירת דירה: בבניין שלם בודקים זכויות בנייה
+              שלא נוצלו על המגרש כולו, ובנחלה נדרש אישור רשות מקרקעי ישראל להעברת הזכויות, ולא
+              רק עסקה מול הטאבו. למשפחות במצב הזה יש שני מדריכים ייעודיים:{" "}
+              <Link
+                href="/mechira/binyan-shalem"
+                className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]"
+              >
+                מכירת בניין שלם
+              </Link>{" "}
+              ו
+              <Link
+                href="/mechira/nachla"
+                className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]"
+              >
+                מכירת נחלה
+              </Link>
+              .
             </p>
           </ContentSection>
         </Reveal>

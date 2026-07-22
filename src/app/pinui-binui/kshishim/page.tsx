@@ -19,7 +19,7 @@ const TITLE = "זכויות קשישים בפינוי בינוי: גיל 70 ומ
 const DESCRIPTION =
   "פינוי בינוי גיל 70: זכאות לדירת תמורה + לפחות חלופה אחת מ-3 (דיור מוגן / דירה חלופית / 2 דירות). גיל 75+ זכאים לכל החלופות. הזכויות, איך לעגן אותן, ואפשרות המכירה.";
 const PUBLISHED_DATE = "2026-05-03";
-const MODIFIED_DATE = "2026-07-14";
+const MODIFIED_DATE = "2026-07-21";
 
 export const metadata: Metadata = buildMetadata({
   title: TITLE,
@@ -387,7 +387,15 @@ export default function Page() {
               >
                 מכירת דירת ירושה בפינוי בינוי
               </Link>
-              , שמסביר מה קורה לזכויות הגיל של המוריש במקרה כזה.
+              , שמסביר מה קורה לזכויות הגיל של המוריש במקרה כזה. משפחות שבבעלותן, לצד הדירה,
+              גם בניין שלם או נחלה ששוקלות למכור כדי לממן דיור מוגן, ימצאו מדריך נפרד ב
+              <Link
+                href="/mechira"
+                className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]"
+              >
+                מכירת בניין, נחלה או קרקע
+              </Link>
+              .
             </p>
           </ContentSection>
         </Reveal>

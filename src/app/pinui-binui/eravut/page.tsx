@@ -17,11 +17,11 @@ import Reveal from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
 
 const PATH = "/pinui-binui/eravut";
-const TITLE = "ערבות בנקאית בפינוי בינוי: מה מחייב החוק ומה לבדוק 2026";
+const TITLE = "ערבויות בפינוי בינוי 2026: מה מחייב החוק לפני שחותמים";
 const DESCRIPTION =
-  "ערבות בנקאית וערבות חוק מכר בפינוי בינוי: מה מחייב החוק, איזו ערבות מגנה על דירת התמורה שלכם, ומה חובה לבדוק בחוזה לפני החתימה. מדריך מעודכן 2026.";
+  "ערבויות בפינוי בינוי: ערבות חוק מכר, ערבויות בנקאיות לשלבי בנייה, ושכר דירה. איזו ערבות מגנה על דירת התמורה שלכם, ומה אסור לקבל במקומה. מדריך 2026, עדכני לחתימה.";
 const PUBLISHED_DATE = "2026-05-03";
-const MODIFIED_DATE = "2026-05-14";
+const MODIFIED_DATE = "2026-07-21";
 
 export const metadata: Metadata = buildMetadata({
   title: TITLE,

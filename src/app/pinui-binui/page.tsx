@@ -20,9 +20,9 @@ import { buildMetadata } from "@/lib/metadata";
 const PATH = "/pinui-binui";
 const TITLE = "פינוי בינוי 2026: איך זה עובד, כמה זמן ומה מקבלים";
 const DESCRIPTION =
-  "פינוי בינוי הוא הריסת מתחם ובנייתו מחדש: דירה חדשה גדולה יותר, רוב 67% נדרש נגד דייר סרבן, ותהליך של 7-12 שנים. המדריך המלא: תמורות, זכויות קשישים, חוזה ובחירת יזם.";
+  "פינוי בינוי 2026: דירה חדשה גדולה יותר ללא תשלום, רוב 67% נגד דייר סרבן, תהליך של 7-12 שנים. תמורות, זכויות קשישים 70+/75+, חוזה, בחירת יזם, ואפשרות המכירה. מדריך מלא.";
 const PUBLISHED_DATE = "2026-05-03";
-const MODIFIED_DATE = "2026-07-14";
+const MODIFIED_DATE = "2026-07-21";
 
 export const metadata: Metadata = buildMetadata({
   title: TITLE,
@@ -235,6 +235,12 @@ export default function Page() {
                     מכירת דירת ירושה בפינוי בינוי
                   </Link>
                   {" · "}ליורשים ששוקלים למכור: זכויות המוריש, מיסוי, וסדר הפעולות הנכון.
+                </li>
+                <li>
+                  <Link href="/pinui-binui/diur-mugan" className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]">
+                    מכירת דירה ומעבר לדיור מוגן
+                  </Link>
+                  {" · "}למשפחות ששוקלות למכור כדי לממן מעבר לדיור מוגן: זכויות גיל ותזמון.
                 </li>
               </ul>
             </div>

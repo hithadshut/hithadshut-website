@@ -19,7 +19,7 @@ const TITLE = "מכירת דירת ירושה בפינוי בינוי 2026: מה
 const DESCRIPTION =
   "ירשתם דירה בבניין שנמצא בפינוי בינוי ושוקלים למכור? הזכויות שעברו אליכם, איך מתומחר הפוטנציאל, ומה קורה לזכויות גיל אם היו למוריש. מדריך 2026 ליורשים.";
 const PUBLISHED_DATE = "2026-07-17";
-const MODIFIED_DATE = "2026-07-19";
+const MODIFIED_DATE = "2026-07-21";
 
 export const metadata: Metadata = buildMetadata({
   title: TITLE,
@@ -144,14 +144,8 @@ export default function Page() {
               >
                 מכירת דירה לפני פינוי בינוי
               </Link>
-              . ואם ירשתם דירה בבניין רגיל שאינו בפינוי בינוי, המדריך הכללי הוא{" "}
-              <Link
-                href="/madrichim/mechirat-dira-beyerusha"
-                className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]"
-              >
-                מכירת דירה בירושה
-              </Link>
-              .
+              . ואם ירשתם דירה בבניין רגיל שאינו בפינוי בינוי, המדריך הכללי הוא מכירת דירה
+              בירושה, שם מוסבר התהליך הכללי בלי הקשר של פרויקט התחדשות עירונית.
             </p>
           </div>
         </Reveal>
@@ -387,7 +381,15 @@ export default function Page() {
               פוטנציאל התחדשות עירונית, משקיעים פרטיים וקרנות שמחפשים חשיפה לפוטנציאל הזה, וקונים
               פרטיים רגילים שמוכנים לקנות דירה בבניין ישן. בהתחדשות בינוי ויזמות רוכשים דירות,
               בניינים ומגרשים במסלול ישיר, וגם עובדים מול משקיעים המתעניינים בנכסים עם פוטנציאל
-              התחדשות עירונית, בפריסה ארצית.
+              התחדשות עירונית, בפריסה ארצית. יורשים שקיבלו לצד הדירה גם בניין שלם או נחלה, לא רק
+              דירה יחידה, ימצאו מדריך נפרד ב
+              <Link
+                href="/mechira"
+                className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]"
+              >
+                מכירת בניין, נחלה או קרקע
+              </Link>
+              .
             </p>
           </ContentSection>
         </Reveal>
