@@ -4,6 +4,425 @@ Append-only. Each cycle gets one section, newest first.
 
 ---
 
+## Cycle 2026-07-28 — pinui-binui pillar deep-rescue + /mechira/ depth, authority & named-entity AEO
+
+### Precondition + scope guard
+
+`git remote -v` -> `hithadshut/hithadshut-website` only. `.vercel/project.json`
+confirmed `projectId: prj_1rOa8XSuwPLI47jovGS11kfICq8V`, `projectName:
+hithadshut-website` before pushing. Tag `pre-cycle-2026-07-28` created and
+pushed at `1d70468` (the 07-21 report commit, `HEAD` at cycle start).
+
+### Stage 0 - learning + debt check
+
+Read the 2026-07-21 report in full. Confirmed live state matched it exactly:
+`/mechira` hub + 3 pillars, persona bridge, `eravut` title fix, `diur-mugan`
+in the pillar's children list. No uncommitted report and no unfired IndexNow
+batch from that cycle remained. The 2026-08-11 six-page maturation window
+(from cycle #2) does not block this cycle: the owner's decision record
+explicitly unlocks the pillar for title/H1/meta this cycle.
+
+**Working-tree note, not this cycle's debt to close:** a substantial amount
+of uncommitted, untracked work already sat in the working tree at cycle
+start and predates this session - `OPERATIONAL_MANDATE_V2.md`, several data
+exports/zips, and, materially for this cycle, a fully-built but never-committed
+`src/app/about/ofek-mazor/` page. That page is unrelated to this brief and
+was left untouched **except** for one edit made mid-cycle and then reverted
+(see Change 3 below) once it became clear that file was never committed and
+would 404 in production if linked to. Flagged here for a future cycle to
+either commit deliberately or discard; not touched further this cycle.
+
+**Data**: newest export is still `data/gsc/2026-07-20/` (3-month aggregate,
+2026-04-19 to 2026-07-18). No newer export exists; reused per the brief's own
+fallback instruction. Parsed with a Node script (`utf8`, BOM-stripped), not
+Excel, to keep Hebrew filenames and content intact.
+
+**No external keyword export was provided this cycle** (confirmed - brief
+states this explicitly). Stage A below is GSC + live WebSearch only, as
+instructed.
+
+### Stage A - deep research
+
+**A1. Pillar query analysis.** The GSC export is a **sitewide, unfiltered**
+performance export (confirmed via `מסננים.csv`: only `סוג חיפוש: אינטרנט`,
+`תאריך: 3 החודשים האחרונים` - no page filter). There is no page-level
+query attribution available from this data source; GSC's UI can produce
+that via a page-filtered query view, but this session has no live GSC UI
+access, only the static CSV export. The working method, consistent with
+how prior cycles handled the same limitation, is keyword-content matching
+against the sitewide `שאילתות.csv` (561 rows), cross-referenced against
+`דפים.csv` page-level totals to attribute queries to the specific page in
+the pinui-binui cluster that actually owns each sub-intent (the pillar has
+9 sibling pages that already rank for large chunks of the cluster's
+traffic). This is stated plainly as a limitation, not silently smoothed over.
+
+Page-level baseline (`דפים.csv`), pinui-binui cluster:
+
+| Page | Clicks | Impr | CTR | Pos |
+|---|---|---|---|---|
+| `/pinui-binui` (pillar) | 17 | 2,206 | 0.77% | 27.12 |
+| `/pinui-binui/temurot` | 45 | 1,999 | 2.25% | 12.62 |
+| `/pinui-binui/chok-67` | 9 | 1,067 | 0.84% | 10.48 |
+| `/pinui-binui/sarvan` | 1 | 589 | 0.17% | 33.97 |
+| `/pinui-binui/kshishim` | 1 | 452 | 0.22% | 41.01 |
+| `/pinui-binui/eravut` | 0 | 436 | 0% | 10.16 |
+| `/pinui-binui/yazam` | 0 | 136 | 0% | 44.98 |
+| `/pinui-binui/machshvon-temurot` | 5 | 88 | 5.68% | 9.49 |
+| `/pinui-binui/yorshim` | 0 | 24 | 0% | 43 |
+| `/pinui-binui/mechirat-dira` | 0 | 9 | 0% | 36.89 |
+
+Query-level, filtered to the 196 rows matching pinui-binui-cluster terms,
+sorted by impressions, with attribution reasoning:
+
+| Query | Impr | Pos | Real owner |
+|---|---|---|---|
+| פינוי בינוי תמורה | 227 | 27.17 | `/temurot` (dedicated page, pos 12.62) |
+| דייר סרבן | 150 | 44.17 | `/sarvan` (589 impr already) |
+| כמה זמן לוקח פינוי בינוי | 146 | 42.75 | **pillar - no dedicated timeline guide is this well-known** |
+| פינוי בינוי גיל 70 | 131 | 50.93 | `/kshishim` |
+| פינוי בינוי תמורות | 129 | 23.6 | `/temurot` |
+| פינוי בינוי קבלת 2 דירות | 124 | 28.43 | `/temurot` |
+| יזם פינוי בינוי | 120 | 33.88 | `/yazam` (136 impr, ranks pos 44.98 - a `/yazam`-specific problem, out of this cycle's scope) |
+| פינוי בינוי אחוז הסכמה | 116 | 58.11 | **pillar - exact phrase "אחוז הסכמה" wasn't used anywhere on-page before this cycle** |
+| חלופת שקד תיקון 139 | 91 | 8.77 | `/chalufat-shaked` (separate pillar, already ranks well) |
+| יחס דירות פינוי בינוי | 91 | 30.67 | `/temurot` |
+| **פינוי בינוי** (bare head term) | 82 | 43.27 | **pillar - the core term itself, badly positioned** |
+| זכויות פינוי בינוי לקשישים | 79 | 61.85 | `/kshishim` |
+| הסכם פינוי בינוי | 67 | 38.78 | **pillar/madrichim heskem guide - real gap, no strong dedicated ranking page** |
+| פינוי בינוי מה מקבלים | 63 | 26.27 | `/temurot` / pillar overlap |
+| פינוי בינוי סיכונים | 56 | 43.5 | **pillar - zero risk-framed content existed before this cycle** |
+| חוק פינוי בינוי 66 | 54 | 43.19 | pillar/`/chok-67` (66% is actually the TAMA 38/1 threshold - a confusion query worth clarifying, not chasing) |
+| תהליך פינוי בינוי | 25 | 23.6 | pillar (already decent position, content already exists) |
+| מה זה פינוי בינוי | 12 | 22 | pillar (already decent position) |
+
+**Fastest page-1 win candidates (pos 8-20, real impressions):** `חלופת שקד
+תיקון 139` (91 impr, pos 8.77 - owned by the separate `/chalufat-shaked`
+pillar, not this cycle's target), `חוק פינוי בינוי דייר סרבן` (72 impr, pos
+18.11 - owned by `/sarvan` or `/chok-67`, a striking-distance opportunity
+flagged for a future `/sarvan`/`/chok-67`-focused cycle, out of this
+cycle's locked scope), `מחשבון פינוי בינוי` (34 impr, pos 9.5 - already
+ranks well, no action needed).
+
+**Conclusion driving Change 1:** the pillar's own genuine, unclaimed
+white space is the bare head term itself, timeline framing, risk framing,
+and the exact "אחוז הסכמה" phrase - not compensation (`/temurot`'s job) or
+the 24-unit-compound legal mechanics (`/chok-67`'s job, though the pillar
+already explains it in brief).
+
+**A2. Deep live research, seller vertical (10 queries).** Full findings
+captured via WebSearch + WebFetch of live competitor pages. Summary (full
+per-query detail preserved in the session's working notes, condensed here
+for the log):
+
+| Query | Top domains | Format | Key content gap identified |
+|---|---|---|---|
+| איך למכור בניין שלם | midrag.co.il, nadlancenter.co.il, mivne.com | generic apartment-sale guides | Zero whole-building-specific content anywhere; building-rights tax treatment, טופס 4 diligence, tenant disclosure unaddressed |
+| כמה שווה בניין | iltam.co.il (homonym collision with building height) | short listicle | No income-approach/cap-rate valuation content for a whole rented building |
+| מי קונה בניין שלם | Wikipedia (unrelated org), used-furniture buyers | none - thin/confused SERP | **Strongest gap in the set**: zero direct-buyer-of-whole-buildings content exists at all |
+| איך למכור נחלה | shtilman.co.il, diogines.co.il, gilad-law.co.il | 2,000-2,500 word law-firm guides | No elderly-owner framing; no direct-sale-to-company angle; concrete timeframe unaddressed anywhere |
+| כמה שווה נחלה | globes.co.il, s-frank.co.il, nahala.co.il | news feature + appraiser service pages | Gross-vs-net value walkthrough raised but never fully worked through |
+| מכירת נחלה בירושה | guykamri-law.co.il, nl-land.co.il | case-law-driven guides | No source addresses "all heirs want to cash out together" (vs. one בן ממשיך keeping it) |
+| ירשתי בניין מה עושים | ynet (unrelated), demolition contractors | none - total mismatch | **Zero relevant content**; real adjacent cluster ("פירוק שיתוף בין יורשים") targets apartments/generic estates only |
+| מכירת קרקע עם היתר בנייה | nadlancenter.co.il, ep-law.co.il | 1,200-1,500 word educational guides | Almost entirely buyer-side content; permit-expiration risk from the seller's side unaddressed |
+| כמה שווה קרקע עם היתר | ice.co.il, hlk.co.il, appra.co.il | short blog posts | No worked numeric example (raw value -> rezoned -> minus היטל השבחה -> net) |
+| ההורים שלי רוצים למכור נחלה ולעבור לדיור מוגן | goola-group.com (closest existing competitor) | scattered, two disconnected clusters | No source bridges nachla-sale timeline to assisted-living entry-fee liquidity timing |
+
+Every specific competitor-cited number (33% דמי היוון, 1% מס רכישה refund,
+20% vs 25% land capital-gains rate, 50% היטל השבחה, etc.) was treated as
+**"competitor claims X, source Y," never asserted as site fact** - none of
+these appear anywhere in the shipped content this cycle. Where general,
+well-established mechanisms (building rights taxed separately from an
+exempt residence, betterment levy owed to the local committee, פירוק
+שיתוף via Family Court) were used, they were written generically without
+citing an unverified section number - see the `[פירוק שיתוף]` section note
+below.
+
+**A3. New-page decision: YES, built `/mechira/yerusha`.** Justification:
+(1) "ירשתי בניין מה עושים" returns literally zero relevant content - the
+clearest content vacuum surfaced across all 10 queries; (2) the real
+adjacent competing cluster (`פירוק שיתוף בין יורשים` - themarker.com,
+the-lawyer.co.il, brunolaw.co.il, doron-aharoni.com and others) is mature
+and well-covered, but exclusively for apartments/generic small estates,
+never for a whole income-producing building with tenants, deferred
+maintenance and joint ועד-בית liability landing on multiple heirs at once;
+(3) the inheritance sub-intent recurred across multiple queries (בן ממשיך
+refusal, multi-heir cash-out, the דיור מוגן financing bridge), a genuinely
+large, live, cross-cutting demand cluster, not a thin one-off niche.
+
+### Entity-name conflict, resolved before any content shipped
+
+The brief's Decision #4 named the entity as "התחדשות **בנייה** ויזמות."
+`src/lib/site.ts`'s `legalName` (used everywhere sitewide, including in
+`CLAUDE.md`'s own Organization-schema template) is "התחדשות **בינוי**
+ויזמות" - a different word (בנייה = construction-gerund vs. בינוי =
+building/renewal, as in "פינוי בינוי"). Per the hard no-fabrication rule,
+this was surfaced to the operator before writing the name anywhere.
+**Owner decision: use the existing `בינוי` spelling everywhere; the
+brief's `בנייה` was a typo.** All visible text and schema this cycle use
+`site.legalName` exclusively (never a hardcoded string), so this is a
+single-point fix if it's ever revisited.
+
+### The changes shipped
+
+**Change 1 [HIGH] - `/pinui-binui` pillar deep-rescue (owner priority #1).**
+Per A1: (a) title/H1/meta realigned from compensation-forward language
+(`/temurot`'s job) to the bare head term + timeline + risks: new title
+"פינוי בינוי 2026: התהליך, הסיכונים וכמה זמן זה לוקח" (51 chars), new H1
+"פינוי בינוי 2026: התהליך המלא, הסיכונים וכמה זמן זה באמת לוקח" (61
+chars), meta description 155 chars. (b) בקיצור block gained a 2-sentence
+risk callout. (c) New H2 "הסיכונים בפינוי בינוי" (5-item list: planning
+delays, developer financial failure, holdout delay, market-driven
+profitability shifts, prolonged uncertainty), each item linking to the
+relevant existing deep-dive (`eravut`, `sarvan`) rather than duplicating
+their content. (d) The 67%-consent section and its sub-question card were
+both retitled to use the exact "אחוז ההסכמה" phrase (the 116-impression
+gap query) without changing the underlying fact. (e) One outbound bridge
+link added in the existing "פחות כדאי כש" (single-building) bullet to
+`/mechira/binyan-shalem`, for owners of a standalone building who may
+prefer a direct sale to another renewal track. (f) One new inbound
+contextual link from `/madrichim`'s opening paragraph (upgraded from a
+RelatedLinks-only signal). All verified 67%/60%-per-building/>50%-common/
+70-74/75+/no-80+ facts read back unchanged (see grep evidence below).
+**Ledger:** `EXP-PILLAR-DEEPRESCUE-2026-07-28`. **KPI:** pillar position
+(baseline 27.12), CTR, and impressions at the next GSC export - the single
+most-watched metric this cycle per the owner's own priority. **Rollback:**
+single revert commit; `git diff pre-cycle-2026-07-28 -- src/app/pinui-binui/page.tsx`
+isolates the whole change.
+
+**Change 2 [MEDIUM] - `/mechira/` pillars: demand-matched depth.** Per A2,
+additive only (no title/H1/meta touched, per the brief's own measurement-
+window rule):
+- `binyan-shalem`: new "מי בפועל קונה בניין שלם" section (direct-buyer vs.
+  investor/fund vs. developer, addressing Query 3's "who actually buys"
+  gap); `hachana` checklist gained טופס 4 and existing-tenant-disclosure
+  items; `shavi` value factors gained income-approach/cap-rate valuation
+  and urban-renewal-potential premium factors.
+- `nachla`: `ben-mamshich` section expanded with the multi-heir-cash-out
+  scenario and the "בן ממשיך doesn't want it" scenario (2 new FAQ items to
+  match); new "שווי ברוטו מול שווי נטו" section (Query 5's gap - a
+  component-by-component walkthrough, no invented figures).
+- `karka-im-heter`: new "משווי גולמי לשווי נטו" section addressing Query
+  9's gap (betterment-levy mechanics, generic, no specific rate asserted).
+
+True word counts (Hebrew-token count over the full rendered source,
+same method as prior cycles, likely a slight overcount): binyan-shalem
+2,076 (target >=1,800), nachla 2,148 (target >=1,800), karka-im-heter
+1,687 (target >=1,500). All comfortably clear target even discounting for
+overcount. **Ledger:** `EXP-MECHIRA-DEPTH-2026-07-28`. **KPI:** long-tail
+impressions + AEO citation check at 2026-08-10. **Rollback:** revert.
+
+**Change 3 [MEDIUM] - authority-flow internal linking.** (a) Homepage
+services-intro paragraph: added an outbound link to `/mechira` (the
+site's single strongest page by impressions/position). (b) `/mechira`
+added to the sitewide Footer nav (under "החברה") for crawl-depth
+reachability; Header's "התחדשות עירונית" dropdown was deliberately left
+untouched, to avoid diluting its pinui-binui-only topical focus with an
+unrelated vertical - `/mechira` is deliberately isolated from pinui-binui
+subject matter per the 2026-07-21 cycle's own design decision. (c) areas
+hub and `/guides/home-front-command-approval` were **evaluated and
+rejected** as inbound sources per the brief's own "if topically clean"
+gate: both are pure mamad/migun subject matter with zero natural
+pinui-binui or mechira connection; forcing a link there would have been
+exactly the unnatural, SEO-only link this project's own content rules
+warn against. `chalufat-shaked` already links to the pinui-binui pillar
+from a prior cycle - no action needed. (d) **A planned link from
+`/about/ofek-mazor` was written, then reverted**: that page is fully-built
+but was never committed by whoever authored it in an earlier session, so
+it does not exist in production; linking to it would have shipped a live
+404. Flagged in Stage 0 above rather than silently worked around.
+`src/data/internal-links.ts` and `src/lib/anchors.ts` updated for every
+edge that actually exists in code. **Ledger:**
+`EXP-MECHIRA-AUTHORITY-2026-07-28`. **KPI:** crawl depth to `/mechira`,
+impressions ramp. **Rollback:** revert.
+
+**Change 4 [LOW/MEDIUM] - lead-form asset segmentation.** `SellerLeadForm`'s
+`PROPERTY_TYPES` changed from `{דירה, דירת ירושה, בניין, מגרש}` to
+`{דירה, דירת ירושה, בניין שלם, נחלה, קרקע עם היתר}` - the previous "מגרש"
+value was shared ambiguously by both `nachla` and `karka-im-heter`, which
+are legally distinct asset classes. Each `/mechira/*` pillar's
+`defaultPropertyType` now matches its exact asset (`binyan-shalem` ->
+"בניין שלם", `nachla` -> "נחלה", `karka-im-heter` -> "קרקע עם היתר").
+`yorshim-mechira`, `diur-mugan`, `mechirat-dira-beyerusha` (דירה/דירת
+ירושה) were left untouched - still valid values. Verified via code read
+that the `track("seller_lead_submit", {property_type: propertyType, ...})`
+call fires generically off whatever `propertyType` state holds, so no
+separate GA4 wiring was needed; **live event arrival in the GA4 dashboard
+was not independently verified** (no dashboard access this session) -
+flagged as a genuine limitation, not silently assumed. **Ledger:**
+`EXP-LEADFORM-SEGMENT-2026-07-28`. **KPI:** leads segmented by real asset
+type in the operator's inbox notes field. **Rollback:** revert.
+
+**Change 5 [MEDIUM] - named-entity + service schema (AEO).** Per the
+resolved Decision #4 (see above): (a) new `src/components/AboutBuyer.tsx`
+reads `site.legalName` (never hardcodes the name per-page, avoiding
+BIDI-corruption risk) and renders a visible "על הרוכש" block - full
+version on the `/mechira` hub, compact version on each of the 3 existing
+pillars plus the new `/mechira/yerusha` page. (b) The visible block states
+the entity name, the direct-purchase capability, and the brokerage-license
+coverage as a credential only ("אינה פועלת כמשרד תיווך: אין רישום נכסים
+למכירה ואין ייצוג מוכרים") - matching the pre-existing, already-accepted
+positioning pattern from `/mechira`'s FAQ. (c) New `Service` JSON-LD on
+the `/mechira` hub (via the existing `serviceJsonLd()` helper, not a new
+one) describing the direct-purchase offering, added only after the
+matching visible text existed on the same page. `organizationJsonLd()`'s
+`serviceType`/`knowsAbout` arrays (sitewide, root layout) gained "רכישת
+נחלות במסלול ישיר" for consistency with what's now visible on `/mechira`
+sitewide. No `AggregateRating`/`Review` added anywhere (still no Google
+Business Profile). (d) The hub's persona answer block ("ההורים שלי רוצים
+למכור...") restructured to lead with a tight, bolded 2-4 sentence direct
+answer before the existing fuller explanation, for AI-extraction. (e)
+`llms-txt-manifest.ts`'s `/mechira` entry updated to name the entity.
+**Ledger:** `EXP-AEO-ENTITY-2026-07-28`. **KPI:** AI citation (in-name) on
+the persona query and "מי קונה בניין שלם" / "כמה שווה נחלה" at
+2026-08-10. **Rollback:** revert.
+
+**New page - `/mechira/yerusha`** (see A3 for the justification). 1,646
+Hebrew-token count (target >=1,500). Full 9-section pattern: צו ירושה as
+the universal precondition, a genericized (non-cited-section-number)
+explanation of פירוק שיתוף for disagreeing heirs, separate short sections
+for each of the three asset types in an inherited context (cross-linking
+to, not duplicating, the three existing pillars), a "why a joint direct
+sale beats court-ordered partition" section, practical steps, common
+mistakes, taxation, `AboutBuyer` (compact), `SellerLeadForm`
+(`defaultPropertyType="בניין שלם"`, the dominant intent per A3), 8-item
+FAQ, full schema. Wired into `anchors.ts` (`mechira-yerusha` target),
+`internal-links.ts` (5 outbound + 3 inbound edges, 2 of which satisfy the
+no-orphan-page rule), `sitemap.ts`, and `llms-txt-manifest.ts`.
+
+### Gate results
+
+- `npm run typecheck`: pass (also re-verified via the pre-commit hook on
+  both content commits)
+- `npm run lint`: pass
+- `bash scripts/lint:content` (`content-lint.sh`, 5 gates): pass, every
+  run, standalone and via the pre-commit hook
+- `npm run build`: pass, 205 routes, `+1` net new (`/mechira/yerusha`)
+- `npm run noindex-audit`: **pass**, 188 sitemap URLs (up from 187), all
+  `index,follow`
+- JSON-LD parse + FAQPage/visible-FAQ parity, verified live post-deploy
+  by fetching real HTML and parsing every `<script type="application/ld+json">`
+  block programmatically: `/mechira/yerusha` - 6 blocks, all parse, 8
+  FAQPage `mainEntity` items = 8 visible `<summary>` elements, exact match
+- adrk-contamination grep (repo-wide, touched files): clean. `08-300-6068`
+  (hithadshut's own real, sitewide phone number, matching `site.ts` and
+  `CLAUDE.md`'s own schema template verbatim) is **not** contamination -
+  this exact false positive in the brief's own contamination-grep list was
+  already resolved with the same reasoning in the 2026-07-19 cycle log;
+  noted again here since this brief re-raised it.
+- Brokerage-claim check, scoped: `תיווך`/`מתווך` on touched/new pages
+  appears only on `/mechira/*` (FAQ + the new `AboutBuyer` block), every
+  instance framed as direct-buyer-capability + license-as-credential,
+  never "we list/represent sellers." Every other page keeps the standard
+  zero-תיווך gate, unchanged.
+- Entity-truth check: `site.legalName` appears in visible text on every
+  page whose schema names the entity (sitewide Organization schema =
+  every page, already true before this cycle; the new page-specific
+  Service schema on `/mechira` sits directly below the visible
+  `AboutBuyer` text making the same claims). No fabricated entity
+  attributes (no address, founding date beyond the pre-existing 2024,
+  employee count, or rating) added anywhere.
+- Legal-facts grep (`grep -n "67%\|70 ומעלה\|75 ומעלה\|80%" src/app/pinui-binui/page.tsx`):
+  67% threshold, pre-2024 80%, 70+/75+ tiers, and the two 80%-majority
+  table cells (TAMA 38/2, Chalufat Shaked - correctly *not* pinui-binui)
+  all read back exactly as before this cycle's edits; no new incorrect
+  80%-for-pinui-binui text introduced.
+- Fabrication/outcome-promise grep on all touched/new pages: clean. Every
+  competitor-sourced number from A2 (דמי היוון rates, מס רכישה refunds,
+  the specific inheritance-law section number one competitor cited) was
+  deliberately **not** used in any shipped page; general mechanisms were
+  described generically instead (see the entity-conflict section and the
+  `piruk-shituf` section's own framing).
+- EM-DASH scan: clean (content-lint Gate 1). Placeholder scan: clean
+  (Gate 2).
+- BIDI/RTL integrity: verified live by fetching rendered HTML and slicing
+  the text around the interpolated `{site.legalName}` on both the hub
+  (full variant) and `/mechira/yerusha` (compact variant) - both render
+  as clean, correctly-ordered RTL Hebrew sentences.
+- TrustBlock present (default disclaimer) on every touched/new content
+  page: `/pinui-binui`, `/mechira`, all 3 existing pillars, `/mechira/yerusha`.
+- 7-body-link cap, listed via `awk`+`grep` before each page's
+  `RelatedLinks` block: `/mechira` 5, `binyan-shalem` 5, `nachla` 3,
+  `karka-im-heter` 3, `/mechira/yerusha` 5. None over cap. The
+  `/pinui-binui` pillar's "מדריכי המשך" children-index block and
+  sub-question-hub grid are treated as exempt from the prose cap, per
+  `technical.md` §6's own explicit requirement that pillar pages "link to
+  ALL their children" - a requirement that is structurally incompatible
+  with a strict 7-link cap; this exemption predates this cycle (the
+  pillar already carried far more than 7 links before any edit here).
+- Price-audit: no invented value figures anywhere; every value section on
+  every touched/new page is driver-based only.
+- TRUE word-count check on Change 2 + new-page content: see figures inline
+  above; all clear target with margin.
+
+### Word counts (Hebrew-token count, full rendered `.tsx` source)
+
+`/pinui-binui` 3,482 (pre-existing money page, no fixed target beyond
+>=1,500, comfortably clear). `/mechira` hub 708 (hub target 400-600, richer
+now due to the strengthened persona block + new AboutBuyer section - still
+appropriately a hub, not a money page). `binyan-shalem` 2,076. `nachla`
+2,148. `karka-im-heter` 1,687. `/mechira/yerusha` 1,646.
+
+### Deploy evidence
+
+Two content commits pushed to `master`:
+- `d21212e` - pinui-binui pillar deep-rescue (Change 1)
+- `abb9844` - mechira depth, authority, lead-form, named-entity AEO +
+  new `/mechira/yerusha` page (Changes 2-5 + new page)
+- this report (below)
+
+GitHub commit-status API confirms Vercel deployment
+`5XxZpRynKK47t29LCarNmRDaASsV` on `abb9844` completed successfully
+("Deployment has completed", state `success`).
+
+### Post-deploy verification
+
+`MSYS_NO_PATHCONV=1 node scripts/noindex-live-check.mjs` on all 8
+touched/changed/new URLs (`/pinui-binui`, `/mechira`, all 3 existing
+pillars, `/mechira/yerusha`, `/madrichim`, `/`): **PASSED**, all `200`,
+`index,follow`. Live spot-checks via direct `fetch()` + programmatic
+parsing (not just eyeballing): all 3 sampled `<title>` tags confirmed
+single company suffix, correct canonical, `dir="rtl"`; `/mechira/yerusha`
+JSON-LD - 6 blocks all parse, FAQ schema/visible parity exact (8/8); live
+`/sitemap.xml` - 188 `<loc>` entries, `/mechira/yerusha` present; live
+`/llms.txt` - new entry present, entity name present. No rollback needed.
+
+IndexNow: `MSYS_NO_PATHCONV=1 npm run indexnow -- /pinui-binui /mechira
+/mechira/binyan-shalem /mechira/nachla /mechira/karka-im-heter
+/mechira/yerusha /madrichim /` - echoed URLs inspected before trusting the
+response (per the documented Git-Bash path-mangling risk); all 8 correct,
+`200 OK`, 8 URLs accepted.
+
+### Authority Ceiling (honest statement)
+
+This cycle's work is entirely on-site: content depth, internal linking,
+schema, and a lead-form fix. None of it can, by itself, move the pillar
+from position 27 to page 1, or get hithadshut cited by name in ChatGPT/
+Gemini/Perplexity for "מי קונה בניין שלם" - both of those require the
+binding constraint this on-site work cannot resolve: real third-party
+signals (backlinks, mentions, eventual review/rating presence once a
+Google Business Profile exists). The pillar rescue targets genuine,
+GSC-verified gaps, and the new page targets a genuine, live-search-
+verified content vacuum, but "genuinely targets the right gap" and
+"ranks on page 1" are different claims - only the next export and the
+2026-08-10 GEO re-baseline will show which of this cycle's bets paid off.
+
+### Owner tasks
+
+1. GSC URL Inspection: request indexing for
+   `https://hithadshut.co.il/pinui-binui`,
+   `https://hithadshut.co.il/mechira/yerusha`, and the other 6 URLs
+   submitted to IndexNow above.
+2. Off-site authority (highest-leverage lever, no code substitute):
+   obtain 2-3 real external mentions/links from relevant Israeli sources
+   (real-estate portals, נחלות/מושבים forums, urban-renewal directories),
+   using the canonical entity name "התחדשות בינוי ויזמות" + URL.
+3. On 2026-08-10: re-run the GEO baseline (persona query, "כמה שווה
+   נחלה", "מי קונה בניין שלם" in ChatGPT/Gemini/Perplexity) and paste
+   results into the next input, alongside the next GSC export so Change
+   1's pillar-position KPI can actually be measured.
+
+---
+
 ## Cycle 2026-07-21 — launch /mechira/ vertical (building, nachla, land) + close 07-20 debt
 
 ### Precondition + scope guard
