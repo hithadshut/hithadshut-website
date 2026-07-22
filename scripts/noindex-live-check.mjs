@@ -32,6 +32,12 @@
  * Usage: node scripts/noindex-live-check.mjs [url1 url2 ...]
  *   No args: checks a built-in sample of 10 URLs.
  *   With args: checks exactly those URLs instead (paths or absolute).
+ *
+ * Windows/Git-Bash note: MSYS auto-converts leading-slash args (e.g.
+ * "/areas/tel-aviv") into Windows paths before Node ever sees them,
+ * silently corrupting the URL. Prefix the command with
+ * MSYS_NO_PATHCONV=1 when passing path-style args from Git Bash, or
+ * pass absolute https:// URLs instead.
  */
 
 const SITE = "https://hithadshut.co.il";
