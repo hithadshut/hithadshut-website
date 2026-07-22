@@ -4,6 +4,301 @@ Append-only. Each cycle gets one section, newest first.
 
 ---
 
+## Cycle 2026-07-21 — launch /mechira/ vertical (building, nachla, land) + close 07-20 debt
+
+### Precondition + scope guard
+
+`git remote -v` -> `hithadshut/hithadshut-website` only. `.vercel/project.json`
+confirmed `projectId: prj_1rOa8XSuwPLI47jovGS11kfICq8V`, `projectName:
+hithadshut-website` before pushing. Tag `pre-cycle-2026-07-21` created at
+`e336b06` (the 07-19 report commit) before any edit.
+
+### Stage 0 - learning + debt closure
+
+**1. Confirmed the 2026-07-20 cycle never shipped.** `git log` showed
+`HEAD == origin/master == e336b06` before this cycle started - no
+`2026-07-20`-dated commit exists anywhere, local or remote. That
+session's plan (a pillar seller-hub section, a new
+`/pinui-binui/limkor-velehamshich-lagur` leaseback page, a `kshishim`
+rescue, and a temurot/chok-67/sarvan striking-distance trio) was never
+written to any file. Per this cycle's own brief, that plan is discarded
+except for the specific debt items the brief re-lists below. **Flagged
+as a future-cycle backlog candidate, not silently dropped**: the
+leaseback page and the temurot/chok-67/sarvan work remain undone and
+may be worth a dedicated cycle later, since the 07-20 session's own data
+validation (100% match against `data/gsc/2026-07-20/`) already confirmed
+real striking-distance opportunities there (`חוק פינוי בינוי דייר סרבן`
+at pos 18.11 in particular).
+
+**2. SUPERSEDED marking, owner override reconfirmed 2026-07-21.** The
+six-page ledger table from the 2026-07-14 cycle (this file, lines
+~1024-1031 in the pre-cycle version, maturation 2026-08-11) covering
+`/pinui-binui` (pillar), `/pinui-binui/mechirat-dira`,
+`/pinui-binui/sarvan`, `/pinui-binui/kshishim`, `/pinui-binui/temurot`,
+`/pinui-binui/chok-67` is marked **SUPERSEDED** for the two files this
+cycle actually touches (`/pinui-binui`, `/pinui-binui/kshishim`) under
+the owner's explicit, repeated override (first exercised 2026-07-20,
+reconfirmed today). `mechirat-dira`, `sarvan`, `temurot`, and `chok-67`
+remain untouched this cycle and their original ledger measurement stays
+valid pending 2026-08-11. **Brief correction, caught before writing
+anything**: this cycle's Owner Decision #1 parenthetical lists
+"machshvon-temurot" as one of the six locked pages; the real ledger
+locks `/pinui-binui/temurot` (compensation-info page), a different page
+from `/pinui-binui/machshvon-temurot` (an interactive calculator with no
+ledger entry, untouched this cycle either way). This is the same
+typo the 07-20 session caught in plan mode - noted here again since
+07-20 never shipped a report to record it in.
+
+**3. "Protected Core (v2, 11.07.2026)" does not exist as a file in this
+repository.** Grepped repo-wide: no match. The only related document is
+`OPERATIONAL_MANDATE_V2.md` (still uncommitted, flagged for commit since
+cycle #3's log), an early 8-week memad-sprint mandate with no "C1"/"C7"
+clause numbering as the brief assumes. The *substance* the brief
+attributes to those clause numbers is already covered by existing,
+real rules: C1 (truth only) maps to CLAUDE.md hard rule #1 and this
+project's standing Verify-Twice practice; C7 (no fabricated case
+studies) maps to the already-established sitewide absence of
+testimonials/`AggregateRating` (no Google Business Profile presence).
+Both were honored this cycle regardless of the missing document.
+
+**4. 2026-07-19 debt: already closed**, confirmed by re-reading that
+cycle's own report (IndexNow batch and report commit both closed there).
+One genuinely leftover item predating even that cycle was found in the
+working tree: a doc-comment-only addition to
+`scripts/noindex-live-check.mjs` (the `MSYS_NO_PATHCONV` note). Committed
+as this cycle's first commit (`912eef1`) rather than left uncommitted
+again.
+
+**5. Data**: `data/gsc/2026-07-20/` (the 3-month aggregate export,
+2026-04-19 to 2026-07-18, extracted from `data/gsc/2026-07-20.zip` with
+Hebrew filenames intact) is the most recent export and was reused. Every
+building/nachla/land-adjacent query grep against `שאילתות.csv` (בניין,
+נחלה, קרקע, למכור, כמה שווה, מי קונה) returned **zero matching rows** -
+the only בניין hits are unrelated מקלט/ממ״ד queries. This confirms the
+brief's own expectation exactly: `/mechira/*` launches with zero
+existing Google demand, a genuinely new vertical, not a rebrand of
+existing traffic.
+
+### Changes shipped
+
+**Change 1 [HIGH] - new `/mechira/` hub + `/mechira/binyan-shalem`
+pillar.** Hub (~600 words): frames the three seller paths, a
+בקיצור answer block for "מי קונה בניין שלם, נחלה או קרקע", three-card
+summary linking to each pillar, an AEO persona block for "ההורים שלי
+רוצים למכור נחלה או בניין ולעבור לדיור מוגן", 5-item FAQ. Pillar
+(1,835 words by raw Hebrew-token count): 9-section pattern matching
+`diur-mugan`/`yorshim-mechira` - בקיצור, למי מתאים, מה צריך להכין
+(נסח/זכויות/היתרים), מה קובע את השווי (drivers only, zero invented
+figure), מכירה מהירה מול שוק פתוח (+ comparison table), מכירה עם המשך
+מגורים (leaseback, one paragraph, no restatement), צעדים מעשיים, מתי
+עדיף לא למכור עדיין (balanced, non-pushy per CLAUDE.md voice spec),
+טעויות נפוצות, מיסוי, 8-item FAQ. `SellerLeadForm
+defaultPropertyType="בניין" pageContext="mechira-binyan-shalem"` - no
+component changes needed, `בניין` already exists in `PROPERTY_TYPES`.
+**Ledger:** `EXP-MECHIRA-BINYAN-2026-07-21`. KPI: indexation + first
+impressions (confirmed baseline 0); leads tagged `property_type: "בניין"`.
+Rollback: single revert commit.
+
+**Change 2 [HIGH] - new `/mechira/nachla` pillar.** 1,803 words. Legal
+facts verified via live `WebSearch` against gov.il/רמ״י sources
+**before writing**, per the brief's own hard gate: בן ממשיך (הוראת אגף
+חקלאי 55), פיצול נחלה (הוראת אגף חקלאי 62, tied to a capitalization
+payment on full תב״ע building rights), היוון (RMI's own urban-leasing
+guide - one-time advance lease-fee payment, approved when the applicant
+is the current rights holder with no contract breach), and the general
+fact that nachla rights-transfer requires RMI approval (RMI procedure
+37.02B, "העברת זכויות בנחלה"). Each claim carries an inline source
+comment in the code and is framed as general orientation, never advice.
+**Topical wall held**: zero pinui-binui/urban-renewal terms in the
+page's own subject matter; cross-links to the persona cluster
+(`kshishim`, `diur-mugan`) exist only because the seller persona is
+shared, not the legal subject. `defaultPropertyType="מגרש"` (closest
+existing valid value - a נחלה is fundamentally land-rights-based, not a
+`דירה`-shaped asset). **Ledger:** `EXP-MECHIRA-NACHLA-2026-07-21`. KPI:
+indexation + AEO citation check at the 2026-08-10 re-baseline. Rollback:
+single revert commit.
+
+**Change 3 [MEDIUM] - new `/mechira/karka-im-heter` pillar.** 1,539
+words. Building-permit-validity fact (3-year initial validity,
+renewable on request by the licensing authority) sourced to
+מינהל התכנון / gov.il after WebSearch verification; framed generically
+since exact renewal terms vary by authority and permit type, per the
+same C1-style hard gate as Change 2. `defaultPropertyType="מגרש"` (exact
+match). **Ledger:** `EXP-MECHIRA-KARKA-2026-07-21`. KPI: indexation +
+long-tail capture. Rollback: single revert commit.
+
+**Change 4 [MEDIUM] - wiring + pillar-children debt + AEO persona
+bridge.** (a) `/pinui-binui` pillar: added `diur-mugan` to the
+"מדריכי המשך" list (`yorshim-mechira` was already present, added
+2026-07-14 - the actual debt was one missing entry, not two, confirmed
+by reading the file before editing rather than trusting the brief's
+count). (b) `/pinui-binui/kshishim`, `/pinui-binui/yorshim-mechira`,
+`/pinui-binui/diur-mugan`: one additive inline link each to `/mechira`
+or its pillars, framed around the shared 60+ seller/heir persona who may
+hold a building or nachla, not only an apartment. On `yorshim-mechira`,
+which was already at the 7-body-link cap, one pre-existing link (to
+`madrichim-mechirat-dira-beyerusha`) was demoted to a plain-text mention
+to make room, matching the established demotion pattern from prior
+cycles. (c) AEO persona cross-answer: full block on the `/mechira` hub,
+short "לא רק דירה" redirect section on `diur-mugan` (2 links, to
+`binyan-shalem` and `nachla`). **Ledger:** `EXP-PERSONA-BRIDGE-2026-07-21`.
+KPI: internal clicks persona-cluster -> mechira; AEO citation on the
+persona query. Rollback: revert.
+
+**Change 5 [LOW] - two CTR/position fixes.** (a) `/pinui-binui/eravut`
+(436 impr, pos 10.16, 0% CTR, confirmed via CSV): fixed a real
+title/H1 mismatch found on read (title said "ערבות בנקאית" singular,
+H1/headline said "ערבויות" plural) - title rewritten to lead with the
+plural form and front-load "לפני שחותמים" for CTR, no content
+restructure. (b) `/pinui-binui` pillar (2,206 impr, pos 27.12): meta
+description tightened; opening children-list strengthened via Change 4a.
+No full restructure - this cycle's pillar work is realignment +
+debt-closure only, lighter than the discarded 07-20 plan's full
+seller-hub-section addition. **Ledger:** `EXP-CTR-RESCUE-2026-07-21`.
+KPI: eravut CTR (baseline 0%), pillar position (baseline 27.12).
+Rollback: revert.
+
+### Wiring
+
+`src/lib/anchors.ts`: `MECHIRA_HREFS` namespace + 4 new `LinkTarget`
+keys (`mechira-hub`, `mechira-binyan-shalem`, `mechira-nachla`,
+`mechira-karka-im-heter`), each reflected in all 4 exported records
+(`ANCHOR_VARIANTS`, `HREF_MAP`, `TARGET_SUMMARY`, `TARGET_LABEL`).
+`src/app/sitemap.ts`: hub at priority 0.8, 3 pillars at 0.7.
+`src/content/llms-txt-manifest.ts`: new "מכירת נכסים גדולים - בניין,
+נחלה, קרקע" section, 4 entries. `src/data/internal-links.ts`: 14 new
+entries (outbound from the 4 new pages, inbound from the persona
+cluster, pillar-to-diur-mugan debt closure), each with a cycle note.
+
+### Gate results
+
+- `npm run typecheck`: pass
+- `npm run lint`: pass (2 `react/no-unescaped-entities` errors found and
+  fixed pre-commit - raw apostrophes in "הוראת אגף חקלאי מס' 55/62"
+  needed `&apos;`)
+- `npm run build`: pass, +4 routes (`/mechira`, `/mechira/binyan-shalem`,
+  `/mechira/nachla`, `/mechira/karka-im-heter`)
+- `bash scripts/content-lint.sh` (5 gates, run standalone + via
+  pre-commit hook on all 3 content commits): pass every time
+- `node scripts/noindex-audit.mjs`: **pass**, 187 sitemap URLs (up from
+  183), all `index,follow`
+- JSON-LD parse + FAQ-schema-parity, verified live post-deploy (see
+  below), programmatically: `nachla` 6 blocks (`Organization`,
+  `WebSite`, `Article`, 2x `BreadcrumbList`, `FAQPage`) all parse, 8
+  FAQPage `mainEntity` items = 8 visible `<summary>` questions, exact
+  match
+- adrk-contamination grep (repo-wide) and phone-number grep on
+  `/mechira/*`: clean
+- **Brokerage-claim check, scoped per this cycle's owner decision**:
+  `תיווך`/`מתווך` appears twice, both on `/mechira/*` FAQ answers,
+  both framed as "direct-buyer capability + license-as-credential,
+  explicitly not a brokerage service" (mirrors the pre-existing,
+  already-accepted `/about/ofek-mazor` license-disclosure pattern) -
+  never "we list/represent sellers." Every other page on the site keeps
+  the standard zero-תיווך gate, unchanged.
+- Legal-facts grep: 67% pinui-binui threshold and 70-74/75+ tiers with
+  explicit no-80+ untouched everywhere; zero 60%/§71ב in pinui-binui
+  context (one pre-existing "80 ומעלה" false positive on
+  `machshvon-temurot`'s unrelated 0-100 scoring calculator, already
+  flagged in an earlier cycle, file untouched this cycle)
+- Fabrication/outcome-promise grep on all 4 new pages: clean - zero
+  fabricated deals, cities, or clients; value sections describe
+  *drivers*, never a specific number
+- EM-DASH scan: clean (content-lint Gate 1). Placeholder scan: clean
+  (content-lint Gate 2; two loose "יש לבדוק"/"שיש לבדוק" hits found by a
+  broader manual grep were normal Hebrew prose, not the bracketed
+  `[יש לבדוק]` placeholder pattern - false positive, no action needed)
+- TrustBlock present (default disclaimer, not suppressed) on all 4 new
+  pages
+- 7-body-link cap verified per edited/new page by listing every `href`
+  before the `RelatedLinks` block: hub 5, binyan-shalem 5, nachla 3,
+  karka-im-heter 3, kshishim 7 (7 internal + 1 external kolzchut
+  citation, external doesn't count against the cap), yorshim-mechira 7
+  (demotion applied, see Change 4b), diur-mugan 6. None over cap.
+- Price-audit: no invented נחלה/building/land value figures anywhere;
+  every value section is driver-based
+
+### Word counts
+
+`/mechira` ~442 words (hub, target 400-600). `/mechira/binyan-shalem`
+1,835 words (target >=1800). `/mechira/nachla` 1,803 words (target
+>=1800). `/mechira/karka-im-heter` 1,539 words (target >=1500). Counted
+via Hebrew-word-token grep across the full `.tsx` source (title, body,
+FAQ, everything rendered) - a slight overcount relative to true prose
+word count since gershayim-containing tokens like `תב״ע` split into 2
+matches, so real word counts are likely a little lower than these
+figures but comfortably within target either way.
+
+### Deploy evidence
+
+Four commits pushed to `master`:
+- `912eef1` - Stage-0 housekeeping (pre-existing doc-comment)
+- `89db62c` - new `/mechira/` vertical + wiring (Changes 1-3)
+- `42c418e` - persona bridge + pillar debt closure + CTR fixes
+  (Changes 4-5)
+- this report (below)
+
+GitHub commit-status API confirms Vercel deployment
+`HWgUtV765AVVKwcxbjRkbsu9Kwzt` on `42c418e` completed successfully
+("Deployment has completed", state `success`).
+
+### Post-deploy verification
+
+`MSYS_NO_PATHCONV=1 node scripts/noindex-live-check.mjs` on all 9
+new/changed URLs: **PASSED**, all `200`, `index,follow`. Live spot
+checks: all 5 touched/new page `<title>` tags confirmed single company
+suffix, no duplication. `nachla` live: canonical correct, `dir="rtl"
+lang="he"` correct, all 6 JSON-LD blocks parse, FAQ schema/visible
+parity exact (8/8), `SellerLeadForm` renders with the property-type
+buttons visible (no test lead submitted). Live `/sitemap.xml`: 187
+`<loc>` entries, all 4 new `/mechira/*` URLs present. Live `/llms.txt`:
+new "מכירת נכסים גדולים" section present with all 4 entries. No
+rollback needed.
+
+**IndexNow note**: the first submission attempt hit the exact
+Windows/Git-Bash `MSYS_NO_PATHCONV` path-mangling bug documented in
+`scripts/noindex-live-check.mjs`'s header - leading-slash URL args were
+silently rewritten to local Windows paths (`C:/Program Files/Git/mechira`
+etc.) before `npm run indexnow` ever saw them, and the API returned `200
+OK` for garbage URLs. Caught by inspecting the script's own echoed
+output before trusting the response code, not by the response code
+itself. Re-run with `MSYS_NO_PATHCONV=1`: correct 9 URLs submitted, `200
+OK`. Flagging here as a second confirmed instance of this same class of
+bug, for any future cycle invoking `npm run indexnow` with path-style
+args from Git Bash.
+
+### Authority Ceiling (honest statement)
+
+Per the owner's own 2026-07-19/20 GEO testing, hithadshut is not cited
+by ChatGPT, Gemini, or Perplexity for Hebrew who-buys-apartments
+queries - and the building/nachla/land vertical launched today starts
+from an even lower baseline: zero existing Google impressions (confirmed
+by this cycle's own CSV grep) and zero AI-engine presence, because the
+content didn't exist until today. On-site work (this cycle's four new
+pages, schema, and cross-linking) is necessary but not sufficient for AI
+engines to recommend the site by name. Off-site authority signals
+(real third-party mentions, citations, backlinks) are the binding
+constraint this on-site work alone cannot resolve - see Owner Task 2.
+
+### Owner tasks
+
+1. GSC URL Inspection: request indexing for
+   `https://hithadshut.co.il/mechira`,
+   `https://hithadshut.co.il/mechira/binyan-shalem`,
+   `https://hithadshut.co.il/mechira/nachla`, and
+   `https://hithadshut.co.il/mechira/karka-im-heter`.
+2. Off-site authority (highest-leverage lever, no code substitute):
+   obtain 2-3 real external mentions/links from relevant Israeli sources
+   (real-estate portals, נחלות/מושבים forums, urban-renewal directories)
+   using the canonical company name + URL.
+3. Proof-collection kit for the new vertical: for any real completed
+   building/nachla/land purchase, capture city + asset type + process
+   duration (no client details), so a future cycle can add verified
+   proof content. Until then, zero "success" content ships, per this
+   cycle's own C7 gate.
+
+---
+
 ## Cycle 2026-07-19 — seller cluster + debt closure + doorway insurance
 
 ### Precondition + scope guard
