@@ -162,7 +162,14 @@ export default function MadrichimHub() {
           <div className="max-w-3xl">
             <p className="text-[17px] leading-7 text-[var(--color-ink)]">
               בעמוד הזה ריכזנו 11 מדריכים מקצועיים שנכתבו עבור בעלי דירות
-              שנמצאים בתהליך התחדשות עירונית או שוקלים בניית ממ״ד. המדריכים
+              שנמצאים בתהליך{" "}
+              <Link
+                href="/pinui-binui"
+                className="font-bold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-accent-dark)]"
+              >
+                פינוי בינוי
+              </Link>{" "}
+              או שוקלים בניית ממ״ד. המדריכים
               מכסים את הנושאים המרכזיים: לוחות זמנים בפינוי בינוי, בחירת יזם,
               ערבויות, מיסוי, ירושה, תמ״א 38 ושיפור מיגון. כל מדריך מבוסס
               על ניסיון שטח ועל מקורות רשמיים, ומעודכן לשנת 2026.
